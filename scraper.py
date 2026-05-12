@@ -42,15 +42,15 @@ CDX_CACHE  = "output/cdx_urls.json"
 LOG_FILE   = "output/scraper.log"
 DELAY      = 1.5   # sekundy medzi requestmi
 
-CDX_ENDPOINT = (
+CDX_BASE = (
     "http://web.archive.org/cdx/search/cdx"
     "?url=press.sk/*"
     "&output=json"
     "&fl=original,timestamp,statuscode"
     "&filter=statuscode:200"
     "&collapse=urlkey"
-    "&limit=100000"
 )
+CDX_PAGE_SIZE = 5000   # Bezpečná veľkosť stránky — CDX zvládne bez timeoutu
 
 CSV_FIELDS = [
     "source_url", "wayback_url", "timestamp",
@@ -88,22 +88,56 @@ def fetch_cdx_urls(session):
         with open(CDX_CACHE, encoding="utf-8") as f:
             return json.load(f)
 
-    log.info("Sťahujem CDX index z Wayback Machine (môže trvať minútu)...")
-    resp = session.get(CDX_ENDPOINT, timeout=120)
-    resp.raise_for_status()
-    raw = resp.json()
+    log.info("Sťahujem CDX index po stránkach (môže trvať pár minút)...")
 
-    if len(raw) < 2:
-        return []
+    all_rows = []
+    offset = 0
+    headers = None
 
-    headers = raw[0]
-    rows = [dict(zip(headers, r)) for r in raw[1:]]
-    log.info(f"CDX: {len(rows):,} unikátnych URL")
+    while True:
+        url = f"{CDX_BASE}&limit={CDX_PAGE_SIZE}&offset={offset}"
+        log.info(f"  CDX offset={offset}...")
+
+        for attempt in range(3):
+            try:
+                resp = session.get(url, timeout=60)
+                resp.raise_for_status()
+                break
+            except Exception as e:
+                if attempt == 2:
+                    raise
+                log.warning(f"  Retry {attempt+1}/3: {e} — čakám 10s")
+                time.sleep(10)
+
+        raw = resp.json()
+        if not raw:
+            break
+
+        if headers is None:
+            headers = raw[0]
+            data = raw[1:]
+        else:
+            data = raw[1:] if raw[0] == headers else raw
+
+        if not data:
+            break
+
+        rows = [dict(zip(headers, r)) for r in data]
+        all_rows.extend(rows)
+        log.info(f"  Celkom: {len(all_rows):,} URL")
+
+        if len(data) < CDX_PAGE_SIZE:
+            break
+
+        offset += CDX_PAGE_SIZE
+        time.sleep(1)
+
+    log.info(f"CDX hotovo: {len(all_rows):,} unikátnych URL")
 
     with open(CDX_CACHE, "w", encoding="utf-8") as f:
-        json.dump(rows, f, ensure_ascii=False)
+        json.dump(all_rows, f, ensure_ascii=False)
 
-    return rows
+    return all_rows
 
 # ─────────────────────────────────────────────
 # OBRÁZKY
