@@ -3,8 +3,12 @@ name: press.sk Archiver
 on:
   workflow_dispatch:
     inputs:
+      cdx_limit:
+        description: 'Max URL z CDX indexu — pre test zadaj 10000, prázdne = všetky'
+        required: false
+        default: ''
       limit:
-        description: 'Max počet URL (prázdne = všetky)'
+        description: 'Max počet relevantných URL na parsovanie (prázdne = všetky)'
         required: false
         default: ''
       no_images:
@@ -38,12 +42,18 @@ jobs:
       - name: Obnov CDX cache
         uses: actions/cache@v4
         with:
-          path: output/cdx_urls.json
-          key: cdx-cache-press-sk
+          path: |
+            output/cdx_urls.json
+            output/cdx_urls.json.progress
+          key: cdx-cache-press-sk-${{ github.run_number }}
+          restore-keys: cdx-cache-press-sk
 
       - name: Spusti scraper
         run: |
           ARGS=""
+          if [ -n "${{ github.event.inputs.cdx_limit }}" ]; then
+            ARGS="$ARGS --cdx-limit ${{ github.event.inputs.cdx_limit }}"
+          fi
           if [ -n "${{ github.event.inputs.limit }}" ]; then
             ARGS="$ARGS --limit ${{ github.event.inputs.limit }}"
           fi
