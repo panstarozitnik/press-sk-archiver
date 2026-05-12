@@ -80,34 +80,62 @@ log = logging.getLogger(__name__)
 # CDX
 # ─────────────────────────────────────────────
 
-def fetch_cdx_urls(session):
+def fetch_cdx_urls(session, cdx_limit=None):
     import json
 
+    # Cache ukladáme priebežne — ak spadne, ďalší beh pokračuje od miesta pádu
+    CDX_PROGRESS = CDX_CACHE + ".progress"
+
+    # Plná cache existuje — hotovo
     if os.path.exists(CDX_CACHE):
         log.info(f"CDX cache nájdená, načítavam z {CDX_CACHE}...")
         with open(CDX_CACHE, encoding="utf-8") as f:
             return json.load(f)
 
-    log.info("Sťahujem CDX index po stránkach (môže trvať pár minút)...")
-
+    # Priebežná cache existuje — pokračuj od posledného offsetu
     all_rows = []
-    offset = 0
+    start_offset = 0
+    if os.path.exists(CDX_PROGRESS):
+        try:
+            with open(CDX_PROGRESS, encoding="utf-8") as f:
+                progress = json.load(f)
+            all_rows = progress["rows"]
+            start_offset = progress["next_offset"]
+            log.info(f"CDX resume: pokračujem od offset={start_offset} ({len(all_rows):,} URL už stiahnutých)")
+        except Exception:
+            log.warning("CDX progress súbor poškodený, začínam odznova")
+            all_rows = []
+            start_offset = 0
+
+    log.info("Sťahujem CDX index po stránkach...")
+
     headers = None
+    offset = start_offset
 
     while True:
         url = f"{CDX_BASE}&limit={CDX_PAGE_SIZE}&offset={offset}"
         log.info(f"  CDX offset={offset}...")
 
-        for attempt in range(3):
+        # Exponenciálny backoff: 30s, 60s, 120s
+        wait_times = [30, 60, 120]
+        last_exc = None
+        for attempt, wait in enumerate(wait_times):
             try:
-                resp = session.get(url, timeout=60)
+                resp = session.get(url, timeout=90)
                 resp.raise_for_status()
+                last_exc = None
                 break
             except Exception as e:
-                if attempt == 2:
-                    raise
-                log.warning(f"  Retry {attempt+1}/3: {e} — čakám 10s")
-                time.sleep(10)
+                last_exc = e
+                log.warning(f"  Retry {attempt+1}/{len(wait_times)}: {e} — čakám {wait}s")
+                time.sleep(wait)
+
+        if last_exc:
+            # Ulož progress pred pádom
+            with open(CDX_PROGRESS, "w", encoding="utf-8") as f:
+                json.dump({"rows": all_rows, "next_offset": offset}, f, ensure_ascii=False)
+            log.error(f"CDX zlyhalo po všetkých pokusoch. Progress uložený ({len(all_rows):,} URL). Spusti znova.")
+            raise last_exc
 
         raw = resp.json()
         if not raw:
@@ -126,16 +154,29 @@ def fetch_cdx_urls(session):
         all_rows.extend(rows)
         log.info(f"  Celkom: {len(all_rows):,} URL")
 
+        # Test mód — zastav po dosiahnutí cdx_limit
+        if cdx_limit and len(all_rows) >= cdx_limit:
+            log.info(f"  --cdx-limit {cdx_limit} dosiahnutý, zastavujem CDX sťahovanie")
+            all_rows = all_rows[:cdx_limit]
+            break
+
+        # Priebežne ulož progress po každej stránke
+        with open(CDX_PROGRESS, "w", encoding="utf-8") as f:
+            json.dump({"rows": all_rows, "next_offset": offset + CDX_PAGE_SIZE}, f, ensure_ascii=False)
+
         if len(data) < CDX_PAGE_SIZE:
             break
 
         offset += CDX_PAGE_SIZE
-        time.sleep(1)
+        time.sleep(2)  # Trochu dlhšia pauza — šetri Wayback
 
     log.info(f"CDX hotovo: {len(all_rows):,} unikátnych URL")
 
+    # Ulož finálnu cache a vymaž progress
     with open(CDX_CACHE, "w", encoding="utf-8") as f:
         json.dump(all_rows, f, ensure_ascii=False)
+    if os.path.exists(CDX_PROGRESS):
+        os.remove(CDX_PROGRESS)
 
     return all_rows
 
@@ -171,7 +212,8 @@ def main():
     Path(IMAGES_DIR).mkdir(parents=True, exist_ok=True)
 
     ap = argparse.ArgumentParser()
-    ap.add_argument("--limit",     type=int, default=None)
+    ap.add_argument("--limit",     type=int, default=None, help="Max počet relevantných URL na parsovanie")
+    ap.add_argument("--cdx-limit", type=int, default=None, help="Max počet URL stiahnutých z CDX (pre test, napr. 10000)")
     ap.add_argument("--cdx-only",  action="store_true")
     ap.add_argument("--no-images", action="store_true")
     args = ap.parse_args()
@@ -182,7 +224,7 @@ def main():
         "+https://github.com/panstarozitnik/press-sk-archiver)"
     )
 
-    all_urls = fetch_cdx_urls(session)
+    all_urls = fetch_cdx_urls(session, cdx_limit=args.cdx_limit)
     if args.cdx_only:
         log.info("--cdx-only hotovo.")
         return
