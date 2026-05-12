@@ -1,0 +1,92 @@
+name: press.sk Archiver
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max počet URL (prázdne = všetky)'
+        required: false
+        default: ''
+      no_images:
+        description: 'Bez obrázkov (rýchlejšie)'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360   # max 6 hodín (GitHub Actions limit)
+
+    steps:
+      - name: Checkout repozitára
+        uses: actions/checkout@v4
+
+      - name: Nastav Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Inštalácia závislostí
+        run: pip install -r requirements.txt
+
+      - name: Vytvor output adresár
+        run: mkdir -p output/images
+
+      # Obnov CDX cache z predchádzajúceho behu (šetrí čas aj záťaž archívu)
+      - name: Obnov CDX cache
+        uses: actions/cache@v4
+        with:
+          path: output/cdx_urls.json
+          key: cdx-cache-press-sk
+
+      - name: Spusti scraper
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.limit }}" ]; then
+            ARGS="$ARGS --limit ${{ github.event.inputs.limit }}"
+          fi
+          if [ "${{ github.event.inputs.no_images }}" = "true" ]; then
+            ARGS="$ARGS --no-images"
+          fi
+          echo "Spúšťam: python scraper.py $ARGS"
+          python scraper.py $ARGS
+
+      - name: Zobraz štatistiky
+        if: always()
+        run: |
+          echo "=== Výsledky ==="
+          if [ -f output/products.csv ]; then
+            LINES=$(wc -l < output/products.csv)
+            echo "Produktov v CSV: $((LINES - 1))"
+          else
+            echo "CSV neexistuje"
+          fi
+          if [ -d output/images ]; then
+            IMG_COUNT=$(find output/images -type f | wc -l)
+            echo "Obrázkov: $IMG_COUNT"
+            du -sh output/images || true
+          fi
+          echo ""
+          echo "=== Posledných 20 riadkov logu ==="
+          tail -20 output/scraper.log || true
+
+      - name: Zabaľ výsledky (zip)
+        if: always()
+        run: |
+          cd output
+          zip -r ../press-sk-results.zip products.csv images/ scraper.log 2>/dev/null || \
+          zip -r ../press-sk-results.zip scraper.log 2>/dev/null || true
+
+      - name: Nahraj Artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: press-sk-results-${{ github.run_number }}
+          path: |
+            output/products.csv
+            output/scraper.log
+            output/images/
+          retention-days: 90
+          if-no-files-found: warn

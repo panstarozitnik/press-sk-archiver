@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+venv/
+.venv/
+
+# Výstupné súbory (veľké, nepatria do gitu)
+output/products.csv
+output/images/
+output/scraper.log
+
+# CDX cache môžeš zachovať (je to len index URL, nie obsah)
+# Ak ju chceš vylúčiť, odkomentuj:
+# output/cdx_urls.json
+
+# OS
+.DS_Store
+Thumbs.db
