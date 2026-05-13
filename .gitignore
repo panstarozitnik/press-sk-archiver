@@ -7,8 +7,6 @@ venv/
 .venv/
 
 # Výstupné súbory (veľké, nepatria do gitu)
-output/products.csv
-output/images/
 output/scraper.log
 
 # CDX cache môžeš zachovať (je to len index URL, nie obsah)
