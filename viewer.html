@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>press.sk Archív</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+
+  :root {
+    --bg: #0f0e0c;
+    --surface: #1a1815;
+    --border: #2e2b26;
+    --accent: #c8a96e;
+    --accent2: #7eb89a;
+    --text: #e8e0d0;
+    --muted: #6b6458;
+    --tag-bg: #23201c;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 2.5rem 1.5rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .logo span { color: var(--muted); font-weight: 400; font-size: 1rem; display: block; margin-top: 0.2rem; font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.05em; }
+
+  .stats {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-left: auto;
+    text-align: right;
+    line-height: 1.8;
+  }
+  .stats strong { color: var(--accent); font-size: 1.1rem; }
+
+  /* ── CONTROLS ── */
+  .controls {
+    padding: 1.2rem 2.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    background: var(--surface);
+  }
+
+  .search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    max-width: 400px;
+  }
+  .search-wrap svg {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+  }
+  input[type=text], select {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.875rem;
+    padding: 0.6rem 0.9rem;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  input[type=text] { padding-left: 2.2rem; width: 100%; }
+  input[type=text]:focus, select:focus { border-color: var(--accent); }
+  select { cursor: pointer; }
+  select option { background: var(--bg); }
+
+  .view-toggle { display: flex; gap: 0.3rem; margin-left: auto; }
+  .view-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 0.5rem 0.7rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+  }
+  .view-btn.active, .view-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ── UPLOAD ZONE ── */
+  #upload-zone {
+    margin: 3rem auto;
+    max-width: 500px;
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  #upload-zone:hover, #upload-zone.drag { border-color: var(--accent); background: rgba(200,169,110,0.04); }
+  #upload-zone h2 { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--accent); margin-bottom: 0.5rem; }
+  #upload-zone p { color: var(--muted); font-size: 0.875rem; line-height: 1.6; }
+  #upload-zone input { display: none; }
+  .upload-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+
+  /* ── GRID VIEW ── */
+  #grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border-top: 1px solid var(--border);
+  }
+
+  .card {
+    background: var(--bg);
+    padding: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    transition: background 0.15s;
+    cursor: default;
+    animation: fadeIn 0.3s ease both;
+  }
+  .card:hover { background: var(--surface); }
+
+  .card-img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+    border-radius: 2px;
+    background: var(--tag-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-family: 'IBM Plex Mono', monospace;
+    margin-bottom: 0.4rem;
+    overflow: hidden;
+  }
+  .card-img img { width: 100%; height: 100%; object-fit: cover; }
+
+  .card-cat {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--accent2);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--text);
+  }
+
+  .card-author {
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+
+  .card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 0.6rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .card-price {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--accent);
+  }
+
+  .card-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+  }
+
+  .card-link {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .card-link:hover { color: var(--accent); }
+
+  /* ── TABLE VIEW ── */
+  #table-wrap {
+    overflow-x: auto;
+    display: none;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  th {
+    background: var(--surface);
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.7rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+  }
+  th:hover { color: var(--accent); }
+  th.sorted { color: var(--accent); }
+  th.sorted::after { content: ' ↓'; }
+  th.sorted.asc::after { content: ' ↑'; }
+
+  td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    max-width: 280px;
+  }
+  tr:hover td { background: var(--surface); }
+  .td-title { font-weight: 500; color: var(--text); }
+  .td-cat {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent2);
+    white-space: nowrap;
+  }
+  .td-price {
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+  .td-date {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .td-link a {
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.68rem;
+    text-decoration: none;
+  }
+  .td-link a:hover { color: var(--accent); }
+
+  /* ── PAGINATION ── */
+  .pagination {
+    padding: 1.5rem 2.5rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+  .page-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    border-radius: 3px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    transition: all 0.15s;
+  }
+  .page-btn:hover, .page-btn.active { border-color: var(--accent); color: var(--accent); }
+  .page-info { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; margin-left: auto; }
+
+  /* ── EMPTY ── */
+  #empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--muted);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.85rem;
+    display: none;
+  }
+
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    press.sk
+    <span>— archív produktov</span>
+  </div>
+  <div class="stats" id="stats">Načítaj CSV súbor</div>
+</header>
+
+<div class="controls" id="controls" style="display:none">
+  <div class="search-wrap">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" id="search" placeholder="Hľadaj názov, autora…">
+  </div>
+  <select id="cat-filter">
+    <option value="">Všetky kategórie</option>
+  </select>
+  <select id="sort">
+    <option value="title">Názov A–Z</option>
+    <option value="title-desc">Názov Z–A</option>
+    <option value="category">Kategória</option>
+    <option value="date">Dátum (najnovšie)</option>
+    <option value="date-asc">Dátum (najstaršie)</option>
+  </select>
+  <div class="view-toggle">
+    <button class="view-btn active" id="btn-grid" onclick="setView('grid')" title="Mriežka">
+      <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M1 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1zM1 12a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zm5 0a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1z"/></svg>
+    </button>
+    <button class="view-btn" id="btn-table" onclick="setView('table')" title="Tabuľka">
+      <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 2h-4v3h4zm0 4h-4v3h4zm0 4h-4v3h3a1 1 0 0 0 1-1zm-5 3v-3H6v3zm-5 0v-3H1v2a1 1 0 0 0 1 1zm-4-4h4V8H1zm0-4h4V4H1zm5-3v3h4V4zm4 4H6v3h4z"/></svg>
+    </button>
+  </div>
+</div>
+
+<div id="upload-zone">
+  <div class="upload-icon">📚</div>
+  <h2>press.sk Archív Viewer</h2>
+  <p>Pretiahni <strong>products.csv</strong> sem<br>alebo klikni pre výber súboru</p>
+  <input type="file" id="file-input" accept=".csv">
+</div>
+
+<div id="grid"></div>
+<div id="table-wrap"><table id="tbl"><thead></thead><tbody></tbody></table></div>
+<div id="empty">Žiadne výsledky pre tento filter.</div>
+<div class="pagination" id="pagination" style="display:none"></div>
+
+<script>
+let allData = [], filtered = [], currentView = 'grid';
+const PAGE_SIZE = 60;
+let currentPage = 1;
+let sortKey = 'title', sortAsc = true;
+
+// ── CSV parsing ──
+function parseCSV(text) {
+  const lines = text.split('\n');
+  const headers = parseCSVLine(lines[0]);
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    if (!lines[i].trim()) continue;
+    const vals = parseCSVLine(lines[i]);
+    const obj = {};
+    headers.forEach((h, idx) => obj[h.trim()] = (vals[idx] || '').trim());
+    if (obj.title) rows.push(obj);
+  }
+  return rows;
+}
+
+function parseCSVLine(line) {
+  const result = [];
+  let cur = '', inQ = false;
+  for (let i = 0; i < line.length; i++) {
+    const c = line[i];
+    if (c === '"') {
+      if (inQ && line[i+1] === '"') { cur += '"'; i++; }
+      else inQ = !inQ;
+    } else if (c === ',' && !inQ) {
+      result.push(cur); cur = '';
+    } else cur += c;
+  }
+  result.push(cur);
+  return result;
+}
+
+function formatDate(ts) {
+  if (!ts || ts.length < 8) return '';
+  return `${ts.slice(0,4)}-${ts.slice(4,6)}-${ts.slice(6,8)}`;
+}
+
+// ── Load data ──
+function loadData(data) {
+  allData = data;
+  document.getElementById('upload-zone').style.display = 'none';
+  document.getElementById('controls').style.display = 'flex';
+  document.getElementById('pagination').style.display = 'flex';
+
+  // Populate categories
+  const cats = [...new Set(data.map(r => r.category).filter(Boolean))].sort();
+  const sel = document.getElementById('cat-filter');
+  cats.forEach(c => {
+    const o = document.createElement('option');
+    o.value = c; o.textContent = c;
+    sel.appendChild(o);
+  });
+
+  updateStats();
+  applyFilters();
+}
+
+function updateStats() {
+  const cats = new Set(allData.map(r => r.category).filter(Boolean)).size;
+  document.getElementById('stats').innerHTML =
+    `<strong>${allData.length.toLocaleString('sk')}</strong> produktov &nbsp;·&nbsp; ${cats} kategórií`;
+}
+
+// ── Filters & sort ──
+function applyFilters() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const cat = document.getElementById('cat-filter').value;
+  const sort = document.getElementById('sort').value;
+
+  filtered = allData.filter(r => {
+    const matchQ = !q || (r.title||'').toLowerCase().includes(q) || (r.author||'').toLowerCase().includes(q);
+    const matchCat = !cat || r.category === cat;
+    return matchQ && matchCat;
+  });
+
+  filtered.sort((a, b) => {
+    if (sort === 'title') return (a.title||'').localeCompare(b.title||'', 'sk');
+    if (sort === 'title-desc') return (b.title||'').localeCompare(a.title||'', 'sk');
+    if (sort === 'category') return (a.category||'').localeCompare(b.category||'', 'sk');
+    if (sort === 'date') return (b.timestamp||'').localeCompare(a.timestamp||'');
+    if (sort === 'date-asc') return (a.timestamp||'').localeCompare(b.timestamp||'');
+    return 0;
+  });
+
+  currentPage = 1;
+  render();
+}
+
+// ── Render ──
+function render() {
+  const start = (currentPage - 1) * PAGE_SIZE;
+  const page = filtered.slice(start, start + PAGE_SIZE);
+
+  document.getElementById('empty').style.display = filtered.length === 0 ? 'block' : 'none';
+
+  if (currentView === 'grid') renderGrid(page);
+  else renderTable(page);
+
+  renderPagination();
+}
+
+function renderGrid(page) {
+  const grid = document.getElementById('grid');
+  grid.style.display = 'grid';
+  document.getElementById('table-wrap').style.display = 'none';
+  grid.innerHTML = '';
+
+  page.forEach((r, i) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.style.animationDelay = `${i * 0.015}s`;
+
+    const hasImg = r.image_url || r.image_file;
+    const imgHtml = hasImg
+      ? `<div class="card-img"><img src="${r.image_url || 'images/' + r.image_file}" alt="" onerror="this.parentElement.innerHTML='📖'"></div>`
+      : `<div class="card-img">📖</div>`;
+
+    card.innerHTML = `
+      ${imgHtml}
+      ${r.category ? `<div class="card-cat">${r.category}</div>` : ''}
+      <div class="card-title">${r.title}</div>
+      ${r.author ? `<div class="card-author">${r.author}</div>` : ''}
+      <div class="card-meta">
+        <span class="card-price">${r.price || ''}</span>
+        <span class="card-date">${formatDate(r.timestamp)}</span>
+      </div>
+      ${r.wayback_url ? `<a class="card-link" href="${r.wayback_url}" target="_blank">↗ archív</a>` : ''}
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function renderTable(page) {
+  document.getElementById('grid').style.display = 'none';
+  document.getElementById('table-wrap').style.display = 'block';
+
+  const thead = document.querySelector('#tbl thead');
+  const tbody = document.querySelector('#tbl tbody');
+
+  thead.innerHTML = `<tr>
+    <th onclick="tableSort('title')">Názov</th>
+    <th onclick="tableSort('author')">Autor</th>
+    <th onclick="tableSort('category')">Kategória</th>
+    <th onclick="tableSort('price')">Cena</th>
+    <th onclick="tableSort('timestamp')">Dátum</th>
+    <th>Archív</th>
+  </tr>`;
+
+  tbody.innerHTML = '';
+  page.forEach(r => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="td-title">${r.title}</td>
+      <td>${r.author || ''}</td>
+      <td class="td-cat">${r.category || ''}</td>
+      <td class="td-price">${r.price || ''}</td>
+      <td class="td-date">${formatDate(r.timestamp)}</td>
+      <td class="td-link">${r.wayback_url ? `<a href="${r.wayback_url}" target="_blank">↗ otvoriť</a>` : ''}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function tableSort(key) {
+  if (sortKey === key) sortAsc = !sortAsc;
+  else { sortKey = key; sortAsc = true; }
+  document.getElementById('sort').value = sortAsc ? key : key + '-desc';
+  applyFilters();
+}
+
+// ── Pagination ──
+function renderPagination() {
+  const total = Math.ceil(filtered.length / PAGE_SIZE);
+  const pag = document.getElementById('pagination');
+  pag.innerHTML = '';
+
+  if (total <= 1) { pag.style.display = 'none'; return; }
+  pag.style.display = 'flex';
+
+  const addBtn = (label, page, active = false) => {
+    const b = document.createElement('button');
+    b.className = 'page-btn' + (active ? ' active' : '');
+    b.textContent = label;
+    b.onclick = () => { currentPage = page; render(); window.scrollTo(0,0); };
+    pag.appendChild(b);
+  };
+
+  if (currentPage > 1) addBtn('←', currentPage - 1);
+
+  let start = Math.max(1, currentPage - 2);
+  let end = Math.min(total, start + 4);
+  if (end - start < 4) start = Math.max(1, end - 4);
+
+  if (start > 1) { addBtn('1', 1); if (start > 2) pag.appendChild(Object.assign(document.createElement('span'), {className:'page-info', textContent:'…'})); }
+  for (let p = start; p <= end; p++) addBtn(p, p, p === currentPage);
+  if (end < total) { if (end < total - 1) pag.appendChild(Object.assign(document.createElement('span'), {className:'page-info', textContent:'…'})); addBtn(total, total); }
+
+  if (currentPage < total) addBtn('→', currentPage + 1);
+
+  const info = document.createElement('span');
+  info.className = 'page-info';
+  info.textContent = `${filtered.length.toLocaleString('sk')} výsledkov · strana ${currentPage}/${total}`;
+  pag.appendChild(info);
+}
+
+// ── View toggle ──
+function setView(v) {
+  currentView = v;
+  document.getElementById('btn-grid').classList.toggle('active', v === 'grid');
+  document.getElementById('btn-table').classList.toggle('active', v === 'table');
+  render();
+}
+
+// ── File handling ──
+function handleFile(file) {
+  if (!file || !file.name.endsWith('.csv')) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const data = parseCSV(e.target.result);
+    loadData(data);
+  };
+  reader.readAsText(file, 'UTF-8');
+}
+
+document.getElementById('file-input').addEventListener('change', e => handleFile(e.target.files[0]));
+document.getElementById('upload-zone').addEventListener('click', () => document.getElementById('file-input').click());
+document.getElementById('upload-zone').addEventListener('dragover', e => { e.preventDefault(); e.currentTarget.classList.add('drag'); });
+document.getElementById('upload-zone').addEventListener('dragleave', e => e.currentTarget.classList.remove('drag'));
+document.getElementById('upload-zone').addEventListener('drop', e => { e.preventDefault(); e.currentTarget.classList.remove('drag'); handleFile(e.dataTransfer.files[0]); });
+
+document.getElementById('search').addEventListener('input', applyFilters);
+document.getElementById('cat-filter').addEventListener('change', applyFilters);
+document.getElementById('sort').addEventListener('change', applyFilters);
+
+// ── Auto-load z repozitára ──
+async function autoLoad() {
+  const candidates = ['output/products.csv', 'products.csv'];
+  const zone = document.getElementById('upload-zone');
+  zone.innerHTML = `<div class="upload-icon">⏳</div><h2>Načítavam…</h2><p style="color:var(--muted);font-size:.8rem;font-family:'IBM Plex Mono',monospace">output/products.csv</p>`;
+
+  for (const path of candidates) {
+    try {
+      const resp = await fetch(path);
+      if (!resp.ok) continue;
+      const text = await resp.text();
+      if (!text.includes('title')) continue;
+      const data = parseCSV(text);
+      if (data.length > 0) { loadData(data); return; }
+    } catch (_) {}
+  }
+
+  // Fallback — zobraz upload zónu
+  zone.innerHTML = `
+    <div class="upload-icon">📚</div>
+    <h2>press.sk Archív Viewer</h2>
+    <p>Pretiahni <strong>products.csv</strong> sem<br>alebo klikni pre výber súboru</p>
+    <input type="file" id="file-input" accept=".csv">
+  `;
+  document.getElementById('file-input').addEventListener('change', e => handleFile(e.target.files[0]));
+  zone.addEventListener('click', () => document.getElementById('file-input').click());
+  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag'); });
+  zone.addEventListener('dragleave', () => zone.classList.remove('drag'));
+  zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag'); handleFile(e.dataTransfer.files[0]); });
+}
+
+autoLoad();
+</script>
+</body>
+</html>
