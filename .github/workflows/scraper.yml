@@ -16,6 +16,11 @@ on:
         required: false
         type: boolean
         default: false
+      fresh_start:
+        description: 'Začať odznova — vymaže CDX cache, CSV aj obrázky'
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   scrape:
@@ -40,6 +45,18 @@ jobs:
       - name: Vytvor output adresár
         run: mkdir -p output/images
 
+      - name: Fresh start — vymaž všetky cache a výsledky
+        if: ${{ github.event.inputs.fresh_start == 'true' }}
+        run: |
+          echo "Fresh start — mažem cache a výsledky..."
+          rm -f output/cdx_urls.json output/cdx_urls.json.progress
+          rm -f output/products.csv output/scraper.log
+          rm -rf output/images
+          mkdir -p output/images
+          # Vymaž aj git históriu výsledkov (reset výstupných súborov)
+          git rm -r --cached output/ 2>/dev/null || true
+          echo "Hotovo — začínam odznova"
+
       # Obnov CDX cache z predchádzajúceho behu (šetrí čas aj záťaž archívu)
       - name: Obnov CDX cache
         uses: actions/cache@v4
@@ -47,8 +64,11 @@ jobs:
           path: |
             output/cdx_urls.json
             output/cdx_urls.json.progress
-          key: cdx-cache-press-sk-v4-${{ github.run_number }}
-          restore-keys: cdx-cache-press-sk-v4
+          # Pri fresh_start použijeme run_number ako unikátny key — žiadna stará cache sa neobnovi
+          key: cdx-cache-press-sk-v4-${{ github.event.inputs.fresh_start == 'true' && github.run_number || 'latest' }}
+          restore-keys: |
+            cdx-cache-press-sk-v4-latest
+            cdx-cache-press-sk-v4
 
       - name: Spusti scraper
         run: |
