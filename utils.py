@@ -48,9 +48,11 @@ _PRODUCT_PATTERNS = [
     r"/casopis/",
     r"/detail/",
     r"/p/\d",
-    r"97[89]\d{10}",             # ISBN-13 v URL
-    r"/\d{4,}-[a-z\-]{3,}",     # číselné ID + slug
-    r"page,shop\.product_details",
+    r"97[89]\d{10}",              # ISBN-13 v URL
+    r"/\d{4,}-[a-z\-]{3,}",      # číselné ID + slug
+    r"page,shop[.]product_details",
+    r"press[.]sk/\d{4}[/+]",     # /2010/nazov/ alebo /2012+193/nazov/
+    r"press[.]sk/\d{4}$",        # /2010 (bez lomky)
 ]
 
 # URL ktoré určite nie sú produkty/listy

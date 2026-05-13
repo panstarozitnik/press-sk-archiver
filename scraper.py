@@ -251,6 +251,10 @@ def main():
     if args.limit:
         relevant = relevant[:args.limit]
 
+    # Deduplikácia — rovnaká kniha môže byť na viacerých snapshotoch
+    seen_products = {}   # dedup_key → set of image URLs
+    product_rows  = {}   # dedup_key → product dict (pre merge obrázkov)
+
     # Načítaj existujúce produkty pre resume + merge obrázkov
     done = set()
     if os.path.exists(OUTPUT_CSV):
@@ -276,9 +280,6 @@ def main():
 
     total = len(relevant)
     saved = errors = 0
-    # Deduplikácia — rovnaká kniha môže byť na viacerých snapshotoch
-    seen_products = {}   # dedup_key → set of image URLs
-    product_rows  = {}   # dedup_key → product dict (pre merge obrázkov)
 
     for i, row in enumerate(relevant, 1):
         original  = row["original"]
