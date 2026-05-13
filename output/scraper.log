@@ -161,3 +161,43 @@
 2026-05-13 13:55:13,638 [INFO] HOTOVO — 0 produktov, 0 chýb
 2026-05-13 13:55:13,638 [INFO] CSV: output/products.csv | Obrázky: output/images/
 2026-05-13 13:55:13,638 [INFO] ==================================================
+2026-05-13 13:58:12,051 [INFO] CDX cache nájdená, načítavam z output/cdx_urls.json...
+2026-05-13 13:58:12,059 [INFO] === Prvých 20 URL z CDX (pre diagnostiku filtrov) ===
+2026-05-13 13:58:12,060 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
+2026-05-13 13:58:12,061 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
+2026-05-13 13:58:12,061 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
+2026-05-13 13:58:12,061 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
+2026-05-13 13:58:12,061 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
+2026-05-13 13:58:12,061 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
+2026-05-13 13:58:12,061 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.112012/
+2026-05-13 13:58:12,061 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.112012/
+2026-05-13 13:58:12,061 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.122012/
+2026-05-13 13:58:12,062 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.32012/
+2026-05-13 13:58:12,062 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.52012/
+2026-05-13 13:58:12,062 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.62012/
+2026-05-13 13:58:12,062 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.62012/
+2026-05-13 13:58:12,062 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.72012/
+2026-05-13 13:58:12,062 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.92012/
+2026-05-13 13:58:12,062 [INFO]   [skip] https://www.press.sk/2012/letectvi-kosmonautika-c.82012/
+2026-05-13 13:58:12,063 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.012013/
+2026-05-13 13:58:12,063 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.022013/
+2026-05-13 13:58:12,063 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.032013/
+2026-05-13 13:58:12,063 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.042013/
+2026-05-13 13:58:12,063 [INFO] ==================================================
+2026-05-13 13:58:12,309 [INFO] Relevantných URL: 5,032 z 10,000
+2026-05-13 13:58:12,309 [INFO] Ukážka relevantných (prvých 10):
+2026-05-13 13:58:12,309 [INFO]   [20190822224727] https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-13 13:58:12,309 [INFO]   [20191015093108] https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-13 13:58:12,309 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-13 13:58:12,309 [INFO]   [20190823100037] https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-13 13:58:12,309 [INFO]   [20191015095105] https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-13 13:58:12,309 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-13 13:58:12,309 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,48/
+2026-05-13 13:58:12,309 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,64/
+2026-05-13 13:58:12,309 [INFO]   [20190819111913] https://www.press.sk/akcie/c,d,16,16/
+2026-05-13 13:58:12,309 [INFO]   [20191017062448] https://www.press.sk/akcie/c,d,16,16/
+2026-05-13 13:58:12,311 [INFO] Resume: 7 URL preskočených
+2026-05-13 13:58:12,311 [INFO] ==================================================
+2026-05-13 13:58:12,311 [INFO] HOTOVO — 0 produktov, 0 chýb
+2026-05-13 13:58:12,311 [INFO] CSV: output/products.csv | Obrázky: output/images/
+2026-05-13 13:58:12,311 [INFO] ==================================================
