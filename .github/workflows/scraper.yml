@@ -45,8 +45,8 @@ jobs:
           path: |
             output/cdx_urls.json
             output/cdx_urls.json.progress
-          key: cdx-cache-press-sk-v3-${{ github.run_number }}
-          restore-keys: cdx-cache-press-sk-v3
+          key: cdx-cache-press-sk-v4-${{ github.run_number }}
+          restore-keys: cdx-cache-press-sk-v4
 
       - name: Spusti scraper
         run: |
