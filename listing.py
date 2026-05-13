@@ -1,6 +1,5 @@
 """
 Parser pre LISTING stránky press.sk.
-Zbiera image_urls ako pipe-separated zoznam unikátnych URL (bez Wayback prefixu).
 """
 
 from bs4 import BeautifulSoup
@@ -11,7 +10,12 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
     soup = BeautifulSoup(html, "lxml")
     products = []
 
-    for parser_fn in [_parse_press_sk_modern, _parse_virtuemart, _parse_table_layout, _parse_generic_links]:
+    for parser_fn in [
+        _parse_wrapped,       # div.shop-category-product wrapper
+        _parse_unwrapped,     # browse_top + h3.product-name bez wrappera
+        _parse_virtuemart,
+        _parse_generic_links,
+    ]:
         products = parser_fn(soup)
         if products:
             break
@@ -38,52 +42,101 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
     return products
 
 
-def _clean_img_url(img) -> str:
-    """Vytiahne URL obrázku a odstráni Wayback prefix."""
+def _img_url(img) -> str:
+    """Vytiahne čistú URL obrázku bez Wayback prefixu."""
     raw = extract_img_src(img)
     return strip_wayback_prefix(raw) if raw else ""
 
 
-def _parse_press_sk_modern(soup: BeautifulSoup) -> list[dict]:
-    # Zbierame produkty podľa product_id — každý div.shop-category-product
-    # môže mať obrázok. Rovnaký produkt sa môže vyskytnúť na viacerých
-    # snapshotoch — dedup je v scraper.py podľa title+author, ale image_urls
-    # sa mergujú (union).
-    products = []
+def _extract_product_data(name_el, container) -> dict:
+    """
+    Spoločná extrakcia dát produktu.
+    name_el  = <h3 class="product-name"> element
+    container = rodičovský alebo susedný blok s obrázkom/cenou
+    """
+    p = _empty_product()
+    link = name_el.select_one("a") if name_el else None
+    if not link:
+        return p
+    p["title"] = safe_text(link)
+
+    # Obrázok — hľadaj v kontajneri
+    if container:
+        img = container.select_one(".shop-cat-img img, .browse_top img, img")
+        if img:
+            p["image_urls"] = _img_url(img)
+
+    # Vydavateľ a cena — hľadaj za name_el v siblings
+    for sib in name_el.next_siblings:
+        if not hasattr(sib, "get"):
+            continue
+        classes = sib.get("class") or []
+        if "manufacturer" in classes and not p["publisher"]:
+            p["publisher"] = safe_text(sib)
+        if ("akcia-cena" in classes or "productPrice" in classes or "price" in classes) and not p["price"]:
+            p["price"] = clean_price(safe_text(sib))
+
+    return p
+
+
+# ── VARIANT 1: div.shop-category-product wrapper ──────────────────────────────
+
+def _parse_wrapped(soup: BeautifulSoup) -> list[dict]:
     items = soup.select("div.shop-category-product, div.cs_product_item")
     if not items:
         return []
 
+    products = []
     for item in items:
-        p = _empty_product()
-
-        name_el = item.select_one("h3.product-name a, h2.product-name a, .product-name a")
+        name_el = item.select_one("h3.product-name, h2.product-name, .product-name")
         if not name_el:
             continue
-        p["title"] = safe_text(name_el)
+        p = _extract_product_data(name_el, item)
+        if p["title"]:
+            products.append(p)
+    return products
 
-        # Obrázok — clean URL bez Wayback prefixu
-        img = item.select_one(".shop-cat-img img, .browse_top img")
-        if img:
-            url = _clean_img_url(img)
-            if url:
-                p["image_urls"] = url  # neskôr sa merguje do setu
 
-        mfr = item.select_one("span.manufacturer")
-        if mfr:
-            p["publisher"] = safe_text(mfr)
+# ── VARIANT 2: browse_top bez wrappera ────────────────────────────────────────
+# Štruktúra:
+#   <div class="browse_top">...</div>      ← obrázok
+#   <h3 class="product-name">...</h3>     ← názov
+#   <span class="manufacturer">...</span>
+#   <span class="akcia-cena">...</span>
+#
+# browse_top a h3 sú siblings na rovnakej úrovni
 
-        for sel in ["span.akcia-cena", "span.productPrice", "span.product-price", "span.price"]:
-            el = item.select_one(sel)
-            if el:
-                p["price"] = clean_price(safe_text(el))
+def _parse_unwrapped(soup: BeautifulSoup) -> list[dict]:
+    # Nájdi všetky h3.product-name na stránke
+    name_els = soup.select("h3.product-name, h2.product-name")
+    if not name_els:
+        return []
+
+    products = []
+    for name_el in name_els:
+        # Hľadaj najbližší predchádzajúci browse_top sibling
+        browse_top = None
+        for sib in name_el.previous_siblings:
+            if not hasattr(sib, "get"):
+                continue
+            classes = sib.get("class") or []
+            if "browse_top" in classes:
+                browse_top = sib
+                break
+            # Niekedy je browse_top vnorený o úroveň vyššie
+            found = sib.select_one(".browse_top")
+            if found:
+                browse_top = found
                 break
 
+        p = _extract_product_data(name_el, browse_top)
         if p["title"]:
             products.append(p)
 
     return products
 
+
+# ── VARIANT 3: VirtueMart ─────────────────────────────────────────────────────
 
 def _parse_virtuemart(soup: BeautifulSoup) -> list[dict]:
     products = []
@@ -98,9 +151,7 @@ def _parse_virtuemart(soup: BeautifulSoup) -> list[dict]:
             p["price"] = clean_price(safe_text(price_el))
         img = row.select_one("img")
         if img:
-            url = _clean_img_url(img)
-            if url:
-                p["image_urls"] = url
+            p["image_urls"] = _img_url(img)
         mfr = row.select_one(".manufacturer, .autor, .browseManufacturer")
         if mfr:
             p["publisher"] = safe_text(mfr)
@@ -109,28 +160,7 @@ def _parse_virtuemart(soup: BeautifulSoup) -> list[dict]:
     return products
 
 
-def _parse_table_layout(soup: BeautifulSoup) -> list[dict]:
-    products = []
-    for row in soup.select("tr"):
-        cells = row.select("td")
-        if len(cells) < 2:
-            continue
-        if not any(c.find("img") for c in cells) or not any(c.find("a") for c in cells):
-            continue
-        p = _empty_product()
-        for cell in cells:
-            link = cell.find("a")
-            if link and safe_text(link) and not p["title"]:
-                p["title"] = safe_text(link)
-            img = cell.find("img")
-            if img and not p["image_urls"]:
-                url = _clean_img_url(img)
-                if url:
-                    p["image_urls"] = url
-        if p["title"] and len(p["title"]) > 3:
-            products.append(p)
-    return products
-
+# ── VARIANT 4: Fallback ───────────────────────────────────────────────────────
 
 def _parse_generic_links(soup: BeautifulSoup) -> list[dict]:
     products = []
@@ -144,9 +174,7 @@ def _parse_generic_links(soup: BeautifulSoup) -> list[dict]:
             continue
         p = _empty_product()
         p["title"] = text[:200]
-        url = _clean_img_url(img)
-        if url:
-            p["image_urls"] = url
+        p["image_urls"] = _img_url(img)
         seen.add(text)
         products.append(p)
     return products
@@ -156,5 +184,5 @@ def _empty_product() -> dict:
     return {
         "title": "", "author": "", "price": "", "isbn": "",
         "publisher": "", "category": "", "description": "",
-        "image_urls": "",  # pipe-separated unikátne URL
+        "image_urls": "",
     }
