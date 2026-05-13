@@ -292,7 +292,7 @@ def main():
                     p.get("author", "").lower().strip(),
                 )
                 if dedup_key[0] and dedup_key in seen_products:
-                    log.debug(f"  Duplikát preskočený: {p.get("title")}")
+                    log.debug(f"  Duplikát preskočený: {p.get('title')}")
                     continue
                 if dedup_key[0]:
                     seen_products.add(dedup_key)
