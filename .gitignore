@@ -6,12 +6,14 @@ __pycache__/
 venv/
 .venv/
 
-# Výstupné súbory (veľké, nepatria do gitu)
-output/scraper.log
+# Výstupné súbory — commituje Actions automaticky
+# output/products.csv   ← v gite
+# output/images/        ← v gite (deduplikované podľa názvu)
+# output/scraper.log    ← v gite
 
-# CDX cache môžeš zachovať (je to len index URL, nie obsah)
-# Ak ju chceš vylúčiť, odkomentuj:
-# output/cdx_urls.json
+# CDX cache — veľký súbor, uchovávame len cez Actions cache (nie git)
+output/cdx_urls.json
+output/cdx_urls.json.progress
 
 # OS
 .DS_Store
