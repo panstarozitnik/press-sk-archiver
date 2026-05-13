@@ -48,8 +48,8 @@ CDX_BASE = (
     "&output=json"
     "&fl=original,timestamp,statuscode"
     "&filter=statuscode:200"
+    r"&filter=original:.*press\.sk.*/[a-zA-Z]"  # Vynech homepage
     # Bez collapse — chceme KAŽDÝ snapshot každej URL
-    # Tá istá URL v rôznych dátumoch = potenciálne iné produkty
 )
 CDX_PAGE_SIZE = 5000   # Bezpečná veľkosť stránky — CDX zvládne bez timeoutu
 
