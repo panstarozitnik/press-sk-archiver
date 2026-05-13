@@ -270,13 +270,16 @@ def main():
                     seen_products[key] = set(u for u in img_urls.split("|") if u)
         log.info(f"Resume: {len(done)} URL preskočených, {len(product_rows)} produktov načítaných")
 
-    # Vždy write mód — prepíšeme celý súbor pri každom flush
-    csv_file = open(OUTPUT_CSV, "w", newline="", encoding="utf-8")
-    writer   = csv.DictWriter(csv_file, fieldnames=CSV_FIELDS, extrasaction="ignore")
-    writer.writeheader()
-    for row in product_rows.values():
-        writer.writerow(row)
-    csv_file.flush()
+    def flush_csv():
+        """Prepíše celý CSV súbor aktuálnym stavom product_rows."""
+        with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=CSV_FIELDS, extrasaction="ignore")
+            w.writeheader()
+            for r in product_rows.values():
+                w.writerow(r)
+
+    # Úvodný zápis — existujúce produkty (pri resume)
+    flush_csv()
 
     total = len(relevant)
     saved = errors = 0
@@ -307,43 +310,38 @@ def main():
                 products = [p] if p and p.get("title") else []
 
             for p in products:
-                # Deduplikácia podľa názvu + autora
-                # Ak produkt už existuje, mergneme image_urls (union unikátnych URL)
                 dedup_key = (
                     p.get("title", "").lower().strip(),
                     p.get("author", "").lower().strip(),
                 )
-                new_img = p.get("image_urls", "").strip()
+                if not dedup_key[0]:
+                    continue
 
-                if dedup_key[0] and dedup_key in seen_products:
-                    # Produkt existuje — pridaj nový obrázok ak je unikátny
-                    if new_img and new_img not in seen_products[dedup_key]:
-                        seen_products[dedup_key].add(new_img)
+                # Rozdeľ pipe-separated URL na individuálne — filtruj prázdne
+                new_imgs = {u for u in p.get("image_urls", "").split("|") if u.strip()}
+
+                if dedup_key in seen_products:
+                    # Produkt existuje — mergneme nové obrázky
+                    before = len(seen_products[dedup_key])
+                    seen_products[dedup_key].update(new_imgs)
+                    if len(seen_products[dedup_key]) > before:
                         product_rows[dedup_key]["image_urls"] = "|".join(
                             sorted(seen_products[dedup_key])
                         )
-                        log.debug(f"  Nový obrázok pre: {p.get('title')}")
+                        log.debug(f"  +{len(seen_products[dedup_key])-before} obrázkov: {p.get('title')}")
                     continue
 
                 # Nový produkt
-                img_set = {new_img} if new_img else set()
-                if dedup_key[0]:
-                    seen_products[dedup_key] = img_set
-
+                seen_products[dedup_key] = set(new_imgs)
                 p.setdefault("source_url",  original)
                 p.setdefault("wayback_url", wb)
                 p.setdefault("timestamp",   timestamp)
-                p["image_urls"] = new_img
+                p["image_urls"] = "|".join(sorted(new_imgs))
                 product_rows[dedup_key] = p
                 saved += 1
 
-            # Zapíš/aktualizuj všetky produkty ktoré sa zmenili
-            csv_file.seek(0)
-            csv_file.truncate()
-            writer.writeheader()
-            for row in product_rows.values():
-                writer.writerow(row)
-            csv_file.flush()
+            # Prepíš CSV s aktuálnym stavom
+            flush_csv()
 
         except requests.exceptions.Timeout:
             log.warning("  Timeout")
@@ -352,7 +350,6 @@ def main():
             log.error(f"  Chyba: {e}")
             errors += 1
 
-    csv_file.close()
     log.info("=" * 50)
     log.info(f"HOTOVO — {saved} produktov, {errors} chýb")
     log.info(f"CSV: {OUTPUT_CSV} | Obrázky: {IMAGES_DIR}/")
