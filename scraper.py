@@ -230,12 +230,21 @@ def main():
         log.info("--cdx-only hotovo.")
         return
 
+    # Diagnostika — ukaž prvých 20 URL zo CDX bez ohľadu na filter
+    log.info("=== Prvých 20 URL z CDX (pre diagnostiku filtrov) ===")
+    for r in all_urls[:20]:
+        listing = is_listing_url(r["original"])
+        product = is_product_url(r["original"])
+        tag = "LISTING" if listing else ("PRODUCT" if product else "skip")
+        log.info(f"  [{tag}] {r['original']}")
+    log.info("=" * 50)
+
     relevant = [
         r for r in all_urls
         if is_listing_url(r["original"]) or is_product_url(r["original"])
     ]
     log.info(f"Relevantných URL: {len(relevant):,} z {len(all_urls):,}")
-    log.info("Ukážka (prvých 10):")
+    log.info("Ukážka relevantných (prvých 10):")
     for r in relevant[:10]:
         log.info(f"  [{r['timestamp']}] {r['original']}")
 
