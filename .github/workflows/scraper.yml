@@ -21,6 +21,8 @@ jobs:
   scrape:
     runs-on: ubuntu-latest
     timeout-minutes: 360   # max 6 hodín (GitHub Actions limit)
+    permissions:
+      contents: write        # potrebné pre git push výsledkov späť do repa
 
     steps:
       - name: Checkout repozitára
@@ -81,6 +83,33 @@ jobs:
           echo ""
           echo "=== Posledných 20 riadkov logu ==="
           tail -20 output/scraper.log || true
+
+      - name: Ulož výsledky do repozitára (git commit)
+        if: always()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # CSV a log
+          git add output/products.csv output/scraper.log 2>/dev/null || true
+
+          # Obrázky — pridaj len neprázdne súbory (>1kB), dedup je v scraperi
+          # git automaticky ignoruje súbory ktoré sa nezmenili (= rovnaký hash)
+          if [ -d output/images ]; then
+            find output/images -type f -size +1k -print0 | xargs -0 git add 2>/dev/null || true
+            NEW_IMGS=$(git diff --cached --name-only | grep -c "output/images/" || true)
+            echo "Nových obrázkov: ${NEW_IMGS}"
+          fi
+
+          if git diff --cached --quiet; then
+            echo "Žiadne zmeny na commitnutie."
+          else
+            LINES=$(wc -l < output/products.csv 2>/dev/null || echo 1)
+            NEW_IMGS=$(git diff --cached --name-only | grep -c "output/images/" || true)
+            git commit -m "scraper: $((LINES - 1)) produktov, +${NEW_IMGS} obrázkov [run #${{ github.run_number }}]"
+            git push
+            echo "Výsledky pushnuté do repa"
+          fi
 
       - name: Zabaľ výsledky (zip)
         if: always()
