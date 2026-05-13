@@ -124,6 +124,24 @@ def extract_isbn(text: str) -> str:
     return m.group(0) if m else ""
 
 
+def strip_wayback_prefix(url: str) -> str:
+    """
+    Odstráni Wayback Machine prefix z URL obrázku.
+    https://web.archive.org/web/20230311055300im_/https://www.press.sk/sub/...
+    → https://www.press.sk/sub/...
+    """
+    import re
+    if not url:
+        return ""
+    m = re.search(r'https?://web[.]archive[.]org/web/\d+[^/]*/(.+)', url)
+    if m:
+        result = m.group(1)
+        if not result.startswith("http"):
+            result = "https://" + result
+        return result
+    return url
+
+
 def extract_img_src(img_tag) -> str:
     """
     Vytiahne URL obrázku aj z lazy-load tagov.

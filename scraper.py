@@ -57,7 +57,7 @@ CSV_FIELDS = [
     "source_url", "wayback_url", "timestamp",
     "title", "author", "price", "isbn",
     "publisher", "category", "description",
-    "image_url", "image_file",
+    "image_urls",  # pipe-separated unikátne URL bez Wayback prefixu
 ]
 
 # ─────────────────────────────────────────────
@@ -251,23 +251,34 @@ def main():
     if args.limit:
         relevant = relevant[:args.limit]
 
-    # Resume — preskočí už spracované
+    # Načítaj existujúce produkty pre resume + merge obrázkov
     done = set()
     if os.path.exists(OUTPUT_CSV):
         with open(OUTPUT_CSV, encoding="utf-8") as f:
             for row in csv.DictReader(f):
                 done.add(row.get("source_url", ""))
-        log.info(f"Resume: {len(done)} URL preskočených")
+                title = row.get("title", "").lower().strip()
+                author = row.get("author", "").lower().strip()
+                if title:
+                    key = (title, author)
+                    product_rows[key] = dict(row)
+                    img_urls = row.get("image_urls", "")
+                    seen_products[key] = set(u for u in img_urls.split("|") if u)
+        log.info(f"Resume: {len(done)} URL preskočených, {len(product_rows)} produktov načítaných")
 
-    csv_file = open(OUTPUT_CSV, "a", newline="", encoding="utf-8")
+    # Vždy write mód — prepíšeme celý súbor pri každom flush
+    csv_file = open(OUTPUT_CSV, "w", newline="", encoding="utf-8")
     writer   = csv.DictWriter(csv_file, fieldnames=CSV_FIELDS, extrasaction="ignore")
-    if not done:
-        writer.writeheader()
+    writer.writeheader()
+    for row in product_rows.values():
+        writer.writerow(row)
+    csv_file.flush()
 
     total = len(relevant)
     saved = errors = 0
     # Deduplikácia — rovnaká kniha môže byť na viacerých snapshotoch
-    seen_products = set()  # (title.lower(), author.lower())
+    seen_products = {}   # dedup_key → set of image URLs
+    product_rows  = {}   # dedup_key → product dict (pre merge obrázkov)
 
     for i, row in enumerate(relevant, 1):
         original  = row["original"]
@@ -296,26 +307,41 @@ def main():
 
             for p in products:
                 # Deduplikácia podľa názvu + autora
+                # Ak produkt už existuje, mergneme image_urls (union unikátnych URL)
                 dedup_key = (
                     p.get("title", "").lower().strip(),
                     p.get("author", "").lower().strip(),
                 )
-                if dedup_key[0] and dedup_key in seen_products:
-                    log.debug(f"  Duplikát preskočený: {p.get('title')}")
-                    continue
-                if dedup_key[0]:
-                    seen_products.add(dedup_key)
+                new_img = p.get("image_urls", "").strip()
 
-                if not args.no_images and p.get("image_url"):
-                    key = p.get("isbn") or hashlib.md5(p["image_url"].encode()).hexdigest()[:10]
-                    p["image_file"] = download_image(p["image_url"], key, session)
+                if dedup_key[0] and dedup_key in seen_products:
+                    # Produkt existuje — pridaj nový obrázok ak je unikátny
+                    if new_img and new_img not in seen_products[dedup_key]:
+                        seen_products[dedup_key].add(new_img)
+                        product_rows[dedup_key]["image_urls"] = "|".join(
+                            sorted(seen_products[dedup_key])
+                        )
+                        log.debug(f"  Nový obrázok pre: {p.get('title')}")
+                    continue
+
+                # Nový produkt
+                img_set = {new_img} if new_img else set()
+                if dedup_key[0]:
+                    seen_products[dedup_key] = img_set
 
                 p.setdefault("source_url",  original)
                 p.setdefault("wayback_url", wb)
                 p.setdefault("timestamp",   timestamp)
-                writer.writerow(p)
+                p["image_urls"] = new_img
+                product_rows[dedup_key] = p
                 saved += 1
 
+            # Zapíš/aktualizuj všetky produkty ktoré sa zmenili
+            csv_file.seek(0)
+            csv_file.truncate()
+            writer.writeheader()
+            for row in product_rows.values():
+                writer.writerow(row)
             csv_file.flush()
 
         except requests.exceptions.Timeout:

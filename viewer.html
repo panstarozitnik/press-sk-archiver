@@ -313,6 +313,13 @@
     display: none;
   }
 
+  /* Galéria viacerých obrázkov */
+  .card-img.multi { flex-direction: column; height: auto; aspect-ratio: unset; }
+  .card-main-img { width: 100%; aspect-ratio: 2/3; object-fit: cover; border-radius: 2px; }
+  .thumb-row { display: flex; gap: 4px; margin-top: 4px; flex-wrap: wrap; }
+  .thumb-mini { width: 36px; height: 36px; object-fit: cover; border-radius: 2px; cursor: pointer; opacity: 0.5; border: 1px solid transparent; transition: all 0.15s; }
+  .thumb-mini.active, .thumb-mini:hover { opacity: 1; border-color: var(--accent); }
+
   @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
 </style>
 </head>
@@ -480,10 +487,28 @@ function renderGrid(page) {
     card.className = 'card';
     card.style.animationDelay = `${i * 0.015}s`;
 
-    const hasImg = r.image_url || r.image_file;
-    const imgHtml = hasImg
-      ? `<div class="card-img"><img src="${r.image_url || 'images/' + r.image_file}" alt="" onerror="this.parentElement.innerHTML='📖'"></div>`
-      : `<div class="card-img">📖</div>`;
+    // Viac obrázkov — pipe-separated
+    const imgUrls = (r.image_urls || r.image_url || "")
+      .split("|").map(u => u.trim()).filter(Boolean);
+    let imgHtml;
+    if (imgUrls.length === 0) {
+      imgHtml = `<div class="card-img">📖</div>`;
+    } else if (imgUrls.length === 1) {
+      imgHtml = `<div class="card-img"><img src="${imgUrls[0]}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='📖'"></div>`;
+    } else {
+      // Galéria — kliknuteľné miniatúry
+      const thumbs = imgUrls.map((u, i) =>
+        `<img src="${u}" alt="" loading="lazy" class="thumb-mini${i===0?' active':''}"
+          onclick="this.closest('.card').querySelector('.card-main-img').src='${u}';
+                   this.closest('.card-img').querySelectorAll('.thumb-mini').forEach(t=>t.classList.remove('active'));
+                   this.classList.add('active')"
+          onerror="this.style.display='none'">`
+      ).join("");
+      imgHtml = `<div class="card-img multi">
+        <img class="card-main-img" src="${imgUrls[0]}" alt="" loading="lazy" onerror="this.src=''">
+        <div class="thumb-row">${thumbs}</div>
+      </div>`;
+    }
 
     card.innerHTML = `
       ${imgHtml}

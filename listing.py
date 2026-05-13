@@ -1,26 +1,21 @@
 """
-Parser pre LISTING stránky press.sk — stránky so zoznamom produktov.
+Parser pre LISTING stránky press.sk.
+Zbiera image_urls ako pipe-separated zoznam unikátnych URL (bez Wayback prefixu).
 """
 
 from bs4 import BeautifulSoup
-from parsers.utils import safe_text, clean_price, extract_isbn, fix_image_url, extract_img_src
+from parsers.utils import safe_text, clean_price, extract_isbn, extract_img_src, strip_wayback_prefix
 
 
 def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[dict]:
     soup = BeautifulSoup(html, "lxml")
     products = []
 
-    for parser_fn in [
-        _parse_press_sk_modern,
-        _parse_virtuemart,
-        _parse_table_layout,
-        _parse_generic_links,
-    ]:
+    for parser_fn in [_parse_press_sk_modern, _parse_virtuemart, _parse_table_layout, _parse_generic_links]:
         products = parser_fn(soup)
         if products:
             break
 
-    # Kategória z breadcrumb — spoločná pre celú stránku
     cat = ""
     for sel in ["h1.page-title", "h1.cat-title", "h1", ".breadcrumb li:last-child"]:
         el = soup.select_one(sel)
@@ -35,7 +30,6 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
         p.setdefault("isbn",        "")
         p.setdefault("publisher",   "")
         p.setdefault("description", "")
-        p.setdefault("image_file",  "")
         if not p.get("category"):
             p["category"] = cat
         if not p["isbn"] and p.get("title"):
@@ -44,14 +38,18 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
     return products
 
 
-# ─────────────────────────────────────────────
-# HLAVNÝ DIZAJN press.sk (2015–2023)
-# Každý produkt je v: div.shop-category-product
-# ─────────────────────────────────────────────
+def _clean_img_url(img) -> str:
+    """Vytiahne URL obrázku a odstráni Wayback prefix."""
+    raw = extract_img_src(img)
+    return strip_wayback_prefix(raw) if raw else ""
+
 
 def _parse_press_sk_modern(soup: BeautifulSoup) -> list[dict]:
+    # Zbierame produkty podľa product_id — každý div.shop-category-product
+    # môže mať obrázok. Rovnaký produkt sa môže vyskytnúť na viacerých
+    # snapshotoch — dedup je v scraper.py podľa title+author, ale image_urls
+    # sa mergujú (union).
     products = []
-
     items = soup.select("div.shop-category-product, div.cs_product_item")
     if not items:
         return []
@@ -59,23 +57,22 @@ def _parse_press_sk_modern(soup: BeautifulSoup) -> list[dict]:
     for item in items:
         p = _empty_product()
 
-        # Názov
         name_el = item.select_one("h3.product-name a, h2.product-name a, .product-name a")
         if not name_el:
             continue
         p["title"] = safe_text(name_el)
 
-        # Obrázok — z .shop-cat-img img, data-srcset má prioritu
+        # Obrázok — clean URL bez Wayback prefixu
         img = item.select_one(".shop-cat-img img, .browse_top img")
         if img:
-            p["image_url"] = extract_img_src(img)
+            url = _clean_img_url(img)
+            if url:
+                p["image_urls"] = url  # neskôr sa merguje do setu
 
-        # Vydavateľ
         mfr = item.select_one("span.manufacturer")
         if mfr:
             p["publisher"] = safe_text(mfr)
 
-        # Cena — prednostne akciová
         for sel in ["span.akcia-cena", "span.productPrice", "span.product-price", "span.price"]:
             el = item.select_one(sel)
             if el:
@@ -88,41 +85,29 @@ def _parse_press_sk_modern(soup: BeautifulSoup) -> list[dict]:
     return products
 
 
-# ─────────────────────────────────────────────
-# VirtueMart / starý Joomla (2008–2015)
-# ─────────────────────────────────────────────
-
 def _parse_virtuemart(soup: BeautifulSoup) -> list[dict]:
     products = []
-
     for row in soup.select("table.product-browse tr, .browseProductImage"):
         title_el = row.select_one(".product-name a, .browseProductName a, td.productname a")
         if not title_el:
             continue
         p = _empty_product()
         p["title"] = safe_text(title_el)
-
         price_el = row.select_one(".productPrice, .pricecolor, td.price")
         if price_el:
             p["price"] = clean_price(safe_text(price_el))
-
         img = row.select_one("img")
         if img:
-            p["image_url"] = extract_img_src(img)
-
+            url = _clean_img_url(img)
+            if url:
+                p["image_urls"] = url
         mfr = row.select_one(".manufacturer, .autor, .browseManufacturer")
         if mfr:
             p["publisher"] = safe_text(mfr)
-
         if p["title"]:
             products.append(p)
-
     return products
 
-
-# ─────────────────────────────────────────────
-# Tabuľkový layout
-# ─────────────────────────────────────────────
 
 def _parse_table_layout(soup: BeautifulSoup) -> list[dict]:
     products = []
@@ -138,16 +123,14 @@ def _parse_table_layout(soup: BeautifulSoup) -> list[dict]:
             if link and safe_text(link) and not p["title"]:
                 p["title"] = safe_text(link)
             img = cell.find("img")
-            if img and not p["image_url"]:
-                p["image_url"] = extract_img_src(img)
+            if img and not p["image_urls"]:
+                url = _clean_img_url(img)
+                if url:
+                    p["image_urls"] = url
         if p["title"] and len(p["title"]) > 3:
             products.append(p)
     return products
 
-
-# ─────────────────────────────────────────────
-# Fallback
-# ─────────────────────────────────────────────
 
 def _parse_generic_links(soup: BeautifulSoup) -> list[dict]:
     products = []
@@ -161,7 +144,9 @@ def _parse_generic_links(soup: BeautifulSoup) -> list[dict]:
             continue
         p = _empty_product()
         p["title"] = text[:200]
-        p["image_url"] = extract_img_src(img)
+        url = _clean_img_url(img)
+        if url:
+            p["image_urls"] = url
         seen.add(text)
         products.append(p)
     return products
@@ -171,5 +156,5 @@ def _empty_product() -> dict:
     return {
         "title": "", "author": "", "price": "", "isbn": "",
         "publisher": "", "category": "", "description": "",
-        "image_url": "", "image_file": "",
+        "image_urls": "",  # pipe-separated unikátne URL
     }
