@@ -1,11 +1,5 @@
 """
 Parser pre LISTING stránky press.sk — stránky so zoznamom produktov.
-
-press.sk prešla niekoľkými dizajnmi:
-  - ~2008–2015: VirtueMart (Joomla) — tabuľky produktov
-  - ~2015–2023: vlastný dizajn — .browse_top karty s lazy-load obrázkami
-
-Parser skúša všetky varianty a vráti zoznam produktov.
 """
 
 from bs4 import BeautifulSoup
@@ -17,13 +11,21 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
     products = []
 
     for parser_fn in [
-        _parse_press_sk_modern,   # hlavný dizajn 2015–2023
-        _parse_virtuemart,        # starý Joomla dizajn
+        _parse_press_sk_modern,
+        _parse_virtuemart,
         _parse_table_layout,
         _parse_generic_links,
     ]:
         products = parser_fn(soup)
         if products:
+            break
+
+    # Kategória z breadcrumb — spoločná pre celú stránku
+    cat = ""
+    for sel in ["h1.page-title", "h1.cat-title", "h1", ".breadcrumb li:last-child"]:
+        el = soup.select_one(sel)
+        if el and safe_text(el):
+            cat = safe_text(el)
             break
 
     for p in products:
@@ -34,6 +36,8 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
         p.setdefault("publisher",   "")
         p.setdefault("description", "")
         p.setdefault("image_file",  "")
+        if not p.get("category"):
+            p["category"] = cat
         if not p["isbn"] and p.get("title"):
             p["isbn"] = extract_isbn(p["title"])
 
@@ -42,65 +46,41 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
 
 # ─────────────────────────────────────────────
 # HLAVNÝ DIZAJN press.sk (2015–2023)
-# Štruktúra:
-#   <div class="browse_top">
-#     <div class="shop-cat-img">
-#       <a href="..."><img data-srcset="...wayback...jpg" class="lazyload"/></a>
-#     </div>
-#   </div>
-#   <h3 class="product-name"><a href="...">Názov</a></h3>
-#   <span class="manufacturer">Vydavateľ</span>
-#   <span class="old-price">11,60 €</span>
-#   <span class="akcia-cena ...">7,70 €</span>
+# Každý produkt je v: div.shop-category-product
 # ─────────────────────────────────────────────
 
 def _parse_press_sk_modern(soup: BeautifulSoup) -> list[dict]:
     products = []
 
-    # Každý produkt je obalený v kontajneri — hľadáme product-name ako kotvu
-    # keďže browse_top je sibling, nie parent
-    for name_el in soup.select("h3.product-name, h2.product-name, .product-name"):
-        link = name_el.select_one("a")
-        if not link:
-            continue
+    items = soup.select("div.shop-category-product, div.cs_product_item")
+    if not items:
+        return []
 
+    for item in items:
         p = _empty_product()
-        p["title"] = safe_text(link)
 
-        # Nájdi predchádzajúci .browse_top sibling
-        browse_top = None
-        for sib in name_el.previous_siblings:
-            if hasattr(sib, "select") and "browse_top" in sib.get("class", []):
-                browse_top = sib
-                break
-            # Niekedy je browse_top obalený ďalším divom
-            if hasattr(sib, "select"):
-                found = sib.select_one(".browse_top, .shop-cat-img")
-                if found:
-                    browse_top = sib
-                    break
+        # Názov
+        name_el = item.select_one("h3.product-name a, h2.product-name a, .product-name a")
+        if not name_el:
+            continue
+        p["title"] = safe_text(name_el)
 
-        if browse_top:
-            img = browse_top.select_one("img")
-            if img:
-                p["image_url"] = extract_img_src(img)
+        # Obrázok — z .shop-cat-img img, data-srcset má prioritu
+        img = item.select_one(".shop-cat-img img, .browse_top img")
+        if img:
+            p["image_url"] = extract_img_src(img)
 
-        # Vydavateľ — nasledujúci sibling za product-name
-        mfr = _next_sibling_with_class(name_el, "manufacturer")
+        # Vydavateľ
+        mfr = item.select_one("span.manufacturer")
         if mfr:
             p["publisher"] = safe_text(mfr)
 
-        # Cena — prednostne akciová, fallback normálna
-        akcia = _next_sibling_with_class(name_el, "akcia-cena")
-        normal = _next_sibling_with_class(name_el, "productPrice") or                  _next_sibling_with_class(name_el, "old-price")
-        price_el = akcia or normal
-        if price_el:
-            p["price"] = clean_price(safe_text(price_el))
-
-        # Kategória z breadcrumb alebo page title
-        cat = soup.select_one(".breadcrumb li:last-child, h1.page-title, h1.cat-title")
-        if cat:
-            p["category"] = safe_text(cat)
+        # Cena — prednostne akciová
+        for sel in ["span.akcia-cena", "span.productPrice", "span.product-price", "span.price"]:
+            el = item.select_one(sel)
+            if el:
+                p["price"] = clean_price(safe_text(el))
+                break
 
         if p["title"]:
             products.append(p)
@@ -108,16 +88,8 @@ def _parse_press_sk_modern(soup: BeautifulSoup) -> list[dict]:
     return products
 
 
-def _next_sibling_with_class(el, cls):
-    """Nájde najbližší nasledujúci sibling s danou CSS triedou."""
-    for sib in el.next_siblings:
-        if hasattr(sib, "get") and cls in (sib.get("class") or []):
-            return sib
-    return None
-
-
 # ─────────────────────────────────────────────
-# VARIANT: VirtueMart / starý Joomla (2008–2015)
+# VirtueMart / starý Joomla (2008–2015)
 # ─────────────────────────────────────────────
 
 def _parse_virtuemart(soup: BeautifulSoup) -> list[dict]:
@@ -127,7 +99,6 @@ def _parse_virtuemart(soup: BeautifulSoup) -> list[dict]:
         title_el = row.select_one(".product-name a, .browseProductName a, td.productname a")
         if not title_el:
             continue
-
         p = _empty_product()
         p["title"] = safe_text(title_el)
 
@@ -150,21 +121,17 @@ def _parse_virtuemart(soup: BeautifulSoup) -> list[dict]:
 
 
 # ─────────────────────────────────────────────
-# VARIANT: Tabuľkový layout
+# Tabuľkový layout
 # ─────────────────────────────────────────────
 
 def _parse_table_layout(soup: BeautifulSoup) -> list[dict]:
     products = []
-
     for row in soup.select("tr"):
         cells = row.select("td")
         if len(cells) < 2:
             continue
-        has_img  = any(c.find("img") for c in cells)
-        has_link = any(c.find("a") for c in cells)
-        if not (has_img and has_link):
+        if not any(c.find("img") for c in cells) or not any(c.find("a") for c in cells):
             continue
-
         p = _empty_product()
         for cell in cells:
             link = cell.find("a")
@@ -173,37 +140,30 @@ def _parse_table_layout(soup: BeautifulSoup) -> list[dict]:
             img = cell.find("img")
             if img and not p["image_url"]:
                 p["image_url"] = extract_img_src(img)
-
         if p["title"] and len(p["title"]) > 3:
             products.append(p)
-
     return products
 
 
 # ─────────────────────────────────────────────
-# FALLBACK: generické linky s obrázkom
+# Fallback
 # ─────────────────────────────────────────────
 
 def _parse_generic_links(soup: BeautifulSoup) -> list[dict]:
     products = []
     seen = set()
-
     for a in soup.find_all("a", href=True):
         img = a.find("img")
         text = safe_text(a)
-        if not img or not text or len(text) < 5:
+        if not img or not text or len(text) < 5 or text in seen:
             continue
-        if text in seen:
+        if any(s in text.lower() for s in ["domov", "kontakt", "košík", "prihlás", "menu"]):
             continue
-        if any(skip in text.lower() for skip in ["domov", "kontakt", "košík", "prihlás", "menu"]):
-            continue
-
         p = _empty_product()
         p["title"] = text[:200]
         p["image_url"] = extract_img_src(img)
         seen.add(text)
         products.append(p)
-
     return products
 
 
