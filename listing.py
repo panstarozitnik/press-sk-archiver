@@ -10,15 +10,41 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
     soup = BeautifulSoup(html, "lxml")
     products = []
 
-    for parser_fn in [
-        _parse_wrapped,       # div.shop-category-product wrapper
-        _parse_unwrapped,     # browse_top + h3.product-name bez wrappera
-        _parse_virtuemart,
-        _parse_generic_links,
-    ]:
-        products = parser_fn(soup)
-        if products:
-            break
+    # Spusti oba hlavné parsery — stránka môže mať mix wrapped aj unwrapped produktov
+    wrapped   = _parse_wrapped(soup)
+    unwrapped = _parse_unwrapped(soup)
+
+    # Zlúč — deduplikuj podľa názvu (unwrapped môže duplikovať wrapped)
+    seen_titles = {p["title"].lower() for p in wrapped}
+    extra = [p for p in unwrapped if p["title"].lower() not in seen_titles]
+    products = wrapped + extra
+
+    # Fallback ak ani jeden nenašiel nič
+    if not products:
+        products = _parse_virtuemart(soup)
+    if not products:
+        products = _parse_generic_links(soup)
+
+    # DEBUG: ak sú produkty bez obrázkov, loguj raw img tagy zo stránky
+    missing = [p for p in products if not p.get("image_urls")]
+    if missing:
+        import logging
+        log = logging.getLogger(__name__)
+        log.debug(f"  DUMP: prvých 3 img tagy na stránke:")
+        for img in soup.find_all("img")[:3]:
+            log.debug(f"    src={img.get('src','')[:60]} | data-srcset={img.get('data-srcset','')[:60]} | data-src={img.get('data-src','')[:60]}")
+        # Loguj aj prvý produkt bez obrázka — jeho surrounding HTML
+        first_missing = missing[0]["title"]
+        name_el = soup.find(lambda t: t.name in ["h3","h2"] and "product-name" in (t.get("class") or []) and first_missing.lower() in t.get_text().lower())
+        if name_el:
+            log.debug(f"  DUMP HTML okolo '{first_missing}':")
+            # Nájdi predchádzajúci browse_top
+            for sib in name_el.previous_siblings:
+                if hasattr(sib, "select"):
+                    img = sib.select_one("img")
+                    if img:
+                        log.debug(f"    img attrs: {dict(img.attrs)}")
+                        break
 
     cat = ""
     for sel in ["h1.page-title", "h1.cat-title", "h1", ".breadcrumb li:last-child"]:

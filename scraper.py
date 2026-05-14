@@ -68,7 +68,7 @@ CSV_FIELDS = [
 def setup_logging():
     Path("output").mkdir(exist_ok=True)
     logging.basicConfig(
-        level=logging.INFO,
+        level=logging.DEBUG,
         format="%(asctime)s [%(levelname)s] %(message)s",
         handlers=[
             logging.FileHandler(LOG_FILE, encoding="utf-8"),
