@@ -308,7 +308,11 @@ def main():
 
             if is_listing_url(original):
                 products = parse_listing_page(resp.text, wb, original)
-                log.info(f"  → listing, {len(products)} produktov")
+                with_img = sum(1 for p in products if p.get("image_urls"))
+                log.info(f"  → listing, {len(products)} produktov, {with_img} s obrázkom")
+                # Detail každého produktu
+                for p in products:
+                    log.info(f"    [{'+' if p.get('image_urls') else '!'}] {p.get('title','?')[:50]} | img: {p.get('image_urls','')[:60] or 'CHÝBA'}")
             else:
                 p = parse_detail_page(resp.text, wb, original)
                 products = [p] if p and p.get("title") else []
