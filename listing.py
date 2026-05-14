@@ -25,26 +25,16 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
     if not products:
         products = _parse_generic_links(soup)
 
-    # DEBUG: ak sú produkty bez obrázkov, loguj raw img tagy zo stránky
+    # DEBUG: ak sú produkty bez obrázkov, vypíš čo reálne prišlo z Wayback
     missing = [p for p in products if not p.get("image_urls")]
     if missing:
-        import logging
-        log = logging.getLogger(__name__)
-        log.debug(f"  DUMP: prvých 3 img tagy na stránke:")
-        for img in soup.find_all("img")[:3]:
-            log.debug(f"    src={img.get('src','')[:60]} | data-srcset={img.get('data-srcset','')[:60]} | data-src={img.get('data-src','')[:60]}")
-        # Loguj aj prvý produkt bez obrázka — jeho surrounding HTML
-        first_missing = missing[0]["title"]
-        name_el = soup.find(lambda t: t.name in ["h3","h2"] and "product-name" in (t.get("class") or []) and first_missing.lower() in t.get_text().lower())
-        if name_el:
-            log.debug(f"  DUMP HTML okolo '{first_missing}':")
-            # Nájdi predchádzajúci browse_top
-            for sib in name_el.previous_siblings:
-                if hasattr(sib, "select"):
-                    img = sib.select_one("img")
-                    if img:
-                        log.debug(f"    img attrs: {dict(img.attrs)}")
-                        break
+        print(f"[DEBUG-IMG] Stránka má {len(missing)} produktov bez obrázka")
+        print(f"[DEBUG-IMG] Všetky img tagy na stránke ({len(soup.find_all('img'))}):")
+        for img in soup.find_all("img")[:5]:
+            print(f"  src={repr(img.get('src',''))[:80]}")
+            print(f"  data-srcset={repr(img.get('data-srcset',''))[:80]}")
+            print(f"  data-src={repr(img.get('data-src',''))[:80]}")
+            print()
 
     cat = ""
     for sel in ["h1.page-title", "h1.cat-title", "h1", ".breadcrumb li:last-child"]:
