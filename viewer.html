@@ -520,6 +520,7 @@ function renderGrid(page) {
         <span class="card-date">${formatDate(r.timestamp)}</span>
       </div>
       ${r.wayback_url ? `<a class="card-link" href="${r.wayback_url}" target="_blank">↗ archív</a>` : ''}
+      ${r.page_urls ? `<div class="card-pages">${r.page_urls.split("|").map((u,i) => `<a class="card-link" href="${u}" target="_blank">📄 stránka ${i+1}</a>`).join(" ")}</div>` : ''}
     `;
     grid.appendChild(card);
   });
@@ -550,7 +551,10 @@ function renderTable(page) {
       <td class="td-cat">${r.category || ''}</td>
       <td class="td-price">${r.price || ''}</td>
       <td class="td-date">${formatDate(r.timestamp)}</td>
-      <td class="td-link">${r.wayback_url ? `<a href="${r.wayback_url}" target="_blank">↗ otvoriť</a>` : ''}</td>
+      <td class="td-link">
+        ${r.wayback_url ? `<a href="${r.wayback_url}" target="_blank">↗ archív</a>` : ''}
+        ${r.page_urls ? r.page_urls.split("|").map((u,i) => `<a href="${u}" target="_blank">📄${i+1}</a>`).join(" ") : ''}
+      </td>
     `;
     tbody.appendChild(tr);
   });

@@ -57,7 +57,8 @@ CSV_FIELDS = [
     "source_url", "wayback_url", "timestamp",
     "title", "author", "price", "isbn",
     "publisher", "category", "description",
-    "image_urls",  # pipe-separated unikátne URL bez Wayback prefixu
+    "image_urls",    # pipe-separated unikátne čisté URL obrázkov
+    "page_urls",     # pipe-separated unikátne URL stránok kde sa produkt našiel
 ]
 
 # ─────────────────────────────────────────────
@@ -252,8 +253,9 @@ def main():
         relevant = relevant[:args.limit]
 
     # Deduplikácia — rovnaká kniha môže byť na viacerých snapshotoch
-    seen_products = {}   # dedup_key → set of image URLs
-    product_rows  = {}   # dedup_key → product dict (pre merge obrázkov)
+    seen_products  = {}   # dedup_key → set of image URLs
+    seen_page_urls = {}   # dedup_key → set of page URLs
+    product_rows   = {}   # dedup_key → product dict (pre merge)
 
     # Načítaj existujúce produkty pre resume + merge obrázkov
     done = set()
@@ -268,6 +270,8 @@ def main():
                     product_rows[key] = dict(row)
                     img_urls = row.get("image_urls", "")
                     seen_products[key] = set(u for u in img_urls.split("|") if u)
+                    page_urls_str = row.get("page_urls", "")
+                    seen_page_urls[key] = set(u for u in page_urls_str.split("|") if u)
         log.info(f"Resume: {len(done)} URL preskočených, {len(product_rows)} produktov načítaných")
 
     def flush_csv():
@@ -321,22 +325,32 @@ def main():
                 new_imgs = {u for u in p.get("image_urls", "").split("|") if u.strip()}
 
                 if dedup_key in seen_products:
-                    # Produkt existuje — mergneme nové obrázky
+                    changed = False
+                    # Merge obrázkov
                     before = len(seen_products[dedup_key])
                     seen_products[dedup_key].update(new_imgs)
                     if len(seen_products[dedup_key]) > before:
                         product_rows[dedup_key]["image_urls"] = "|".join(
                             sorted(seen_products[dedup_key])
                         )
-                        log.debug(f"  +{len(seen_products[dedup_key])-before} obrázkov: {p.get('title')}")
+                        changed = True
+                    # Merge page_urls
+                    if original not in seen_page_urls[dedup_key]:
+                        seen_page_urls[dedup_key].add(original)
+                        product_rows[dedup_key]["page_urls"] = "|".join(
+                            sorted(seen_page_urls[dedup_key])
+                        )
+                        changed = True
                     continue
 
                 # Nový produkt
                 seen_products[dedup_key] = set(new_imgs)
+                seen_page_urls[dedup_key] = {original}
                 p.setdefault("source_url",  original)
                 p.setdefault("wayback_url", wb)
                 p.setdefault("timestamp",   timestamp)
                 p["image_urls"] = "|".join(sorted(new_imgs))
+                p["page_urls"]  = original
                 product_rows[dedup_key] = p
                 saved += 1
 
