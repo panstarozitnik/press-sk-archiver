@@ -20,7 +20,7 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
         "publisher":   "",
         "category":    "",
         "description": "",
-        "image_url":   "",
+        "image_urls":  "",
         "image_file":  "",
     }
 
@@ -96,7 +96,7 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
         if el:
             url = extract_img_src(el)
             if url:
-                p["image_url"] = url
+                p["image_urls"] = url
                 break
 
     return p
