@@ -129,13 +129,24 @@ def extract_isbn(text: str) -> str:
 def strip_wayback_prefix(url: str) -> str:
     """
     Odstráni Wayback Machine prefix z URL obrázku.
-    https://web.archive.org/web/20230311055300im_/https://www.press.sk/sub/...
-    → https://www.press.sk/sub/...
+    Formáty ktoré Wayback používa:
+      https://web.archive.org/web/20230311055300im_/https://www.press.sk/...
+      /web/20230311055300im_/https://www.press.sk/...   (relatívna)
+      /web/20230311055300im_/http://www.press.sk/...
+    → https://www.press.sk/...
     """
     import re
     if not url:
         return ""
+    # Absolútna Wayback URL
     m = re.search(r'https?://web[.]archive[.]org/web/\d+[^/]*/(.+)', url)
+    if m:
+        result = m.group(1)
+        if not result.startswith("http"):
+            result = "https://" + result
+        return result
+    # Relatívna Wayback URL: /web/TIMESTAMP.../https://...
+    m = re.search(r'^/web/\d+[^/]*/(.+)', url)
     if m:
         result = m.group(1)
         if not result.startswith("http"):
