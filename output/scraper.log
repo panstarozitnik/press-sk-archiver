@@ -1,79 +1,79 @@
-2026-05-14 07:34:57,220 [INFO] CDX cache nájdená, načítavam z output/cdx_urls.json...
-2026-05-14 07:34:57,228 [INFO] === Prvých 20 URL z CDX (pre diagnostiku filtrov) ===
-2026-05-14 07:34:57,230 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
-2026-05-14 07:34:57,230 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
-2026-05-14 07:34:57,230 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
-2026-05-14 07:34:57,230 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
-2026-05-14 07:34:57,230 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
-2026-05-14 07:34:57,230 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
-2026-05-14 07:34:57,230 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.112012/
-2026-05-14 07:34:57,230 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.112012/
-2026-05-14 07:34:57,231 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.122012/
-2026-05-14 07:34:57,231 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.32012/
-2026-05-14 07:34:57,231 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.52012/
-2026-05-14 07:34:57,231 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.62012/
-2026-05-14 07:34:57,231 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.62012/
-2026-05-14 07:34:57,231 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.72012/
-2026-05-14 07:34:57,231 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.92012/
-2026-05-14 07:34:57,231 [INFO]   [skip] https://www.press.sk/2012/letectvi-kosmonautika-c.82012/
-2026-05-14 07:34:57,232 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.012013/
-2026-05-14 07:34:57,232 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.022013/
-2026-05-14 07:34:57,232 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.032013/
-2026-05-14 07:34:57,232 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.042013/
-2026-05-14 07:34:57,232 [INFO] ==================================================
-2026-05-14 07:34:57,479 [INFO] Relevantných URL: 5,032 z 10,000
-2026-05-14 07:34:57,480 [INFO] Ukážka relevantných (prvých 10):
-2026-05-14 07:34:57,480 [INFO]   [20190822224727] https://www.press.sk/aerohobby/c,d,16,16/
-2026-05-14 07:34:57,480 [INFO]   [20191015093108] https://www.press.sk/aerohobby/c,d,16,16/
-2026-05-14 07:34:57,480 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,16/
-2026-05-14 07:34:57,480 [INFO]   [20190823100037] https://www.press.sk/aerohobby/c,d,16,32/
-2026-05-14 07:34:57,480 [INFO]   [20191015095105] https://www.press.sk/aerohobby/c,d,16,32/
-2026-05-14 07:34:57,480 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,32/
-2026-05-14 07:34:57,480 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,48/
-2026-05-14 07:34:57,480 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,64/
-2026-05-14 07:34:57,480 [INFO]   [20190819111913] https://www.press.sk/akcie/c,d,16,16/
-2026-05-14 07:34:57,480 [INFO]   [20191017062448] https://www.press.sk/akcie/c,d,16,16/
-2026-05-14 07:34:57,480 [INFO] [1/20] https://web.archive.org/web/20190822224727/https://www.press.sk/aerohobby/c,d,16,16/
-2026-05-14 07:35:00,412 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:00,413 [INFO] [2/20] https://web.archive.org/web/20191015093108/https://www.press.sk/aerohobby/c,d,16,16/
-2026-05-14 07:35:02,935 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:02,936 [INFO] [3/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,16/
-2026-05-14 07:35:05,716 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:05,717 [INFO] [4/20] https://web.archive.org/web/20190823100037/https://www.press.sk/aerohobby/c,d,16,32/
-2026-05-14 07:35:08,432 [INFO]   → listing, 15 produktov
-2026-05-14 07:35:08,432 [INFO] [5/20] https://web.archive.org/web/20191015095105/https://www.press.sk/aerohobby/c,d,16,32/
-2026-05-14 07:35:10,900 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:10,900 [INFO] [6/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,32/
-2026-05-14 07:35:13,378 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:13,379 [INFO] [7/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,48/
-2026-05-14 07:35:16,392 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:16,393 [INFO] [8/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,64/
-2026-05-14 07:35:18,545 [INFO]   → listing, 4 produktov
-2026-05-14 07:35:18,545 [INFO] [9/20] https://web.archive.org/web/20190819111913/https://www.press.sk/akcie/c,d,16,16/
-2026-05-14 07:35:20,958 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:20,959 [INFO] [10/20] https://web.archive.org/web/20191017062448/https://www.press.sk/akcie/c,d,16,16/
-2026-05-14 07:35:23,471 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:23,472 [INFO] [11/20] https://web.archive.org/web/20191213033048/https://www.press.sk/akcie/c,d,16,16/
-2026-05-14 07:35:25,926 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:25,927 [INFO] [12/20] https://web.archive.org/web/20230311055300/https://www.press.sk/akcie/c,d,16,16/
-2026-05-14 07:35:28,343 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:28,343 [INFO] [13/20] https://web.archive.org/web/20190819111651/https://www.press.sk/akcie/c,d,16,32/
-2026-05-14 07:35:31,183 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:31,184 [INFO] [14/20] https://web.archive.org/web/20191017062248/https://www.press.sk/akcie/c,d,16,32/
-2026-05-14 07:35:33,683 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:33,684 [INFO] [15/20] https://web.archive.org/web/20191213032911/https://www.press.sk/akcie/c,d,16,32/
-2026-05-14 07:35:36,163 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:36,164 [INFO] [16/20] https://web.archive.org/web/20230311055300/https://www.press.sk/akcie/c,d,16,32/
-2026-05-14 07:35:38,827 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:38,828 [INFO] [17/20] https://web.archive.org/web/20190819113819/https://www.press.sk/akcie/c,d,16,48/
-2026-05-14 07:35:41,918 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:41,919 [INFO] [18/20] https://web.archive.org/web/20191017064116/https://www.press.sk/akcie/c,d,16,48/
-2026-05-14 07:35:44,462 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:44,463 [INFO] [19/20] https://web.archive.org/web/20191213034558/https://www.press.sk/akcie/c,d,16,48/
-2026-05-14 07:35:46,908 [INFO]   → listing, 16 produktov
-2026-05-14 07:35:46,909 [INFO] [20/20] https://web.archive.org/web/20230311055300/https://www.press.sk/akcie/c,d,16,48/
-2026-05-14 07:35:49,208 [INFO]   → listing, 10 produktov
-2026-05-14 07:35:49,209 [INFO] ==================================================
-2026-05-14 07:35:49,209 [INFO] HOTOVO — 140 produktov, 0 chýb
-2026-05-14 07:35:49,209 [INFO] CSV: output/products.csv | Obrázky: output/images/
-2026-05-14 07:35:49,209 [INFO] ==================================================
+2026-05-14 07:38:17,253 [INFO] CDX cache nájdená, načítavam z output/cdx_urls.json...
+2026-05-14 07:38:17,261 [INFO] === Prvých 20 URL z CDX (pre diagnostiku filtrov) ===
+2026-05-14 07:38:17,263 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
+2026-05-14 07:38:17,263 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
+2026-05-14 07:38:17,263 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
+2026-05-14 07:38:17,263 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
+2026-05-14 07:38:17,263 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
+2026-05-14 07:38:17,263 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
+2026-05-14 07:38:17,263 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.112012/
+2026-05-14 07:38:17,264 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.112012/
+2026-05-14 07:38:17,264 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.122012/
+2026-05-14 07:38:17,264 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.32012/
+2026-05-14 07:38:17,264 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.52012/
+2026-05-14 07:38:17,264 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.62012/
+2026-05-14 07:38:17,264 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.62012/
+2026-05-14 07:38:17,264 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.72012/
+2026-05-14 07:38:17,264 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.92012/
+2026-05-14 07:38:17,264 [INFO]   [skip] https://www.press.sk/2012/letectvi-kosmonautika-c.82012/
+2026-05-14 07:38:17,264 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.012013/
+2026-05-14 07:38:17,264 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.022013/
+2026-05-14 07:38:17,265 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.032013/
+2026-05-14 07:38:17,265 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.042013/
+2026-05-14 07:38:17,265 [INFO] ==================================================
+2026-05-14 07:38:17,471 [INFO] Relevantných URL: 5,032 z 10,000
+2026-05-14 07:38:17,471 [INFO] Ukážka relevantných (prvých 10):
+2026-05-14 07:38:17,471 [INFO]   [20190822224727] https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-14 07:38:17,471 [INFO]   [20191015093108] https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-14 07:38:17,471 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-14 07:38:17,471 [INFO]   [20190823100037] https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-14 07:38:17,471 [INFO]   [20191015095105] https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-14 07:38:17,471 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-14 07:38:17,471 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,48/
+2026-05-14 07:38:17,471 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,64/
+2026-05-14 07:38:17,471 [INFO]   [20190819111913] https://www.press.sk/akcie/c,d,16,16/
+2026-05-14 07:38:17,471 [INFO]   [20191017062448] https://www.press.sk/akcie/c,d,16,16/
+2026-05-14 07:38:17,472 [INFO] [1/20] https://web.archive.org/web/20190822224727/https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-14 07:38:20,706 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:20,707 [INFO] [2/20] https://web.archive.org/web/20191015093108/https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-14 07:38:23,111 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:23,112 [INFO] [3/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-14 07:38:25,715 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:25,716 [INFO] [4/20] https://web.archive.org/web/20190823100037/https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-14 07:38:28,259 [INFO]   → listing, 15 produktov
+2026-05-14 07:38:28,260 [INFO] [5/20] https://web.archive.org/web/20191015095105/https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-14 07:38:30,781 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:30,782 [INFO] [6/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-14 07:38:33,239 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:33,240 [INFO] [7/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,48/
+2026-05-14 07:38:35,674 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:35,675 [INFO] [8/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,64/
+2026-05-14 07:38:37,837 [INFO]   → listing, 4 produktov
+2026-05-14 07:38:37,926 [INFO] [9/20] https://web.archive.org/web/20190819111913/https://www.press.sk/akcie/c,d,16,16/
+2026-05-14 07:38:40,543 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:40,544 [INFO] [10/20] https://web.archive.org/web/20191017062448/https://www.press.sk/akcie/c,d,16,16/
+2026-05-14 07:38:42,992 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:42,992 [INFO] [11/20] https://web.archive.org/web/20191213033048/https://www.press.sk/akcie/c,d,16,16/
+2026-05-14 07:38:45,554 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:45,554 [INFO] [12/20] https://web.archive.org/web/20230311055300/https://www.press.sk/akcie/c,d,16,16/
+2026-05-14 07:38:48,007 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:48,007 [INFO] [13/20] https://web.archive.org/web/20190819111651/https://www.press.sk/akcie/c,d,16,32/
+2026-05-14 07:38:50,609 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:50,610 [INFO] [14/20] https://web.archive.org/web/20191017062248/https://www.press.sk/akcie/c,d,16,32/
+2026-05-14 07:38:53,090 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:53,091 [INFO] [15/20] https://web.archive.org/web/20191213032911/https://www.press.sk/akcie/c,d,16,32/
+2026-05-14 07:38:55,641 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:55,642 [INFO] [16/20] https://web.archive.org/web/20230311055300/https://www.press.sk/akcie/c,d,16,32/
+2026-05-14 07:38:57,995 [INFO]   → listing, 16 produktov
+2026-05-14 07:38:57,996 [INFO] [17/20] https://web.archive.org/web/20190819113819/https://www.press.sk/akcie/c,d,16,48/
+2026-05-14 07:39:00,639 [INFO]   → listing, 16 produktov
+2026-05-14 07:39:00,640 [INFO] [18/20] https://web.archive.org/web/20191017064116/https://www.press.sk/akcie/c,d,16,48/
+2026-05-14 07:39:03,192 [INFO]   → listing, 16 produktov
+2026-05-14 07:39:03,193 [INFO] [19/20] https://web.archive.org/web/20191213034558/https://www.press.sk/akcie/c,d,16,48/
+2026-05-14 07:39:05,731 [INFO]   → listing, 16 produktov
+2026-05-14 07:39:05,732 [INFO] [20/20] https://web.archive.org/web/20230311055300/https://www.press.sk/akcie/c,d,16,48/
+2026-05-14 07:39:07,882 [INFO]   → listing, 10 produktov
+2026-05-14 07:39:07,883 [INFO] ==================================================
+2026-05-14 07:39:07,883 [INFO] HOTOVO — 140 produktov, 0 chýb
+2026-05-14 07:39:07,883 [INFO] CSV: output/products.csv | Obrázky: output/images/
+2026-05-14 07:39:07,883 [INFO] ==================================================
