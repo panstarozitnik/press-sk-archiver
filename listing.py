@@ -25,16 +25,15 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
     if not products:
         products = _parse_generic_links(soup)
 
-    # DEBUG: ak sú produkty bez obrázkov, vypíš čo reálne prišlo z Wayback
+    # DEBUG: zapíš img dump do súboru
     missing = [p for p in products if not p.get("image_urls")]
     if missing:
-        print(f"[DEBUG-IMG] Stránka má {len(missing)} produktov bez obrázka")
-        print(f"[DEBUG-IMG] Všetky img tagy na stránke ({len(soup.find_all('img'))}):")
-        for img in soup.find_all("img")[:5]:
-            print(f"  src={repr(img.get('src',''))[:80]}")
-            print(f"  data-srcset={repr(img.get('data-srcset',''))[:80]}")
-            print(f"  data-src={repr(img.get('data-src',''))[:80]}")
-            print()
+        import logging
+        _log = logging.getLogger("scraper")
+        _log.warning(f"IMG-DUMP: {len(soup.find_all('img'))} img tagov na stránke")
+        for idx, img in enumerate(soup.find_all("img")[:5]):
+            attrs = {k: v for k, v in img.attrs.items() if k in ["src","data-srcset","data-src","class"]}
+            _log.warning(f"IMG-DUMP [{idx}]: {attrs}")
 
     cat = ""
     for sel in ["h1.page-title", "h1.cat-title", "h1", ".breadcrumb li:last-child"]:
