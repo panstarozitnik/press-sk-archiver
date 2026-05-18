@@ -48,9 +48,11 @@ _PRODUCT_PATTERNS = [
     r"/casopis/",
     r"/detail/",
     r"/p/\d",
-    r"97[89]\d{10}",             # ISBN-13 v URL
-    r"/\d{4,}-[a-z\-]{3,}",     # číselné ID + slug
-    r"page,shop\.product_details",
+    r"97[89]\d{10}",              # ISBN-13 v URL
+    r"/\d{4,}-[a-z\-]{3,}",      # číselné ID + slug
+    r"page,shop[.]product_details",
+    r"press[.]sk/\d{4}[/+]",     # /2010/nazov/ alebo /2012+193/nazov/
+    r"press[.]sk/\d{4}$",        # /2010 (bez lomky)
 ]
 
 # URL ktoré určite nie sú produkty/listy
@@ -122,6 +124,74 @@ def extract_isbn(text: str) -> str:
         return m.group(0)
     m = re.search(r"\b\d{9}[\dX]\b", clean)
     return m.group(0) if m else ""
+
+
+def strip_wayback_prefix(url: str) -> str:
+    """
+    Odstráni Wayback Machine prefix z URL obrázku.
+    Formáty ktoré Wayback používa:
+      https://web.archive.org/web/20230311055300im_/https://www.press.sk/...
+      /web/20230311055300im_/https://www.press.sk/...   (relatívna)
+      /web/20230311055300im_/http://www.press.sk/...
+    → https://www.press.sk/...
+    """
+    import re
+    if not url:
+        return ""
+    # Absolútna Wayback URL
+    m = re.search(r'https?://web[.]archive[.]org/web/\d+[^/]*/(.+)', url)
+    if m:
+        result = m.group(1)
+        if not result.startswith("http"):
+            result = "https://" + result
+        return result
+    # Relatívna Wayback URL: /web/TIMESTAMP.../https://...
+    m = re.search(r'^/web/\d+[^/]*/(.+)', url)
+    if m:
+        result = m.group(1)
+        if not result.startswith("http"):
+            result = "https://" + result
+        return result
+    return url
+
+
+def extract_img_src(img_tag) -> str:
+    """
+    Vytiahne URL obrázku aj z lazy-load tagov.
+    press.sk používa:
+      - data-srcset="https://web.archive.org/web/20230311055300im_/https://www.press.sk/...jpg"
+      - data-src="..."
+      - src="..."  (fallback, ale môže byť 1px gif)
+    Vždy preferuje data-srcset/data-src pred src.
+    """
+    if img_tag is None:
+        return ""
+
+    # 1. data-srcset — Wayback lazy-load (najspoľahlivejší)
+    srcset = img_tag.get("data-srcset", "")
+    if srcset:
+        # Môže obsahovať viacero URL oddelených čiarkou: "url1 1x, url2 2x"
+        # Berieme prvú
+        first = srcset.split(",")[0].strip().split(" ")[0]
+        if first and "1px" not in first and "trans" not in first:
+            return fix_image_url(first)
+
+    # 2. data-src
+    data_src = img_tag.get("data-src", "")
+    if data_src and "1px" not in data_src and "trans" not in data_src:
+        return fix_image_url(data_src)
+
+    # 3. data-lazy-src
+    lazy = img_tag.get("data-lazy-src", "")
+    if lazy and "1px" not in lazy and "trans" not in lazy:
+        return fix_image_url(lazy)
+
+    # 4. src — fallback, ale filtruj 1px transparent gify
+    src = img_tag.get("src", "")
+    if src and "1px" not in src and "trans" not in src:
+        return fix_image_url(src)
+
+    return ""
 
 
 def fix_image_url(src: str, base_domain: str = "https://www.press.sk") -> str:
