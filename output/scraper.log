@@ -1,401 +1,401 @@
-2026-05-14 08:38:44,672 [INFO] CDX cache nájdená, načítavam z output/cdx_urls.json...
-2026-05-14 08:38:44,680 [INFO] === Prvých 20 URL z CDX (pre diagnostiku filtrov) ===
-2026-05-14 08:38:44,681 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
-2026-05-14 08:38:44,681 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
-2026-05-14 08:38:44,682 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
-2026-05-14 08:38:44,682 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
-2026-05-14 08:38:44,682 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
-2026-05-14 08:38:44,682 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
-2026-05-14 08:38:44,682 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.112012/
-2026-05-14 08:38:44,682 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.112012/
-2026-05-14 08:38:44,682 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.122012/
-2026-05-14 08:38:44,683 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.32012/
-2026-05-14 08:38:44,683 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.52012/
-2026-05-14 08:38:44,683 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.62012/
-2026-05-14 08:38:44,683 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.62012/
-2026-05-14 08:38:44,683 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.72012/
-2026-05-14 08:38:44,683 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.92012/
-2026-05-14 08:38:44,683 [INFO]   [skip] https://www.press.sk/2012/letectvi-kosmonautika-c.82012/
-2026-05-14 08:38:44,683 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.012013/
-2026-05-14 08:38:44,684 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.022013/
-2026-05-14 08:38:44,684 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.032013/
-2026-05-14 08:38:44,684 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.042013/
-2026-05-14 08:38:44,684 [INFO] ==================================================
-2026-05-14 08:38:44,932 [INFO] Relevantných URL: 5,032 z 10,000
-2026-05-14 08:38:44,932 [INFO] Ukážka relevantných (prvých 10):
-2026-05-14 08:38:44,932 [INFO]   [20190822224727] https://www.press.sk/aerohobby/c,d,16,16/
-2026-05-14 08:38:44,932 [INFO]   [20191015093108] https://www.press.sk/aerohobby/c,d,16,16/
-2026-05-14 08:38:44,932 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,16/
-2026-05-14 08:38:44,932 [INFO]   [20190823100037] https://www.press.sk/aerohobby/c,d,16,32/
-2026-05-14 08:38:44,932 [INFO]   [20191015095105] https://www.press.sk/aerohobby/c,d,16,32/
-2026-05-14 08:38:44,932 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,32/
-2026-05-14 08:38:44,932 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,48/
-2026-05-14 08:38:44,932 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,64/
-2026-05-14 08:38:44,932 [INFO]   [20190819111913] https://www.press.sk/akcie/c,d,16,16/
-2026-05-14 08:38:44,932 [INFO]   [20191017062448] https://www.press.sk/akcie/c,d,16,16/
-2026-05-14 08:38:44,933 [INFO] [1/20] https://web.archive.org/web/20190822224727/https://www.press.sk/aerohobby/c,d,16,16/
-2026-05-14 08:38:46,435 [DEBUG] Starting new HTTPS connection (1): web.archive.org:443
-2026-05-14 08:38:47,129 [DEBUG] https://web.archive.org:443 "GET /web/20190822224727/https://www.press.sk/aerohobby/c,d,16,16/ HTTP/1.1" 200 None
-2026-05-14 08:38:47,629 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.06/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.05/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.04/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.03/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.02/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.01/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.06/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.05/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.04/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.03/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.02/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.01/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,629 [INFO]     [!] Aerohobby č.6/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,630 [INFO]     [!] Aerohobby č.05/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,630 [INFO]     [!] Aerohobby č.04/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,630 [INFO]     [!] Aerohobby č.03/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:47,630 [INFO] [2/20] https://web.archive.org/web/20191015093108/https://www.press.sk/aerohobby/c,d,16,16/
-2026-05-14 08:38:49,834 [DEBUG] https://web.archive.org:443 "GET /web/20191015093108/https://www.press.sk/aerohobby/c,d,16,16/ HTTP/1.1" 200 None
-2026-05-14 08:38:50,331 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:38:50,331 [INFO]     [!] Aerohobby č.01/2017 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,331 [INFO]     [!] Aerohobby č.06/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,331 [INFO]     [!] Aerohobby č.05/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,331 [INFO]     [!] Aerohobby č.04/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,331 [INFO]     [!] Aerohobby č.03/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,331 [INFO]     [!] Aerohobby č.02/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,332 [INFO]     [!] Aerohobby č.01/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,332 [INFO]     [!] Aerohobby č.06/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,332 [INFO]     [!] Aerohobby č.05/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,332 [INFO]     [!] Aerohobby č.04/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,332 [INFO]     [!] Aerohobby č.03/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,332 [INFO]     [!] Aerohobby č.02/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,332 [INFO]     [!] Aerohobby č.01/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,332 [INFO]     [!] Aerohobby č.6/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,332 [INFO]     [!] Aerohobby č.05/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,332 [INFO]     [!] Aerohobby č.04/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:50,332 [INFO] [3/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,16/
-2026-05-14 08:38:52,299 [DEBUG] https://web.archive.org:443 "GET /web/20230311055301/https://www.press.sk/aerohobby/c,d,16,16/ HTTP/1.1" 200 None
-2026-05-14 08:38:52,845 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:38:52,845 [INFO]     [!] Aerohobby č.03/2020 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,845 [INFO]     [!] Aerohobby č.02/2020 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,845 [INFO]     [!] Aerohobby č.01/2020 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,845 [INFO]     [!] Aerohobby č.06/2019 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,846 [INFO]     [!] Aerohobby č.05/2019 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,846 [INFO]     [!] Aerohobby č.04/2019 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,846 [INFO]     [!] Aerohobby č.03/2019 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,846 [INFO]     [!] Aerohobby č.02/2019 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,846 [INFO]     [!] Aerohobby č.01/2019 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,846 [INFO]     [!] Aerohobby č.06/2018 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,846 [INFO]     [!] Aerohobby č.05/2018 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,846 [INFO]     [!] Aerohobby č.04/2018 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,846 [INFO]     [!] Aerohobby č.03/2018 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,846 [INFO]     [!] Aerohobby č.02/2018 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,846 [INFO]     [!] Aerohobby č.01/2018 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,846 [INFO]     [!] Aerohobby č.06/2017 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:52,847 [INFO] [4/20] https://web.archive.org/web/20190823100037/https://www.press.sk/aerohobby/c,d,16,32/
-2026-05-14 08:38:54,816 [DEBUG] https://web.archive.org:443 "GET /web/20190823100037/https://www.press.sk/aerohobby/c,d,16,32/ HTTP/1.1" 200 None
-2026-05-14 08:38:55,297 [INFO]   → listing, 15 produktov, 0 s obrázkom
-2026-05-14 08:38:55,297 [INFO]     [!] Aerohobby č.02/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,297 [INFO]     [!] Aerohobby č.01/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,297 [INFO]     [!] Aerohobby č.06/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,297 [INFO]     [!] Aerohobby č.05/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,297 [INFO]     [!] Aerohobby č.04/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,297 [INFO]     [!] Aerohobby č.03/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,297 [INFO]     [!] Aerohobby č.02/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,297 [INFO]     [!] Aerohobby č.01/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,298 [INFO]     [!] Aerohobby č.03/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,298 [INFO]     [!] Aerohobby č.02/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,298 [INFO]     [!] Aerohobby č.01/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,298 [INFO]     [!] Aerohobby č.06/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,298 [INFO]     [!] Aerohobby č.05/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,298 [INFO]     [!] Aerohobby č.04/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:55,298 [INFO]     [!] Aerohobby - predplatné | img: CHÝBA
-2026-05-14 08:38:55,299 [INFO] [5/20] https://web.archive.org/web/20191015095105/https://www.press.sk/aerohobby/c,d,16,32/
-2026-05-14 08:38:57,297 [DEBUG] https://web.archive.org:443 "GET /web/20191015095105/https://www.press.sk/aerohobby/c,d,16,32/ HTTP/1.1" 200 None
-2026-05-14 08:38:57,794 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:38:57,794 [INFO]     [!] Aerohobby č.03/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,794 [INFO]     [!] Aerohobby č.02/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,794 [INFO]     [!] Aerohobby č.01/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,794 [INFO]     [!] Aerohobby č.06/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,794 [INFO]     [!] Aerohobby č.05/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,794 [INFO]     [!] Aerohobby č.04/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,794 [INFO]     [!] Aerohobby č.03/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,795 [INFO]     [!] Aerohobby č.02/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,795 [INFO]     [!] Aerohobby č.01/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,795 [INFO]     [!] Aerohobby č.03/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,795 [INFO]     [!] Aerohobby č.02/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,795 [INFO]     [!] Aerohobby č.01/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,795 [INFO]     [!] Aerohobby č.06/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,795 [INFO]     [!] Aerohobby č.05/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,795 [INFO]     [!] Aerohobby č.04/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:38:57,795 [INFO]     [!] Aerohobby - predplatné | img: CHÝBA
-2026-05-14 08:38:57,796 [INFO] [6/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,32/
-2026-05-14 08:38:59,700 [DEBUG] https://web.archive.org:443 "GET /web/20230311055301/https://www.press.sk/aerohobby/c,d,16,32/ HTTP/1.1" 200 None
-2026-05-14 08:39:00,221 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:00,221 [INFO]     [!] Aerohobby č.05/2017 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,221 [INFO]     [!] Aerohobby č.04/2017 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,221 [INFO]     [!] Aerohobby č.03/2017 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,221 [INFO]     [!] Aerohobby č.02/2017 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,221 [INFO]     [!] Aerohobby č.01/2017 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,221 [INFO]     [!] Aerohobby č.06/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,222 [INFO]     [!] Aerohobby č.05/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,222 [INFO]     [!] Aerohobby č.04/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,222 [INFO]     [!] Aerohobby č.03/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,222 [INFO]     [!] Aerohobby č.02/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,222 [INFO]     [!] Aerohobby č.01/2016 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,222 [INFO]     [!] Aerohobby č.06/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,222 [INFO]     [!] Aerohobby č.05/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,222 [INFO]     [!] Aerohobby č.04/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,222 [INFO]     [!] Aerohobby č.03/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,222 [INFO]     [!] Aerohobby č.02/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:00,223 [INFO] [7/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,48/
-2026-05-14 08:39:02,164 [DEBUG] https://web.archive.org:443 "GET /web/20230311055301/https://www.press.sk/aerohobby/c,d,16,48/ HTTP/1.1" 200 None
-2026-05-14 08:39:02,691 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.01/2015 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.6/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.05/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.04/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.03/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.02/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.01/2014 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.06/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.05/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.04/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.03/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.02/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.01/2013 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.03/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.02/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,691 [INFO]     [!] Aerohobby č.01/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:02,692 [INFO] [8/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,64/
-2026-05-14 08:39:04,564 [DEBUG] https://web.archive.org:443 "GET /web/20230311055301/https://www.press.sk/aerohobby/c,d,16,64/ HTTP/1.1" 200 None
-2026-05-14 08:39:04,737 [INFO]   → listing, 4 produktov, 0 s obrázkom
-2026-05-14 08:39:04,737 [INFO]     [!] Aerohobby č.06/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:04,737 [INFO]     [!] Aerohobby č.05/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:04,737 [INFO]     [!] Aerohobby č.04/2012 (e-vydanie) | img: CHÝBA
-2026-05-14 08:39:04,737 [INFO]     [!] Aerohobby - predplatné | img: CHÝBA
-2026-05-14 08:39:04,738 [INFO] [9/20] https://web.archive.org/web/20190819111913/https://www.press.sk/akcie/c,d,16,16/
-2026-05-14 08:39:06,733 [DEBUG] https://web.archive.org:443 "GET /web/20190819111913/https://www.press.sk/akcie/c,d,16,16/ HTTP/1.1" 200 None
-2026-05-14 08:39:07,254 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:07,254 [INFO]     [!] Vstupenka na smrt | img: CHÝBA
-2026-05-14 08:39:07,254 [INFO]     [!] Záhada jménem Kolumbus | img: CHÝBA
-2026-05-14 08:39:07,254 [INFO]     [!] Tvoříme ve vintage stylu | img: CHÝBA
-2026-05-14 08:39:07,254 [INFO]     [!] Diverzanti a agenti v akci | img: CHÝBA
-2026-05-14 08:39:07,254 [INFO]     [!] Těžký soupeř | img: CHÝBA
-2026-05-14 08:39:07,255 [INFO]     [!] Ten den mi patřilo nebe | img: CHÝBA
-2026-05-14 08:39:07,255 [INFO]     [!] Moučníky bez lepku | img: CHÝBA
-2026-05-14 08:39:07,255 [INFO]     [!] Zbraně a bojové techniky samurajů 1200-1877 n. l. | img: CHÝBA
-2026-05-14 08:39:07,255 [INFO]     [!] Jak si smrt došla pro kata | img: CHÝBA
-2026-05-14 08:39:07,255 [INFO]     [!] Ježek v zahradě | img: CHÝBA
-2026-05-14 08:39:07,255 [INFO]     [!] Britští parašutisté versus němečtí padákoví mysliv | img: CHÝBA
-2026-05-14 08:39:07,255 [INFO]     [!] Němečtí pěšáci versus sovětští střelci | img: CHÝBA
-2026-05-14 08:39:07,255 [INFO]     [!] Rambo na vodítku | img: CHÝBA
-2026-05-14 08:39:07,255 [INFO]     [!] Porážka - Poslední republika III. | img: CHÝBA
-2026-05-14 08:39:07,255 [INFO]     [!] Šijeme sedací vaky | img: CHÝBA
-2026-05-14 08:39:07,255 [INFO]     [!] Třetí výstřel | img: CHÝBA
-2026-05-14 08:39:07,256 [INFO] [10/20] https://web.archive.org/web/20191017062448/https://www.press.sk/akcie/c,d,16,16/
-2026-05-14 08:39:09,211 [DEBUG] https://web.archive.org:443 "GET /web/20191017062448/https://www.press.sk/akcie/c,d,16,16/ HTTP/1.1" 200 None
-2026-05-14 08:39:09,738 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:09,738 [INFO]     [!] Těžký soupeř | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Ten den mi patřilo nebe | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Moučníky bez lepku | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Zbraně a bojové techniky samurajů 1200-1877 n. l. | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Jak si smrt došla pro kata | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Ježek v zahradě | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Britští parašutisté versus němečtí padákoví mysliv | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Němečtí pěšáci versus sovětští střelci | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Rambo na vodítku | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Porážka - Poslední republika III. | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Šijeme sedací vaky | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Třetí výstřel | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Veselé modrotiskání | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Networking - Jak získat nové klienty a obchodní pa | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Zdravá výživa pro celou rodinu - Kuchařka dnešní d | img: CHÝBA
-2026-05-14 08:39:09,739 [INFO]     [!] Zdobíme květináče | img: CHÝBA
-2026-05-14 08:39:09,740 [INFO] [11/20] https://web.archive.org/web/20191213033048/https://www.press.sk/akcie/c,d,16,16/
-2026-05-14 08:39:11,736 [DEBUG] https://web.archive.org:443 "GET /web/20191213033048/https://www.press.sk/akcie/c,d,16,16/ HTTP/1.1" 200 None
-2026-05-14 08:39:12,258 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:12,259 [INFO]     [!] Ten den mi patřilo nebe | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Moučníky bez lepku | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Zbraně a bojové techniky samurajů 1200-1877 n. l. | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Jak si smrt došla pro kata | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Ježek v zahradě | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Britští parašutisté versus němečtí padákoví mysliv | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Němečtí pěšáci versus sovětští střelci | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Rambo na vodítku | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Porážka - Poslední republika III. | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Šijeme sedací vaky | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Třetí výstřel | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Veselé modrotiskání | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Networking - Jak získat nové klienty a obchodní pa | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Zdravá výživa pro celou rodinu - Kuchařka dnešní d | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Zdobíme květináče | img: CHÝBA
-2026-05-14 08:39:12,259 [INFO]     [!] Hroby bez diktátorů | img: CHÝBA
-2026-05-14 08:39:12,260 [INFO] [12/20] https://web.archive.org/web/20230311055300/https://www.press.sk/akcie/c,d,16,16/
-2026-05-14 08:39:14,348 [DEBUG] https://web.archive.org:443 "GET /web/20230311055300/https://www.press.sk/akcie/c,d,16,16/ HTTP/1.1" 200 None
-2026-05-14 08:39:14,883 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:14,883 [INFO]     [!] Válka-Jeden rok války v Afghánistánu | img: CHÝBA
-2026-05-14 08:39:14,883 [INFO]     [!] Pět dnů | img: CHÝBA
-2026-05-14 08:39:14,883 [INFO]     [!] Stíhač v Buchenwaldu | img: CHÝBA
-2026-05-14 08:39:14,883 [INFO]     [!] Diverzanti a agenti v akci | img: CHÝBA
-2026-05-14 08:39:14,883 [INFO]     [!] Ten den mi patřilo nebe | img: CHÝBA
-2026-05-14 08:39:14,883 [INFO]     [!] Ježek v zahradě | img: CHÝBA
-2026-05-14 08:39:14,883 [INFO]     [!] Elita armády | img: CHÝBA
-2026-05-14 08:39:14,883 [INFO]     [!] Jak šly dny, měsíce a roky | img: CHÝBA
-2026-05-14 08:39:14,884 [INFO]     [!] Delfin Aero L-29 | img: CHÝBA
-2026-05-14 08:39:14,884 [INFO]     [!] Jeep jede do války | img: CHÝBA
-2026-05-14 08:39:14,884 [INFO]     [!] Středočeské závody a okruhy - Století středočeskéh | img: CHÝBA
-2026-05-14 08:39:14,884 [INFO]     [!] Zničí nás klima nebo boj s klimatem | img: CHÝBA
-2026-05-14 08:39:14,884 [INFO]     [!] Sturmartillerie - Úderná pěst pěchoty | img: CHÝBA
-2026-05-14 08:39:14,884 [INFO]     [!] Ročenka Elektro 2017 | img: CHÝBA
-2026-05-14 08:39:14,884 [INFO]     [!] Ako chytiť Cresseliu - Neoficiálne príbehy pre Lov | img: CHÝBA
-2026-05-14 08:39:14,884 [INFO]     [!] Bio odrůdy révy vinné | img: CHÝBA
-2026-05-14 08:39:14,885 [INFO] [13/20] https://web.archive.org/web/20190819111651/https://www.press.sk/akcie/c,d,16,32/
-2026-05-14 08:39:16,733 [DEBUG] https://web.archive.org:443 "GET /web/20190819111651/https://www.press.sk/akcie/c,d,16,32/ HTTP/1.1" 200 None
-2026-05-14 08:39:17,257 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:17,257 [INFO]     [!] Veselé modrotiskání | img: CHÝBA
-2026-05-14 08:39:17,257 [INFO]     [!] Networking - Jak získat nové klienty a obchodní pa | img: CHÝBA
-2026-05-14 08:39:17,257 [INFO]     [!] Zdravá výživa pro celou rodinu - Kuchařka dnešní d | img: CHÝBA
-2026-05-14 08:39:17,257 [INFO]     [!] Zdobíme květináče | img: CHÝBA
-2026-05-14 08:39:17,257 [INFO]     [!] Hroby bez diktátorů | img: CHÝBA
-2026-05-14 08:39:17,257 [INFO]     [!] Život po Dáeši - Děti Islámského státu | img: CHÝBA
-2026-05-14 08:39:17,258 [INFO]     [!] Photoshop Elements 15 | img: CHÝBA
-2026-05-14 08:39:17,258 [INFO]     [!] Psi v džungli velkoměsta: Městem bez obav | img: CHÝBA
-2026-05-14 08:39:17,258 [INFO]     [!] Fotoportréty | img: CHÝBA
-2026-05-14 08:39:17,258 [INFO]     [!] Výhonky a mikrozelenina | img: CHÝBA
-2026-05-14 08:39:17,258 [INFO]     [!] Soutěž Malou dohodou 1937: Auta a motocykly na tra | img: CHÝBA
-2026-05-14 08:39:17,258 [INFO]     [!] Krycí jméno E219 | img: CHÝBA
-2026-05-14 08:39:17,258 [INFO]     [!] Vinuté perle | img: CHÝBA
-2026-05-14 08:39:17,258 [INFO]     [!] Autá: Mater na Mesiaci a iné historky | img: CHÝBA
-2026-05-14 08:39:17,258 [INFO]     [!] Vesmír - Encyklopedie | img: CHÝBA
-2026-05-14 08:39:17,258 [INFO]     [!] Řeč psího ocásku | img: CHÝBA
-2026-05-14 08:39:17,259 [INFO] [14/20] https://web.archive.org/web/20191017062248/https://www.press.sk/akcie/c,d,16,32/
-2026-05-14 08:39:19,236 [DEBUG] https://web.archive.org:443 "GET /web/20191017062248/https://www.press.sk/akcie/c,d,16,32/ HTTP/1.1" 200 None
-2026-05-14 08:39:19,757 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:19,757 [INFO]     [!] Hroby bez diktátorů | img: CHÝBA
-2026-05-14 08:39:19,757 [INFO]     [!] Život po Dáeši - Děti Islámského státu | img: CHÝBA
-2026-05-14 08:39:19,757 [INFO]     [!] Photoshop Elements 15 | img: CHÝBA
-2026-05-14 08:39:19,757 [INFO]     [!] Psi v džungli velkoměsta: Městem bez obav | img: CHÝBA
-2026-05-14 08:39:19,757 [INFO]     [!] Fotoportréty | img: CHÝBA
-2026-05-14 08:39:19,757 [INFO]     [!] Výhonky a mikrozelenina | img: CHÝBA
-2026-05-14 08:39:19,757 [INFO]     [!] Soutěž Malou dohodou 1937: Auta a motocykly na tra | img: CHÝBA
-2026-05-14 08:39:19,757 [INFO]     [!] Krycí jméno E219 | img: CHÝBA
-2026-05-14 08:39:19,758 [INFO]     [!] Vinuté perle | img: CHÝBA
-2026-05-14 08:39:19,758 [INFO]     [!] Autá: Mater na Mesiaci a iné historky | img: CHÝBA
-2026-05-14 08:39:19,758 [INFO]     [!] Vesmír - Encyklopedie | img: CHÝBA
-2026-05-14 08:39:19,758 [INFO]     [!] Řeč psího ocásku | img: CHÝBA
-2026-05-14 08:39:19,758 [INFO]     [!] Jak zvládat lovecké chování psa | img: CHÝBA
-2026-05-14 08:39:19,758 [INFO]     [!] Šmolkovia - Lietajúci šmolko | img: CHÝBA
-2026-05-14 08:39:19,758 [INFO]     [!] Letokruhy jako kalendář i záznamník | img: CHÝBA
-2026-05-14 08:39:19,758 [INFO]     [!] Oděvní střihy – jak je použít, upravit a navrhnout | img: CHÝBA
-2026-05-14 08:39:19,759 [INFO] [15/20] https://web.archive.org/web/20191213032911/https://www.press.sk/akcie/c,d,16,32/
-2026-05-14 08:39:21,655 [DEBUG] https://web.archive.org:443 "GET /web/20191213032911/https://www.press.sk/akcie/c,d,16,32/ HTTP/1.1" 200 None
-2026-05-14 08:39:22,177 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:22,177 [INFO]     [!] Život po Dáeši - Děti Islámského státu | img: CHÝBA
-2026-05-14 08:39:22,177 [INFO]     [!] Photoshop Elements 15 | img: CHÝBA
-2026-05-14 08:39:22,177 [INFO]     [!] Psi v džungli velkoměsta: Městem bez obav | img: CHÝBA
-2026-05-14 08:39:22,177 [INFO]     [!] Fotoportréty | img: CHÝBA
-2026-05-14 08:39:22,177 [INFO]     [!] Výhonky a mikrozelenina | img: CHÝBA
-2026-05-14 08:39:22,177 [INFO]     [!] Soutěž Malou dohodou 1937: Auta a motocykly na tra | img: CHÝBA
-2026-05-14 08:39:22,177 [INFO]     [!] Krycí jméno E219 | img: CHÝBA
-2026-05-14 08:39:22,177 [INFO]     [!] Vinuté perle | img: CHÝBA
-2026-05-14 08:39:22,177 [INFO]     [!] Autá: Mater na Mesiaci a iné historky | img: CHÝBA
-2026-05-14 08:39:22,177 [INFO]     [!] Vesmír - Encyklopedie | img: CHÝBA
-2026-05-14 08:39:22,178 [INFO]     [!] Řeč psího ocásku | img: CHÝBA
-2026-05-14 08:39:22,178 [INFO]     [!] Jak zvládat lovecké chování psa | img: CHÝBA
-2026-05-14 08:39:22,178 [INFO]     [!] Letokruhy jako kalendář i záznamník | img: CHÝBA
-2026-05-14 08:39:22,178 [INFO]     [!] Oděvní střihy – jak je použít, upravit a navrhnout | img: CHÝBA
-2026-05-14 08:39:22,178 [INFO]     [!] Druhá šance pro košile | img: CHÝBA
-2026-05-14 08:39:22,178 [INFO]     [!] Ročenka Elektro 2017 | img: CHÝBA
-2026-05-14 08:39:22,179 [INFO] [16/20] https://web.archive.org/web/20230311055300/https://www.press.sk/akcie/c,d,16,32/
-2026-05-14 08:39:24,053 [DEBUG] https://web.archive.org:443 "GET /web/20230311055300/https://www.press.sk/akcie/c,d,16,32/ HTTP/1.1" 200 None
-2026-05-14 08:39:24,604 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:24,604 [INFO]     [!] Ročenka Elektro 2014 | img: CHÝBA
-2026-05-14 08:39:24,604 [INFO]     [!] Vězněm v Alcatrazu | img: CHÝBA
-2026-05-14 08:39:24,604 [INFO]     [!] Ročenka Elektro 2016 | img: CHÝBA
-2026-05-14 08:39:24,604 [INFO]     [!] Bitva o pevnost Qala-e Džangi - Nekonvenční operac | img: CHÝBA
-2026-05-14 08:39:24,604 [INFO]     [!] Ročenka Elektro 2015 | img: CHÝBA
-2026-05-14 08:39:24,605 [INFO]     [!] Zrádci, nebo vlastenci? | img: CHÝBA
-2026-05-14 08:39:24,605 [INFO]     [!] Minecraft průvodce pro rodiče | img: CHÝBA
-2026-05-14 08:39:24,605 [INFO]     [!] Sovětští generálové v zajetí 1941 – 1945 | img: CHÝBA
-2026-05-14 08:39:24,605 [INFO]     [!] Meteor I vs létající puma V1 | img: CHÝBA
-2026-05-14 08:39:24,605 [INFO]     [!] Ročenka ELEKTRO 2013 | img: CHÝBA
-2026-05-14 08:39:24,605 [INFO]     [!] Ročenka ELEKTRO 2012 | img: CHÝBA
-2026-05-14 08:39:24,605 [INFO]     [!] Ročenka ELEKTRO 2011 | img: CHÝBA
-2026-05-14 08:39:24,605 [INFO]     [!] Afganský zápisník | img: CHÝBA
-2026-05-14 08:39:24,605 [INFO]     [!] NATO Trucks and Vehicles in detail | img: CHÝBA
-2026-05-14 08:39:24,605 [INFO]     [!] Czech Tigers in detail | img: CHÝBA
-2026-05-14 08:39:24,605 [INFO]     [!] Meteor-F.Mk 8 in detail | img: CHÝBA
-2026-05-14 08:39:24,606 [INFO] [17/20] https://web.archive.org/web/20190819113819/https://www.press.sk/akcie/c,d,16,48/
-2026-05-14 08:39:26,662 [DEBUG] https://web.archive.org:443 "GET /web/20190819113819/https://www.press.sk/akcie/c,d,16,48/ HTTP/1.1" 200 None
-2026-05-14 08:39:27,184 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:27,184 [INFO]     [!] Jak zvládat lovecké chování psa | img: CHÝBA
-2026-05-14 08:39:27,184 [INFO]     [!] Šmolkovia - Lietajúci šmolko | img: CHÝBA
-2026-05-14 08:39:27,184 [INFO]     [!] Letokruhy jako kalendář i záznamník | img: CHÝBA
-2026-05-14 08:39:27,184 [INFO]     [!] Oděvní střihy – jak je použít, upravit a navrhnout | img: CHÝBA
-2026-05-14 08:39:27,184 [INFO]     [!] Druhá šance pro košile | img: CHÝBA
-2026-05-14 08:39:27,184 [INFO]     [!] Ročenka Elektro 2017 | img: CHÝBA
-2026-05-14 08:39:27,184 [INFO]     [!] Šmolkovia - Šmolkovské kúpele | img: CHÝBA
-2026-05-14 08:39:27,185 [INFO]     [!] Šmolkovia - Šmolkovské bábätko | img: CHÝBA
-2026-05-14 08:39:27,185 [INFO]     [!] Šmolkovia - Šmolko reportér | img: CHÝBA
-2026-05-14 08:39:27,185 [INFO]     [!] So wood - Vše ze dřeva | img: CHÝBA
-2026-05-14 08:39:27,185 [INFO]     [!] Macko Puf - Filmový príbeh | img: CHÝBA
-2026-05-14 08:39:27,185 [INFO]     [!] Pokémon Go - Nezávislá a neoficiálna hráčova príru | img: CHÝBA
-2026-05-14 08:39:27,185 [INFO]     [!] Šmolkovia - 120 vtipov a iných prekvapení | img: CHÝBA
-2026-05-14 08:39:27,185 [INFO]     [!] Autá - Priatelia na štyroch kolesách | img: CHÝBA
-2026-05-14 08:39:27,185 [INFO]     [!] Ako chytiť Cresseliu - Neoficiálne príbehy pre Lov | img: CHÝBA
-2026-05-14 08:39:27,185 [INFO]     [!] Lietadlá: Filmový príbeh - Vyfarbuj, čítaj, nalepu | img: CHÝBA
-2026-05-14 08:39:27,186 [INFO] [18/20] https://web.archive.org/web/20191017064116/https://www.press.sk/akcie/c,d,16,48/
-2026-05-14 08:39:29,227 [DEBUG] https://web.archive.org:443 "GET /web/20191017064116/https://www.press.sk/akcie/c,d,16,48/ HTTP/1.1" 200 None
-2026-05-14 08:39:29,748 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:29,748 [INFO]     [!] Druhá šance pro košile | img: CHÝBA
-2026-05-14 08:39:29,748 [INFO]     [!] Ročenka Elektro 2017 | img: CHÝBA
-2026-05-14 08:39:29,748 [INFO]     [!] Šmolkovia - Šmolkovské kúpele | img: CHÝBA
-2026-05-14 08:39:29,748 [INFO]     [!] Šmolkovia - Šmolkovské bábätko | img: CHÝBA
-2026-05-14 08:39:29,748 [INFO]     [!] Šmolkovia - Šmolko reportér | img: CHÝBA
-2026-05-14 08:39:29,748 [INFO]     [!] So wood - Vše ze dřeva | img: CHÝBA
-2026-05-14 08:39:29,749 [INFO]     [!] Macko Puf - Filmový príbeh | img: CHÝBA
-2026-05-14 08:39:29,749 [INFO]     [!] Pokémon Go - Nezávislá a neoficiálna hráčova príru | img: CHÝBA
-2026-05-14 08:39:29,749 [INFO]     [!] Šmolkovia - 120 vtipov a iných prekvapení | img: CHÝBA
-2026-05-14 08:39:29,749 [INFO]     [!] Autá - Priatelia na štyroch kolesách | img: CHÝBA
-2026-05-14 08:39:29,749 [INFO]     [!] Ako chytiť Cresseliu - Neoficiálne príbehy pre Lov | img: CHÝBA
-2026-05-14 08:39:29,749 [INFO]     [!] Lietadlá: Filmový príbeh - Vyfarbuj, čítaj, nalepu | img: CHÝBA
-2026-05-14 08:39:29,749 [INFO]     [!] Pupčeky 2 - Ťažké časy pre škraty | img: CHÝBA
-2026-05-14 08:39:29,749 [INFO]     [!] Dobrodružstvá Ferda Mravca | img: CHÝBA
-2026-05-14 08:39:29,749 [INFO]     [!] Bio odrůdy révy vinné | img: CHÝBA
-2026-05-14 08:39:29,749 [INFO]     [!] Šest pilířů manažerského úspěchu | img: CHÝBA
-2026-05-14 08:39:29,751 [INFO] [19/20] https://web.archive.org/web/20191213034558/https://www.press.sk/akcie/c,d,16,48/
-2026-05-14 08:39:31,634 [DEBUG] https://web.archive.org:443 "GET /web/20191213034558/https://www.press.sk/akcie/c,d,16,48/ HTTP/1.1" 200 None
-2026-05-14 08:39:32,156 [INFO]   → listing, 16 produktov, 0 s obrázkom
-2026-05-14 08:39:32,157 [INFO]     [!] Šmolkovia - Šmolkovské kúpele | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Šmolkovia - Šmolkovské bábätko | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Šmolkovia - Šmolko reportér | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] So wood - Vše ze dřeva | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Macko Puf - Filmový príbeh | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Pokémon Go - Nezávislá a neoficiálna hráčova príru | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Šmolkovia - 120 vtipov a iných prekvapení | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Autá - Priatelia na štyroch kolesách | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Ako chytiť Cresseliu - Neoficiálne príbehy pre Lov | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Lietadlá: Filmový príbeh - Vyfarbuj, čítaj, nalepu | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Pupčeky 2 - Ťažké časy pre škraty | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Dobrodružstvá Ferda Mravca | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Bio odrůdy révy vinné | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Šest pilířů manažerského úspěchu | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Ročenka Elektro 2014 | img: CHÝBA
-2026-05-14 08:39:32,157 [INFO]     [!] Vězněm v Alcatrazu | img: CHÝBA
-2026-05-14 08:39:32,159 [INFO] [20/20] https://web.archive.org/web/20230311055300/https://www.press.sk/akcie/c,d,16,48/
-2026-05-14 08:39:33,989 [DEBUG] https://web.archive.org:443 "GET /web/20230311055300/https://www.press.sk/akcie/c,d,16,48/ HTTP/1.1" 200 None
-2026-05-14 08:39:34,337 [INFO]   → listing, 10 produktov, 0 s obrázkom
-2026-05-14 08:39:34,337 [INFO]     [!] Mitsubishi Ki - 46 III "Dinah" in detail | img: CHÝBA
-2026-05-14 08:39:34,337 [INFO]     [!] Chinook in detail | img: CHÝBA
-2026-05-14 08:39:34,337 [INFO]     [!] T-55 in detail - Special and Recovery Vehicles | img: CHÝBA
-2026-05-14 08:39:34,337 [INFO]     [!] Obrněná technika 6 - Střední evropa 1919-1945 (II. | img: CHÝBA
-2026-05-14 08:39:34,337 [INFO]     [!] M35A2 in detail | img: CHÝBA
-2026-05-14 08:39:34,337 [INFO]     [!] Na nebi hrdého albionu 7. | img: CHÝBA
-2026-05-14 08:39:34,337 [INFO]     [!] AS-90 Braveheart in detail | img: CHÝBA
-2026-05-14 08:39:34,337 [INFO]     [!] Na nebi hrdého albionu 5. | img: CHÝBA
-2026-05-14 08:39:34,337 [INFO]     [!] Obrněná technika 5 - Střední evropa 1919-1945 (I.č | img: CHÝBA
-2026-05-14 08:39:34,337 [INFO]     [!] Czechoslovak Spitfires in detail | img: CHÝBA
-2026-05-14 08:39:34,339 [INFO] ==================================================
-2026-05-14 08:39:34,339 [INFO] HOTOVO — 140 produktov, 0 chýb
-2026-05-14 08:39:34,339 [INFO] CSV: output/products.csv | Obrázky: output/images/
-2026-05-14 08:39:34,339 [INFO] ==================================================
+2026-05-18 07:09:15,338 [INFO] CDX cache nájdená, načítavam z output/cdx_urls.json...
+2026-05-18 07:09:15,346 [INFO] === Prvých 20 URL z CDX (pre diagnostiku filtrov) ===
+2026-05-18 07:09:15,348 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
+2026-05-18 07:09:15,348 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
+2026-05-18 07:09:15,348 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
+2026-05-18 07:09:15,349 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
+2026-05-18 07:09:15,349 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
+2026-05-18 07:09:15,349 [INFO]   [skip] https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
+2026-05-18 07:09:15,349 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.112012/
+2026-05-18 07:09:15,349 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.112012/
+2026-05-18 07:09:15,349 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.122012/
+2026-05-18 07:09:15,349 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.32012/
+2026-05-18 07:09:15,349 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.52012/
+2026-05-18 07:09:15,350 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.62012/
+2026-05-18 07:09:15,350 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.62012/
+2026-05-18 07:09:15,350 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.72012/
+2026-05-18 07:09:15,350 [INFO]   [skip] https://www.press.sk/2012+193/atm-c.92012/
+2026-05-18 07:09:15,350 [INFO]   [skip] https://www.press.sk/2012/letectvi-kosmonautika-c.82012/
+2026-05-18 07:09:15,350 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.012013/
+2026-05-18 07:09:15,350 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.022013/
+2026-05-18 07:09:15,350 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.032013/
+2026-05-18 07:09:15,351 [INFO]   [skip] https://www.press.sk/2013+192/modelar-c.042013/
+2026-05-18 07:09:15,351 [INFO] ==================================================
+2026-05-18 07:09:15,605 [INFO] Relevantných URL: 5,032 z 10,000
+2026-05-18 07:09:15,605 [INFO] Ukážka relevantných (prvých 10):
+2026-05-18 07:09:15,605 [INFO]   [20190822224727] https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-18 07:09:15,605 [INFO]   [20191015093108] https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-18 07:09:15,605 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-18 07:09:15,605 [INFO]   [20190823100037] https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-18 07:09:15,605 [INFO]   [20191015095105] https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-18 07:09:15,605 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-18 07:09:15,605 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,48/
+2026-05-18 07:09:15,605 [INFO]   [20230311055301] https://www.press.sk/aerohobby/c,d,16,64/
+2026-05-18 07:09:15,605 [INFO]   [20190819111913] https://www.press.sk/akcie/c,d,16,16/
+2026-05-18 07:09:15,605 [INFO]   [20191017062448] https://www.press.sk/akcie/c,d,16,16/
+2026-05-18 07:09:15,606 [INFO] [1/20] https://web.archive.org/web/20190822224727/https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-18 07:09:17,108 [DEBUG] Starting new HTTPS connection (1): web.archive.org:443
+2026-05-18 07:09:17,781 [DEBUG] https://web.archive.org:443 "GET /web/20190822224727/https://www.press.sk/aerohobby/c,d,16,16/ HTTP/1.1" 200 None
+2026-05-18 07:09:18,305 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:18,305 [INFO]     [!] Aerohobby č.06/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,305 [INFO]     [!] Aerohobby č.05/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,305 [INFO]     [!] Aerohobby č.04/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,305 [INFO]     [!] Aerohobby č.03/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,305 [INFO]     [!] Aerohobby č.02/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,305 [INFO]     [!] Aerohobby č.01/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,305 [INFO]     [!] Aerohobby č.06/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,305 [INFO]     [!] Aerohobby č.05/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,306 [INFO]     [!] Aerohobby č.04/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,306 [INFO]     [!] Aerohobby č.03/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,306 [INFO]     [!] Aerohobby č.02/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,306 [INFO]     [!] Aerohobby č.01/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,306 [INFO]     [!] Aerohobby č.6/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,306 [INFO]     [!] Aerohobby č.05/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,306 [INFO]     [!] Aerohobby č.04/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,306 [INFO]     [!] Aerohobby č.03/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:18,306 [INFO] [2/20] https://web.archive.org/web/20191015093108/https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-18 07:09:20,211 [DEBUG] https://web.archive.org:443 "GET /web/20191015093108/https://www.press.sk/aerohobby/c,d,16,16/ HTTP/1.1" 200 None
+2026-05-18 07:09:20,728 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:20,728 [INFO]     [!] Aerohobby č.01/2017 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,728 [INFO]     [!] Aerohobby č.06/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,728 [INFO]     [!] Aerohobby č.05/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,728 [INFO]     [!] Aerohobby č.04/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,728 [INFO]     [!] Aerohobby č.03/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,728 [INFO]     [!] Aerohobby č.02/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,729 [INFO]     [!] Aerohobby č.01/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,729 [INFO]     [!] Aerohobby č.06/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,729 [INFO]     [!] Aerohobby č.05/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,729 [INFO]     [!] Aerohobby č.04/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,729 [INFO]     [!] Aerohobby č.03/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,729 [INFO]     [!] Aerohobby č.02/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,729 [INFO]     [!] Aerohobby č.01/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,729 [INFO]     [!] Aerohobby č.6/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,729 [INFO]     [!] Aerohobby č.05/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,729 [INFO]     [!] Aerohobby č.04/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:20,730 [INFO] [3/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,16/
+2026-05-18 07:09:22,579 [DEBUG] https://web.archive.org:443 "GET /web/20230311055301/https://www.press.sk/aerohobby/c,d,16,16/ HTTP/1.1" 200 None
+2026-05-18 07:09:23,494 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.03/2020 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.02/2020 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.01/2020 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.06/2019 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.05/2019 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.04/2019 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.03/2019 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.02/2019 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.01/2019 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.06/2018 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.05/2018 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.04/2018 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.03/2018 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.02/2018 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,495 [INFO]     [!] Aerohobby č.01/2018 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,496 [INFO]     [!] Aerohobby č.06/2017 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:23,496 [INFO] [4/20] https://web.archive.org/web/20190823100037/https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-18 07:09:25,477 [DEBUG] https://web.archive.org:443 "GET /web/20190823100037/https://www.press.sk/aerohobby/c,d,16,32/ HTTP/1.1" 200 None
+2026-05-18 07:09:26,105 [INFO]   → listing, 15 produktov, 0 s obrázkom
+2026-05-18 07:09:26,105 [INFO]     [!] Aerohobby č.02/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,105 [INFO]     [!] Aerohobby č.01/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,105 [INFO]     [!] Aerohobby č.06/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,105 [INFO]     [!] Aerohobby č.05/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,106 [INFO]     [!] Aerohobby č.04/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,106 [INFO]     [!] Aerohobby č.03/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,106 [INFO]     [!] Aerohobby č.02/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,106 [INFO]     [!] Aerohobby č.01/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,106 [INFO]     [!] Aerohobby č.03/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,106 [INFO]     [!] Aerohobby č.02/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,106 [INFO]     [!] Aerohobby č.01/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,106 [INFO]     [!] Aerohobby č.06/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,106 [INFO]     [!] Aerohobby č.05/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,106 [INFO]     [!] Aerohobby č.04/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:26,106 [INFO]     [!] Aerohobby - predplatné | img: CHÝBA
+2026-05-18 07:09:26,107 [INFO] [5/20] https://web.archive.org/web/20191015095105/https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-18 07:09:28,248 [DEBUG] https://web.archive.org:443 "GET /web/20191015095105/https://www.press.sk/aerohobby/c,d,16,32/ HTTP/1.1" 200 None
+2026-05-18 07:09:28,977 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:28,977 [INFO]     [!] Aerohobby č.03/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,977 [INFO]     [!] Aerohobby č.02/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,977 [INFO]     [!] Aerohobby č.01/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,977 [INFO]     [!] Aerohobby č.06/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,977 [INFO]     [!] Aerohobby č.05/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,977 [INFO]     [!] Aerohobby č.04/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,977 [INFO]     [!] Aerohobby č.03/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,977 [INFO]     [!] Aerohobby č.02/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,977 [INFO]     [!] Aerohobby č.01/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,977 [INFO]     [!] Aerohobby č.03/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,977 [INFO]     [!] Aerohobby č.02/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,978 [INFO]     [!] Aerohobby č.01/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,978 [INFO]     [!] Aerohobby č.06/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,978 [INFO]     [!] Aerohobby č.05/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,978 [INFO]     [!] Aerohobby č.04/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:28,978 [INFO]     [!] Aerohobby - predplatné | img: CHÝBA
+2026-05-18 07:09:28,979 [INFO] [6/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,32/
+2026-05-18 07:09:31,031 [DEBUG] https://web.archive.org:443 "GET /web/20230311055301/https://www.press.sk/aerohobby/c,d,16,32/ HTTP/1.1" 200 None
+2026-05-18 07:09:31,636 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:31,636 [INFO]     [!] Aerohobby č.05/2017 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,636 [INFO]     [!] Aerohobby č.04/2017 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,636 [INFO]     [!] Aerohobby č.03/2017 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,636 [INFO]     [!] Aerohobby č.02/2017 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,636 [INFO]     [!] Aerohobby č.01/2017 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,636 [INFO]     [!] Aerohobby č.06/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,636 [INFO]     [!] Aerohobby č.05/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,636 [INFO]     [!] Aerohobby č.04/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,636 [INFO]     [!] Aerohobby č.03/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,636 [INFO]     [!] Aerohobby č.02/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,636 [INFO]     [!] Aerohobby č.01/2016 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,637 [INFO]     [!] Aerohobby č.06/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,637 [INFO]     [!] Aerohobby č.05/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,637 [INFO]     [!] Aerohobby č.04/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,637 [INFO]     [!] Aerohobby č.03/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,637 [INFO]     [!] Aerohobby č.02/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:31,638 [INFO] [7/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,48/
+2026-05-18 07:09:33,491 [DEBUG] https://web.archive.org:443 "GET /web/20230311055301/https://www.press.sk/aerohobby/c,d,16,48/ HTTP/1.1" 200 None
+2026-05-18 07:09:34,465 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:34,465 [INFO]     [!] Aerohobby č.01/2015 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,465 [INFO]     [!] Aerohobby č.6/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,465 [INFO]     [!] Aerohobby č.05/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.04/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.03/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.02/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.01/2014 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.06/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.05/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.04/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.03/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.02/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.01/2013 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.03/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.02/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,466 [INFO]     [!] Aerohobby č.01/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:34,467 [INFO] [8/20] https://web.archive.org/web/20230311055301/https://www.press.sk/aerohobby/c,d,16,64/
+2026-05-18 07:09:36,767 [DEBUG] https://web.archive.org:443 "GET /web/20230311055301/https://www.press.sk/aerohobby/c,d,16,64/ HTTP/1.1" 200 None
+2026-05-18 07:09:37,009 [INFO]   → listing, 4 produktov, 0 s obrázkom
+2026-05-18 07:09:37,009 [INFO]     [!] Aerohobby č.06/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:37,009 [INFO]     [!] Aerohobby č.05/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:37,009 [INFO]     [!] Aerohobby č.04/2012 (e-vydanie) | img: CHÝBA
+2026-05-18 07:09:37,009 [INFO]     [!] Aerohobby - predplatné | img: CHÝBA
+2026-05-18 07:09:37,010 [INFO] [9/20] https://web.archive.org/web/20190819111913/https://www.press.sk/akcie/c,d,16,16/
+2026-05-18 07:09:39,995 [DEBUG] https://web.archive.org:443 "GET /web/20190819111913/https://www.press.sk/akcie/c,d,16,16/ HTTP/1.1" 200 None
+2026-05-18 07:09:40,599 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:40,599 [INFO]     [!] Vstupenka na smrt | img: CHÝBA
+2026-05-18 07:09:40,599 [INFO]     [!] Záhada jménem Kolumbus | img: CHÝBA
+2026-05-18 07:09:40,599 [INFO]     [!] Tvoříme ve vintage stylu | img: CHÝBA
+2026-05-18 07:09:40,599 [INFO]     [!] Diverzanti a agenti v akci | img: CHÝBA
+2026-05-18 07:09:40,599 [INFO]     [!] Těžký soupeř | img: CHÝBA
+2026-05-18 07:09:40,599 [INFO]     [!] Ten den mi patřilo nebe | img: CHÝBA
+2026-05-18 07:09:40,599 [INFO]     [!] Moučníky bez lepku | img: CHÝBA
+2026-05-18 07:09:40,599 [INFO]     [!] Zbraně a bojové techniky samurajů 1200-1877 n. l. | img: CHÝBA
+2026-05-18 07:09:40,599 [INFO]     [!] Jak si smrt došla pro kata | img: CHÝBA
+2026-05-18 07:09:40,599 [INFO]     [!] Ježek v zahradě | img: CHÝBA
+2026-05-18 07:09:40,599 [INFO]     [!] Britští parašutisté versus němečtí padákoví mysliv | img: CHÝBA
+2026-05-18 07:09:40,599 [INFO]     [!] Němečtí pěšáci versus sovětští střelci | img: CHÝBA
+2026-05-18 07:09:40,600 [INFO]     [!] Rambo na vodítku | img: CHÝBA
+2026-05-18 07:09:40,600 [INFO]     [!] Porážka - Poslední republika III. | img: CHÝBA
+2026-05-18 07:09:40,600 [INFO]     [!] Šijeme sedací vaky | img: CHÝBA
+2026-05-18 07:09:40,600 [INFO]     [!] Třetí výstřel | img: CHÝBA
+2026-05-18 07:09:40,601 [INFO] [10/20] https://web.archive.org/web/20191017062448/https://www.press.sk/akcie/c,d,16,16/
+2026-05-18 07:09:42,607 [DEBUG] https://web.archive.org:443 "GET /web/20191017062448/https://www.press.sk/akcie/c,d,16,16/ HTTP/1.1" 200 None
+2026-05-18 07:09:43,216 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:43,216 [INFO]     [!] Těžký soupeř | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Ten den mi patřilo nebe | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Moučníky bez lepku | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Zbraně a bojové techniky samurajů 1200-1877 n. l. | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Jak si smrt došla pro kata | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Ježek v zahradě | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Britští parašutisté versus němečtí padákoví mysliv | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Němečtí pěšáci versus sovětští střelci | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Rambo na vodítku | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Porážka - Poslední republika III. | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Šijeme sedací vaky | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Třetí výstřel | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Veselé modrotiskání | img: CHÝBA
+2026-05-18 07:09:43,216 [INFO]     [!] Networking - Jak získat nové klienty a obchodní pa | img: CHÝBA
+2026-05-18 07:09:43,217 [INFO]     [!] Zdravá výživa pro celou rodinu - Kuchařka dnešní d | img: CHÝBA
+2026-05-18 07:09:43,217 [INFO]     [!] Zdobíme květináče | img: CHÝBA
+2026-05-18 07:09:43,218 [INFO] [11/20] https://web.archive.org/web/20191213033048/https://www.press.sk/akcie/c,d,16,16/
+2026-05-18 07:09:47,582 [DEBUG] https://web.archive.org:443 "GET /web/20191213033048/https://www.press.sk/akcie/c,d,16,16/ HTTP/1.1" 200 None
+2026-05-18 07:09:48,192 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:48,192 [INFO]     [!] Ten den mi patřilo nebe | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Moučníky bez lepku | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Zbraně a bojové techniky samurajů 1200-1877 n. l. | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Jak si smrt došla pro kata | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Ježek v zahradě | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Britští parašutisté versus němečtí padákoví mysliv | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Němečtí pěšáci versus sovětští střelci | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Rambo na vodítku | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Porážka - Poslední republika III. | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Šijeme sedací vaky | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Třetí výstřel | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Veselé modrotiskání | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Networking - Jak získat nové klienty a obchodní pa | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Zdravá výživa pro celou rodinu - Kuchařka dnešní d | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Zdobíme květináče | img: CHÝBA
+2026-05-18 07:09:48,193 [INFO]     [!] Hroby bez diktátorů | img: CHÝBA
+2026-05-18 07:09:48,195 [INFO] [12/20] https://web.archive.org/web/20230311055300/https://www.press.sk/akcie/c,d,16,16/
+2026-05-18 07:09:50,465 [DEBUG] https://web.archive.org:443 "GET /web/20230311055300/https://www.press.sk/akcie/c,d,16,16/ HTTP/1.1" 200 None
+2026-05-18 07:09:51,098 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:51,098 [INFO]     [!] Válka-Jeden rok války v Afghánistánu | img: CHÝBA
+2026-05-18 07:09:51,098 [INFO]     [!] Pět dnů | img: CHÝBA
+2026-05-18 07:09:51,098 [INFO]     [!] Stíhač v Buchenwaldu | img: CHÝBA
+2026-05-18 07:09:51,098 [INFO]     [!] Diverzanti a agenti v akci | img: CHÝBA
+2026-05-18 07:09:51,098 [INFO]     [!] Ten den mi patřilo nebe | img: CHÝBA
+2026-05-18 07:09:51,098 [INFO]     [!] Ježek v zahradě | img: CHÝBA
+2026-05-18 07:09:51,098 [INFO]     [!] Elita armády | img: CHÝBA
+2026-05-18 07:09:51,098 [INFO]     [!] Jak šly dny, měsíce a roky | img: CHÝBA
+2026-05-18 07:09:51,098 [INFO]     [!] Delfin Aero L-29 | img: CHÝBA
+2026-05-18 07:09:51,098 [INFO]     [!] Jeep jede do války | img: CHÝBA
+2026-05-18 07:09:51,098 [INFO]     [!] Středočeské závody a okruhy - Století středočeskéh | img: CHÝBA
+2026-05-18 07:09:51,098 [INFO]     [!] Zničí nás klima nebo boj s klimatem | img: CHÝBA
+2026-05-18 07:09:51,098 [INFO]     [!] Sturmartillerie - Úderná pěst pěchoty | img: CHÝBA
+2026-05-18 07:09:51,099 [INFO]     [!] Ročenka Elektro 2017 | img: CHÝBA
+2026-05-18 07:09:51,099 [INFO]     [!] Ako chytiť Cresseliu - Neoficiálne príbehy pre Lov | img: CHÝBA
+2026-05-18 07:09:51,099 [INFO]     [!] Bio odrůdy révy vinné | img: CHÝBA
+2026-05-18 07:09:51,100 [INFO] [13/20] https://web.archive.org/web/20190819111651/https://www.press.sk/akcie/c,d,16,32/
+2026-05-18 07:09:52,941 [DEBUG] https://web.archive.org:443 "GET /web/20190819111651/https://www.press.sk/akcie/c,d,16,32/ HTTP/1.1" 200 None
+2026-05-18 07:09:53,549 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:53,549 [INFO]     [!] Veselé modrotiskání | img: CHÝBA
+2026-05-18 07:09:53,549 [INFO]     [!] Networking - Jak získat nové klienty a obchodní pa | img: CHÝBA
+2026-05-18 07:09:53,549 [INFO]     [!] Zdravá výživa pro celou rodinu - Kuchařka dnešní d | img: CHÝBA
+2026-05-18 07:09:53,549 [INFO]     [!] Zdobíme květináče | img: CHÝBA
+2026-05-18 07:09:53,549 [INFO]     [!] Hroby bez diktátorů | img: CHÝBA
+2026-05-18 07:09:53,549 [INFO]     [!] Život po Dáeši - Děti Islámského státu | img: CHÝBA
+2026-05-18 07:09:53,549 [INFO]     [!] Photoshop Elements 15 | img: CHÝBA
+2026-05-18 07:09:53,550 [INFO]     [!] Psi v džungli velkoměsta: Městem bez obav | img: CHÝBA
+2026-05-18 07:09:53,550 [INFO]     [!] Fotoportréty | img: CHÝBA
+2026-05-18 07:09:53,550 [INFO]     [!] Výhonky a mikrozelenina | img: CHÝBA
+2026-05-18 07:09:53,550 [INFO]     [!] Soutěž Malou dohodou 1937: Auta a motocykly na tra | img: CHÝBA
+2026-05-18 07:09:53,550 [INFO]     [!] Krycí jméno E219 | img: CHÝBA
+2026-05-18 07:09:53,550 [INFO]     [!] Vinuté perle | img: CHÝBA
+2026-05-18 07:09:53,550 [INFO]     [!] Autá: Mater na Mesiaci a iné historky | img: CHÝBA
+2026-05-18 07:09:53,550 [INFO]     [!] Vesmír - Encyklopedie | img: CHÝBA
+2026-05-18 07:09:53,550 [INFO]     [!] Řeč psího ocásku | img: CHÝBA
+2026-05-18 07:09:53,551 [INFO] [14/20] https://web.archive.org/web/20191017062248/https://www.press.sk/akcie/c,d,16,32/
+2026-05-18 07:09:55,471 [DEBUG] https://web.archive.org:443 "GET /web/20191017062248/https://www.press.sk/akcie/c,d,16,32/ HTTP/1.1" 200 None
+2026-05-18 07:09:56,048 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:56,048 [INFO]     [!] Hroby bez diktátorů | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Život po Dáeši - Děti Islámského státu | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Photoshop Elements 15 | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Psi v džungli velkoměsta: Městem bez obav | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Fotoportréty | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Výhonky a mikrozelenina | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Soutěž Malou dohodou 1937: Auta a motocykly na tra | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Krycí jméno E219 | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Vinuté perle | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Autá: Mater na Mesiaci a iné historky | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Vesmír - Encyklopedie | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Řeč psího ocásku | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Jak zvládat lovecké chování psa | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Šmolkovia - Lietajúci šmolko | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Letokruhy jako kalendář i záznamník | img: CHÝBA
+2026-05-18 07:09:56,049 [INFO]     [!] Oděvní střihy – jak je použít, upravit a navrhnout | img: CHÝBA
+2026-05-18 07:09:56,051 [INFO] [15/20] https://web.archive.org/web/20191213032911/https://www.press.sk/akcie/c,d,16,32/
+2026-05-18 07:09:58,039 [DEBUG] https://web.archive.org:443 "GET /web/20191213032911/https://www.press.sk/akcie/c,d,16,32/ HTTP/1.1" 200 None
+2026-05-18 07:09:58,659 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:09:58,659 [INFO]     [!] Život po Dáeši - Děti Islámského státu | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Photoshop Elements 15 | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Psi v džungli velkoměsta: Městem bez obav | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Fotoportréty | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Výhonky a mikrozelenina | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Soutěž Malou dohodou 1937: Auta a motocykly na tra | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Krycí jméno E219 | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Vinuté perle | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Autá: Mater na Mesiaci a iné historky | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Vesmír - Encyklopedie | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Řeč psího ocásku | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Jak zvládat lovecké chování psa | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Letokruhy jako kalendář i záznamník | img: CHÝBA
+2026-05-18 07:09:58,659 [INFO]     [!] Oděvní střihy – jak je použít, upravit a navrhnout | img: CHÝBA
+2026-05-18 07:09:58,660 [INFO]     [!] Druhá šance pro košile | img: CHÝBA
+2026-05-18 07:09:58,660 [INFO]     [!] Ročenka Elektro 2017 | img: CHÝBA
+2026-05-18 07:09:58,661 [INFO] [16/20] https://web.archive.org/web/20230311055300/https://www.press.sk/akcie/c,d,16,32/
+2026-05-18 07:10:00,666 [DEBUG] https://web.archive.org:443 "GET /web/20230311055300/https://www.press.sk/akcie/c,d,16,32/ HTTP/1.1" 200 None
+2026-05-18 07:10:02,294 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:10:02,294 [INFO]     [!] Ročenka Elektro 2014 | img: CHÝBA
+2026-05-18 07:10:02,294 [INFO]     [!] Vězněm v Alcatrazu | img: CHÝBA
+2026-05-18 07:10:02,294 [INFO]     [!] Ročenka Elektro 2016 | img: CHÝBA
+2026-05-18 07:10:02,294 [INFO]     [!] Bitva o pevnost Qala-e Džangi - Nekonvenční operac | img: CHÝBA
+2026-05-18 07:10:02,294 [INFO]     [!] Ročenka Elektro 2015 | img: CHÝBA
+2026-05-18 07:10:02,294 [INFO]     [!] Zrádci, nebo vlastenci? | img: CHÝBA
+2026-05-18 07:10:02,294 [INFO]     [!] Minecraft průvodce pro rodiče | img: CHÝBA
+2026-05-18 07:10:02,294 [INFO]     [!] Sovětští generálové v zajetí 1941 – 1945 | img: CHÝBA
+2026-05-18 07:10:02,294 [INFO]     [!] Meteor I vs létající puma V1 | img: CHÝBA
+2026-05-18 07:10:02,294 [INFO]     [!] Ročenka ELEKTRO 2013 | img: CHÝBA
+2026-05-18 07:10:02,294 [INFO]     [!] Ročenka ELEKTRO 2012 | img: CHÝBA
+2026-05-18 07:10:02,294 [INFO]     [!] Ročenka ELEKTRO 2011 | img: CHÝBA
+2026-05-18 07:10:02,294 [INFO]     [!] Afganský zápisník | img: CHÝBA
+2026-05-18 07:10:02,295 [INFO]     [!] NATO Trucks and Vehicles in detail | img: CHÝBA
+2026-05-18 07:10:02,295 [INFO]     [!] Czech Tigers in detail | img: CHÝBA
+2026-05-18 07:10:02,295 [INFO]     [!] Meteor-F.Mk 8 in detail | img: CHÝBA
+2026-05-18 07:10:02,296 [INFO] [17/20] https://web.archive.org/web/20190819113819/https://www.press.sk/akcie/c,d,16,48/
+2026-05-18 07:10:04,272 [DEBUG] https://web.archive.org:443 "GET /web/20190819113819/https://www.press.sk/akcie/c,d,16,48/ HTTP/1.1" 200 None
+2026-05-18 07:10:04,894 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:10:04,894 [INFO]     [!] Jak zvládat lovecké chování psa | img: CHÝBA
+2026-05-18 07:10:04,894 [INFO]     [!] Šmolkovia - Lietajúci šmolko | img: CHÝBA
+2026-05-18 07:10:04,894 [INFO]     [!] Letokruhy jako kalendář i záznamník | img: CHÝBA
+2026-05-18 07:10:04,894 [INFO]     [!] Oděvní střihy – jak je použít, upravit a navrhnout | img: CHÝBA
+2026-05-18 07:10:04,894 [INFO]     [!] Druhá šance pro košile | img: CHÝBA
+2026-05-18 07:10:04,894 [INFO]     [!] Ročenka Elektro 2017 | img: CHÝBA
+2026-05-18 07:10:04,894 [INFO]     [!] Šmolkovia - Šmolkovské kúpele | img: CHÝBA
+2026-05-18 07:10:04,895 [INFO]     [!] Šmolkovia - Šmolkovské bábätko | img: CHÝBA
+2026-05-18 07:10:04,895 [INFO]     [!] Šmolkovia - Šmolko reportér | img: CHÝBA
+2026-05-18 07:10:04,895 [INFO]     [!] So wood - Vše ze dřeva | img: CHÝBA
+2026-05-18 07:10:04,895 [INFO]     [!] Macko Puf - Filmový príbeh | img: CHÝBA
+2026-05-18 07:10:04,895 [INFO]     [!] Pokémon Go - Nezávislá a neoficiálna hráčova príru | img: CHÝBA
+2026-05-18 07:10:04,895 [INFO]     [!] Šmolkovia - 120 vtipov a iných prekvapení | img: CHÝBA
+2026-05-18 07:10:04,895 [INFO]     [!] Autá - Priatelia na štyroch kolesách | img: CHÝBA
+2026-05-18 07:10:04,895 [INFO]     [!] Ako chytiť Cresseliu - Neoficiálne príbehy pre Lov | img: CHÝBA
+2026-05-18 07:10:04,895 [INFO]     [!] Lietadlá: Filmový príbeh - Vyfarbuj, čítaj, nalepu | img: CHÝBA
+2026-05-18 07:10:04,897 [INFO] [18/20] https://web.archive.org/web/20191017064116/https://www.press.sk/akcie/c,d,16,48/
+2026-05-18 07:10:06,838 [DEBUG] https://web.archive.org:443 "GET /web/20191017064116/https://www.press.sk/akcie/c,d,16,48/ HTTP/1.1" 200 None
+2026-05-18 07:10:07,424 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:10:07,424 [INFO]     [!] Druhá šance pro košile | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Ročenka Elektro 2017 | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Šmolkovia - Šmolkovské kúpele | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Šmolkovia - Šmolkovské bábätko | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Šmolkovia - Šmolko reportér | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] So wood - Vše ze dřeva | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Macko Puf - Filmový príbeh | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Pokémon Go - Nezávislá a neoficiálna hráčova príru | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Šmolkovia - 120 vtipov a iných prekvapení | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Autá - Priatelia na štyroch kolesách | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Ako chytiť Cresseliu - Neoficiálne príbehy pre Lov | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Lietadlá: Filmový príbeh - Vyfarbuj, čítaj, nalepu | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Pupčeky 2 - Ťažké časy pre škraty | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Dobrodružstvá Ferda Mravca | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Bio odrůdy révy vinné | img: CHÝBA
+2026-05-18 07:10:07,424 [INFO]     [!] Šest pilířů manažerského úspěchu | img: CHÝBA
+2026-05-18 07:10:07,426 [INFO] [19/20] https://web.archive.org/web/20191213034558/https://www.press.sk/akcie/c,d,16,48/
+2026-05-18 07:10:09,260 [DEBUG] https://web.archive.org:443 "GET /web/20191213034558/https://www.press.sk/akcie/c,d,16,48/ HTTP/1.1" 200 None
+2026-05-18 07:10:09,839 [INFO]   → listing, 16 produktov, 0 s obrázkom
+2026-05-18 07:10:09,839 [INFO]     [!] Šmolkovia - Šmolkovské kúpele | img: CHÝBA
+2026-05-18 07:10:09,839 [INFO]     [!] Šmolkovia - Šmolkovské bábätko | img: CHÝBA
+2026-05-18 07:10:09,839 [INFO]     [!] Šmolkovia - Šmolko reportér | img: CHÝBA
+2026-05-18 07:10:09,839 [INFO]     [!] So wood - Vše ze dřeva | img: CHÝBA
+2026-05-18 07:10:09,839 [INFO]     [!] Macko Puf - Filmový príbeh | img: CHÝBA
+2026-05-18 07:10:09,839 [INFO]     [!] Pokémon Go - Nezávislá a neoficiálna hráčova príru | img: CHÝBA
+2026-05-18 07:10:09,839 [INFO]     [!] Šmolkovia - 120 vtipov a iných prekvapení | img: CHÝBA
+2026-05-18 07:10:09,839 [INFO]     [!] Autá - Priatelia na štyroch kolesách | img: CHÝBA
+2026-05-18 07:10:09,839 [INFO]     [!] Ako chytiť Cresseliu - Neoficiálne príbehy pre Lov | img: CHÝBA
+2026-05-18 07:10:09,839 [INFO]     [!] Lietadlá: Filmový príbeh - Vyfarbuj, čítaj, nalepu | img: CHÝBA
+2026-05-18 07:10:09,839 [INFO]     [!] Pupčeky 2 - Ťažké časy pre škraty | img: CHÝBA
+2026-05-18 07:10:09,839 [INFO]     [!] Dobrodružstvá Ferda Mravca | img: CHÝBA
+2026-05-18 07:10:09,839 [INFO]     [!] Bio odrůdy révy vinné | img: CHÝBA
+2026-05-18 07:10:09,840 [INFO]     [!] Šest pilířů manažerského úspěchu | img: CHÝBA
+2026-05-18 07:10:09,840 [INFO]     [!] Ročenka Elektro 2014 | img: CHÝBA
+2026-05-18 07:10:09,840 [INFO]     [!] Vězněm v Alcatrazu | img: CHÝBA
+2026-05-18 07:10:09,841 [INFO] [20/20] https://web.archive.org/web/20230311055300/https://www.press.sk/akcie/c,d,16,48/
+2026-05-18 07:10:11,929 [DEBUG] https://web.archive.org:443 "GET /web/20230311055300/https://www.press.sk/akcie/c,d,16,48/ HTTP/1.1" 200 None
+2026-05-18 07:10:12,602 [INFO]   → listing, 10 produktov, 0 s obrázkom
+2026-05-18 07:10:12,602 [INFO]     [!] Mitsubishi Ki - 46 III "Dinah" in detail | img: CHÝBA
+2026-05-18 07:10:12,602 [INFO]     [!] Chinook in detail | img: CHÝBA
+2026-05-18 07:10:12,603 [INFO]     [!] T-55 in detail - Special and Recovery Vehicles | img: CHÝBA
+2026-05-18 07:10:12,603 [INFO]     [!] Obrněná technika 6 - Střední evropa 1919-1945 (II. | img: CHÝBA
+2026-05-18 07:10:12,603 [INFO]     [!] M35A2 in detail | img: CHÝBA
+2026-05-18 07:10:12,603 [INFO]     [!] Na nebi hrdého albionu 7. | img: CHÝBA
+2026-05-18 07:10:12,603 [INFO]     [!] AS-90 Braveheart in detail | img: CHÝBA
+2026-05-18 07:10:12,603 [INFO]     [!] Na nebi hrdého albionu 5. | img: CHÝBA
+2026-05-18 07:10:12,603 [INFO]     [!] Obrněná technika 5 - Střední evropa 1919-1945 (I.č | img: CHÝBA
+2026-05-18 07:10:12,603 [INFO]     [!] Czechoslovak Spitfires in detail | img: CHÝBA
+2026-05-18 07:10:12,605 [INFO] ==================================================
+2026-05-18 07:10:12,605 [INFO] HOTOVO — 140 produktov, 0 chýb
+2026-05-18 07:10:12,605 [INFO] CSV: output/products.csv | Obrázky: output/images/
+2026-05-18 07:10:12,605 [INFO] ==================================================
