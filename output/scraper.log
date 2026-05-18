@@ -1,100 +1,100 @@
-2026-05-18 07:29:41,367 [INFO] CDX cache nájdená, načítavam z output/cdx_urls.json...
-2026-05-18 07:29:41,375 [INFO] === Prvých 20 URL z CDX (pre diagnostiku filtrov) ===
-2026-05-18 07:29:41,377 [INFO]   [PRODUCT] https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
-2026-05-18 07:29:41,377 [INFO]   [PRODUCT] https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
-2026-05-18 07:29:41,377 [INFO]   [PRODUCT] https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
-2026-05-18 07:29:41,377 [INFO]   [PRODUCT] https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
-2026-05-18 07:29:41,378 [INFO]   [PRODUCT] https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
-2026-05-18 07:29:41,378 [INFO]   [PRODUCT] https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
-2026-05-18 07:29:41,378 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.112012/
-2026-05-18 07:29:41,378 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.112012/
-2026-05-18 07:29:41,378 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.122012/
-2026-05-18 07:29:41,378 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.32012/
-2026-05-18 07:29:41,379 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.52012/
-2026-05-18 07:29:41,379 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.62012/
-2026-05-18 07:29:41,379 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.62012/
-2026-05-18 07:29:41,379 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.72012/
-2026-05-18 07:29:41,379 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.92012/
-2026-05-18 07:29:41,379 [INFO]   [PRODUCT] https://www.press.sk/2012/letectvi-kosmonautika-c.82012/
-2026-05-18 07:29:41,379 [INFO]   [PRODUCT] https://www.press.sk/2013+192/modelar-c.012013/
-2026-05-18 07:29:41,379 [INFO]   [PRODUCT] https://www.press.sk/2013+192/modelar-c.022013/
-2026-05-18 07:29:41,379 [INFO]   [PRODUCT] https://www.press.sk/2013+192/modelar-c.032013/
-2026-05-18 07:29:41,380 [INFO]   [PRODUCT] https://www.press.sk/2013+192/modelar-c.042013/
-2026-05-18 07:29:41,380 [INFO] ==================================================
-2026-05-18 07:29:41,634 [INFO] Relevantných URL: 5,848 z 10,000
-2026-05-18 07:29:41,634 [INFO] Ukážka relevantných (prvých 10):
-2026-05-18 07:29:41,634 [INFO]   [20190923075531] https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
-2026-05-18 07:29:41,634 [INFO]   [20190920190920] https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
-2026-05-18 07:29:41,634 [INFO]   [20190920190843] https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
-2026-05-18 07:29:41,634 [INFO]   [20190923075244] https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
-2026-05-18 07:29:41,634 [INFO]   [20190923075847] https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
-2026-05-18 07:29:41,634 [INFO]   [20190923075712] https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
-2026-05-18 07:29:41,635 [INFO]   [20191022100219] https://www.press.sk/2012+193/atm-c.112012/
-2026-05-18 07:29:41,635 [INFO]   [20191211172425] https://www.press.sk/2012+193/atm-c.112012/
-2026-05-18 07:29:41,635 [INFO]   [20191016051059] https://www.press.sk/2012+193/atm-c.122012/
-2026-05-18 07:29:41,635 [INFO]   [20191207142717] https://www.press.sk/2012+193/atm-c.32012/
-2026-05-18 07:29:41,635 [INFO] [1/30] https://web.archive.org/web/20190923075531/https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
-2026-05-18 07:29:43,137 [DEBUG] Starting new HTTPS connection (1): web.archive.org:443
-2026-05-18 07:29:43,759 [DEBUG] https://web.archive.org:443 "GET /web/20190923075531/https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/ HTTP/1.1" 200 None
-2026-05-18 07:29:43,932 [INFO] [2/30] https://web.archive.org/web/20190920190920/https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
-2026-05-18 07:29:45,839 [DEBUG] https://web.archive.org:443 "GET /web/20190920190920/https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/ HTTP/1.1" 200 None
-2026-05-18 07:29:45,995 [INFO] [3/30] https://web.archive.org/web/20190920190843/https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
-2026-05-18 07:29:47,960 [DEBUG] https://web.archive.org:443 "GET /web/20190920190843/https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/ HTTP/1.1" 200 None
-2026-05-18 07:29:48,124 [INFO] [4/30] https://web.archive.org/web/20190923075244/https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
-2026-05-18 07:29:50,150 [DEBUG] https://web.archive.org:443 "GET /web/20190923075244/https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/ HTTP/1.1" 200 None
-2026-05-18 07:29:50,305 [INFO] [5/30] https://web.archive.org/web/20190923075847/https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
-2026-05-18 07:29:52,194 [DEBUG] https://web.archive.org:443 "GET /web/20190923075847/https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/ HTTP/1.1" 200 None
-2026-05-18 07:29:52,349 [INFO] [6/30] https://web.archive.org/web/20190923075712/https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
-2026-05-18 07:29:54,270 [DEBUG] https://web.archive.org:443 "GET /web/20190923075712/https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/ HTTP/1.1" 200 None
-2026-05-18 07:29:54,425 [INFO] [7/30] https://web.archive.org/web/20191022100219/https://www.press.sk/2012+193/atm-c.112012/
-2026-05-18 07:29:56,409 [DEBUG] https://web.archive.org:443 "GET /web/20191022100219/https://www.press.sk/2012+193/atm-c.112012/ HTTP/1.1" 200 None
-2026-05-18 07:29:56,568 [INFO] [8/30] https://web.archive.org/web/20191211172425/https://www.press.sk/2012+193/atm-c.112012/
-2026-05-18 07:30:00,154 [DEBUG] https://web.archive.org:443 "GET /web/20191211172425/https://www.press.sk/2012+193/atm-c.112012/ HTTP/1.1" 200 None
-2026-05-18 07:30:00,314 [INFO] [9/30] https://web.archive.org/web/20191016051059/https://www.press.sk/2012+193/atm-c.122012/
-2026-05-18 07:30:02,447 [DEBUG] https://web.archive.org:443 "GET /web/20191016051059/https://www.press.sk/2012+193/atm-c.122012/ HTTP/1.1" 200 None
-2026-05-18 07:30:02,617 [INFO] [10/30] https://web.archive.org/web/20191207142717/https://www.press.sk/2012+193/atm-c.32012/
-2026-05-18 07:30:04,565 [DEBUG] https://web.archive.org:443 "GET /web/20191207142717/https://www.press.sk/2012+193/atm-c.32012/ HTTP/1.1" 200 None
-2026-05-18 07:30:04,727 [INFO] [11/30] https://web.archive.org/web/20191210054636/https://www.press.sk/2012+193/atm-c.52012/
-2026-05-18 07:30:06,706 [DEBUG] https://web.archive.org:443 "GET /web/20191210054636/https://www.press.sk/2012+193/atm-c.52012/ HTTP/1.1" 200 None
-2026-05-18 07:30:06,870 [INFO] [12/30] https://web.archive.org/web/20191016053105/https://www.press.sk/2012+193/atm-c.62012/
-2026-05-18 07:30:08,965 [DEBUG] https://web.archive.org:443 "GET /web/20191016053105/https://www.press.sk/2012+193/atm-c.62012/ HTTP/1.1" 200 None
-2026-05-18 07:30:09,125 [INFO] [13/30] https://web.archive.org/web/20191207172747/https://www.press.sk/2012+193/atm-c.62012/
-2026-05-18 07:30:11,072 [DEBUG] https://web.archive.org:443 "GET /web/20191207172747/https://www.press.sk/2012+193/atm-c.62012/ HTTP/1.1" 200 None
-2026-05-18 07:30:11,231 [INFO] [14/30] https://web.archive.org/web/20191016053805/https://www.press.sk/2012+193/atm-c.72012/
-2026-05-18 07:30:13,134 [DEBUG] https://web.archive.org:443 "GET /web/20191016053805/https://www.press.sk/2012+193/atm-c.72012/ HTTP/1.1" 200 None
-2026-05-18 07:30:13,294 [INFO] [15/30] https://web.archive.org/web/20191209203913/https://www.press.sk/2012+193/atm-c.92012/
-2026-05-18 07:30:15,351 [DEBUG] https://web.archive.org:443 "GET /web/20191209203913/https://www.press.sk/2012+193/atm-c.92012/ HTTP/1.1" 200 None
-2026-05-18 07:30:15,511 [INFO] [16/30] https://web.archive.org/web/20190826060544/https://www.press.sk/2012/letectvi-kosmonautika-c.82012/
-2026-05-18 07:30:17,473 [DEBUG] https://web.archive.org:443 "GET /web/20190826060544/https://www.press.sk/2012/letectvi-kosmonautika-c.82012/ HTTP/1.1" 200 None
-2026-05-18 07:30:17,639 [INFO] [17/30] https://web.archive.org/web/20190920190934/https://www.press.sk/2013+192/modelar-c.012013/
-2026-05-18 07:30:19,594 [DEBUG] https://web.archive.org:443 "GET /web/20190920190934/https://www.press.sk/2013+192/modelar-c.012013/ HTTP/1.1" 200 None
-2026-05-18 07:30:19,757 [INFO] [18/30] https://web.archive.org/web/20190920190948/https://www.press.sk/2013+192/modelar-c.022013/
-2026-05-18 07:30:21,725 [DEBUG] https://web.archive.org:443 "GET /web/20190920190948/https://www.press.sk/2013+192/modelar-c.022013/ HTTP/1.1" 200 None
-2026-05-18 07:30:21,888 [INFO] [19/30] https://web.archive.org/web/20190920191003/https://www.press.sk/2013+192/modelar-c.032013/
-2026-05-18 07:30:23,964 [DEBUG] https://web.archive.org:443 "GET /web/20190920191003/https://www.press.sk/2013+192/modelar-c.032013/ HTTP/1.1" 200 None
-2026-05-18 07:30:24,126 [INFO] [20/30] https://web.archive.org/web/20190920191020/https://www.press.sk/2013+192/modelar-c.042013/
-2026-05-18 07:30:26,049 [DEBUG] https://web.archive.org:443 "GET /web/20190920191020/https://www.press.sk/2013+192/modelar-c.042013/ HTTP/1.1" 200 None
-2026-05-18 07:30:26,238 [INFO] [21/30] https://web.archive.org/web/20190920191101/https://www.press.sk/2013+192/modelar-c.052013/
-2026-05-18 07:30:28,206 [DEBUG] https://web.archive.org:443 "GET /web/20190920191101/https://www.press.sk/2013+192/modelar-c.052013/ HTTP/1.1" 200 None
-2026-05-18 07:30:28,366 [INFO] [22/30] https://web.archive.org/web/20190920191127/https://www.press.sk/2013+192/modelar-c.062013/
-2026-05-18 07:30:30,228 [DEBUG] https://web.archive.org:443 "GET /web/20190920191127/https://www.press.sk/2013+192/modelar-c.062013/ HTTP/1.1" 200 None
-2026-05-18 07:30:30,387 [INFO] [23/30] https://web.archive.org/web/20190920191153/https://www.press.sk/2013+192/modelar-c.072013/
-2026-05-18 07:30:32,325 [DEBUG] https://web.archive.org:443 "GET /web/20190920191153/https://www.press.sk/2013+192/modelar-c.072013/ HTTP/1.1" 200 None
-2026-05-18 07:30:32,479 [INFO] [24/30] https://web.archive.org/web/20190920191213/https://www.press.sk/2013+192/modelar-c.082013/
-2026-05-18 07:30:34,347 [DEBUG] https://web.archive.org:443 "GET /web/20190920191213/https://www.press.sk/2013+192/modelar-c.082013/ HTTP/1.1" 200 None
-2026-05-18 07:30:34,506 [INFO] [25/30] https://web.archive.org/web/20190920191232/https://www.press.sk/2013+192/modelar-c.092013/
-2026-05-18 07:30:36,390 [DEBUG] https://web.archive.org:443 "GET /web/20190920191232/https://www.press.sk/2013+192/modelar-c.092013/ HTTP/1.1" 200 None
-2026-05-18 07:30:36,550 [INFO] [26/30] https://web.archive.org/web/20190920190523/https://www.press.sk/2013+192/modelar-c.102013/
-2026-05-18 07:30:38,470 [DEBUG] https://web.archive.org:443 "GET /web/20190920190523/https://www.press.sk/2013+192/modelar-c.102013/ HTTP/1.1" 200 None
-2026-05-18 07:30:38,629 [INFO] [27/30] https://web.archive.org/web/20190920190539/https://www.press.sk/2013+192/modelar-c.112013/
-2026-05-18 07:30:40,564 [DEBUG] https://web.archive.org:443 "GET /web/20190920190539/https://www.press.sk/2013+192/modelar-c.112013/ HTTP/1.1" 200 None
-2026-05-18 07:30:40,723 [INFO] [28/30] https://web.archive.org/web/20190920190600/https://www.press.sk/2013+192/modelar-c.122013/
-2026-05-18 07:30:42,826 [DEBUG] https://web.archive.org:443 "GET /web/20190920190600/https://www.press.sk/2013+192/modelar-c.122013/ HTTP/1.1" 200 None
-2026-05-18 07:30:42,986 [INFO] [29/30] https://web.archive.org/web/20191022094603/https://www.press.sk/2013+194/atm-c.012013/
-2026-05-18 07:30:44,938 [DEBUG] https://web.archive.org:443 "GET /web/20191022094603/https://www.press.sk/2013+194/atm-c.012013/ HTTP/1.1" 200 None
-2026-05-18 07:30:45,099 [INFO] [30/30] https://web.archive.org/web/20191211163914/https://www.press.sk/2013+194/atm-c.012013/
-2026-05-18 07:30:47,266 [DEBUG] https://web.archive.org:443 "GET /web/20191211163914/https://www.press.sk/2013+194/atm-c.012013/ HTTP/1.1" 200 None
-2026-05-18 07:30:47,426 [INFO] ==================================================
-2026-05-18 07:30:47,426 [INFO] HOTOVO — 27 produktov, 0 chýb
-2026-05-18 07:30:47,426 [INFO] CSV: output/products.csv | Obrázky: output/images/
-2026-05-18 07:30:47,426 [INFO] ==================================================
+2026-05-18 07:33:35,128 [INFO] CDX cache nájdená, načítavam z output/cdx_urls.json...
+2026-05-18 07:33:35,136 [INFO] === Prvých 20 URL z CDX (pre diagnostiku filtrov) ===
+2026-05-18 07:33:35,138 [INFO]   [PRODUCT] https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
+2026-05-18 07:33:35,138 [INFO]   [PRODUCT] https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
+2026-05-18 07:33:35,138 [INFO]   [PRODUCT] https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
+2026-05-18 07:33:35,138 [INFO]   [PRODUCT] https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
+2026-05-18 07:33:35,138 [INFO]   [PRODUCT] https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
+2026-05-18 07:33:35,138 [INFO]   [PRODUCT] https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
+2026-05-18 07:33:35,138 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.112012/
+2026-05-18 07:33:35,138 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.112012/
+2026-05-18 07:33:35,139 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.122012/
+2026-05-18 07:33:35,139 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.32012/
+2026-05-18 07:33:35,139 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.52012/
+2026-05-18 07:33:35,139 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.62012/
+2026-05-18 07:33:35,139 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.62012/
+2026-05-18 07:33:35,139 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.72012/
+2026-05-18 07:33:35,139 [INFO]   [PRODUCT] https://www.press.sk/2012+193/atm-c.92012/
+2026-05-18 07:33:35,139 [INFO]   [PRODUCT] https://www.press.sk/2012/letectvi-kosmonautika-c.82012/
+2026-05-18 07:33:35,140 [INFO]   [PRODUCT] https://www.press.sk/2013+192/modelar-c.012013/
+2026-05-18 07:33:35,140 [INFO]   [PRODUCT] https://www.press.sk/2013+192/modelar-c.022013/
+2026-05-18 07:33:35,140 [INFO]   [PRODUCT] https://www.press.sk/2013+192/modelar-c.032013/
+2026-05-18 07:33:35,140 [INFO]   [PRODUCT] https://www.press.sk/2013+192/modelar-c.042013/
+2026-05-18 07:33:35,140 [INFO] ==================================================
+2026-05-18 07:33:35,394 [INFO] Relevantných URL: 5,848 z 10,000
+2026-05-18 07:33:35,394 [INFO] Ukážka relevantných (prvých 10):
+2026-05-18 07:33:35,394 [INFO]   [20190923075531] https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
+2026-05-18 07:33:35,394 [INFO]   [20190920190920] https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
+2026-05-18 07:33:35,394 [INFO]   [20190920190843] https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
+2026-05-18 07:33:35,394 [INFO]   [20190923075244] https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
+2026-05-18 07:33:35,394 [INFO]   [20190923075847] https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
+2026-05-18 07:33:35,394 [INFO]   [20190923075712] https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
+2026-05-18 07:33:35,394 [INFO]   [20191022100219] https://www.press.sk/2012+193/atm-c.112012/
+2026-05-18 07:33:35,394 [INFO]   [20191211172425] https://www.press.sk/2012+193/atm-c.112012/
+2026-05-18 07:33:35,394 [INFO]   [20191016051059] https://www.press.sk/2012+193/atm-c.122012/
+2026-05-18 07:33:35,394 [INFO]   [20191207142717] https://www.press.sk/2012+193/atm-c.32012/
+2026-05-18 07:33:35,395 [INFO] [1/30] https://web.archive.org/web/20190923075531/https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
+2026-05-18 07:33:36,897 [DEBUG] Starting new HTTPS connection (1): web.archive.org:443
+2026-05-18 07:33:37,216 [DEBUG] https://web.archive.org:443 "GET /web/20190923075531/https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/ HTTP/1.1" 200 None
+2026-05-18 07:33:37,373 [INFO] [2/30] https://web.archive.org/web/20190920190920/https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
+2026-05-18 07:33:39,212 [DEBUG] https://web.archive.org:443 "GET /web/20190920190920/https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/ HTTP/1.1" 200 None
+2026-05-18 07:33:39,366 [INFO] [3/30] https://web.archive.org/web/20190920190843/https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
+2026-05-18 07:33:41,166 [DEBUG] https://web.archive.org:443 "GET /web/20190920190843/https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/ HTTP/1.1" 200 None
+2026-05-18 07:33:41,330 [INFO] [4/30] https://web.archive.org/web/20190923075244/https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
+2026-05-18 07:33:43,134 [DEBUG] https://web.archive.org:443 "GET /web/20190923075244/https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/ HTTP/1.1" 200 None
+2026-05-18 07:33:43,287 [INFO] [5/30] https://web.archive.org/web/20190923075847/https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
+2026-05-18 07:33:46,091 [DEBUG] https://web.archive.org:443 "GET /web/20190923075847/https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/ HTTP/1.1" 200 None
+2026-05-18 07:33:46,246 [INFO] [6/30] https://web.archive.org/web/20190923075712/https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
+2026-05-18 07:33:48,078 [DEBUG] https://web.archive.org:443 "GET /web/20190923075712/https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/ HTTP/1.1" 200 None
+2026-05-18 07:33:48,231 [INFO] [7/30] https://web.archive.org/web/20191022100219/https://www.press.sk/2012+193/atm-c.112012/
+2026-05-18 07:33:49,998 [DEBUG] https://web.archive.org:443 "GET /web/20191022100219/https://www.press.sk/2012+193/atm-c.112012/ HTTP/1.1" 200 None
+2026-05-18 07:33:50,158 [INFO] [8/30] https://web.archive.org/web/20191211172425/https://www.press.sk/2012+193/atm-c.112012/
+2026-05-18 07:33:52,224 [DEBUG] https://web.archive.org:443 "GET /web/20191211172425/https://www.press.sk/2012+193/atm-c.112012/ HTTP/1.1" 200 None
+2026-05-18 07:33:52,383 [INFO] [9/30] https://web.archive.org/web/20191016051059/https://www.press.sk/2012+193/atm-c.122012/
+2026-05-18 07:33:55,509 [DEBUG] https://web.archive.org:443 "GET /web/20191016051059/https://www.press.sk/2012+193/atm-c.122012/ HTTP/1.1" 200 None
+2026-05-18 07:33:55,678 [INFO] [10/30] https://web.archive.org/web/20191207142717/https://www.press.sk/2012+193/atm-c.32012/
+2026-05-18 07:33:57,545 [DEBUG] https://web.archive.org:443 "GET /web/20191207142717/https://www.press.sk/2012+193/atm-c.32012/ HTTP/1.1" 200 None
+2026-05-18 07:33:57,705 [INFO] [11/30] https://web.archive.org/web/20191210054636/https://www.press.sk/2012+193/atm-c.52012/
+2026-05-18 07:33:59,449 [DEBUG] https://web.archive.org:443 "GET /web/20191210054636/https://www.press.sk/2012+193/atm-c.52012/ HTTP/1.1" 200 None
+2026-05-18 07:33:59,612 [INFO] [12/30] https://web.archive.org/web/20191016053105/https://www.press.sk/2012+193/atm-c.62012/
+2026-05-18 07:34:01,405 [DEBUG] https://web.archive.org:443 "GET /web/20191016053105/https://www.press.sk/2012+193/atm-c.62012/ HTTP/1.1" 200 None
+2026-05-18 07:34:01,567 [INFO] [13/30] https://web.archive.org/web/20191207172747/https://www.press.sk/2012+193/atm-c.62012/
+2026-05-18 07:34:05,549 [DEBUG] https://web.archive.org:443 "GET /web/20191207172747/https://www.press.sk/2012+193/atm-c.62012/ HTTP/1.1" 200 None
+2026-05-18 07:34:05,708 [INFO] [14/30] https://web.archive.org/web/20191016053805/https://www.press.sk/2012+193/atm-c.72012/
+2026-05-18 07:34:08,682 [DEBUG] https://web.archive.org:443 "GET /web/20191016053805/https://www.press.sk/2012+193/atm-c.72012/ HTTP/1.1" 200 None
+2026-05-18 07:34:08,848 [INFO] [15/30] https://web.archive.org/web/20191209203913/https://www.press.sk/2012+193/atm-c.92012/
+2026-05-18 07:34:10,635 [DEBUG] https://web.archive.org:443 "GET /web/20191209203913/https://www.press.sk/2012+193/atm-c.92012/ HTTP/1.1" 200 None
+2026-05-18 07:34:10,794 [INFO] [16/30] https://web.archive.org/web/20190826060544/https://www.press.sk/2012/letectvi-kosmonautika-c.82012/
+2026-05-18 07:34:12,656 [DEBUG] https://web.archive.org:443 "GET /web/20190826060544/https://www.press.sk/2012/letectvi-kosmonautika-c.82012/ HTTP/1.1" 200 None
+2026-05-18 07:34:12,818 [INFO] [17/30] https://web.archive.org/web/20190920190934/https://www.press.sk/2013+192/modelar-c.012013/
+2026-05-18 07:34:14,605 [DEBUG] https://web.archive.org:443 "GET /web/20190920190934/https://www.press.sk/2013+192/modelar-c.012013/ HTTP/1.1" 200 None
+2026-05-18 07:34:14,762 [INFO] [18/30] https://web.archive.org/web/20190920190948/https://www.press.sk/2013+192/modelar-c.022013/
+2026-05-18 07:34:16,564 [DEBUG] https://web.archive.org:443 "GET /web/20190920190948/https://www.press.sk/2013+192/modelar-c.022013/ HTTP/1.1" 200 None
+2026-05-18 07:34:16,725 [INFO] [19/30] https://web.archive.org/web/20190920191003/https://www.press.sk/2013+192/modelar-c.032013/
+2026-05-18 07:34:18,475 [DEBUG] https://web.archive.org:443 "GET /web/20190920191003/https://www.press.sk/2013+192/modelar-c.032013/ HTTP/1.1" 200 None
+2026-05-18 07:34:18,637 [INFO] [20/30] https://web.archive.org/web/20190920191020/https://www.press.sk/2013+192/modelar-c.042013/
+2026-05-18 07:34:20,438 [DEBUG] https://web.archive.org:443 "GET /web/20190920191020/https://www.press.sk/2013+192/modelar-c.042013/ HTTP/1.1" 200 None
+2026-05-18 07:34:20,620 [INFO] [21/30] https://web.archive.org/web/20190920191101/https://www.press.sk/2013+192/modelar-c.052013/
+2026-05-18 07:34:22,467 [DEBUG] https://web.archive.org:443 "GET /web/20190920191101/https://www.press.sk/2013+192/modelar-c.052013/ HTTP/1.1" 200 None
+2026-05-18 07:34:22,628 [INFO] [22/30] https://web.archive.org/web/20190920191127/https://www.press.sk/2013+192/modelar-c.062013/
+2026-05-18 07:34:24,419 [DEBUG] https://web.archive.org:443 "GET /web/20190920191127/https://www.press.sk/2013+192/modelar-c.062013/ HTTP/1.1" 200 None
+2026-05-18 07:34:24,578 [INFO] [23/30] https://web.archive.org/web/20190920191153/https://www.press.sk/2013+192/modelar-c.072013/
+2026-05-18 07:34:26,367 [DEBUG] https://web.archive.org:443 "GET /web/20190920191153/https://www.press.sk/2013+192/modelar-c.072013/ HTTP/1.1" 200 None
+2026-05-18 07:34:26,520 [INFO] [24/30] https://web.archive.org/web/20190920191213/https://www.press.sk/2013+192/modelar-c.082013/
+2026-05-18 07:34:28,348 [DEBUG] https://web.archive.org:443 "GET /web/20190920191213/https://www.press.sk/2013+192/modelar-c.082013/ HTTP/1.1" 200 None
+2026-05-18 07:34:28,507 [INFO] [25/30] https://web.archive.org/web/20190920191232/https://www.press.sk/2013+192/modelar-c.092013/
+2026-05-18 07:34:30,414 [DEBUG] https://web.archive.org:443 "GET /web/20190920191232/https://www.press.sk/2013+192/modelar-c.092013/ HTTP/1.1" 200 None
+2026-05-18 07:34:30,572 [INFO] [26/30] https://web.archive.org/web/20190920190523/https://www.press.sk/2013+192/modelar-c.102013/
+2026-05-18 07:34:32,370 [DEBUG] https://web.archive.org:443 "GET /web/20190920190523/https://www.press.sk/2013+192/modelar-c.102013/ HTTP/1.1" 200 None
+2026-05-18 07:34:32,534 [INFO] [27/30] https://web.archive.org/web/20190920190539/https://www.press.sk/2013+192/modelar-c.112013/
+2026-05-18 07:34:34,343 [DEBUG] https://web.archive.org:443 "GET /web/20190920190539/https://www.press.sk/2013+192/modelar-c.112013/ HTTP/1.1" 200 None
+2026-05-18 07:34:34,507 [INFO] [28/30] https://web.archive.org/web/20190920190600/https://www.press.sk/2013+192/modelar-c.122013/
+2026-05-18 07:34:36,484 [DEBUG] https://web.archive.org:443 "GET /web/20190920190600/https://www.press.sk/2013+192/modelar-c.122013/ HTTP/1.1" 200 None
+2026-05-18 07:34:36,650 [INFO] [29/30] https://web.archive.org/web/20191022094603/https://www.press.sk/2013+194/atm-c.012013/
+2026-05-18 07:34:39,479 [DEBUG] https://web.archive.org:443 "GET /web/20191022094603/https://www.press.sk/2013+194/atm-c.012013/ HTTP/1.1" 200 None
+2026-05-18 07:34:39,643 [INFO] [30/30] https://web.archive.org/web/20191211163914/https://www.press.sk/2013+194/atm-c.012013/
+2026-05-18 07:34:41,376 [DEBUG] https://web.archive.org:443 "GET /web/20191211163914/https://www.press.sk/2013+194/atm-c.012013/ HTTP/1.1" 200 None
+2026-05-18 07:34:41,539 [INFO] ==================================================
+2026-05-18 07:34:41,539 [INFO] HOTOVO — 27 produktov, 0 chýb
+2026-05-18 07:34:41,539 [INFO] CSV: output/products.csv | Obrázky: output/images/
+2026-05-18 07:34:41,539 [INFO] ==================================================
