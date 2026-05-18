@@ -31,6 +31,13 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
         print(f"[IMG-DEBUG] img[{i}] data-srcset={repr(img.get('data-srcset',''))[:70]}", flush=True)
     sys.stdout.flush()
 
+    # Ak žiadny produkt nemá obrázok a je len 1 produkt — skús og:image
+    if len(products) == 1 and not products[0].get("image_urls"):
+        og = soup.select_one('meta[property="og:image"]')
+        if og and og.get("content"):
+            from parsers.utils import strip_wayback_prefix
+            products[0]["image_urls"] = strip_wayback_prefix(og["content"])
+
     cat = ""
     for sel in ["h1.page-title", "h1.cat-title", "h1", ".breadcrumb li:last-child"]:
         el = soup.select_one(sel)
