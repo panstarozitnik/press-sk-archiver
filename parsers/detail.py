@@ -4,7 +4,7 @@ Používa schema.org + viacero fallback selektorov.
 """
 
 from bs4 import BeautifulSoup
-from parsers.utils import safe_text, clean_price, extract_isbn, fix_image_url
+from parsers.utils import safe_text, clean_price, extract_isbn, fix_image_url, extract_img_src
 
 
 def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
@@ -20,7 +20,7 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
         "publisher":   "",
         "category":    "",
         "description": "",
-        "image_url":   "",
+        "image_urls":  "",
         "image_file":  "",
     }
 
@@ -90,13 +90,13 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
     # ── Obrázok ───────────────────────────────────
     for sel in [
         '[itemprop="image"]', ".product-image img",
-        ".book-cover img", "#product-image img", "img.cover",
+        ".book-cover img", "#product-image img", "img.cover", ".shop-cat-img img",
     ]:
         el = soup.select_one(sel)
         if el:
-            src = el.get("src") or el.get("data-src") or ""
-            if src:
-                p["image_url"] = fix_image_url(src)
+            url = extract_img_src(el)
+            if url:
+                p["image_urls"] = url
                 break
 
     return p
