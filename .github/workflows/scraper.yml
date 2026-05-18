@@ -70,6 +70,14 @@ jobs:
             cdx-cache-press-sk-v4-latest
             cdx-cache-press-sk-v4
 
+      - name: Over verziu listing.py
+        run: |
+          echo "=== listing.py obsah (prvých 30 riadkov) ==="
+          head -30 parsers/listing.py
+          echo "=== hľadám DEBUG ==="
+          grep -n "DEBUG" parsers/listing.py || echo "DEBUG NENAJDENY!"
+          grep -n "print(" parsers/listing.py || echo "PRINT NENAJDENY!"
+
       - name: Spusti scraper
         run: |
           ARGS=""
