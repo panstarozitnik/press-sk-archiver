@@ -4,7 +4,7 @@ Používa schema.org + viacero fallback selektorov.
 """
 
 from bs4 import BeautifulSoup
-from parsers.utils import safe_text, clean_price, extract_isbn, fix_image_url, extract_img_src, strip_wayback_prefix
+from parsers.utils import safe_text, clean_price, extract_isbn, extract_all_image_urls
 
 
 def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
@@ -87,23 +87,8 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
             p["description"] = safe_text(el)[:500]
             break
 
-    # ── Obrázok ───────────────────────────────────
-    # 1. og:image — najspoľahlivejší pre detail stránky press.sk
-    og_img = soup.select_one('meta[property="og:image"]')
-    if og_img and og_img.get("content"):
-        p["image_urls"] = strip_wayback_prefix(og_img["content"])
-
-    # 2. Fallback — img tagy
-    if not p["image_urls"]:
-        for sel in [
-            '[itemprop="image"]', ".product-image img",
-            ".book-cover img", "#product-image img", "img.cover", ".shop-cat-img img",
-        ]:
-            el = soup.select_one(sel)
-            if el:
-                url = extract_img_src(el)
-                if url:
-                    p["image_urls"] = url
-                    break
+    # ── Obrázky — všetky grafické URL v HTML ────────
+    imgs = extract_all_image_urls(html)
+    p["image_urls"] = "|".join(imgs)
 
     return p

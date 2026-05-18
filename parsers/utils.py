@@ -204,3 +204,40 @@ def fix_image_url(src: str, base_domain: str = "https://www.press.sk") -> str:
     if src.startswith("/"):
         return base_domain + src
     return src
+
+
+def extract_all_image_urls(html: str) -> list[str]:
+    """
+    Nájde VŠETKY URL obrázkov v HTML pomocou regex — bez ohľadu na tag/atribút.
+    Odstráni Wayback prefix, deduplikuje, vráti len press.sk URL.
+    """
+    import re
+    IMG_EXTS = r'\.(?:jpe?g|png|gif|webp|bmp|svg)(?:\?[^\s"\'<>]*)?'
+
+    patterns = [
+        r'https?://web[.]archive[.]org/web/\d+[^/]*/https?://[^\s"\'<>]+' + IMG_EXTS,
+        r'/web/\d+[^/]*/https?://[^\s"\'<>]+' + IMG_EXTS,
+        r'https?://(?:www[.])?press[.]sk/[^\s"\'<>]+' + IMG_EXTS,
+    ]
+
+    found = set()
+    for pattern in patterns:
+        for match in re.finditer(pattern, html, re.IGNORECASE):
+            url = match.group(0)
+            # Odstráň Wayback prefix
+            m = re.search(r'https?://web[.]archive[.]org/web/\d+[^/]*/(.+)', url)
+            if m:
+                url = m.group(1)
+            else:
+                m = re.search(r'^/web/\d+[^/]*/(.+)', url)
+                if m:
+                    url = m.group(1)
+            if 'press.sk' not in url:
+                continue
+            if any(s in url.lower() for s in ['1px', 'trans.gif', 'spacer', 'pixel', 'favicon']):
+                continue
+            if not url.startswith('http'):
+                url = 'https://' + url
+            found.add(url)
+
+    return sorted(found)

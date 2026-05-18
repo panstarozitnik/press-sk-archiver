@@ -4,7 +4,7 @@ Parser pre LISTING stránky press.sk.
 
 import sys
 from bs4 import BeautifulSoup
-from parsers.utils import safe_text, clean_price, extract_isbn, extract_img_src, strip_wayback_prefix
+from parsers.utils import safe_text, clean_price, extract_isbn, extract_img_src, strip_wayback_prefix, extract_all_image_urls
 
 
 def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[dict]:
@@ -31,12 +31,22 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
         print(f"[IMG-DEBUG] img[{i}] data-srcset={repr(img.get('data-srcset',''))[:70]}", flush=True)
     sys.stdout.flush()
 
-    # Ak žiadny produkt nemá obrázok a je len 1 produkt — skús og:image
-    if len(products) == 1 and not products[0].get("image_urls"):
-        og = soup.select_one('meta[property="og:image"]')
-        if og and og.get("content"):
-            from parsers.utils import strip_wayback_prefix
-            products[0]["image_urls"] = strip_wayback_prefix(og["content"])
+    # Fallback: ak produkt nemá obrázok, skús regex cez celé HTML jeho kontajnera
+    for p in products:
+        if not p.get("image_urls"):
+            # Nájdi div tohto produktu v soup a extrahuj z neho obrázky
+            title = p.get("title", "")
+            container = None
+            for el in soup.find_all(["h3","h2"], class_="product-name"):
+                if title.lower() in safe_text(el).lower():
+                    # Vezmi surrounding HTML — parent alebo predchádzajúci sibling
+                    parent = el.parent
+                    container = str(parent) if parent else ""
+                    break
+            if container:
+                imgs = extract_all_image_urls(container)
+                if imgs:
+                    p["image_urls"] = "|".join(imgs)
 
     cat = ""
     for sel in ["h1.page-title", "h1.cat-title", "h1", ".breadcrumb li:last-child"]:
