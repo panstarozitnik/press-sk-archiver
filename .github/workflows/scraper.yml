@@ -25,9 +25,11 @@ on:
 jobs:
   scrape:
     runs-on: ubuntu-latest
-    timeout-minutes: 360   # max 6 hodín (GitHub Actions limit)
+    timeout-minutes: 360
     permissions:
-      contents: write        # potrebné pre git push výsledkov späť do repa
+      contents: write
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - name: Checkout repozitára
