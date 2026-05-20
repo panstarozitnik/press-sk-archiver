@@ -35,10 +35,8 @@ jobs:
           path: |
             output/cdx_urls.json
             output/cdx_urls.json.progress
-          key: cdx-cache-press-sk-v4-${{ github.run_number }}
-          restore-keys: |
-            cdx-cache-press-sk-v4-latest
-            cdx-cache-press-sk-v4
+          key: cdx-map-${{ github.run_number }}
+          restore-keys: cdx-map
 
       - name: Stiahni CDX a vytvor URL mapy
         run: |
