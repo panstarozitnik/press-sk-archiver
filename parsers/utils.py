@@ -206,6 +206,24 @@ def fix_image_url(src: str, base_domain: str = "https://www.press.sk") -> str:
     return src
 
 
+def load_image_blacklist(path: str = "image_blacklist.txt") -> set:
+    """Načíta blacklist URL obrázkov zo súboru."""
+    import os
+    blacklist = set()
+    if not os.path.exists(path):
+        return blacklist
+    with open(path, encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#"):
+                blacklist.add(line)
+    return blacklist
+
+
+# Načítaj blacklist raz pri štarte
+_BLACKLIST = load_image_blacklist()
+
+
 def extract_all_image_urls(html: str) -> list[str]:
     """
     Nájde VŠETKY URL obrázkov v HTML pomocou regex — bez ohľadu na tag/atribút.
@@ -240,4 +258,6 @@ def extract_all_image_urls(html: str) -> list[str]:
                 url = 'https://' + url
             found.add(url)
 
+    # Filtruj blacklist
+    found = {u for u in found if u not in _BLACKLIST}
     return sorted(found)
