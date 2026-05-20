@@ -1,0 +1,78 @@
+name: Mapovanie URL (bez scrapingu)
+
+on:
+  workflow_dispatch:
+    inputs:
+      cdx_limit:
+        description: 'Max URL z CDX (prázdne = všetky ~175k)'
+        required: false
+        default: ''
+
+jobs:
+  map:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - run: pip install -r requirements.txt
+
+      - run: mkdir -p output
+
+      - name: Obnov CDX cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            output/cdx_urls.json
+            output/cdx_urls.json.progress
+          key: cdx-cache-press-sk-v4-${{ github.run_number }}
+          restore-keys: |
+            cdx-cache-press-sk-v4-latest
+            cdx-cache-press-sk-v4
+
+      - name: Stiahni CDX a vytvor URL mapy
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.cdx_limit }}" ]; then
+            ARGS="--cdx-limit ${{ github.event.inputs.cdx_limit }}"
+          fi
+          python map_urls.py $ARGS
+
+      - name: Štatistiky
+        run: |
+          echo "=== Relevantné URL ==="
+          wc -l output/urls_relevant.csv || true
+          echo "=== Nerelevantné URL ==="
+          wc -l output/urls_skipped.csv || true
+
+      - name: Ulož do repozitára
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add output/urls_relevant.csv output/urls_skipped.csv 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "Žiadne zmeny."
+          else
+            TOTAL=$(wc -l < output/urls_relevant.csv 2>/dev/null || echo 0)
+            git commit -m "map: $((TOTAL-1)) relevantných URL [run #${{ github.run_number }}]"
+            git push
+          fi
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: url-maps-${{ github.run_number }}
+          path: |
+            output/urls_relevant.csv
+            output/urls_skipped.csv
+          retention-days: 90
