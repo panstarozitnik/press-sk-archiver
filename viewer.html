@@ -4,103 +4,245 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>press.sk Archív</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --bg: #0f0e0c; --surface: #1a1815; --surface2: #201e1a;
-    --border: #2e2b26; --accent: #c8a96e; --accent2: #7eb89a;
-    --text: #e8e0d0; --muted: #6b6458;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: 'IBM Plex Sans', sans-serif; font-weight: 300; min-height: 100vh; }
+:root {
+  --bg: #ffffff;
+  --surface: #f7f6f4;
+  --border: #e5e2dc;
+  --accent: #8b4513;
+  --accent2: #2d6a4f;
+  --text: #1a1612;
+  --muted: #8a8278;
+  --tag-bg: #f0ede8;
+}
 
-  header { border-bottom: 1px solid var(--border); padding: 1.2rem 2rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
-  .logo { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--accent); }
-  .logo span { color: var(--muted); font-size: 0.75rem; display: block; font-family: 'IBM Plex Mono', monospace; }
-  .stats { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; color: var(--muted); margin-left: auto; line-height: 1.8; }
-  .stats strong { color: var(--accent); font-size: 1rem; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+}
 
-  .controls {
-    padding: 0.8rem 2rem; border-bottom: 1px solid var(--border);
-    display: flex; gap: 0.7rem; flex-wrap: wrap; align-items: center;
-    background: var(--surface); position: sticky; top: 0; z-index: 10;
-  }
-  .search-wrap { position: relative; flex: 1; min-width: 200px; max-width: 380px; }
-  .search-wrap svg { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
-  input[type=text], select {
-    background: var(--bg); border: 1px solid var(--border); color: var(--text);
-    font-family: 'IBM Plex Sans', sans-serif; font-size: 0.83rem;
-    padding: 0.45rem 0.75rem; border-radius: 3px; outline: none; transition: border-color 0.15s;
-  }
-  input[type=text] { padding-left: 2rem; width: 100%; }
-  input[type=text]:focus, select:focus { border-color: var(--accent); }
-  select { cursor: pointer; } select option { background: var(--bg); }
-  .filter-count { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--muted); margin-left: auto; }
+/* HEADER */
+header {
+  border-bottom: 2px solid var(--text);
+  padding: 1.5rem 2rem 1rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.logo span {
+  color: var(--muted);
+  font-weight: 400;
+  font-size: 0.85rem;
+  display: block;
+  font-family: 'IBM Plex Mono', monospace;
+  letter-spacing: 0.05em;
+  margin-top: 0.15rem;
+}
+.stats {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-left: auto;
+  text-align: right;
+  line-height: 1.8;
+}
+.stats strong { color: var(--accent); font-size: 1rem; }
 
-  /* Upload */
-  #upload-zone { margin: 4rem auto; max-width: 440px; border: 2px dashed var(--border); border-radius: 8px; padding: 3rem 2rem; text-align: center; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
-  #upload-zone:hover, #upload-zone.drag { border-color: var(--accent); background: rgba(200,169,110,0.04); }
-  #upload-zone h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--accent); margin-bottom: 0.4rem; }
-  #upload-zone p { color: var(--muted); font-size: 0.83rem; line-height: 1.6; }
-  #upload-zone input { display: none; }
-  .upload-icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+/* CONTROLS */
+.controls {
+  padding: 0.9rem 2rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+  background: var(--surface);
+}
+.search-wrap { position: relative; flex: 1; min-width: 180px; max-width: 360px; }
+.search-wrap svg { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: var(--muted); }
+input[type=text], select {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.85rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 3px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+input[type=text] { padding-left: 2.1rem; width: 100%; }
+input[type=text]:focus, select:focus { border-color: var(--accent); }
+select { cursor: pointer; }
 
-  /* Rows */
-  #rows { display: none; }
+/* UPLOAD */
+#upload-zone {
+  margin: 4rem auto;
+  max-width: 460px;
+  border: 2px dashed var(--border);
+  border-radius: 6px;
+  padding: 3rem 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+#upload-zone:hover, #upload-zone.drag { border-color: var(--accent); background: #fdf8f4; }
+#upload-zone h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text); margin-bottom: 0.5rem; }
+#upload-zone p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+#upload-zone input { display: none; }
+.upload-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 
-  .product-row {
-    display: flex; border-bottom: 1px solid var(--border);
-    transition: background 0.1s; animation: fadeIn 0.2s ease both;
-  }
-  .product-row:hover { background: var(--surface); }
+/* ROWS */
+#rows { border-top: 1px solid var(--border); }
 
-  /* Ľavý stĺpec — obrázky */
-  .row-imgs {
-    flex-shrink: 0; width: 200px; min-height: 76px;
-    display: flex; flex-wrap: wrap; gap: 3px; align-content: flex-start;
-    padding: 0.6rem; border-right: 1px solid var(--border);
-    background: var(--surface2);
-  }
-  .row-imgs img {
-    width: 58px; height: 58px; object-fit: cover; border-radius: 2px;
-    cursor: zoom-in; border: 1px solid transparent; transition: border-color 0.12s, transform 0.12s;
-  }
-  .row-imgs img:hover { border-color: var(--accent); transform: scale(1.06); }
-  .no-img { width: 58px; height: 58px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--border); border-radius: 2px; border: 1px dashed var(--border); }
+.row {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s;
+  animation: fadeIn 0.25s ease both;
+}
+.row:hover { background: var(--surface); }
 
-  /* Pravý stĺpec — info */
-  .row-info { flex: 1; padding: 0.6rem 1rem; display: flex; flex-direction: column; gap: 0.2rem; min-width: 0; }
-  .row-title { font-family: 'Playfair Display', serif; font-size: 0.92rem; font-weight: 700; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .row-author { font-size: 0.76rem; color: var(--muted); }
-  .row-meta { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 0.15rem; align-items: center; }
-  .tag-cat { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: var(--accent2); text-transform: uppercase; letter-spacing: 0.08em; }
-  .tag-pub { font-size: 0.71rem; color: var(--muted); }
-  .tag-price { font-family: 'IBM Plex Mono', monospace; font-size: 0.76rem; color: var(--accent); }
-  .tag-date { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: var(--muted); }
-  .row-links { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.25rem; }
-  .row-link { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: var(--muted); text-decoration: none; transition: color 0.12s; }
-  .row-link:hover { color: var(--accent); }
+/* Obrázky — ľavý stĺpec */
+.row-images {
+  width: 220px;
+  min-width: 220px;
+  padding: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-content: flex-start;
+  border-right: 1px solid var(--border);
+}
+.row-images.no-img {
+  align-items: center;
+  justify-content: center;
+  color: var(--border);
+  font-size: 1.5rem;
+}
+.thumb {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 2px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  transition: transform 0.15s, border-color 0.15s;
+}
+.thumb:hover { transform: scale(1.05); border-color: var(--accent); }
+.thumb.main { width: 100px; height: 130px; }
 
-  /* Počet obrázkov — badge */
-  .img-badge { flex-shrink: 0; padding: 0.6rem 0.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; color: var(--muted); align-self: flex-start; white-space: nowrap; }
+/* Info — pravý stĺpec */
+.row-info {
+  flex: 1;
+  padding: 0.9rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+.row-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+.row-author { font-size: 0.8rem; color: var(--muted); }
+.row-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.2rem;
+  align-items: center;
+}
+.tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  padding: 0.15rem 0.45rem;
+  border-radius: 2px;
+  background: var(--tag-bg);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+.tag.price { color: var(--accent); border-color: var(--accent); background: #fdf4ee; font-weight: 500; }
+.tag.cat   { color: var(--accent2); border-color: var(--accent2); background: #eef7f2; }
+.row-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+.row-links a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px dotted var(--border);
+  transition: color 0.15s;
+}
+.row-links a:hover { color: var(--accent); }
 
-  /* Lightbox */
-  #lb { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.93); z-index: 200; align-items: center; justify-content: center; cursor: zoom-out; }
-  #lb.open { display: flex; }
-  #lb img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 3px; }
-  #lb-close { position: fixed; top: 1rem; right: 1.5rem; color: #fff; font-size: 1.8rem; cursor: pointer; opacity: 0.7; }
-  #lb-close:hover { opacity: 1; }
+/* Lightbox */
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+#lightbox.open { display: flex; }
+#lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 3px; }
 
-  /* Pagination */
-  .pagination { padding: 1rem 2rem; display: flex; gap: 0.35rem; align-items: center; border-top: 1px solid var(--border); flex-wrap: wrap; }
-  .page-btn { background: var(--surface); border: 1px solid var(--border); color: var(--muted); padding: 0.3rem 0.65rem; cursor: pointer; border-radius: 3px; font-family: 'IBM Plex Mono', monospace; font-size: 0.73rem; transition: all 0.12s; }
-  .page-btn:hover, .page-btn.active { border-color: var(--accent); color: var(--accent); }
-  .page-info { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; margin-left: auto; }
+/* PAGINATION */
+.pagination {
+  padding: 1.2rem 2rem;
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.page-btn {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 0.35rem 0.7rem;
+  cursor: pointer;
+  border-radius: 3px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  transition: all 0.15s;
+}
+.page-btn:hover, .page-btn.active { border-color: var(--accent); color: var(--accent); }
+.page-info { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; margin-left: auto; }
 
-  #empty { text-align: center; padding: 4rem; color: var(--muted); font-family: 'IBM Plex Mono', monospace; display: none; }
+#empty { text-align: center; padding: 4rem 2rem; color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; display: none; }
 
-  @keyframes fadeIn { from { opacity: 0; transform: translateY(3px); } to { opacity: 1; } }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; } }
+
+@media (max-width: 600px) {
+  .row { flex-direction: column; }
+  .row-images { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+}
 </style>
 </head>
 <body>
@@ -112,8 +254,8 @@
 
 <div class="controls" id="controls" style="display:none">
   <div class="search-wrap">
-    <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-    <input type="text" id="search" placeholder="Hľadaj názov, autora, vydavateľa…">
+    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+    <input type="text" id="search" placeholder="Hľadaj názov, autora…">
   </div>
   <select id="cat-filter"><option value="">Všetky kategórie</option></select>
   <select id="sort">
@@ -122,9 +264,10 @@
     <option value="category">Kategória</option>
     <option value="date">Dátum (najnovšie)</option>
     <option value="date-asc">Dátum (najstaršie)</option>
-    <option value="imgs-desc">Najviac obrázkov</option>
   </select>
-  <span class="filter-count" id="filter-count"></span>
+  <label style="font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:.3rem;cursor:pointer">
+    <input type="checkbox" id="only-img"> len s obrázkami
+  </label>
 </div>
 
 <div id="upload-zone">
@@ -135,19 +278,18 @@
 </div>
 
 <div id="rows"></div>
-<div id="empty">Žiadne výsledky pre tento filter.</div>
+<div id="empty">Žiadne výsledky.</div>
 <div class="pagination" id="pagination" style="display:none"></div>
 
-<div id="lb">
-  <span id="lb-close" onclick="closeLb()">✕</span>
-  <img id="lb-img" src="" alt="" onclick="event.stopPropagation()">
+<div id="lightbox" onclick="this.classList.remove('open')">
+  <img id="lightbox-img" src="" alt="">
 </div>
 
 <script>
-const PAGE_SIZE = 60;
-let allData = [], filtered = [], currentPage = 1;
+let allData = [], filtered = [];
+const PAGE_SIZE = 50;
+let currentPage = 1;
 
-// CSV
 function parseCSV(text) {
   const lines = text.split('\n');
   const headers = parseCSVLine(lines[0]);
@@ -161,51 +303,51 @@ function parseCSV(text) {
   }
   return rows;
 }
+
 function parseCSVLine(line) {
-  const r = []; let cur = '', inQ = false;
+  const result = []; let cur = '', inQ = false;
   for (let i = 0; i < line.length; i++) {
     const c = line[i];
     if (c === '"') { if (inQ && line[i+1] === '"') { cur += '"'; i++; } else inQ = !inQ; }
-    else if (c === ',' && !inQ) { r.push(cur); cur = ''; }
+    else if (c === ',' && !inQ) { result.push(cur); cur = ''; }
     else cur += c;
   }
-  r.push(cur); return r;
+  result.push(cur);
+  return result;
 }
 
-function getImgs(r) {
-  return [...new Set((r.image_urls || '').split('|').map(u => u.trim()).filter(Boolean))];
-}
 function formatDate(ts) {
   if (!ts || ts.length < 8) return '';
   return `${ts.slice(0,4)}-${ts.slice(4,6)}-${ts.slice(6,8)}`;
 }
 
-// Load
 function loadData(data) {
   allData = data;
   document.getElementById('upload-zone').style.display = 'none';
   document.getElementById('controls').style.display = 'flex';
-  document.getElementById('rows').style.display = 'block';
+  document.getElementById('pagination').style.display = 'flex';
 
   const cats = [...new Set(data.map(r => r.category).filter(Boolean))].sort();
   const sel = document.getElementById('cat-filter');
   cats.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; sel.appendChild(o); });
 
-  const withImg = data.filter(r => getImgs(r).length > 0).length;
+  const cats_n = new Set(data.map(r => r.category).filter(Boolean)).size;
+  const with_img = data.filter(r => r.image_urls).length;
   document.getElementById('stats').innerHTML =
-    `<strong>${data.length.toLocaleString('sk')}</strong> produktov &nbsp;·&nbsp; ${withImg.toLocaleString('sk')} s obrázkom`;
+    `<strong>${data.length.toLocaleString('sk')}</strong> produktov &nbsp;·&nbsp; ${cats_n} kategórií &nbsp;·&nbsp; ${with_img.toLocaleString('sk')} s obrázkom`;
 
   applyFilters();
 }
 
-// Filters
 function applyFilters() {
   const q = document.getElementById('search').value.toLowerCase();
   const cat = document.getElementById('cat-filter').value;
   const sort = document.getElementById('sort').value;
+  const onlyImg = document.getElementById('only-img').checked;
 
   filtered = allData.filter(r => {
-    if (q && !['title','author','publisher','category'].some(k => (r[k]||'').toLowerCase().includes(q))) return false;
+    if (onlyImg && !r.image_urls) return false;
+    if (q && !(r.title||'').toLowerCase().includes(q) && !(r.author||'').toLowerCase().includes(q)) return false;
     if (cat && r.category !== cat) return false;
     return true;
   });
@@ -216,18 +358,13 @@ function applyFilters() {
     if (sort === 'category') return (a.category||'').localeCompare(b.category||'', 'sk');
     if (sort === 'date') return (b.timestamp||'').localeCompare(a.timestamp||'');
     if (sort === 'date-asc') return (a.timestamp||'').localeCompare(b.timestamp||'');
-    if (sort === 'imgs-desc') return getImgs(b).length - getImgs(a).length;
     return 0;
   });
-
-  const fc = document.getElementById('filter-count');
-  fc.textContent = filtered.length < allData.length ? `${filtered.length.toLocaleString('sk')} výsledkov` : '';
 
   currentPage = 1;
   render();
 }
 
-// Render
 function render() {
   const start = (currentPage - 1) * PAGE_SIZE;
   const page = filtered.slice(start, start + PAGE_SIZE);
@@ -237,58 +374,60 @@ function render() {
   document.getElementById('empty').style.display = filtered.length === 0 ? 'block' : 'none';
 
   page.forEach((r, i) => {
-    const imgs = getImgs(r);
-    const row = document.createElement('div');
-    row.className = 'product-row';
-    row.style.animationDelay = `${Math.min(i * 0.008, 0.3)}s`;
+    const imgs = (r.image_urls || '').split('|').map(u => u.trim()).filter(Boolean);
+    const pageUrls = (r.page_urls || '').split('|').map(u => u.trim()).filter(Boolean);
 
-    // Obrázky — max 9 miniatur
-    const imgsHtml = imgs.length === 0
-      ? '<div class="no-img">📖</div>'
-      : imgs.slice(0, 9).map(u =>
-          `<img src="${u}" loading="lazy" alt="" onerror="this.style.display='none'"
-            onclick="openLb('${u.replace(/'/g,"\\'").replace(/"/g,'&quot;')}',event)">`
-        ).join('');
+    // Obrázky
+    let imgsHtml;
+    if (imgs.length === 0) {
+      imgsHtml = `<div class="row-images no-img">📖</div>`;
+    } else {
+      const mainImg = `<img class="thumb main" src="${imgs[0]}" alt="" loading="lazy"
+        onclick="event.stopPropagation();openLightbox('${imgs[0]}')"
+        onerror="this.style.display='none'">`;
+      const rest = imgs.slice(1).map(u =>
+        `<img class="thumb" src="${u}" alt="" loading="lazy"
+          onclick="event.stopPropagation();openLightbox('${u}')"
+          onerror="this.style.display='none'">`
+      ).join('');
+      imgsHtml = `<div class="row-images">${mainImg}${rest}</div>`;
+    }
 
     // Linky
-    const pageUrls = (r.page_urls || '').split('|').filter(Boolean);
     const links = [
-      r.wayback_url ? `<a class="row-link" href="${r.wayback_url}" target="_blank">↗ wayback</a>` : '',
-      ...pageUrls.slice(0,3).map((u,i) => `<a class="row-link" href="${u}" target="_blank">📄 ${i+1}</a>`)
+      r.wayback_url ? `<a href="${r.wayback_url}" target="_blank">↗ wayback</a>` : '',
+      ...pageUrls.slice(0,3).map((u,i) => `<a href="${u}" target="_blank">📄 stránka ${i+1}</a>`)
     ].filter(Boolean).join('');
 
+    const row = document.createElement('div');
+    row.className = 'row';
+    row.style.animationDelay = `${i * 0.01}s`;
     row.innerHTML = `
-      <div class="row-imgs">${imgsHtml}</div>
+      ${imgsHtml}
       <div class="row-info">
-        <div class="row-title" title="${r.title.replace(/"/g,'&quot;')}">${r.title}</div>
+        <div class="row-title">${r.title}</div>
         ${r.author ? `<div class="row-author">${r.author}</div>` : ''}
         <div class="row-meta">
-          ${r.category  ? `<span class="tag-cat">${r.category}</span>` : ''}
-          ${r.publisher ? `<span class="tag-pub">${r.publisher}</span>` : ''}
-          ${r.price     ? `<span class="tag-price">${r.price}</span>` : ''}
-          ${r.timestamp ? `<span class="tag-date">${formatDate(r.timestamp)}</span>` : ''}
+          ${r.price ? `<span class="tag price">${r.price}</span>` : ''}
+          ${r.category ? `<span class="tag cat">${r.category}</span>` : ''}
+          ${r.publisher ? `<span class="tag">${r.publisher}</span>` : ''}
+          ${r.isbn ? `<span class="tag">ISBN ${r.isbn}</span>` : ''}
+          ${r.timestamp ? `<span class="tag">${formatDate(r.timestamp)}</span>` : ''}
         </div>
-        ${links ? `<div class="row-links">${links}</div>` : ''}
-      </div>
-      ${imgs.length > 0 ? `<div class="img-badge">${imgs.length}×🖼</div>` : ''}
-    `;
+        ${r.description ? `<div style="font-size:.78rem;color:var(--muted);margin-top:.3rem;line-height:1.5">${r.description.slice(0,200)}</div>` : ''}
+        <div class="row-links">${links}</div>
+      </div>`;
     container.appendChild(row);
   });
 
   renderPagination();
 }
 
-// Lightbox
-function openLb(url, e) {
-  e.stopPropagation();
-  document.getElementById('lb-img').src = url;
-  document.getElementById('lb').classList.add('open');
+function openLightbox(url) {
+  document.getElementById('lightbox-img').src = url;
+  document.getElementById('lightbox').classList.add('open');
 }
-function closeLb() { document.getElementById('lb').classList.remove('open'); }
-document.getElementById('lb').addEventListener('click', closeLb);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
 
-// Pagination
 function renderPagination() {
   const total = Math.ceil(filtered.length / PAGE_SIZE);
   const pag = document.getElementById('pagination');
@@ -296,29 +435,28 @@ function renderPagination() {
   if (total <= 1) { pag.style.display = 'none'; return; }
   pag.style.display = 'flex';
 
-  const btn = (label, p, active = false) => {
+  const btn = (label, page, active=false) => {
     const b = document.createElement('button');
     b.className = 'page-btn' + (active ? ' active' : '');
     b.textContent = label;
-    b.onclick = () => { currentPage = p; render(); scrollTo(0,0); };
+    b.onclick = () => { currentPage = page; render(); window.scrollTo(0,0); };
     pag.appendChild(b);
   };
 
   if (currentPage > 1) btn('←', currentPage - 1);
   let s = Math.max(1, currentPage - 2), e = Math.min(total, s + 4);
   if (e - s < 4) s = Math.max(1, e - 4);
-  if (s > 1) btn('1', 1);
+  if (s > 1) { btn('1', 1); if (s > 2) pag.appendChild(Object.assign(document.createElement('span'), {className:'page-info', textContent:'…'})); }
   for (let p = s; p <= e; p++) btn(p, p, p === currentPage);
-  if (e < total) btn(total, total);
+  if (e < total) { if (e < total-1) pag.appendChild(Object.assign(document.createElement('span'), {className:'page-info', textContent:'…'})); btn(total, total); }
   if (currentPage < total) btn('→', currentPage + 1);
 
   const info = document.createElement('span');
   info.className = 'page-info';
-  info.textContent = `${filtered.length.toLocaleString('sk')} výsledkov · ${currentPage}/${total}`;
+  info.textContent = `${filtered.length.toLocaleString('sk')} výsledkov · strana ${currentPage}/${total}`;
   pag.appendChild(info);
 }
 
-// File handling
 function handleFile(file) {
   if (!file || !file.name.endsWith('.csv')) return;
   const reader = new FileReader();
@@ -326,24 +464,21 @@ function handleFile(file) {
   reader.readAsText(file, 'UTF-8');
 }
 
-function setupUpload() {
-  const zone = document.getElementById('upload-zone');
-  zone.addEventListener('click', () => document.getElementById('file-input').click());
-  zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag'); });
-  zone.addEventListener('dragleave', () => zone.classList.remove('drag'));
-  zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag'); handleFile(e.dataTransfer.files[0]); });
-  document.getElementById('file-input').addEventListener('change', e => handleFile(e.target.files[0]));
-}
-
+// Event listeners
+document.getElementById('file-input').addEventListener('change', e => handleFile(e.target.files[0]));
+const zone = document.getElementById('upload-zone');
+zone.addEventListener('click', () => document.getElementById('file-input').click());
+zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag'); });
+zone.addEventListener('dragleave', () => zone.classList.remove('drag'));
+zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag'); handleFile(e.dataTransfer.files[0]); });
 document.getElementById('search').addEventListener('input', applyFilters);
 document.getElementById('cat-filter').addEventListener('change', applyFilters);
 document.getElementById('sort').addEventListener('change', applyFilters);
-setupUpload();
+document.getElementById('only-img').addEventListener('change', applyFilters);
+document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open'); });
 
-// Auto-load z GitHub Pages
+// Auto-load
 async function autoLoad() {
-  const zone = document.getElementById('upload-zone');
-  zone.innerHTML = `<div class="upload-icon">⏳</div><h2>Načítavam…</h2><p style="color:var(--muted);font-size:.8rem;font-family:'IBM Plex Mono',monospace">output/products.csv</p>`;
   for (const path of ['output/products.csv', 'products.csv']) {
     try {
       const resp = await fetch(path);
@@ -354,8 +489,10 @@ async function autoLoad() {
       if (data.length > 0) { loadData(data); return; }
     } catch (_) {}
   }
+  // fallback — reset upload zone
   zone.innerHTML = `<div class="upload-icon">📚</div><h2>press.sk Archív Viewer</h2><p>Pretiahni <strong>products.csv</strong> sem<br>alebo klikni pre výber súboru</p><input type="file" id="file-input" accept=".csv">`;
-  setupUpload();
+  document.getElementById('file-input').addEventListener('change', e => handleFile(e.target.files[0]));
+  zone.addEventListener('click', () => document.getElementById('file-input').click());
 }
 autoLoad();
 </script>

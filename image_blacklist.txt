@@ -1,0 +1,17 @@
+# image_blacklist.txt
+# Jeden URL per riadok. Riadky začínajúce # sú komentáre.
+# Scraper tieto URL vynechá z image_urls v CSV.
+
+# Vlajky jazykov
+https://www.press.sk/components/com_joomfish/images/flags/cz.svg
+https://www.press.sk/components/com_joomfish/images/flags/sk.svg
+
+# UI ikony a loader
+https://www.press.sk/images/ajax-loader-05.gif
+https://www.press.sk/images/ajax-loader05.gif
+https://www.press.sk/sub/press.sk/images/M_images/arrow.svg
+https://www.press.sk/sub/press.sk/images/mail_icon.svg
+https://www.press.sk/sub/press.sk/images/mobile_icon.svg
+
+# Bannery a promo obrázky (nie obálky kníh)
+https://www.press.sk/sub/press.sk/images/dc_comics_224x269.jpg
