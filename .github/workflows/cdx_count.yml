@@ -13,20 +13,32 @@ jobs:
     steps:
       - name: Zisti počet URL v CDX
         run: |
-          echo "=== Celkový počet záznamov pre press.sk ==="
+          python3 - << 'PYEOF'
+          import urllib.request, json
 
-          # Počet stránok (každá = 1 záznam v tomto móde)
-          TOTAL=$(curl -s "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original&filter=statuscode:200&showNumPages=true&limit=5000")
-          echo "Počet stránok (po 5000): $TOTAL"
-          echo "Odhadovaný počet URL: $((TOTAL * 5000))"
+          def count(url):
+              with urllib.request.urlopen(url, timeout=30) as r:
+                  data = json.loads(r.read())
+              # Odpočítaj header riadok ak existuje
+              rows = [x for x in data if x != ["original"] and x != [None] and x is not None]
+              return len(rows)
 
-          echo ""
-          echo "=== S filtrom (len URL s cestou /[a-zA-Z]) ==="
-          FILTERED=$(curl -s "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original&filter=statuscode:200&filter=original:.*press\.sk.*/[a-zA-Z]&showNumPages=true&limit=5000")
-          echo "Počet stránok (po 5000): $FILTERED"
-          echo "Odhadovaný počet URL: $((FILTERED * 5000))"
+          BASE = "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original&filter=statuscode:200&limit=1"
 
-          echo ""
-          echo "=== Bez collapse (všetky snapshoty) ==="
-          NO_COLLAPSE=$(curl -s "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original&filter=statuscode:200&showNumPages=true&limit=5000&collapse=urlkey")
-          echo "Unikátnych URL (collapse=urlkey): stránok=$NO_COLLAPSE → ~$((NO_COLLAPSE * 5000)) URL"
+          # Celkový počet cez matchType
+          with urllib.request.urlopen(
+              "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original"
+              "&filter=statuscode:200&limit=1&showNumPages=true&pageSize=5000", timeout=30
+          ) as r:
+              pages_total = int(r.read().strip())
+
+          with urllib.request.urlopen(
+              "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original"
+              "&filter=statuscode:200&collapse=urlkey&limit=1&showNumPages=true&pageSize=5000", timeout=30
+          ) as r:
+              pages_unique = int(r.read().strip())
+
+          print(f"Všetky snapshoty:  ~{pages_total * 5000:,} (stránok: {pages_total})")
+          print(f"Unikátne URL:      ~{pages_unique * 5000:,} (stránok: {pages_unique})")
+          print(f"Priemerný počet snapshotov na URL: ~{pages_total/max(pages_unique,1):.1f}x")
+          PYEOF
