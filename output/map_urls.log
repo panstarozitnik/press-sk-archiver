@@ -25,3 +25,7 @@
 2026-05-21 08:56:10,656 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&limit=5000&offset=25000 — čakám 30s
 2026-05-21 08:57:40,697 [WARNING]   Retry 2: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&limit=5000&offset=25000 — čakám 60s
 2026-05-21 08:59:40,805 [ERROR] CDX zlyhalo po 3 pokusoch: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&limit=5000&offset=25000
+2026-05-21 20:49:16,843 [INFO] --from-offset=5,950,000 (prepíše resume offset)
+2026-05-21 20:49:16,843 [INFO]   → output/urls_relevant_001.csv
+2026-05-21 20:49:16,843 [INFO]   → output/urls_skipped_001.csv
+2026-05-21 20:49:16,844 [INFO] Sťahujem CDX a triedim...
