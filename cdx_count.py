@@ -1,8 +1,7 @@
 """
-Rýchle zistenie počtu CDX záznamov pre press.sk.
-Používa limit=1 na každom offsete — stiahne len 1 riadok namiesto 5000.
+Zistenie počtu CDX záznamov pre press.sk - hrubý odhad.
 """
-import urllib.request, json, time, sys
+import urllib.request, json, time
 
 BASE = (
     "http://web.archive.org/cdx/search/cdx"
@@ -15,51 +14,46 @@ BASE = (
 def has_record(offset, collapse=""):
     col = f"&collapse={collapse}" if collapse else ""
     url = f"{BASE}{col}&limit=1&offset={offset}"
-    try:
-        with urllib.request.urlopen(url, timeout=30) as r:
-            data = json.loads(r.read())
-        return len([x for x in data if x and x[0] != "original"]) > 0
-    except Exception as e:
-        print(f"  Chyba: {e}", flush=True)
-        return False
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(url, timeout=45) as r:
+                data = json.loads(r.read())
+            return len([x for x in data if x and x[0] != "original"]) > 0
+        except Exception as e:
+            print(f"  Retry {attempt+1}/3 (offset={offset:,}): {e}", flush=True)
+            time.sleep(10)
+    return False
 
 def find_total(label, collapse=""):
     print(f"\n=== {label} ===", flush=True)
-
-    # Fáza 1: nájdi hrubý rozsah krokmi po 50k
-    step = 50000
+    step = 500000  # Väčší krok — menej requestov
     offset = 0
     while has_record(offset, collapse):
         print(f"  offset={offset:,} → existuje", flush=True)
         offset += step
-        time.sleep(0.3)
+        time.sleep(2)  # Dlhšia pauza
 
     high = offset
-    low  = offset - step
+    low  = max(0, offset - step)
     print(f"  Rozsah: {low:,} – {high:,}", flush=True)
 
-    # Fáza 2: binárne hľadanie presného konca
-    while high - low > 1000:
+    # Binárne hľadanie
+    while high - low > 10000:
         mid = (low + high) // 2
         if has_record(mid, collapse):
             low = mid
         else:
             high = mid
-        time.sleep(0.2)
+        time.sleep(2)
 
-    # Fáza 3: presný počet na poslednej stránke
-    url = f"{BASE}{'&collapse='+collapse if collapse else ''}&limit=1000&offset={low}"
-    with urllib.request.urlopen(url, timeout=30) as r:
-        data = json.loads(r.read())
-    last = len([x for x in data if x and x[0] != "original"])
-    total = low + last
-    print(f"  CELKOM: {total:,}", flush=True)
-    return total
+    print(f"  ODHADOVANÝ POČET: ~{high:,}", flush=True)
+    return high
 
 total  = find_total("Všetky snapshoty press.sk")
 unique = find_total("Unikátne URL (collapse=urlkey)", collapse="urlkey")
 
 print(f"\n{'='*40}", flush=True)
-print(f"Všetky snapshoty:          {total:,}", flush=True)
-print(f"Unikátnych URL:            {unique:,}", flush=True)
-print(f"Snapshotov/URL priemer:    {total/max(unique,1):.1f}x", flush=True)
+print(f"Všetky snapshoty:       ~{total:,}", flush=True)
+print(f"Unikátnych URL:         ~{unique:,}", flush=True)
+if unique > 0:
+    print(f"Snapshotov/URL:         ~{total/unique:.1f}x", flush=True)
