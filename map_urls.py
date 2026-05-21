@@ -170,7 +170,21 @@ def main():
                 log.warning(f"  Retry {attempt+1}: {e} — čakám {wait}s")
                 time.sleep(wait)
 
-        raw = resp.json()
+        # Prázdna odpoveď — Wayback niekedy vráti 200 s prázdnym telom
+        if not resp.text.strip():
+            log.warning(f"  Prázdna odpoveď pri offset={offset}, preskakujem")
+            offset += CDX_PAGE_SIZE
+            time.sleep(5)
+            continue
+
+        try:
+            raw = resp.json()
+        except Exception as e:
+            log.warning(f"  JSON chyba pri offset={offset}: {e}, preskakujem")
+            offset += CDX_PAGE_SIZE
+            time.sleep(5)
+            continue
+
         if not raw:
             break
 
