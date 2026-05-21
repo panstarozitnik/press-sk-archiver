@@ -128,7 +128,10 @@ def main():
     skp_chunk, skp_count = 1, 0
     total_rel = total_skp = 0
 
-    if os.path.exists(CDX_PROGRESS):
+    if args.start_offset is not None:
+        start_offset = args.start_offset
+        log.info(f"--start-offset: začínam od {start_offset:,}")
+    elif os.path.exists(CDX_PROGRESS):
         try:
             with open(CDX_PROGRESS, encoding="utf-8") as f:
                 prog = json.load(f)
@@ -231,6 +234,11 @@ def main():
 
         if args.cdx_limit and total_fetched >= args.cdx_limit:
             log.info(f"--cdx-limit {args.cdx_limit} dosiahnutý")
+            break
+
+        if args.end_offset and offset >= args.end_offset:
+            log.info(f"--end-offset {args.end_offset:,} dosiahnutý, zastavujem")
+            _save_progress(offset, rel, skp, total_rel, total_skp)
             break
 
         if len(data) < CDX_PAGE_SIZE:
