@@ -13,32 +13,40 @@ jobs:
     steps:
       - name: Zisti počet URL v CDX
         run: |
-          python3 - << 'PYEOF'
-          import urllib.request, json
+          python3 << 'PYEOF'
+import urllib.request, json, time
 
-          def count(url):
-              with urllib.request.urlopen(url, timeout=30) as r:
-                  data = json.loads(r.read())
-              # Odpočítaj header riadok ak existuje
-              rows = [x for x in data if x != ["original"] and x != [None] and x is not None]
-              return len(rows)
+BASE = "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original&filter=statuscode:200"
 
-          BASE = "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original&filter=statuscode:200&limit=1"
+def count_at_offset(url_base, offset, collapse=""):
+    col = f"&collapse={collapse}" if collapse else ""
+    url = f"{url_base}{col}&limit=5000&offset={offset}"
+    with urllib.request.urlopen(url, timeout=60) as r:
+        data = json.loads(r.read())
+    return len([x for x in data if x and x[0] != "original"])
 
-          # Celkový počet cez matchType
-          with urllib.request.urlopen(
-              "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original"
-              "&filter=statuscode:200&limit=1&showNumPages=true&pageSize=5000", timeout=30
-          ) as r:
-              pages_total = int(r.read().strip())
+def find_total(url_base, collapse=""):
+    # Skúšaj offsety 0, 100k, 200k... kým nedostaneme menej ako 5000
+    step = 100000
+    offset = 0
+    while True:
+        try:
+            n = count_at_offset(url_base, offset, collapse)
+            print(f"  offset={offset:,} → {n} riadkov")
+            if n < 5000:
+                return offset + n
+            offset += step
+            time.sleep(1)
+        except Exception as e:
+            print(f"  Chyba pri offset={offset}: {e}")
+            return offset
 
-          with urllib.request.urlopen(
-              "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original"
-              "&filter=statuscode:200&collapse=urlkey&limit=1&showNumPages=true&pageSize=5000", timeout=30
-          ) as r:
-              pages_unique = int(r.read().strip())
+print("=== Všetky snapshoty press.sk ===")
+total = find_total(BASE)
+print(f"CELKOM: ~{total:,}\n")
 
-          print(f"Všetky snapshoty:  ~{pages_total * 5000:,} (stránok: {pages_total})")
-          print(f"Unikátne URL:      ~{pages_unique * 5000:,} (stránok: {pages_unique})")
-          print(f"Priemerný počet snapshotov na URL: ~{pages_total/max(pages_unique,1):.1f}x")
-          PYEOF
+print("=== Unikátne URL (collapse=urlkey) ===")
+unique = find_total(BASE, "urlkey")
+print(f"UNIKÁTNYCH URL: ~{unique:,}")
+print(f"Priemerný počet snapshotov/URL: ~{total/max(unique,1):.1f}x")
+PYEOF
