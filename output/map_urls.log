@@ -1,0 +1,19 @@
+2026-05-21 08:21:03,493 [INFO]   → output/urls_relevant_001.csv
+2026-05-21 08:21:03,494 [INFO]   → output/urls_skipped_001.csv
+2026-05-21 08:21:03,494 [INFO] Sťahujem CDX a triedim...
+2026-05-21 08:22:43,927 [INFO] CDX offset=45,000 | rel=22,730 skp=27,270
+2026-05-21 08:24:53,847 [INFO]   urls_skipped: 50,000 záznamov (1 súborov)
+2026-05-21 08:24:56,985 [INFO] CDX offset=95,000 | rel=45,460 skp=54,540
+2026-05-21 08:25:19,372 [INFO]   urls_relevant: 50,000 záznamov (1 súborov)
+2026-05-21 08:27:04,335 [INFO] CDX offset=145,000 | rel=68,190 skp=81,810
+2026-05-21 08:27:58,656 [INFO]   urls_skipped: 100,000 záznamov (1 súborov)
+2026-05-21 08:28:34,480 [INFO] CDX offset=195,000 | rel=90,920 skp=109,080
+2026-05-21 08:29:13,007 [INFO]   urls_relevant: 100,000 záznamov (1 súborov)
+2026-05-21 08:31:56,149 [INFO] CDX offset=245,000 | rel=113,650 skp=136,350
+2026-05-21 08:33:08,161 [INFO]   urls_skipped: 150,000 záznamov (1 súborov)
+2026-05-21 08:33:59,950 [INFO] CDX offset=295,000 | rel=136,380 skp=163,620
+2026-05-21 08:36:21,591 [INFO]   urls_relevant: 150,000 záznamov (1 súborov)
+2026-05-21 08:37:23,645 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&limit=5000&offset=330000 — čakám 30s
+2026-05-21 08:38:53,840 [INFO] CDX offset=345,000 | rel=159,110 skp=190,890
+2026-05-21 08:39:00,894 [WARNING]   Retry 1: 503 Server Error: Service Unavailable for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&limit=5000&offset=350000 — čakám 30s
+2026-05-21 08:40:57,741 [INFO]   urls_skipped: 200,000 záznamov (1 súborov)
