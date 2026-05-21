@@ -1,0 +1,32 @@
+name: Zisti počet CDX URL
+
+on:
+  workflow_dispatch:
+
+jobs:
+  count:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - name: Zisti počet URL v CDX
+        run: |
+          echo "=== Celkový počet záznamov pre press.sk ==="
+
+          # Počet stránok (každá = 1 záznam v tomto móde)
+          TOTAL=$(curl -s "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original&filter=statuscode:200&showNumPages=true&limit=5000")
+          echo "Počet stránok (po 5000): $TOTAL"
+          echo "Odhadovaný počet URL: $((TOTAL * 5000))"
+
+          echo ""
+          echo "=== S filtrom (len URL s cestou /[a-zA-Z]) ==="
+          FILTERED=$(curl -s "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original&filter=statuscode:200&filter=original:.*press\.sk.*/[a-zA-Z]&showNumPages=true&limit=5000")
+          echo "Počet stránok (po 5000): $FILTERED"
+          echo "Odhadovaný počet URL: $((FILTERED * 5000))"
+
+          echo ""
+          echo "=== Bez collapse (všetky snapshoty) ==="
+          NO_COLLAPSE=$(curl -s "http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original&filter=statuscode:200&showNumPages=true&limit=5000&collapse=urlkey")
+          echo "Unikátnych URL (collapse=urlkey): stránok=$NO_COLLAPSE → ~$((NO_COLLAPSE * 5000)) URL"
