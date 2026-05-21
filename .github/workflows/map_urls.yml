@@ -11,6 +11,14 @@ on:
         description: 'Záznamy na jeden CSV súbor (default 500000)'
         required: false
         default: '500000'
+      start_offset:
+        description: 'Začni od CDX offsetu (prázdne = resume alebo 0)'
+        required: false
+        default: ''
+      end_offset:
+        description: 'Zastav pri CDX offsete (prázdne = do konca)'
+        required: false
+        default: ''
 
 jobs:
   map:
