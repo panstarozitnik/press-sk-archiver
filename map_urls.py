@@ -128,10 +128,7 @@ def main():
     skp_chunk, skp_count = 1, 0
     total_rel = total_skp = 0
 
-    if args.start_offset is not None:
-        start_offset = args.start_offset
-        log.info(f"--start-offset: začínam od {start_offset:,}")
-    elif os.path.exists(CDX_PROGRESS):
+    if os.path.exists(CDX_PROGRESS):
         try:
             with open(CDX_PROGRESS, encoding="utf-8") as f:
                 prog = json.load(f)
