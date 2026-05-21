@@ -155,7 +155,7 @@ def main():
     while True:
         url = f"{CDX_BASE}&limit={CDX_PAGE_SIZE}&offset={offset}"
 
-        for attempt, wait in enumerate([30, 60, 120]):
+        for attempt, wait in enumerate([60, 120, 300]):
             try:
                 resp = session.get(url, timeout=90)
                 resp.raise_for_status()
@@ -232,7 +232,7 @@ def main():
             break
 
         offset += CDX_PAGE_SIZE
-        time.sleep(2)
+        time.sleep(3)
 
     rel.close()
     skp.close()
