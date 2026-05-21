@@ -111,6 +111,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--cdx-limit",  type=int, default=None)
     ap.add_argument("--chunk-size", type=int, default=CHUNK_SIZE)
+    ap.add_argument("--from-offset", type=int, default=None, help="Začni od tohto CDX offsetu")
     args = ap.parse_args()
 
     Path("output").mkdir(exist_ok=True)
@@ -141,6 +142,11 @@ def main():
             log.info(f"Resume od offset={start_offset:,} | rel={total_rel:,} skp={total_skp:,}")
         except Exception:
             log.warning("Progress súbor poškodený, začínam odznova")
+
+    # --from-offset prepíše resume offset (ale zachová čísla chunkov)
+    if args.from_offset is not None:
+        log.info(f"--from-offset={args.from_offset:,} (prepíše resume offset)")
+        start_offset = args.from_offset
 
     rel = ChunkWriter("urls_relevant", args.chunk_size, rel_chunk, rel_count)
     skp = ChunkWriter("urls_skipped",  args.chunk_size, skp_chunk, skp_count)
