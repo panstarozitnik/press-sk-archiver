@@ -65,6 +65,12 @@ jobs:
           if [ -n "${{ github.event.inputs.chunk_size }}" ]; then
             ARGS="$ARGS --chunk-size ${{ github.event.inputs.chunk_size }}"
           fi
+          if [ -n "${{ github.event.inputs.start_offset }}" ]; then
+            ARGS="$ARGS --start-offset ${{ github.event.inputs.start_offset }}"
+          fi
+          if [ -n "${{ github.event.inputs.end_offset }}" ]; then
+            ARGS="$ARGS --end-offset ${{ github.event.inputs.end_offset }}"
+          fi
           if [ -n "${{ github.event.inputs.from_offset }}" ]; then
             ARGS="$ARGS --from-offset ${{ github.event.inputs.from_offset }}"
           fi
