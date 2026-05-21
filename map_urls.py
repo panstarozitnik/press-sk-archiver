@@ -112,6 +112,7 @@ def main():
     ap.add_argument("--cdx-limit",  type=int, default=None)
     ap.add_argument("--chunk-size", type=int, default=CHUNK_SIZE)
     ap.add_argument("--from-offset", type=int, default=None, help="Začni od tohto CDX offsetu")
+    ap.add_argument("--end-offset",  type=int, default=None, help="Zastav pri tomto CDX offsete")
     args = ap.parse_args()
 
     Path("output").mkdir(exist_ok=True)
