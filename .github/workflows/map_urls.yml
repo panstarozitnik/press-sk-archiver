@@ -41,7 +41,20 @@ jobs:
             output/urls_relevant_*.csv
             output/urls_skipped_*.csv
           key: map-progress-${{ github.run_number }}
-          restore-keys: map-progress
+          restore-keys: |
+            map-progress-
+            map-progress
+
+      - name: Skontroluj resume stav
+        run: |
+          if [ -f output/map_progress.json ]; then
+            echo "Resume nájdený:"
+            cat output/map_progress.json
+          else
+            echo "Žiadny resume — začínam odznova"
+          fi
+          echo "Existujúce CSV súbory:"
+          ls -lh output/urls_*.csv 2>/dev/null || echo "žiadne"
 
       - name: Spusti mapovanie
         run: |
