@@ -4,14 +4,18 @@ on:
   workflow_dispatch:
     inputs:
       cdx_limit:
-        description: 'Max URL z CDX (prázdne = všetky ~175k)'
+        description: 'Max URL z CDX (prázdne = všetky ~3M)'
         required: false
         default: ''
+      chunk_size:
+        description: 'Záznamy na jeden CSV súbor (default 500000)'
+        required: false
+        default: '500000'
 
 jobs:
   map:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 360
     permissions:
       contents: write
     env:
@@ -29,40 +33,51 @@ jobs:
 
       - run: mkdir -p output
 
-      - name: Obnov CDX cache
+      - name: Obnov progress cache
         uses: actions/cache@v4
         with:
           path: |
-            output/cdx_urls.json
-            output/cdx_urls.json.progress
-          key: cdx-map-${{ github.run_number }}
-          restore-keys: cdx-map
+            output/map_progress.json
+            output/urls_relevant_*.csv
+            output/urls_skipped_*.csv
+          key: map-progress-${{ github.run_number }}
+          restore-keys: map-progress
 
-      - name: Stiahni CDX a vytvor URL mapy
+      - name: Spusti mapovanie
         run: |
           ARGS=""
           if [ -n "${{ github.event.inputs.cdx_limit }}" ]; then
-            ARGS="--cdx-limit ${{ github.event.inputs.cdx_limit }}"
+            ARGS="$ARGS --cdx-limit ${{ github.event.inputs.cdx_limit }}"
           fi
+          if [ -n "${{ github.event.inputs.chunk_size }}" ]; then
+            ARGS="$ARGS --chunk-size ${{ github.event.inputs.chunk_size }}"
+          fi
+          echo "Spúšťam: python map_urls.py $ARGS"
           python map_urls.py $ARGS
 
       - name: Štatistiky
+        if: always()
         run: |
-          echo "=== Relevantné URL ==="
-          wc -l output/urls_relevant.csv || true
-          echo "=== Nerelevantné URL ==="
-          wc -l output/urls_skipped.csv || true
+          echo "=== Relevant súbory ==="
+          ls -lh output/urls_relevant_*.csv 2>/dev/null || echo "žiadne"
+          echo "=== Skipped súbory ==="
+          ls -lh output/urls_skipped_*.csv 2>/dev/null || echo "žiadne"
+          echo "=== Riadky celkom ==="
+          wc -l output/urls_relevant_*.csv output/urls_skipped_*.csv 2>/dev/null || true
+          echo "=== Posledných 10 riadkov logu ==="
+          tail -10 output/map_urls.log 2>/dev/null || true
 
       - name: Ulož do repozitára
+        if: always()
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/urls_relevant.csv output/urls_skipped.csv 2>/dev/null || true
+          git add output/urls_relevant_*.csv output/urls_skipped_*.csv output/map_urls.log 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Žiadne zmeny."
           else
-            TOTAL=$(wc -l < output/urls_relevant.csv 2>/dev/null || echo 0)
-            git commit -m "map: $((TOTAL-1)) relevantných URL [run #${{ github.run_number }}]"
+            REL=$(wc -l output/urls_relevant_*.csv 2>/dev/null | tail -1 | awk '{print $1}' || echo 0)
+            git commit -m "map: ~${REL} relevantných URL [run #${{ github.run_number }}]"
             git push
           fi
 
@@ -71,6 +86,7 @@ jobs:
         with:
           name: url-maps-${{ github.run_number }}
           path: |
-            output/urls_relevant.csv
-            output/urls_skipped.csv
+            output/urls_relevant_*.csv
+            output/urls_skipped_*.csv
+            output/map_urls.log
           retention-days: 90
