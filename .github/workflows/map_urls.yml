@@ -3,20 +3,20 @@ name: Mapovanie URL (bez scrapingu)
 on:
   workflow_dispatch:
     inputs:
-      cdx_limit:
-        description: 'Max URL z CDX (prázdne = všetky ~3M)'
-        required: false
-        default: ''
+      from_date:
+        description: 'Začiatok obdobia YYYYMMDD (napr. 20100101)'
+        required: true
+        default: '20100101'
+      to_date:
+        description: 'Koniec obdobia YYYYMMDD (napr. 20151231)'
+        required: true
+        default: '20151231'
       chunk_size:
         description: 'Záznamy na jeden CSV súbor (default 500000)'
         required: false
         default: '500000'
-      start_offset:
-        description: 'Začni od CDX offsetu (prázdne = resume alebo 0)'
-        required: false
-        default: ''
-      end_offset:
-        description: 'Zastav pri CDX offsete (prázdne = do konca)'
+      from_offset:
+        description: 'Resume od CDX offsetu (prázdne = od začiatku/resume)'
         required: false
         default: ''
 
@@ -45,40 +45,25 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            output/map_progress.json
-            output/urls_relevant_*.csv
-            output/urls_skipped_*.csv
-          key: map-progress-${{ github.run_number }}
+            output/map_progress_*.json
+            output/relevant_*.csv
+            output/skipped_*.csv
+          key: map-${{ github.event.inputs.from_date }}-${{ github.event.inputs.to_date }}-${{ github.run_number }}
           restore-keys: |
-            map-progress-
-            map-progress
+            map-${{ github.event.inputs.from_date }}-${{ github.event.inputs.to_date }}-
 
-      - name: Skontroluj resume stav
+      - name: Skontroluj resume
         run: |
-          if [ -f output/map_progress.json ]; then
-            echo "Resume nájdený:"
-            cat output/map_progress.json
-          else
-            echo "Žiadny resume — začínam odznova"
-          fi
-          echo "Existujúce CSV súbory:"
-          ls -lh output/urls_*.csv 2>/dev/null || echo "žiadne"
+          PERIOD="${{ github.event.inputs.from_date }}-${{ github.event.inputs.to_date }}"
+          PERIOD="${PERIOD:0:4}-${PERIOD:12:4}"
+          echo "Obdobie: $PERIOD"
+          ls -lh output/relevant_*.csv output/skipped_*.csv 2>/dev/null || echo "Žiadne CSV"
+          cat output/map_progress_*.json 2>/dev/null || echo "Žiadny progress"
 
       - name: Spusti mapovanie
         run: |
-          ARGS=""
-          if [ -n "${{ github.event.inputs.cdx_limit }}" ]; then
-            ARGS="$ARGS --cdx-limit ${{ github.event.inputs.cdx_limit }}"
-          fi
-          if [ -n "${{ github.event.inputs.chunk_size }}" ]; then
-            ARGS="$ARGS --chunk-size ${{ github.event.inputs.chunk_size }}"
-          fi
-          if [ -n "${{ github.event.inputs.start_offset }}" ]; then
-            ARGS="$ARGS --from-offset ${{ github.event.inputs.start_offset }}"
-          fi
-          if [ -n "${{ github.event.inputs.end_offset }}" ]; then
-            ARGS="$ARGS --end-offset ${{ github.event.inputs.end_offset }}"
-          fi
+          ARGS="--from-date ${{ github.event.inputs.from_date }} --to-date ${{ github.event.inputs.to_date }}"
+          ARGS="$ARGS --chunk-size ${{ github.event.inputs.chunk_size }}"
           if [ -n "${{ github.event.inputs.from_offset }}" ]; then
             ARGS="$ARGS --from-offset ${{ github.event.inputs.from_offset }}"
           fi
@@ -88,36 +73,34 @@ jobs:
       - name: Štatistiky
         if: always()
         run: |
-          echo "=== Relevant súbory ==="
-          ls -lh output/urls_relevant_*.csv 2>/dev/null || echo "žiadne"
-          echo "=== Skipped súbory ==="
-          ls -lh output/urls_skipped_*.csv 2>/dev/null || echo "žiadne"
-          echo "=== Riadky celkom ==="
-          wc -l output/urls_relevant_*.csv output/urls_skipped_*.csv 2>/dev/null || true
-          echo "=== Posledných 10 riadkov logu ==="
-          tail -10 output/map_urls.log 2>/dev/null || true
+          echo "=== Súbory ==="
+          ls -lh output/relevant_*.csv output/skipped_*.csv 2>/dev/null || true
+          echo "=== Riadky ==="
+          wc -l output/relevant_*.csv output/skipped_*.csv 2>/dev/null || true
+          echo "=== Log (posledných 15 riadkov) ==="
+          tail -15 output/map_*.log 2>/dev/null || true
 
       - name: Ulož do repozitára
         if: always()
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/urls_relevant_*.csv output/urls_skipped_*.csv output/map_urls.log 2>/dev/null || true
+          git add output/relevant_*.csv output/skipped_*.csv output/map_*.log 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "Žiadne zmeny."
           else
-            REL=$(wc -l output/urls_relevant_*.csv 2>/dev/null | tail -1 | awk '{print $1}' || echo 0)
-            git commit -m "map: ~${REL} relevantných URL [run #${{ github.run_number }}]"
-            git pull --rebase origin main
+            PERIOD="${{ github.event.inputs.from_date }}-${{ github.event.inputs.to_date }}"
+            git commit -m "map ${PERIOD}: [run #${{ github.run_number }}]"
+            git pull --rebase --autostash origin main || true
             git push
           fi
 
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: url-maps-${{ github.run_number }}
+          name: map-${{ github.event.inputs.from_date }}-${{ github.event.inputs.to_date }}-${{ github.run_number }}
           path: |
-            output/urls_relevant_*.csv
-            output/urls_skipped_*.csv
-            output/map_urls.log
+            output/relevant_*.csv
+            output/skipped_*.csv
+            output/map_*.log
           retention-days: 90
