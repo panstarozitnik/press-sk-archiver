@@ -150,7 +150,7 @@ def main():
     args = ap.parse_args()
 
     # Obdobie ako string pre názvy súborov: 2010-2015
-    period = f"{args.from_date[:4]}-{args.to_date[:4]}"
+    period = f"{args.from_date}-{args.to_date}"
     progress_path = f"output/map_progress_{period}.json"
 
     log = setup_logging(period)
