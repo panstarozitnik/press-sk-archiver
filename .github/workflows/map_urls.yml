@@ -14,7 +14,7 @@ on:
       chunk_size:
         description: 'Záznamy na jeden CSV súbor (default 500000)'
         required: false
-        default: '500000'
+        default: '450000'
       from_offset:
         description: 'Resume od CDX offsetu (prázdne = od začiatku/resume)'
         required: false
