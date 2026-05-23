@@ -1,59 +1,55 @@
 """
-Zistenie počtu CDX záznamov pre press.sk - hrubý odhad.
+Zistí počet CDX záznamov pre press.sk po mesiacoch v danom roku.
+Spustenie cez GitHub Actions workflow cdx_count.yml
 """
-import urllib.request, json, time
+import urllib.request, json, time, sys
 
-BASE = (
-    "http://web.archive.org/cdx/search/cdx"
-    "?url=press.sk/*"
-    "&output=json"
-    "&fl=original"
-    "&filter=statuscode:200"
-)
+def count_month(year: int, month: int) -> int:
+    """Vráti počet záznamov pre daný mesiac."""
+    from_date = f"{year}{month:02d}01"
+    # Posledný deň mesiaca
+    if month == 12:
+        to_date = f"{year}1231"
+    else:
+        to_date = f"{year}{month+1:02d}01"
+        # Odčítame 1 deň — stačí dať posledný deň predchádzajúceho mesiaca
+        to_date = f"{year}{month:02d}31"  # CDX akceptuje aj neexistujúce dni
 
-def has_record(offset, collapse=""):
-    col = f"&collapse={collapse}" if collapse else ""
-    url = f"{BASE}{col}&limit=1&offset={offset}"
+    url = (
+        "http://web.archive.org/cdx/search/cdx"
+        f"?url=press.sk/*&output=json&fl=original"
+        f"&filter=statuscode:200"
+        f"&from={from_date}&to={to_date}"
+        f"&limit=1&showNumPages=true&pageSize=5000"
+    )
     for attempt in range(3):
         try:
-            with urllib.request.urlopen(url, timeout=45) as r:
-                data = json.loads(r.read())
-            return len([x for x in data if x and x[0] != "original"]) > 0
+            with urllib.request.urlopen(url, timeout=60) as r:
+                val = r.read().strip()
+                return int(val) * 5000
         except Exception as e:
-            print(f"  Retry {attempt+1}/3 (offset={offset:,}): {e}", flush=True)
+            if attempt == 2:
+                return -1
             time.sleep(10)
-    return False
+    return -1
 
-def find_total(label, collapse=""):
-    print(f"\n=== {label} ===", flush=True)
-    step = 500000  # Väčší krok — menej requestov
-    offset = 0
-    while has_record(offset, collapse):
-        print(f"  offset={offset:,} → existuje", flush=True)
-        offset += step
-        time.sleep(2)  # Dlhšia pauza
+# Rok z argumentu alebo default
+year = int(sys.argv[1]) if len(sys.argv) > 1 else 2008
 
-    high = offset
-    low  = max(0, offset - step)
-    print(f"  Rozsah: {low:,} – {high:,}", flush=True)
+print(f"\n=== Počet CDX snapshotov pre press.sk — rok {year} ===\n", flush=True)
+print(f"{'Mesiac':<12} {'Odhadovaný počet':>20}", flush=True)
+print("-" * 35, flush=True)
 
-    # Binárne hľadanie
-    while high - low > 10000:
-        mid = (low + high) // 2
-        if has_record(mid, collapse):
-            low = mid
-        else:
-            high = mid
-        time.sleep(2)
+total = 0
+for month in range(1, 13):
+    count = count_month(year, month)
+    month_name = f"{year}-{month:02d}"
+    if count == -1:
+        print(f"{month_name:<12} {'CHYBA':>20}", flush=True)
+    else:
+        print(f"{month_name:<12} {count:>20,}", flush=True)
+        total += count
+    time.sleep(2)
 
-    print(f"  ODHADOVANÝ POČET: ~{high:,}", flush=True)
-    return high
-
-total  = find_total("Všetky snapshoty press.sk")
-unique = find_total("Unikátne URL (collapse=urlkey)", collapse="urlkey")
-
-print(f"\n{'='*40}", flush=True)
-print(f"Všetky snapshoty:       ~{total:,}", flush=True)
-print(f"Unikátnych URL:         ~{unique:,}", flush=True)
-if unique > 0:
-    print(f"Snapshotov/URL:         ~{total/unique:.1f}x", flush=True)
+print("-" * 35, flush=True)
+print(f"{'SPOLU':<12} {total:>20,}", flush=True)
