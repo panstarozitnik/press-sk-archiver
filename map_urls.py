@@ -62,7 +62,18 @@ def wayback_url(original: str, timestamp: str) -> str:
     return f"https://web.archive.org/web/{timestamp}/{original}"
 
 
+# Prípony ktoré úplne ignorujeme — ani do skipped
+_IGNORE_EXTS = {
+    ".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp", ".svg", ".ico",
+    ".txt",
+}
+
 def classify(url: str) -> str:
+    # Ignoruj URL podľa prípony
+    path = url.split("?")[0].lower()
+    ext  = "." + path.rsplit(".", 1)[-1] if "." in path.rsplit("/", 1)[-1] else ""
+    if ext in _IGNORE_EXTS:
+        return "ignore"
     if is_listing_url(url):  return "LISTING"
     if is_product_url(url):  return "PRODUCT"
     return "skip"
@@ -197,7 +208,7 @@ def main():
 
         for attempt, wait in enumerate([60, 120, 300]):
             try:
-                resp = session.get(url, timeout=90)
+                resp = session.get(url, timeout=300)
                 resp.raise_for_status()
                 break
             except Exception as e:
@@ -247,7 +258,9 @@ def main():
                 "timestamp":    timestamp,
                 "type":         t,
             }
-            if t in ("LISTING", "PRODUCT"):
+            if t == "ignore":
+                continue
+            elif t in ("LISTING", "PRODUCT"):
                 rel.write(rec)
                 total_rel += 1
             else:
@@ -266,7 +279,7 @@ def main():
             break
 
         offset += CDX_PAGE_SIZE
-        time.sleep(3)
+        time.sleep(5)
 
     rel.close()
     skp.close()
