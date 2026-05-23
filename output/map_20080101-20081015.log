@@ -1,0 +1,9 @@
+2026-05-23 15:13:28,354 [INFO] Obdobie: 20080101 → 20081015  (súbory: *_20080101-20081015_*.csv)
+2026-05-23 15:13:28,354 [INFO]   → output/relevant_20080101-20081015_001.csv
+2026-05-23 15:13:28,354 [INFO]   → output/skipped_20080101-20081015_001.csv
+2026-05-23 15:13:28,354 [INFO] Sťahujem CDX a triedim...
+2026-05-23 15:14:28,593 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081015&limit=5000&offset=0 — čakám 60s
+2026-05-23 15:16:28,657 [WARNING]   Retry 2: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081015&limit=5000&offset=0 — čakám 120s
+2026-05-23 15:20:51,130 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081015&limit=5000&offset=10000 — čakám 60s
+2026-05-23 15:22:51,187 [WARNING]   Retry 2: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081015&limit=5000&offset=10000 — čakám 120s
+2026-05-23 15:25:51,394 [ERROR] CDX zlyhalo po 3 pokusoch: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081015&limit=5000&offset=10000
