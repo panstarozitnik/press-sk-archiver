@@ -2,16 +2,21 @@ name: Zisti pocet CDX URL
 
 on:
   workflow_dispatch:
+    inputs:
+      year:
+        description: 'Rok (napr. 2008)'
+        required: true
+        default: '2008'
 
 jobs:
   count:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Zisti pocet
-        run: python3 cdx_count.py
+      - name: Zisti pocet po mesiacoch
+        run: python3 cdx_count.py ${{ github.event.inputs.year }}
