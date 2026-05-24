@@ -1,9 +1,9 @@
 """
-Zistí počet CDX záznamov pre press.sk.
+Zistí počet CDX záznamov pre press.sk (odhad cez binárne hľadanie).
 
 Spustenie:
-  python3 cdx_count.py 2008        → prehľad po mesiacoch za rok 2008
-  python3 cdx_count.py 200810      → prehľad po dňoch za október 2008
+  python3 cdx_count.py 2008        → po mesiacoch
+  python3 cdx_count.py 200810      → po dňoch
 """
 import urllib.request, time, sys, calendar, json
 
@@ -11,71 +11,68 @@ BASE = (
     "http://web.archive.org/cdx/search/cdx"
     "?url=press.sk/*"
     "&output=json"
-    "&fl=timestamp"
+    "&fl=original"
     "&filter=statuscode:200"
 )
 
-def count_range(from_date: str, to_date: str) -> int:
-    """
-    Stiahne všetky timestamps v rozsahu a vráti počet.
-    Efektívne — fl=timestamp je malý payload, limit=100000 na stránku.
-    """
-    total = 0
-    offset = 0
-    page_size = 100000
-    while True:
-        url = f"{BASE}&from={from_date}&to={to_date}&limit={page_size}&offset={offset}"
-        for attempt in range(3):
-            try:
-                with urllib.request.urlopen(url, timeout=120) as r:
-                    data = json.loads(r.read())
-                break
-            except Exception as e:
-                if attempt == 2:
-                    return total  # vrátime čo máme
-                time.sleep(15)
+def has_record_at(from_date: str, to_date: str, offset: int) -> bool:
+    url = f"{BASE}&from={from_date}&to={to_date}&limit=1&offset={offset}"
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(url, timeout=45) as r:
+                data = json.loads(r.read())
+            rows = [x for x in data if x and x[0] != "original"]
+            return len(rows) > 0
+        except:
+            if attempt == 2:
+                return False
+            time.sleep(10)
+    return False
 
-        rows = [x for x in data if x and x[0] != "timestamp"]
-        total += len(rows)
-        if len(rows) < page_size:
-            break
-        offset += page_size
-        time.sleep(1)
-    return total
+def estimate_count(from_date: str, to_date: str) -> str:
+    """Vráti odhad počtu ako string napr. '~5,000,000'."""
+    # Testuj exponenciálne — 1k, 10k, 100k, 1M, 5M, 10M...
+    thresholds = [100, 1_000, 10_000, 100_000, 500_000,
+                  1_000_000, 2_000_000, 5_000_000, 10_000_000]
+
+    last_true = 0
+    for t in thresholds:
+        if has_record_at(from_date, to_date, t):
+            last_true = t
+            time.sleep(0.3)
+        else:
+            # Medzi last_true a t
+            if last_true == 0:
+                return f"< {t:,}"
+            return f"~{last_true:,} – {t:,}"
+
+    return f"> {thresholds[-1]:,}"
 
 def report_by_month(year: int):
     print(f"\n=== CDX snapshotov — {year} (po mesiacoch) ===\n", flush=True)
-    print(f"{'Mesiac':<12} {'Počet':>15}", flush=True)
-    print("-" * 30, flush=True)
-    total = 0
+    print(f"{'Mesiac':<12} {'Odhad počtu':>25}", flush=True)
+    print("-" * 40, flush=True)
     for month in range(1, 13):
         from_date = f"{year}{month:02d}01"
         to_date   = f"{year}{month:02d}31"
-        count = count_range(from_date, to_date)
+        est = estimate_count(from_date, to_date)
         label = f"{year}-{month:02d}"
-        marker = " ⚠️" if count > 1_000_000 else ""
-        print(f"{label:<12} {count:>15,}{marker}", flush=True)
-        total += count
+        print(f"{label:<12} {est:>25}", flush=True)
         time.sleep(1)
-    print("-" * 30, flush=True)
-    print(f"{'SPOLU':<12} {total:>15,}", flush=True)
+    print("-" * 40, flush=True)
 
 def report_by_day(year: int, month: int):
     days = calendar.monthrange(year, month)[1]
     print(f"\n=== CDX snapshotov — {year}-{month:02d} (po dňoch) ===\n", flush=True)
-    print(f"{'Deň':<14} {'Počet':>15}", flush=True)
-    print("-" * 32, flush=True)
-    total = 0
+    print(f"{'Deň':<14} {'Odhad počtu':>25}", flush=True)
+    print("-" * 42, flush=True)
     for day in range(1, days + 1):
         date = f"{year}{month:02d}{day:02d}"
-        count = count_range(date, date)
+        est = estimate_count(date, date)
         label = f"{year}-{month:02d}-{day:02d}"
-        marker = " ⚠️" if count > 500_000 else ""
-        print(f"{label:<14} {count:>15,}{marker}", flush=True)
-        total += count
-        time.sleep(1)
-    print("-" * 32, flush=True)
-    print(f"{'SPOLU':<14} {total:>15,}", flush=True)
+        print(f"{label:<14} {est:>25}", flush=True)
+        time.sleep(0.5)
+    print("-" * 42, flush=True)
 
 # ── Main ──
 arg = sys.argv[1] if len(sys.argv) > 1 else "2008"
