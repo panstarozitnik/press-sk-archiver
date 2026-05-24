@@ -3,10 +3,10 @@ name: Zisti pocet CDX URL
 on:
   workflow_dispatch:
     inputs:
-      year:
-        description: 'Rok (napr. 2008)'
+      month:
+        description: 'Mesiac vo formáte YYYYMM (napr. 200810)'
         required: true
-        default: '2008'
+        default: '200810'
 
 jobs:
   count:
@@ -18,5 +18,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Zisti pocet po mesiacoch
-        run: python3 cdx_count.py ${{ github.event.inputs.year }}
+      - name: Zisti pocet po dnoch
+        run: python3 cdx_count.py ${{ github.event.inputs.month }}
