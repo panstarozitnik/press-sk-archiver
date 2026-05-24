@@ -1,0 +1,31 @@
+name: Analyzuj timestampy v CSV
+
+on:
+  workflow_dispatch:
+    inputs:
+      type:
+        description: 'Typ súborov: relevant / skipped / all'
+        required: true
+        default: 'relevant'
+      year:
+        description: 'Filtruj rok (napr. 2008, prázdne = všetky)'
+        required: false
+        default: ''
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Spusti analýzu
+        run: |
+          ARGS="${{ github.event.inputs.type }}"
+          if [ -n "${{ github.event.inputs.year }}" ]; then
+            ARGS="$ARGS ${{ github.event.inputs.year }}"
+          fi
+          python3 analyze_timestamps.py $ARGS
