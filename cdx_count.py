@@ -1,5 +1,6 @@
 """
-Zistí počet CDX záznamov pre press.sk (odhad cez binárne hľadanie).
+Zistí počet CDX záznamov pre press.sk.
+Sťahuje po 5000 a počíta kým nedostane prázdnu odpoveď.
 
 Spustenie:
   python3 cdx_count.py 2008        → po mesiacoch
@@ -15,66 +16,61 @@ BASE = (
     "&filter=statuscode:200"
 )
 
-def has_record_at(from_date: str, to_date: str, offset: int) -> bool:
-    url = f"{BASE}&from={from_date}&to={to_date}&limit=1&offset={offset}"
-    for attempt in range(3):
-        try:
-            with urllib.request.urlopen(url, timeout=45) as r:
-                data = json.loads(r.read())
-            rows = [x for x in data if x and x[0] != "original"]
-            return len(rows) > 0
-        except:
-            if attempt == 2:
-                return False
-            time.sleep(10)
-    return False
+def count_range(from_date: str, to_date: str) -> int:
+    """Počíta záznamy po 5000 kým CDX nevráti prázdnu odpoveď."""
+    total  = 0
+    offset = 0
+    while True:
+        url = (f"{BASE}&from={from_date}&to={to_date}"
+               f"&limit=5000&offset={offset}")
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(url, timeout=120) as r:
+                    data = json.loads(r.read())
+                break
+            except Exception as e:
+                if attempt == 2:
+                    return total
+                time.sleep(15)
 
-def estimate_count(from_date: str, to_date: str) -> str:
-    """Vráti odhad počtu ako string napr. '~5,000,000'."""
-    # Testuj exponenciálne — 1k, 10k, 100k, 1M, 5M, 10M...
-    thresholds = [100, 1_000, 10_000, 100_000, 500_000,
-                  1_000_000, 2_000_000, 5_000_000, 10_000_000]
+        rows = [x for x in data if x and x[0] != "original"]
+        total += len(rows)
+        print(f"    offset={offset:,} +{len(rows)} = {total:,}", flush=True)
 
-    last_true = 0
-    for t in thresholds:
-        if has_record_at(from_date, to_date, t):
-            last_true = t
-            time.sleep(0.3)
-        else:
-            # Medzi last_true a t
-            if last_true == 0:
-                return f"< {t:,}"
-            return f"~{last_true:,} – {t:,}"
-
-    return f"> {thresholds[-1]:,}"
+        if len(rows) < 5000:
+            break
+        offset += 5000
+        time.sleep(2)
+    return total
 
 def report_by_month(year: int):
     print(f"\n=== CDX snapshotov — {year} (po mesiacoch) ===\n", flush=True)
-    print(f"{'Mesiac':<12} {'Odhad počtu':>25}", flush=True)
-    print("-" * 40, flush=True)
+    print(f"{'Mesiac':<12} {'Počet':>15}", flush=True)
+    print("-" * 30, flush=True)
+    total = 0
     for month in range(1, 13):
         from_date = f"{year}{month:02d}01"
         to_date   = f"{year}{month:02d}31"
-        est = estimate_count(from_date, to_date)
-        label = f"{year}-{month:02d}"
-        print(f"{label:<12} {est:>25}", flush=True)
+        print(f"\n{year}-{month:02d}:", flush=True)
+        count = count_range(from_date, to_date)
+        print(f"{'→':>4} {year}-{month:02d}: {count:,}", flush=True)
+        total += count
         time.sleep(1)
-    print("-" * 40, flush=True)
+    print(f"\nSPOLU: {total:,}", flush=True)
 
 def report_by_day(year: int, month: int):
     days = calendar.monthrange(year, month)[1]
     print(f"\n=== CDX snapshotov — {year}-{month:02d} (po dňoch) ===\n", flush=True)
-    print(f"{'Deň':<14} {'Odhad počtu':>25}", flush=True)
-    print("-" * 42, flush=True)
+    total = 0
     for day in range(1, days + 1):
         date = f"{year}{month:02d}{day:02d}"
-        est = estimate_count(date, date)
-        label = f"{year}-{month:02d}-{day:02d}"
-        print(f"{label:<14} {est:>25}", flush=True)
-        time.sleep(0.5)
-    print("-" * 42, flush=True)
+        print(f"\n{year}-{month:02d}-{day:02d}:", flush=True)
+        count = count_range(date, date)
+        print(f"{'→':>4} {year}-{month:02d}-{day:02d}: {count:,}", flush=True)
+        total += count
+        time.sleep(1)
+    print(f"\nSPOLU: {total:,}", flush=True)
 
-# ── Main ──
 arg = sys.argv[1] if len(sys.argv) > 1 else "2008"
 if len(arg) == 4:
     report_by_month(int(arg))
