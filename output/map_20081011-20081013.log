@@ -1,0 +1,11 @@
+2026-05-24 20:16:38,550 [INFO] Obdobie: 20081011 → 20081013  (súbory: *_20081011-20081013_*.csv)
+2026-05-24 20:16:38,550 [INFO]   → output/relevant_20081011-20081013_001.csv
+2026-05-24 20:16:38,551 [INFO]   → output/skipped_20081011-20081013_001.csv
+2026-05-24 20:16:38,551 [INFO] Sťahujem CDX a triedim...
+2026-05-24 20:17:38,700 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20081011&to=20081013&limit=5000&offset=0 — čakám 60s
+2026-05-24 20:18:54,354 [INFO] Posledná stránka CDX — hotovo
+2026-05-24 20:18:54,354 [INFO] ==================================================
+2026-05-24 20:18:54,354 [INFO] Obdobie:  20081011-20081013
+2026-05-24 20:18:54,354 [INFO] RELEVANT: 0  (1 súborov)
+2026-05-24 20:18:54,354 [INFO] SKIPPED:  60  (1 súborov)
+2026-05-24 20:18:54,354 [INFO] ==================================================
