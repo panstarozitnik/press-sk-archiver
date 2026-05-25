@@ -38,7 +38,7 @@ CDX_BASE = (
     "&fl=original,timestamp,statuscode"
     "&filter=statuscode:200"
 )
-CDX_PAGE_SIZE = 5000
+CDX_PAGE_SIZE = 145000
 CHUNK_SIZE    = 500_000
 FIELDS        = ["original_url", "wayback_url", "timestamp", "type"]
 # ─────────────────────────────────────────────
@@ -206,7 +206,7 @@ def main():
     while True:
         url = f"{cdx_url_base}&limit={CDX_PAGE_SIZE}&offset={offset}"
 
-        for attempt, wait in enumerate([60, 120, 300]):
+        for attempt, wait in enumerate([180, 360, 900]):
             try:
                 resp = session.get(url, timeout=300)
                 resp.raise_for_status()
