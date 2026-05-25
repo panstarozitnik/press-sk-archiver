@@ -1,0 +1,140 @@
+2026-05-24 20:29:14,769 [INFO] Obdobie: 20080101 → 20081014  (súbory: *_20080101-20081014_*.csv)
+2026-05-24 20:29:14,769 [INFO]   → output/relevant_20080101-20081014_001.csv
+2026-05-24 20:29:14,769 [INFO]   → output/skipped_20080101-20081014_001.csv
+2026-05-24 20:29:14,770 [INFO] Sťahujem CDX a triedim...
+2026-05-24 20:33:37,485 [INFO] CDX offset=45,000 | rel=500 skp=49,500
+2026-05-24 20:36:58,846 [INFO] CDX offset=95,000 | rel=1,000 skp=99,000
+2026-05-24 20:38:55,235 [INFO] CDX offset=145,000 | rel=1,500 skp=148,500
+2026-05-24 20:40:26,619 [INFO] CDX offset=195,000 | rel=2,000 skp=198,000
+2026-05-24 20:43:05,560 [INFO] CDX offset=245,000 | rel=2,500 skp=247,500
+2026-05-24 20:45:29,528 [INFO] CDX offset=295,000 | rel=3,000 skp=297,000
+2026-05-24 20:47:30,437 [INFO] CDX offset=345,000 | rel=3,500 skp=346,500
+2026-05-24 20:50:52,266 [INFO] CDX offset=395,000 | rel=4,000 skp=396,000
+2026-05-24 20:52:44,041 [INFO] CDX offset=445,000 | rel=4,500 skp=445,500
+2026-05-24 20:52:51,816 [INFO]   → output/skipped_20080101-20081014_002.csv
+2026-05-24 20:54:49,539 [INFO] CDX offset=495,000 | rel=5,000 skp=495,000
+2026-05-24 20:57:00,858 [INFO] CDX offset=545,000 | rel=5,500 skp=544,500
+2026-05-24 21:00:09,317 [INFO] CDX offset=595,000 | rel=6,000 skp=594,000
+2026-05-24 21:01:49,231 [INFO] CDX offset=645,000 | rel=6,500 skp=643,500
+2026-05-24 21:03:36,147 [INFO] CDX offset=695,000 | rel=7,000 skp=693,000
+2026-05-24 21:05:10,664 [INFO] CDX offset=745,000 | rel=7,500 skp=742,500
+2026-05-24 21:07:12,448 [INFO] CDX offset=795,000 | rel=8,000 skp=792,000
+2026-05-24 21:09:38,458 [INFO] CDX offset=845,000 | rel=8,500 skp=841,500
+2026-05-24 21:12:09,524 [INFO] CDX offset=895,000 | rel=9,000 skp=891,000
+2026-05-24 21:12:34,218 [INFO]   → output/skipped_20080101-20081014_003.csv
+2026-05-24 21:13:36,984 [INFO] CDX offset=945,000 | rel=9,500 skp=940,500
+2026-05-24 21:15:07,589 [INFO] CDX offset=995,000 | rel=10,000 skp=990,000
+2026-05-24 21:16:49,658 [INFO] CDX offset=1,045,000 | rel=10,500 skp=1,039,500
+2026-05-24 21:19:14,239 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=1090000 — čakám 60s
+2026-05-24 21:20:23,133 [INFO] CDX offset=1,095,000 | rel=11,000 skp=1,089,000
+2026-05-24 21:22:44,616 [INFO] CDX offset=1,145,000 | rel=11,500 skp=1,138,500
+2026-05-24 21:24:49,831 [INFO] CDX offset=1,195,000 | rel=12,000 skp=1,188,000
+2026-05-24 21:26:34,989 [INFO] CDX offset=1,245,000 | rel=12,500 skp=1,237,500
+2026-05-24 21:29:26,712 [INFO] CDX offset=1,295,000 | rel=13,000 skp=1,287,000
+2026-05-24 21:31:34,497 [INFO] CDX offset=1,345,000 | rel=13,500 skp=1,336,500
+2026-05-24 21:32:12,179 [INFO]   → output/skipped_20080101-20081014_004.csv
+2026-05-24 21:33:55,080 [INFO] CDX offset=1,395,000 | rel=14,000 skp=1,386,000
+2026-05-24 21:36:43,507 [INFO] CDX offset=1,445,000 | rel=14,500 skp=1,435,500
+2026-05-24 21:38:42,741 [INFO] CDX offset=1,495,000 | rel=15,000 skp=1,485,000
+2026-05-24 21:40:24,376 [INFO] CDX offset=1,545,000 | rel=15,500 skp=1,534,500
+2026-05-24 21:42:28,604 [INFO] CDX offset=1,595,000 | rel=16,000 skp=1,584,000
+2026-05-24 21:44:17,468 [INFO] CDX offset=1,645,000 | rel=16,500 skp=1,633,500
+2026-05-24 21:46:01,089 [INFO] CDX offset=1,695,000 | rel=17,000 skp=1,683,000
+2026-05-24 21:47:56,686 [INFO] CDX offset=1,745,000 | rel=17,500 skp=1,732,500
+2026-05-24 21:50:07,552 [INFO] CDX offset=1,795,000 | rel=18,000 skp=1,782,000
+2026-05-24 21:51:04,537 [INFO]   → output/skipped_20080101-20081014_005.csv
+2026-05-24 21:52:42,936 [INFO] CDX offset=1,845,000 | rel=18,500 skp=1,831,500
+2026-05-24 21:55:17,067 [INFO] CDX offset=1,895,000 | rel=19,000 skp=1,881,000
+2026-05-24 21:57:00,355 [INFO] CDX offset=1,945,000 | rel=19,500 skp=1,930,500
+2026-05-24 21:59:32,497 [INFO] CDX offset=1,995,000 | rel=20,000 skp=1,980,000
+2026-05-24 22:02:08,864 [INFO] CDX offset=2,045,000 | rel=20,500 skp=2,029,500
+2026-05-24 22:03:42,227 [INFO] CDX offset=2,095,000 | rel=21,000 skp=2,079,000
+2026-05-24 22:06:25,134 [INFO] CDX offset=2,145,000 | rel=21,500 skp=2,128,500
+2026-05-24 22:08:11,867 [INFO] CDX offset=2,195,000 | rel=22,000 skp=2,178,000
+2026-05-24 22:10:18,618 [INFO] CDX offset=2,245,000 | rel=22,500 skp=2,227,500
+2026-05-24 22:11:15,602 [INFO]   → output/skipped_20080101-20081014_006.csv
+2026-05-24 22:12:42,197 [INFO] CDX offset=2,295,000 | rel=23,000 skp=2,277,000
+2026-05-24 22:14:31,686 [INFO] CDX offset=2,345,000 | rel=23,500 skp=2,326,500
+2026-05-24 22:17:09,733 [INFO] CDX offset=2,395,000 | rel=24,000 skp=2,376,000
+2026-05-24 22:18:46,848 [INFO] CDX offset=2,445,000 | rel=24,500 skp=2,425,500
+2026-05-24 22:19:52,306 [INFO] CDX offset=2,495,000 | rel=25,000 skp=2,475,000
+2026-05-24 22:21:42,353 [INFO] CDX offset=2,545,000 | rel=25,500 skp=2,524,500
+2026-05-24 22:23:01,125 [INFO] CDX offset=2,595,000 | rel=26,000 skp=2,574,000
+2026-05-24 22:24:15,563 [INFO] CDX offset=2,645,000 | rel=26,500 skp=2,623,500
+2026-05-24 22:25:45,410 [INFO] CDX offset=2,695,000 | rel=27,000 skp=2,673,000
+2026-05-24 22:26:59,519 [INFO]   → output/skipped_20080101-20081014_007.csv
+2026-05-24 22:27:31,894 [INFO] CDX offset=2,745,000 | rel=27,500 skp=2,722,500
+2026-05-24 22:30:01,797 [INFO] CDX offset=2,795,000 | rel=28,000 skp=2,772,000
+2026-05-24 22:31:36,941 [INFO] CDX offset=2,845,000 | rel=28,500 skp=2,821,500
+2026-05-24 22:33:37,829 [INFO] CDX offset=2,895,000 | rel=29,000 skp=2,871,000
+2026-05-24 22:35:24,302 [INFO] CDX offset=2,945,000 | rel=29,500 skp=2,920,500
+2026-05-24 22:37:11,501 [INFO] CDX offset=2,995,000 | rel=30,000 skp=2,970,000
+2026-05-24 22:38:49,154 [INFO] CDX offset=3,045,000 | rel=30,500 skp=3,019,500
+2026-05-24 22:40:03,256 [INFO] CDX offset=3,095,000 | rel=31,000 skp=3,069,000
+2026-05-24 22:41:36,375 [INFO] CDX offset=3,145,000 | rel=31,500 skp=3,118,500
+2026-05-24 22:42:42,374 [INFO]   → output/skipped_20080101-20081014_008.csv
+2026-05-24 22:43:24,896 [INFO] CDX offset=3,195,000 | rel=32,000 skp=3,168,000
+2026-05-24 22:44:55,909 [INFO] CDX offset=3,245,000 | rel=32,500 skp=3,217,500
+2026-05-24 22:46:35,888 [INFO] CDX offset=3,295,000 | rel=33,000 skp=3,267,000
+2026-05-24 22:48:11,685 [INFO] CDX offset=3,345,000 | rel=33,500 skp=3,316,500
+2026-05-24 22:50:55,117 [INFO] CDX offset=3,395,000 | rel=34,000 skp=3,366,000
+2026-05-24 22:53:17,207 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=3435000 — čakám 60s
+2026-05-24 22:55:02,159 [INFO] CDX offset=3,445,000 | rel=34,500 skp=3,415,500
+2026-05-24 22:57:03,497 [INFO] CDX offset=3,495,000 | rel=35,000 skp=3,465,000
+2026-05-24 22:58:59,939 [INFO] CDX offset=3,545,000 | rel=35,500 skp=3,514,500
+2026-05-24 23:00:52,337 [INFO] CDX offset=3,595,000 | rel=36,000 skp=3,564,000
+2026-05-24 23:01:56,867 [INFO]   → output/skipped_20080101-20081014_009.csv
+2026-05-24 23:02:26,521 [INFO] CDX offset=3,645,000 | rel=36,500 skp=3,613,500
+2026-05-24 23:04:26,567 [INFO] CDX offset=3,695,000 | rel=37,000 skp=3,663,000
+2026-05-24 23:06:10,773 [INFO] CDX offset=3,745,000 | rel=37,500 skp=3,712,500
+2026-05-24 23:08:57,052 [INFO] CDX offset=3,795,000 | rel=38,000 skp=3,762,000
+2026-05-24 23:10:22,099 [INFO] CDX offset=3,845,000 | rel=38,500 skp=3,811,500
+2026-05-24 23:13:13,883 [INFO] CDX offset=3,895,000 | rel=39,000 skp=3,861,000
+2026-05-24 23:16:18,916 [INFO] CDX offset=3,945,000 | rel=39,500 skp=3,910,500
+2026-05-24 23:18:44,134 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=3990000 — čakám 60s
+2026-05-24 23:20:00,732 [INFO] CDX offset=3,995,000 | rel=40,000 skp=3,960,000
+2026-05-24 23:22:25,732 [INFO] CDX offset=4,045,000 | rel=40,500 skp=4,009,500
+2026-05-24 23:23:40,725 [INFO]   → output/skipped_20080101-20081014_010.csv
+2026-05-24 23:23:56,985 [INFO] CDX offset=4,095,000 | rel=41,000 skp=4,059,000
+2026-05-24 23:26:12,795 [INFO] CDX offset=4,145,000 | rel=41,500 skp=4,108,500
+2026-05-24 23:28:14,115 [INFO] CDX offset=4,195,000 | rel=42,000 skp=4,158,000
+2026-05-24 23:29:42,127 [INFO] CDX offset=4,245,000 | rel=42,500 skp=4,207,500
+2026-05-24 23:31:23,777 [INFO] CDX offset=4,295,000 | rel=43,000 skp=4,257,000
+2026-05-24 23:32:50,622 [INFO] CDX offset=4,345,000 | rel=43,500 skp=4,306,500
+2026-05-24 23:34:30,468 [INFO] CDX offset=4,395,000 | rel=44,000 skp=4,356,000
+2026-05-24 23:36:28,778 [INFO] CDX offset=4,445,000 | rel=44,500 skp=4,405,500
+2026-05-24 23:39:27,724 [INFO] CDX offset=4,495,000 | rel=45,000 skp=4,455,000
+2026-05-24 23:41:53,670 [INFO]   → output/skipped_20080101-20081014_011.csv
+2026-05-24 23:41:53,860 [INFO] CDX offset=4,545,000 | rel=45,500 skp=4,504,500
+2026-05-24 23:43:21,710 [INFO] CDX offset=4,595,000 | rel=46,000 skp=4,554,000
+2026-05-24 23:44:31,912 [INFO] CDX offset=4,645,000 | rel=46,500 skp=4,603,500
+2026-05-24 23:46:20,634 [INFO] CDX offset=4,695,000 | rel=47,000 skp=4,653,000
+2026-05-24 23:48:52,924 [INFO] CDX offset=4,745,000 | rel=47,500 skp=4,702,500
+2026-05-24 23:51:03,787 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=4775000 — čakám 60s
+2026-05-24 23:52:59,000 [INFO] CDX offset=4,795,000 | rel=48,000 skp=4,752,000
+2026-05-24 23:55:09,087 [INFO] CDX offset=4,845,000 | rel=48,500 skp=4,801,500
+2026-05-24 23:57:10,809 [INFO] CDX offset=4,895,000 | rel=49,000 skp=4,851,000
+2026-05-24 23:58:37,651 [INFO] CDX offset=4,945,000 | rel=49,500 skp=4,900,500
+2026-05-25 00:00:39,763 [INFO] CDX offset=4,995,000 | rel=50,000 skp=4,950,000
+2026-05-25 00:00:53,940 [INFO]   → output/skipped_20080101-20081014_012.csv
+2026-05-25 00:03:40,554 [INFO] CDX offset=5,045,000 | rel=50,500 skp=4,999,500
+2026-05-25 00:05:31,083 [INFO] CDX offset=5,095,000 | rel=51,000 skp=5,049,000
+2026-05-25 00:07:26,996 [INFO] CDX offset=5,145,000 | rel=51,500 skp=5,098,500
+2026-05-25 00:08:32,058 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=5150000 — čakám 60s
+2026-05-25 00:12:49,740 [INFO] CDX offset=5,195,000 | rel=52,000 skp=5,148,000
+2026-05-25 00:15:28,656 [INFO] CDX offset=5,245,000 | rel=52,500 skp=5,197,500
+2026-05-25 00:18:06,648 [INFO] CDX offset=5,295,000 | rel=53,000 skp=5,247,000
+2026-05-25 00:21:08,005 [INFO] CDX offset=5,345,000 | rel=53,500 skp=5,296,500
+2026-05-25 00:24:36,833 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=5385000 — čakám 60s
+2026-05-25 00:26:41,241 [INFO] CDX offset=5,395,000 | rel=54,000 skp=5,346,000
+2026-05-25 00:29:21,975 [INFO] CDX offset=5,445,000 | rel=54,500 skp=5,395,500
+2026-05-25 00:29:32,896 [INFO]   → output/skipped_20080101-20081014_013.csv
+2026-05-25 00:31:50,152 [WARNING]   Retry 1: 503 Server Error: Service Unavailable for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=5490000 — čakám 60s
+2026-05-25 00:33:14,371 [INFO] CDX offset=5,495,000 | rel=55,000 skp=5,445,000
+2026-05-25 00:35:14,021 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=5505000 — čakám 60s
+2026-05-25 00:37:22,939 [WARNING]   Retry 1: 503 Server Error: Service Unavailable for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=5520000 — čakám 60s
+2026-05-25 00:39:46,244 [WARNING]   Retry 1: 503 Server Error: Service Unavailable for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=5530000 — čakám 60s
+2026-05-25 00:42:16,932 [INFO] CDX offset=5,545,000 | rel=55,500 skp=5,494,500
+2026-05-25 00:43:06,803 [WARNING]   Retry 1: 503 Server Error: Service Unavailable for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=5560000 — čakám 60s
+2026-05-25 00:45:06,875 [WARNING]   Retry 2: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=5560000 — čakám 120s
+2026-05-25 00:47:12,128 [ERROR] CDX zlyhalo po 3 pokusoch: 503 Server Error: Service Unavailable for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=json&fl=original,timestamp,statuscode&filter=statuscode:200&from=20080101&to=20081014&limit=5000&offset=5560000
