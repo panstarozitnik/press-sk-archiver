@@ -38,7 +38,7 @@ CDX_BASE = (
     "&fl=original,timestamp,statuscode"
     "&filter=statuscode:200"
 )
-CDX_PAGE_SIZE = 50000
+CDX_PAGE_SIZE = 5000
 CHUNK_SIZE    = 500_000
 FIELDS        = ["original_url", "wayback_url", "timestamp", "type"]
 # ─────────────────────────────────────────────
@@ -223,7 +223,7 @@ def main():
         if not resp.text.strip():
             log.warning(f"  Prázdna odpoveď pri offset={offset}, preskakujem")
             offset += CDX_PAGE_SIZE
-            time.sleep(5)
+            time.sleep(3)
             continue
 
         try:
@@ -231,7 +231,7 @@ def main():
         except Exception as e:
             log.warning(f"  JSON chyba pri offset={offset}: {e}, preskakujem")
             offset += CDX_PAGE_SIZE
-            time.sleep(5)
+            time.sleep(3)
             continue
 
         if not raw:
@@ -279,7 +279,7 @@ def main():
             break
 
         offset += CDX_PAGE_SIZE
-        time.sleep(5)
+        time.sleep(3)
 
     rel.close()
     skp.close()
