@@ -38,7 +38,7 @@ CDX_BASE = (
     "&fl=original,timestamp,statuscode"
     "&filter=statuscode:200"
 )
-CDX_PAGE_SIZE = 30000
+CDX_PAGE_SIZE = 15000
 CHUNK_SIZE    = 500_000
 FIELDS        = ["original_url", "wayback_url", "timestamp", "type"]
 # ─────────────────────────────────────────────
