@@ -59,3 +59,14 @@
 2026-05-26 06:43:33,445 [INFO] RELEVANT: 122  (1 súborov)
 2026-05-26 06:43:33,445 [INFO] SKIPPED:  4,878  (1 súborov)
 2026-05-26 06:43:33,445 [INFO] ==================================================
+2026-05-26 06:46:31,173 [INFO] Obdobie: 20080101 → 20081231
+2026-05-26 06:46:31,173 [INFO]   → output/relevant_20080101-20081231_001.csv
+2026-05-26 06:46:31,173 [INFO]   → output/skipped_20080101-20081231_001.csv
+2026-05-26 06:46:31,173 [INFO] Sťahujem CDX (resume key pagination)...
+2026-05-26 06:46:42,177 [INFO]   raw[-3:] = [['http://press.sk:80/index.php?keyword=LETECTV%CD+%2B+KOSMONAUTIKA+%8APECI%C1L&typ_hladania=produkty&Search=H%BEada%9D&option=com_phpshop&page=shop.browse', '20080228203747', '200'], [], ['eJwVy0EOwiAQQNGruIHEYCqiSeuCeJRmChMhtMwEqLW3t-7-W_yaLlyw1vM1Zo_fjgO_Eu4bFW9nbOjaRzivlEpUF8qwtphAiQEYXRTuNkviFilbR8t4zDUQS4Y32n91U6GtoqwIxQUbxITgQTy9bDuPYT6QI1gu5NfU9pPRetDGDEbf-0f_A7oJN7M']]
+2026-05-26 06:46:42,389 [INFO] Žiadny ďalší resume key — koniec CDX
+2026-05-26 06:46:42,389 [INFO] ==================================================
+2026-05-26 06:46:42,389 [INFO] Obdobie:  20080101-20081231
+2026-05-26 06:46:42,389 [INFO] RELEVANT: 122  (1 súborov)
+2026-05-26 06:46:42,389 [INFO] SKIPPED:  4,878  (1 súborov)
+2026-05-26 06:46:42,389 [INFO] ==================================================
