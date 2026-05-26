@@ -203,6 +203,9 @@ def main():
         if not raw:
             break
 
+        # DEBUG — pozri posledné 3 riadky odpovede
+        log.info(f"  raw[-3:] = {raw[-3:]}")
+
         # showResumeKey=true pridá na koniec: [["resumeKey"], ["hodnota"]]
         next_resume_key = None
         if len(raw) >= 2 and raw[-2] == ["resumeKey"]:
