@@ -1,0 +1,157 @@
+name: Wayback CDX – stiahni URL-ky press.sk
+
+on:
+  workflow_dispatch:
+    inputs:
+      date_from:
+        description: 'Od (YYYYMMDD)'
+        required: true
+        default: '19960101'
+      date_to:
+        description: 'Do (YYYYMMDD)'
+        required: true
+        default: '20001231'
+      output_file:
+        description: 'Základný názov súborov (bez .txt, bez čísla časti)'
+        required: false
+        default: ''
+      chunk_size:
+        description: 'Max. URL na jeden súbor'
+        required: false
+        default: '500000'
+  # schedule:
+  #   - cron: '0 3 * * 0'
+
+jobs:
+  fetch-urls:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repozitára
+        uses: actions/checkout@v4
+
+      - name: Nastav premenné
+        id: vars
+        run: |
+          FROM="${{ github.event.inputs.date_from }}"
+          TO="${{ github.event.inputs.date_to }}"
+          CUSTOM="${{ github.event.inputs.output_file }}"
+          CHUNK="${{ github.event.inputs.chunk_size }}"
+
+          if [ -n "$CUSTOM" ]; then
+            BASENAME="$CUSTOM"
+          else
+            BASENAME="urls_${FROM}_${TO}"
+          fi
+
+          # Predvolená hodnota ak je chunk_size prázdne
+          [ -z "$CHUNK" ] && CHUNK="500000"
+
+          echo "from=$FROM"           >> "$GITHUB_OUTPUT"
+          echo "to=$TO"               >> "$GITHUB_OUTPUT"
+          echo "basename=$BASENAME"   >> "$GITHUB_OUTPUT"
+          echo "chunk=$CHUNK"         >> "$GITHUB_OUTPUT"
+
+      - name: Stiahni URL-ky cez CDX API
+        run: |
+          FROM="${{ steps.vars.outputs.from }}"
+          TO="${{ steps.vars.outputs.to }}"
+          BASENAME="${{ steps.vars.outputs.basename }}"
+          CHUNK="${{ steps.vars.outputs.chunk }}"
+          TARGET="press.sk"
+          CDX_URL="https://web.archive.org/cdx/search/cdx"
+
+          echo "Sťahujem URL-ky pre $TARGET od $FROM do $TO ..."
+
+          # Stiahni všetky záznamy (bez limitu) do jedného surového súboru
+          curl -sG "$CDX_URL" \
+            --data-urlencode "url=${TARGET}/*" \
+            --data-urlencode "output=text" \
+            --data-urlencode "fl=timestamp,original,statuscode" \
+            --data-urlencode "filter=statuscode:200" \
+            --data-urlencode "from=${FROM}" \
+            --data-urlencode "to=${TO}" \
+            --data-urlencode "collapse=urlkey" \
+            -o raw_cdx.txt
+
+          TOTAL=$(wc -l < raw_cdx.txt)
+          echo "Nájdených záznamov: $TOTAL"
+
+          # Formátuj a zoraď celý súbor
+          awk '{
+            ts  = $1
+            url = $2
+            printf "%s-%s-%s %s:%s:%s  %s\n",
+              substr(ts,1,4), substr(ts,5,2), substr(ts,7,2),
+              substr(ts,9,2), substr(ts,11,2), substr(ts,13,2),
+              url
+          }' raw_cdx.txt | sort > all_urls_sorted.txt
+
+          UNIQUE=$(wc -l < all_urls_sorted.txt)
+          echo "Unikátnych URL-iek: $UNIQUE"
+
+          # Rozdeľ na časti po $CHUNK riadkov
+          # split vytvorí súbory: basename_part_001.txt, basename_part_002.txt, ...
+          split \
+            --lines="$CHUNK" \
+            --numeric-suffixes=1 \
+            --suffix-length=3 \
+            --additional-suffix=".txt" \
+            all_urls_sorted.txt \
+            "${BASENAME}_part_"
+
+          # Pomenuj časti s nulami: part_001, part_002, ...
+          PARTS=$(ls "${BASENAME}_part_"*.txt 2>/dev/null | wc -l)
+          echo "Počet súborov (častí): $PARTS"
+
+          # Ulož štatistiky pre ďalšie kroky
+          echo "BASENAME=$BASENAME"   >> "$GITHUB_ENV"
+          echo "TOTAL=$TOTAL"         >> "$GITHUB_ENV"
+          echo "UNIQUE=$UNIQUE"       >> "$GITHUB_ENV"
+          echo "PARTS=$PARTS"         >> "$GITHUB_ENV"
+          echo "CHUNK=$CHUNK"         >> "$GITHUB_ENV"
+
+          rm -f raw_cdx.txt all_urls_sorted.txt
+
+      - name: Zobraziť zoznam vytvorených súborov
+        run: |
+          echo "=== Vytvorené súbory ==="
+          ls -lh "${BASENAME}_part_"*.txt 2>/dev/null || echo "(žiadne súbory)"
+          echo ""
+          echo "=== Prvých 10 riadkov prvého súboru ==="
+          FIRST=$(ls "${BASENAME}_part_"*.txt 2>/dev/null | head -1)
+          [ -n "$FIRST" ] && head -10 "$FIRST" || true
+
+      - name: Commit a push výsledku
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # Pridaj všetky vygenerované časti
+          git add "${BASENAME}_part_"*.txt 2>/dev/null || true
+
+          if git diff --cached --quiet; then
+            echo "Žiadne zmeny – súbory sú rovnaké ako v repozitári."
+          else
+            git commit -m "CDX: press.sk ${{ steps.vars.outputs.from }}–${{ steps.vars.outputs.to }} | $UNIQUE URL → $PARTS súbor(ov) po $CHUNK"
+            git push
+          fi
+
+      - name: Zhrnutie
+        run: |
+          echo "## Výsledok CDX sťahovania" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Pole | Hodnota |"          >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|"                   >> "$GITHUB_STEP_SUMMARY"
+          echo "| Stránka | press.sk |"     >> "$GITHUB_STEP_SUMMARY"
+          echo "| Obdobie | ${{ steps.vars.outputs.from }} – ${{ steps.vars.outputs.to }} |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Záznamov CDX | $TOTAL |"  >> "$GITHUB_STEP_SUMMARY"
+          echo "| Unikátnych URL | $UNIQUE |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Max. URL/súbor | $CHUNK |" >> "$GITHUB_STEP_SUMMARY"
+          echo "| Počet súborov | $PARTS |" >> "$GITHUB_STEP_SUMMARY"
+          echo ""                            >> "$GITHUB_STEP_SUMMARY"
+          echo "### Vytvorené súbory"        >> "$GITHUB_STEP_SUMMARY"
+          echo '```'                         >> "$GITHUB_STEP_SUMMARY"
+          ls -lh "${BASENAME}_part_"*.txt 2>/dev/null >> "$GITHUB_STEP_SUMMARY" || echo "(žiadne)" >> "$GITHUB_STEP_SUMMARY"
+          echo '```'                         >> "$GITHUB_STEP_SUMMARY"
