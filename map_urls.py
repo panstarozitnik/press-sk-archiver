@@ -1,5 +1,6 @@
 """
-map_urls.py — CDX resume key pagination (stabilnejšie než offset)
+map_urls.py — CDX text streaming s resumeKey pagination
+Každý riadok sa parsuje hneď — žiadny JSON overhead, žiadne duplikáty.
 """
 
 import argparse
@@ -9,17 +10,18 @@ import logging
 import os
 import time
 import urllib.parse
+import urllib.request
 from pathlib import Path
 
 import requests
 
 from parsers.utils import is_listing_url, is_product_url
 
-CDX_BASE = (
+CDX_URL = (
     "http://web.archive.org/cdx/search/cdx"
     "?url=press.sk/*"
-    "&output=json"
-    "&fl=original,timestamp,statuscode"
+    "&output=text"           # text streaming — jeden riadok = jeden záznam
+    "&fl=original,timestamp"
     "&filter=statuscode:200"
     "&showResumeKey=true"
 )
@@ -116,6 +118,47 @@ def save_progress(path, resume_key, rel, skp, total_rel, total_skp):
         }, f)
 
 
+def fetch_page(session, base_url, resume_key=None):
+    """
+    Stiahne jednu stránku CDX ako text.
+    Vráti (riadky, next_resume_key).
+    """
+    if resume_key:
+        url = f"{base_url}&limit={CDX_PAGE_SIZE}&resumeKey={urllib.parse.quote(resume_key)}"
+    else:
+        url = f"{base_url}&limit={CDX_PAGE_SIZE}"
+
+    for attempt, wait in enumerate([180, 360, 900]):
+        try:
+            resp = session.get(url, timeout=300, stream=True)
+            resp.raise_for_status()
+            break
+        except Exception as e:
+            if attempt == 2:
+                raise
+            logging.getLogger(__name__).warning(f"  Retry {attempt+1}: {e} — čakám {wait}s")
+            time.sleep(wait)
+
+    lines      = []
+    resume_key = None
+
+    for raw_line in resp.iter_lines(decode_unicode=True):
+        line = raw_line.strip()
+        if not line:
+            continue
+
+        # resumeKey je base64 encoded — neobsahuje medzery ako normálne URL
+        # CDX text formát: "original timestamp" — dva polia oddelené medzerou
+        parts = line.split(" ")
+        if len(parts) == 2:
+            lines.append((parts[0], parts[1]))   # (original, timestamp)
+        elif len(parts) == 1:
+            # Pravdepodobne resumeKey
+            resume_key = parts[0]
+
+    return lines, resume_key
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--from-date",   required=True)
@@ -131,7 +174,7 @@ def main():
     log = setup_logging(period)
     log.info(f"Obdobie: {args.from_date} → {args.to_date}")
 
-    cdx_url_base = f"{CDX_BASE}&from={args.from_date}&to={args.to_date}"
+    base_url = f"{CDX_URL}&from={args.from_date}&to={args.to_date}"
 
     # ── Resume ────────────────────────────────
     resume_key   = None
@@ -150,7 +193,7 @@ def main():
             skp_count  = prog.get("skp_count", 0)
             total_rel  = prog.get("total_rel", 0)
             total_skp  = prog.get("total_skp", 0)
-            log.info(f"Resume: rel={total_rel:,} skp={total_skp:,} key={str(resume_key)[:40]}")
+            log.info(f"Resume: rel={total_rel:,} skp={total_skp:,}")
         except Exception:
             log.warning("Progress poškodený, začínam odznova")
 
@@ -165,82 +208,37 @@ def main():
 
     total_fetched = 0
     page_num      = 0
+    seen          = set()   # Dedup v rámci jedného behu
 
-    log.info("Sťahujem CDX (resume key pagination)...")
+    log.info("Sťahujem CDX (text streaming + resumeKey)...")
 
     while True:
-        if resume_key:
-            url = f"{cdx_url_base}&limit={CDX_PAGE_SIZE}&resumeKey={urllib.parse.quote(resume_key)}"
-        else:
-            url = f"{cdx_url_base}&limit={CDX_PAGE_SIZE}"
-
-        for attempt, wait in enumerate([180, 360, 900]):
-            try:
-                resp = session.get(url, timeout=300)
-                resp.raise_for_status()
-                break
-            except Exception as e:
-                if attempt == 2:
-                    log.error(f"CDX zlyhalo: {e}")
-                    save_progress(progress_path, resume_key, rel, skp, total_rel, total_skp)
-                    rel.close(); skp.close()
-                    raise
-                log.warning(f"  Retry {attempt+1}: {e} — čakám {wait}s")
-                time.sleep(wait)
-
-        if not resp.text.strip():
-            log.warning("  Prázdna odpoveď, preskakujem")
-            time.sleep(10)
-            continue
-
         try:
-            raw = resp.json()
+            lines, next_resume_key = fetch_page(session, base_url, resume_key)
         except Exception as e:
-            log.warning(f"  JSON chyba: {e}")
-            time.sleep(10)
-            continue
+            log.error(f"CDX zlyhalo: {e}")
+            save_progress(progress_path, resume_key, rel, skp, total_rel, total_skp)
+            rel.close(); skp.close()
+            raise
 
-        if not raw:
-            break
-
-        # showResumeKey=true pridá na koniec: [["resumeKey"], [], ["eJw..."]]
-        # alebo: [["resumeKey"], ["eJw..."]]
-        next_resume_key = None
-        rows = raw
-
-        # Hľadaj "resumeKey" kdekoľvek v posledných 5 riadkoch
-        for i in range(max(0, len(raw)-5), len(raw)):
-            if raw[i] == ["resumeKey"]:
-                # Ďalší neprázdny riadok je hodnota
-                for j in range(i+1, len(raw)):
-                    if raw[j]:
-                        next_resume_key = raw[j][0]
-                        break
-                rows = raw[:i]  # Dáta sú pred resumeKey
-                break
-
-        if next_resume_key:
-            log.info(f"  resumeKey nájdený, pokračujem...")
-
-        # Odstráň header riadok
-        if rows and rows[0] in (["original", "timestamp", "statuscode"], ["original"]):
-            rows = rows[1:]
-
-        if not rows:
-            log.info("Prázdna stránka — koniec")
+        if not lines:
+            log.info("Prázdna stránka — koniec CDX")
             break
 
         page_num      += 1
-        total_fetched += len(rows)
+        total_fetched += len(lines)
 
-        for record in rows:
-            if len(record) < 2:
+        for original, timestamp in lines:
+            # Dedup
+            key = (original, timestamp)
+            if key in seen:
                 continue
-            original  = record[0]
-            timestamp = record[1]
+            seen.add(key)
+
             t = classify(original)
             if t == "ignore":
                 continue
+
             rec = {
                 "original_url": original,
                 "wayback_url":  wayback_url(original, timestamp),
@@ -253,11 +251,12 @@ def main():
                 skp.write(rec); total_skp += 1
 
         if page_num % 10 == 0 or total_fetched % 50_000 == 0:
-            log.info(f"CDX strana={page_num} fetched={total_fetched:,} | rel={total_rel:,} skp={total_skp:,}")
-            save_progress(progress_path, next_resume_key, rel, skp, total_rel, total_skp)
+            log.info(f"strana={page_num} fetched={total_fetched:,} | rel={total_rel:,} skp={total_skp:,}")
+            save_progress(progress_path, next_resume_key,
+                          rel, skp, total_rel, total_skp)
 
         if not next_resume_key:
-            log.info("Žiadny ďalší resume key — koniec CDX")
+            log.info("Žiadny ďalší resumeKey — koniec CDX")
             break
 
         resume_key = next_resume_key
