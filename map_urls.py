@@ -1,21 +1,5 @@
 """
-map_urls.py
-===========
-Stiahne CDX index pre press.sk v danom časovom rozsahu a roztriedí URL.
-
-Výstup (príklad pre --from-date 20100101 --to-date 20151231):
-  output/relevant_2010-2015_001.csv
-  output/relevant_2010-2015_002.csv
-  output/skipped_2010-2015_001.csv
-  ...
-
-Stĺpce: original_url, wayback_url, timestamp, type (LISTING/PRODUCT/skip)
-
-Spustenie:
-  python map_urls.py --from-date 20100101 --to-date 20151231
-  python map_urls.py --from-date 20160101 --to-date 20201231
-  python map_urls.py --from-date 20210101 --to-date 20261231
-  python map_urls.py --from-date 20100101 --to-date 20151231 --chunk-size 500000
+map_urls.py — CDX resume key pagination (stabilnejšie než offset)
 """
 
 import argparse
@@ -24,34 +8,37 @@ import json
 import logging
 import os
 import time
+import urllib.parse
 from pathlib import Path
 
 import requests
 
 from parsers.utils import is_listing_url, is_product_url
 
-# ── Nastavenia ────────────────────────────────
 CDX_BASE = (
     "http://web.archive.org/cdx/search/cdx"
     "?url=press.sk/*"
     "&output=json"
     "&fl=original,timestamp,statuscode"
     "&filter=statuscode:200"
+    "&showResumeKey=true"
 )
 CDX_PAGE_SIZE = 5000
 CHUNK_SIZE    = 500_000
 FIELDS        = ["original_url", "wayback_url", "timestamp", "type"]
-# ─────────────────────────────────────────────
+
+_IGNORE_EXTS = {
+    ".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp", ".svg", ".ico", ".txt",
+}
 
 
 def setup_logging(period: str):
     Path("output").mkdir(exist_ok=True)
-    log_file = f"output/map_{period}.log"
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(message)s",
         handlers=[
-            logging.FileHandler(log_file, encoding="utf-8"),
+            logging.FileHandler(f"output/map_{period}.log", encoding="utf-8"),
             logging.StreamHandler(),
         ],
     )
@@ -62,14 +49,7 @@ def wayback_url(original: str, timestamp: str) -> str:
     return f"https://web.archive.org/web/{timestamp}/{original}"
 
 
-# Prípony ktoré úplne ignorujeme — ani do skipped
-_IGNORE_EXTS = {
-    ".jpg", ".jpeg", ".png", ".gif", ".webp", ".bmp", ".svg", ".ico",
-    ".txt",
-}
-
 def classify(url: str) -> str:
-    # Ignoruj URL podľa prípony
     path = url.split("?")[0].lower()
     ext  = "." + path.rsplit(".", 1)[-1] if "." in path.rsplit("/", 1)[-1] else ""
     if ext in _IGNORE_EXTS:
@@ -84,8 +64,7 @@ def chunk_path(prefix: str, period: str, n: int) -> str:
 
 
 class ChunkWriter:
-    def __init__(self, prefix: str, period: str, chunk_size: int,
-                 start_chunk: int = 1, start_count: int = 0):
+    def __init__(self, prefix, period, chunk_size, start_chunk=1, start_count=0):
         self.prefix     = prefix
         self.period     = period
         self.chunk_size = chunk_size
@@ -107,7 +86,7 @@ class ChunkWriter:
             self._writer.writeheader()
         logging.getLogger(__name__).info(f"  → {path}")
 
-    def write(self, row: dict):
+    def write(self, row):
         if self.count >= self.chunk_size:
             self._file.close()
             self.chunk_n += 1
@@ -124,87 +103,76 @@ class ChunkWriter:
             self._file.close()
 
 
-def save_progress(path: str, offset: int, rel: ChunkWriter,
-                  skp: ChunkWriter, total_rel: int, total_skp: int):
+def save_progress(path, resume_key, rel, skp, total_rel, total_skp):
     with open(path, "w", encoding="utf-8") as f:
         json.dump({
-            "next_offset": offset,
-            "rel_chunk":   rel.chunk_n,
-            "rel_count":   rel.count,
-            "skp_chunk":   skp.chunk_n,
-            "skp_count":   skp.count,
-            "total_rel":   total_rel,
-            "total_skp":   total_skp,
+            "resume_key": resume_key,
+            "rel_chunk":  rel.chunk_n,
+            "rel_count":  rel.count,
+            "skp_chunk":  skp.chunk_n,
+            "skp_count":  skp.count,
+            "total_rel":  total_rel,
+            "total_skp":  total_skp,
         }, f)
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--from-date",  required=True,
-                    help="Začiatok obdobia YYYYMMDD (napr. 20100101)")
-    ap.add_argument("--to-date",    required=True,
-                    help="Koniec obdobia YYYYMMDD (napr. 20151231)")
-    ap.add_argument("--chunk-size", type=int, default=CHUNK_SIZE)
-    ap.add_argument("--from-offset",type=int, default=None,
-                    help="Override: začni od tohto CDX offsetu")
+    ap.add_argument("--from-date",   required=True)
+    ap.add_argument("--to-date",     required=True)
+    ap.add_argument("--chunk-size",  type=int, default=CHUNK_SIZE)
+    ap.add_argument("--from-offset", type=int, default=None,
+                    help="Ignorované — zachované pre kompatibilitu")
     args = ap.parse_args()
 
-    # Obdobie ako string pre názvy súborov: 2010-2015
-    period = f"{args.from_date}-{args.to_date}"
+    period        = f"{args.from_date}-{args.to_date}"
     progress_path = f"output/map_progress_{period}.json"
 
     log = setup_logging(period)
-    log.info(f"Obdobie: {args.from_date} → {args.to_date}  (súbory: *_{period}_*.csv)")
+    log.info(f"Obdobie: {args.from_date} → {args.to_date}")
 
-    # CDX query s časovým rozsahom
-    cdx_url_base = (
-        f"{CDX_BASE}"
-        f"&from={args.from_date}"
-        f"&to={args.to_date}"
-    )
+    cdx_url_base = f"{CDX_BASE}&from={args.from_date}&to={args.to_date}"
 
     # ── Resume ────────────────────────────────
-    start_offset = 0
+    resume_key   = None
     rel_chunk, rel_count = 1, 0
     skp_chunk, skp_count = 1, 0
     total_rel = total_skp = 0
 
-    if args.from_offset is not None:
-        start_offset = args.from_offset
-        log.info(f"--from-offset={start_offset:,}")
-    elif os.path.exists(progress_path):
+    if os.path.exists(progress_path):
         try:
             with open(progress_path, encoding="utf-8") as f:
                 prog = json.load(f)
-            start_offset = prog.get("next_offset", 0)
-            rel_chunk    = prog.get("rel_chunk", 1)
-            rel_count    = prog.get("rel_count", 0)
-            skp_chunk    = prog.get("skp_chunk", 1)
-            skp_count    = prog.get("skp_count", 0)
-            total_rel    = prog.get("total_rel", 0)
-            total_skp    = prog.get("total_skp", 0)
-            log.info(f"Resume od offset={start_offset:,} | rel={total_rel:,} skp={total_skp:,}")
+            resume_key = prog.get("resume_key")
+            rel_chunk  = prog.get("rel_chunk", 1)
+            rel_count  = prog.get("rel_count", 0)
+            skp_chunk  = prog.get("skp_chunk", 1)
+            skp_count  = prog.get("skp_count", 0)
+            total_rel  = prog.get("total_rel", 0)
+            total_skp  = prog.get("total_skp", 0)
+            log.info(f"Resume: rel={total_rel:,} skp={total_skp:,} key={str(resume_key)[:40]}")
         except Exception:
             log.warning("Progress poškodený, začínam odznova")
 
     rel = ChunkWriter("relevant", period, args.chunk_size, rel_chunk, rel_count)
     skp = ChunkWriter("skipped",  period, args.chunk_size, skp_chunk, skp_count)
 
-    # ── CDX sťahovanie ────────────────────────
     session = requests.Session()
     session.headers["User-Agent"] = (
         "Mozilla/5.0 (compatible; press-sk-mapper/1.0; "
         "+https://github.com/panstarozitnik/press-sk-archiver)"
     )
 
-    offset       = start_offset
-    headers_row  = None
     total_fetched = 0
+    page_num      = 0
 
-    log.info("Sťahujem CDX a triedim...")
+    log.info("Sťahujem CDX (resume key pagination)...")
 
     while True:
-        url = f"{cdx_url_base}&limit={CDX_PAGE_SIZE}&offset={offset}"
+        if resume_key:
+            url = f"{cdx_url_base}&limit={CDX_PAGE_SIZE}&resumeKey={urllib.parse.quote(resume_key)}"
+        else:
+            url = f"{cdx_url_base}&limit={CDX_PAGE_SIZE}"
 
         for attempt, wait in enumerate([180, 360, 900]):
             try:
@@ -213,77 +181,79 @@ def main():
                 break
             except Exception as e:
                 if attempt == 2:
-                    log.error(f"CDX zlyhalo po 3 pokusoch: {e}")
-                    save_progress(progress_path, offset, rel, skp, total_rel, total_skp)
+                    log.error(f"CDX zlyhalo: {e}")
+                    save_progress(progress_path, resume_key, rel, skp, total_rel, total_skp)
                     rel.close(); skp.close()
                     raise
                 log.warning(f"  Retry {attempt+1}: {e} — čakám {wait}s")
                 time.sleep(wait)
 
         if not resp.text.strip():
-            log.warning(f"  Prázdna odpoveď pri offset={offset}, preskakujem")
-            offset += CDX_PAGE_SIZE
-            time.sleep(3)
+            log.warning("  Prázdna odpoveď, preskakujem")
+            time.sleep(10)
             continue
 
         try:
             raw = resp.json()
         except Exception as e:
-            log.warning(f"  JSON chyba pri offset={offset}: {e}, preskakujem")
-            offset += CDX_PAGE_SIZE
-            time.sleep(3)
+            log.warning(f"  JSON chyba: {e}")
+            time.sleep(10)
             continue
 
         if not raw:
             break
 
-        if headers_row is None:
-            headers_row = raw[0]
-            data = raw[1:]
+        # showResumeKey=true pridá na koniec: [["resumeKey"], ["hodnota"]]
+        next_resume_key = None
+        if len(raw) >= 2 and raw[-2] == ["resumeKey"]:
+            next_resume_key = raw[-1][0] if raw[-1] else None
+            rows = raw[:-2]
         else:
-            data = raw[1:] if raw[0] == headers_row else raw
+            rows = raw
 
-        if not data:
-            log.info("Posledná stránka — koniec CDX pre toto obdobie")
+        # Odstráň header riadok
+        if rows and rows[0] in (["original", "timestamp", "statuscode"], ["original"]):
+            rows = rows[1:]
+
+        if not rows:
+            log.info("Prázdna stránka — koniec")
             break
 
-        for record in data:
-            row_dict  = dict(zip(headers_row, record))
-            original  = row_dict.get("original", "")
-            timestamp = row_dict.get("timestamp", "")
-            t         = classify(original)
+        page_num      += 1
+        total_fetched += len(rows)
+
+        for record in rows:
+            if len(record) < 2:
+                continue
+            original  = record[0]
+            timestamp = record[1]
+            t = classify(original)
+            if t == "ignore":
+                continue
             rec = {
                 "original_url": original,
                 "wayback_url":  wayback_url(original, timestamp),
                 "timestamp":    timestamp,
                 "type":         t,
             }
-            if t == "ignore":
-                continue
-            elif t in ("LISTING", "PRODUCT"):
-                rel.write(rec)
-                total_rel += 1
+            if t in ("LISTING", "PRODUCT"):
+                rel.write(rec); total_rel += 1
             else:
-                skp.write(rec)
-                total_skp += 1
+                skp.write(rec); total_skp += 1
 
-        total_fetched += len(data)
+        if page_num % 10 == 0 or total_fetched % 50_000 == 0:
+            log.info(f"CDX strana={page_num} fetched={total_fetched:,} | rel={total_rel:,} skp={total_skp:,}")
+            save_progress(progress_path, next_resume_key, rel, skp, total_rel, total_skp)
 
-        if total_fetched % 50_000 == 0:
-            log.info(f"CDX offset={offset:,} | rel={total_rel:,} skp={total_skp:,}")
-            save_progress(progress_path, offset + CDX_PAGE_SIZE,
-                          rel, skp, total_rel, total_skp)
-
-        if len(data) < CDX_PAGE_SIZE:
-            log.info("Posledná stránka CDX — hotovo")
+        if not next_resume_key:
+            log.info("Žiadny ďalší resume key — koniec CDX")
             break
 
-        offset += CDX_PAGE_SIZE
+        resume_key = next_resume_key
         time.sleep(3)
 
     rel.close()
     skp.close()
-
     if os.path.exists(progress_path):
         os.remove(progress_path)
 
