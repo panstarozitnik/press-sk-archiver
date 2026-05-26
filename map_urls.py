@@ -203,16 +203,24 @@ def main():
         if not raw:
             break
 
-        # DEBUG — pozri posledné 3 riadky odpovede
-        log.info(f"  raw[-3:] = {raw[-3:]}")
-
-        # showResumeKey=true pridá na koniec: [["resumeKey"], ["hodnota"]]
+        # showResumeKey=true pridá na koniec: [["resumeKey"], [], ["eJw..."]]
+        # alebo: [["resumeKey"], ["eJw..."]]
         next_resume_key = None
-        if len(raw) >= 2 and raw[-2] == ["resumeKey"]:
-            next_resume_key = raw[-1][0] if raw[-1] else None
-            rows = raw[:-2]
-        else:
-            rows = raw
+        rows = raw
+
+        # Hľadaj "resumeKey" kdekoľvek v posledných 5 riadkoch
+        for i in range(max(0, len(raw)-5), len(raw)):
+            if raw[i] == ["resumeKey"]:
+                # Ďalší neprázdny riadok je hodnota
+                for j in range(i+1, len(raw)):
+                    if raw[j]:
+                        next_resume_key = raw[j][0]
+                        break
+                rows = raw[:i]  # Dáta sú pred resumeKey
+                break
+
+        if next_resume_key:
+            log.info(f"  resumeKey nájdený, pokračujem...")
 
         # Odstráň header riadok
         if rows and rows[0] in (["original", "timestamp", "statuscode"], ["original"]):
