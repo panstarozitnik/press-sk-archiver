@@ -19,8 +19,6 @@ on:
         description: 'Max. URL na jeden súbor'
         required: false
         default: '500000'
-  # schedule:
-  #   - cron: '0 3 * * 0'
 
 jobs:
   fetch-urls:
@@ -39,6 +37,7 @@ jobs:
           TO="${{ github.event.inputs.date_to }}"
           CUSTOM="${{ github.event.inputs.output_file }}"
           CHUNK="${{ github.event.inputs.chunk_size }}"
+          [ -z "$CHUNK" ] && CHUNK="500000"
 
           if [ -n "$CUSTOM" ]; then
             BASENAME="$CUSTOM"
@@ -46,15 +45,12 @@ jobs:
             BASENAME="urls_${FROM}_${TO}"
           fi
 
-          # Predvolená hodnota ak je chunk_size prázdne
-          [ -z "$CHUNK" ] && CHUNK="500000"
+          echo "from=$FROM"         >> "$GITHUB_OUTPUT"
+          echo "to=$TO"             >> "$GITHUB_OUTPUT"
+          echo "basename=$BASENAME" >> "$GITHUB_OUTPUT"
+          echo "chunk=$CHUNK"       >> "$GITHUB_OUTPUT"
 
-          echo "from=$FROM"           >> "$GITHUB_OUTPUT"
-          echo "to=$TO"               >> "$GITHUB_OUTPUT"
-          echo "basename=$BASENAME"   >> "$GITHUB_OUTPUT"
-          echo "chunk=$CHUNK"         >> "$GITHUB_OUTPUT"
-
-      - name: Stiahni URL-ky cez CDX API
+      - name: Stiahni URL-ky cez CDX API (s retry)
         run: |
           FROM="${{ steps.vars.outputs.from }}"
           TO="${{ steps.vars.outputs.to }}"
@@ -62,38 +58,100 @@ jobs:
           CHUNK="${{ steps.vars.outputs.chunk }}"
           TARGET="press.sk"
           CDX_URL="https://web.archive.org/cdx/search/cdx"
+          MAX_RETRIES=5
+          RETRY_DELAY=30
 
           echo "Sťahujem URL-ky pre $TARGET od $FROM do $TO ..."
 
-          # Stiahni všetky záznamy (bez limitu) do jedného surového súboru
-          curl -sG "$CDX_URL" \
-            --data-urlencode "url=${TARGET}/*" \
-            --data-urlencode "output=text" \
-            --data-urlencode "fl=timestamp,original,statuscode" \
-            --data-urlencode "filter=statuscode:200" \
-            --data-urlencode "from=${FROM}" \
-            --data-urlencode "to=${TO}" \
-            --data-urlencode "collapse=urlkey" \
-            -o raw_cdx.txt
+          fetch_cdx() {
+            local attempt=1
+            while [ $attempt -le $MAX_RETRIES ]; do
+              echo "Pokus $attempt / $MAX_RETRIES ..."
+
+              HTTP_CODE=$(curl -sG "$CDX_URL" \
+                --data-urlencode "url=${TARGET}/*" \
+                --data-urlencode "output=text" \
+                --data-urlencode "fl=timestamp,original,statuscode,mimetype,length" \
+                --data-urlencode "filter=statuscode:200" \
+                --data-urlencode "from=${FROM}" \
+                --data-urlencode "to=${TO}" \
+                --data-urlencode "collapse=urlkey" \
+                --max-time 300 \
+                --retry 3 \
+                --retry-delay 10 \
+                -w "%{http_code}" \
+                -o raw_cdx.txt)
+
+              echo "HTTP status: $HTTP_CODE"
+
+              if [ "$HTTP_CODE" != "200" ]; then
+                echo "CHYBA: API vrátilo HTTP $HTTP_CODE"
+                cat raw_cdx.txt
+                attempt=$((attempt + 1))
+                echo "Čakám ${RETRY_DELAY}s pred ďalším pokusom..."
+                sleep $RETRY_DELAY
+                continue
+              fi
+
+              FIRST_BYTES=$(head -c 100 raw_cdx.txt)
+              if echo "$FIRST_BYTES" | grep -qiE '<html|<!doc|gateway|error|<body'; then
+                echo "CHYBA: API vrátilo HTML namiesto dát:"
+                head -5 raw_cdx.txt
+                attempt=$((attempt + 1))
+                echo "Čakám ${RETRY_DELAY}s pred ďalším pokusom..."
+                sleep $RETRY_DELAY
+                continue
+              fi
+
+              LINES=$(wc -l < raw_cdx.txt)
+              if [ "$LINES" -eq 0 ]; then
+                echo "CHYBA: API vrátilo prázdnu odpoveď"
+                attempt=$((attempt + 1))
+                sleep $RETRY_DELAY
+                continue
+              fi
+
+              echo "OK – stiahnutých $LINES záznamov"
+              return 0
+            done
+
+            echo "ZLYHANIE: všetky pokusy vyčerpané"
+            exit 1
+          }
+
+          fetch_cdx
 
           TOTAL=$(wc -l < raw_cdx.txt)
-          echo "Nájdených záznamov: $TOTAL"
+          echo "Celkom záznamov CDX: $TOTAL"
 
-          # Formátuj a zoraď celý súbor
+          # Hlavička: tab-oddelené stĺpce
+          printf "timestamp\toriginal_url\tstatus\tmimetype\tlength_bytes\twayback_url\n" > header.txt
+
+          # Formátuj a zoraď; pridaj aj hotovú wayback URL pre každý záznam
           awk '{
-            ts  = $1
-            url = $2
-            printf "%s-%s-%s %s:%s:%s  %s\n",
+            ts     = $1
+            url    = $2
+            status = $3
+            mime   = $4
+            len    = $5
+            if (length(ts) != 14 || ts+0 == 0) next
+            dt = sprintf("%s-%s-%s %s:%s:%s",
               substr(ts,1,4), substr(ts,5,2), substr(ts,7,2),
-              substr(ts,9,2), substr(ts,11,2), substr(ts,13,2),
-              url
+              substr(ts,9,2), substr(ts,11,2), substr(ts,13,2))
+            wayback = "https://web.archive.org/web/" ts "/" url
+            printf "%s\t%s\t%s\t%s\t%s\t%s\n", dt, url, status, mime, len, wayback
           }' raw_cdx.txt | sort > all_urls_sorted.txt
 
           UNIQUE=$(wc -l < all_urls_sorted.txt)
-          echo "Unikátnych URL-iek: $UNIQUE"
+          echo "Unikátnych platných URL: $UNIQUE"
 
-          # Rozdeľ na časti po $CHUNK riadkov
-          # split vytvorí súbory: basename_part_001.txt, basename_part_002.txt, ...
+          if [ "$UNIQUE" -eq 0 ]; then
+            echo "CHYBA: po filtrovaní nezostali žiadne platné URL"
+            head -10 raw_cdx.txt
+            exit 1
+          fi
+
+          # Rozdeľ na časti; každá časť dostane svoju hlavičku
           split \
             --lines="$CHUNK" \
             --numeric-suffixes=1 \
@@ -102,38 +160,39 @@ jobs:
             all_urls_sorted.txt \
             "${BASENAME}_part_"
 
-          # Pomenuj časti s nulami: part_001, part_002, ...
+          # Pridaj hlavičku na začiatok každého súboru
+          for f in "${BASENAME}_part_"*.txt; do
+            cat header.txt "$f" > "${f}.tmp" && mv "${f}.tmp" "$f"
+          done
+
           PARTS=$(ls "${BASENAME}_part_"*.txt 2>/dev/null | wc -l)
-          echo "Počet súborov (častí): $PARTS"
+          echo "Vytvorených súborov: $PARTS"
 
-          # Ulož štatistiky pre ďalšie kroky
-          echo "BASENAME=$BASENAME"   >> "$GITHUB_ENV"
-          echo "TOTAL=$TOTAL"         >> "$GITHUB_ENV"
-          echo "UNIQUE=$UNIQUE"       >> "$GITHUB_ENV"
-          echo "PARTS=$PARTS"         >> "$GITHUB_ENV"
-          echo "CHUNK=$CHUNK"         >> "$GITHUB_ENV"
+          echo "BASENAME=$BASENAME" >> "$GITHUB_ENV"
+          echo "TOTAL=$TOTAL"       >> "$GITHUB_ENV"
+          echo "UNIQUE=$UNIQUE"     >> "$GITHUB_ENV"
+          echo "PARTS=$PARTS"       >> "$GITHUB_ENV"
+          echo "CHUNK=$CHUNK"       >> "$GITHUB_ENV"
 
-          rm -f raw_cdx.txt all_urls_sorted.txt
+          rm -f raw_cdx.txt all_urls_sorted.txt header.txt
 
-      - name: Zobraziť zoznam vytvorených súborov
+      - name: Zobraziť zoznam vytvorených súborov a ukážku
         run: |
           echo "=== Vytvorené súbory ==="
-          ls -lh "${BASENAME}_part_"*.txt 2>/dev/null || echo "(žiadne súbory)"
+          ls -lh "${BASENAME}_part_"*.txt 2>/dev/null || echo "(žiadne)"
           echo ""
-          echo "=== Prvých 10 riadkov prvého súboru ==="
+          echo "=== Prvých 5 riadkov prvého súboru ==="
           FIRST=$(ls "${BASENAME}_part_"*.txt 2>/dev/null | head -1)
-          [ -n "$FIRST" ] && head -10 "$FIRST" || true
+          [ -n "$FIRST" ] && head -5 "$FIRST" || true
 
       - name: Commit a push výsledku
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # Pridaj všetky vygenerované časti
           git add "${BASENAME}_part_"*.txt 2>/dev/null || true
 
           if git diff --cached --quiet; then
-            echo "Žiadne zmeny – súbory sú rovnaké ako v repozitári."
+            echo "Žiadne zmeny."
           else
             git commit -m "CDX: press.sk ${{ steps.vars.outputs.from }}–${{ steps.vars.outputs.to }} | $UNIQUE URL → $PARTS súbor(ov) po $CHUNK"
             git push
@@ -141,17 +200,17 @@ jobs:
 
       - name: Zhrnutie
         run: |
-          echo "## Výsledok CDX sťahovania" >> "$GITHUB_STEP_SUMMARY"
-          echo "| Pole | Hodnota |"          >> "$GITHUB_STEP_SUMMARY"
-          echo "|---|---|"                   >> "$GITHUB_STEP_SUMMARY"
-          echo "| Stránka | press.sk |"     >> "$GITHUB_STEP_SUMMARY"
+          echo "## Výsledok CDX sťahovania"         >> "$GITHUB_STEP_SUMMARY"
+          echo "| Pole | Hodnota |"                  >> "$GITHUB_STEP_SUMMARY"
+          echo "|---|---|"                            >> "$GITHUB_STEP_SUMMARY"
+          echo "| Stránka | press.sk |"              >> "$GITHUB_STEP_SUMMARY"
           echo "| Obdobie | ${{ steps.vars.outputs.from }} – ${{ steps.vars.outputs.to }} |" >> "$GITHUB_STEP_SUMMARY"
-          echo "| Záznamov CDX | $TOTAL |"  >> "$GITHUB_STEP_SUMMARY"
-          echo "| Unikátnych URL | $UNIQUE |" >> "$GITHUB_STEP_SUMMARY"
-          echo "| Max. URL/súbor | $CHUNK |" >> "$GITHUB_STEP_SUMMARY"
-          echo "| Počet súborov | $PARTS |" >> "$GITHUB_STEP_SUMMARY"
-          echo ""                            >> "$GITHUB_STEP_SUMMARY"
-          echo "### Vytvorené súbory"        >> "$GITHUB_STEP_SUMMARY"
-          echo '```'                         >> "$GITHUB_STEP_SUMMARY"
+          echo "| Záznamov CDX | $TOTAL |"           >> "$GITHUB_STEP_SUMMARY"
+          echo "| Unikátnych URL | $UNIQUE |"        >> "$GITHUB_STEP_SUMMARY"
+          echo "| Max. URL/súbor | $CHUNK |"         >> "$GITHUB_STEP_SUMMARY"
+          echo "| Počet súborov | $PARTS |"          >> "$GITHUB_STEP_SUMMARY"
+          echo ""                                    >> "$GITHUB_STEP_SUMMARY"
+          echo "### Vytvorené súbory"                >> "$GITHUB_STEP_SUMMARY"
+          echo '```'                                 >> "$GITHUB_STEP_SUMMARY"
           ls -lh "${BASENAME}_part_"*.txt 2>/dev/null >> "$GITHUB_STEP_SUMMARY" || echo "(žiadne)" >> "$GITHUB_STEP_SUMMARY"
-          echo '```'                         >> "$GITHUB_STEP_SUMMARY"
+          echo '```'                                 >> "$GITHUB_STEP_SUMMARY"
