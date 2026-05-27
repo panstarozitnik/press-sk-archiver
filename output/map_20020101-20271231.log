@@ -1,0 +1,36 @@
+2026-05-27 11:02:03,963 [INFO] Obdobie: 20020101 → 20271231
+2026-05-27 11:02:03,963 [INFO]   → output/relevant_20020101-20271231_001.csv
+2026-05-27 11:02:03,964 [INFO]   → output/skipped_20020101-20271231_001.csv
+2026-05-27 11:02:03,964 [INFO] Sťahujem CDX (text streaming + resumeKey)...
+2026-05-27 11:02:32,357 [INFO] strana=1 | +5000 riadkov | spolu=5,000 | rel=2,270 skp=2,613 | resumeKey=áno
+2026-05-27 11:03:02,979 [INFO] strana=2 | +5000 riadkov | spolu=10,000 | rel=4,519 skp=5,222 | resumeKey=áno
+2026-05-27 11:03:24,815 [INFO] strana=3 | +5000 riadkov | spolu=15,000 | rel=4,540 skp=10,200 | resumeKey=áno
+2026-05-27 11:03:35,126 [INFO] strana=4 | +5000 riadkov | spolu=20,000 | rel=4,687 skp=15,033 | resumeKey=áno
+2026-05-27 11:04:30,918 [INFO] strana=5 | +5000 riadkov | spolu=25,000 | rel=6,679 skp=17,386 | resumeKey=áno
+2026-05-27 11:05:07,657 [INFO] strana=6 | +5000 riadkov | spolu=30,000 | rel=6,971 skp=21,004 | resumeKey=áno
+2026-05-27 11:05:32,686 [INFO] strana=7 | +5000 riadkov | spolu=35,000 | rel=6,971 skp=26,004 | resumeKey=áno
+2026-05-27 11:05:44,545 [INFO] strana=8 | +5000 riadkov | spolu=40,000 | rel=8,891 skp=29,073 | resumeKey=áno
+2026-05-27 11:06:02,911 [INFO] strana=9 | +5000 riadkov | spolu=45,000 | rel=9,683 skp=33,264 | resumeKey=áno
+2026-05-27 11:06:12,840 [INFO] strana=10 | +5000 riadkov | spolu=50,000 | rel=9,858 skp=38,003 | resumeKey=áno
+2026-05-27 11:06:32,624 [INFO] strana=11 | +5000 riadkov | spolu=55,000 | rel=9,983 skp=42,800 | resumeKey=áno
+2026-05-27 11:06:49,221 [INFO] strana=12 | +5000 riadkov | spolu=60,000 | rel=10,150 skp=47,467 | resumeKey=áno
+2026-05-27 11:07:24,788 [INFO] strana=13 | +5000 riadkov | spolu=65,000 | rel=10,254 skp=51,178 | resumeKey=áno
+2026-05-27 11:07:30,659 [INFO] strana=14 | +5000 riadkov | spolu=70,000 | rel=11,171 skp=52,559 | resumeKey=áno
+2026-05-27 11:07:40,242 [INFO] strana=15 | +5000 riadkov | spolu=75,000 | rel=11,171 skp=52,559 | resumeKey=áno
+2026-05-27 11:07:45,534 [INFO] strana=16 | +5000 riadkov | spolu=80,000 | rel=11,171 skp=52,559 | resumeKey=áno
+2026-05-27 11:07:50,214 [INFO] strana=17 | +5000 riadkov | spolu=85,000 | rel=11,171 skp=52,559 | resumeKey=áno
+2026-05-27 11:07:55,239 [INFO] strana=18 | +5000 riadkov | spolu=90,000 | rel=11,171 skp=52,559 | resumeKey=áno
+2026-05-27 11:08:26,860 [INFO] strana=19 | +5000 riadkov | spolu=95,000 | rel=11,171 skp=52,559 | resumeKey=áno
+2026-05-27 11:08:31,777 [INFO] strana=20 | +5000 riadkov | spolu=100,000 | rel=11,171 skp=52,559 | resumeKey=áno
+2026-05-27 11:08:36,656 [INFO] strana=21 | +5000 riadkov | spolu=105,000 | rel=11,171 skp=52,559 | resumeKey=áno
+2026-05-27 11:08:46,021 [INFO] strana=22 | +5000 riadkov | spolu=110,000 | rel=11,171 skp=52,559 | resumeKey=áno
+2026-05-27 11:08:53,735 [INFO] strana=23 | +5000 riadkov | spolu=115,000 | rel=11,171 skp=52,562 | resumeKey=áno
+2026-05-27 11:08:58,207 [INFO] strana=24 | +5000 riadkov | spolu=120,000 | rel=11,354 skp=55,509 | resumeKey=áno
+2026-05-27 11:09:27,476 [INFO] strana=25 | +5000 riadkov | spolu=125,000 | rel=11,823 skp=59,746 | resumeKey=áno
+2026-05-27 11:09:31,175 [INFO] strana=26 | +2244 riadkov | spolu=127,244 | rel=12,165 skp=61,640 | resumeKey=nie
+2026-05-27 11:09:31,175 [INFO] Žiadny ďalší resumeKey — koniec CDX
+2026-05-27 11:09:31,175 [INFO] ==================================================
+2026-05-27 11:09:31,175 [INFO] Obdobie:  20020101-20271231
+2026-05-27 11:09:31,175 [INFO] RELEVANT: 12,165  (1 súborov)
+2026-05-27 11:09:31,175 [INFO] SKIPPED:  61,640  (1 súborov)
+2026-05-27 11:09:31,175 [INFO] ==================================================
