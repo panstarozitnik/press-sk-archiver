@@ -250,8 +250,8 @@ def main():
             else:
                 skp.write(rec); total_skp += 1
 
+        log.info(f"strana={page_num} | +{len(lines)} riadkov | spolu={total_fetched:,} | rel={total_rel:,} skp={total_skp:,} | resumeKey={'áno' if next_resume_key else 'nie'}")
         if page_num % 10 == 0 or total_fetched % 50_000 == 0:
-            log.info(f"strana={page_num} fetched={total_fetched:,} | rel={total_rel:,} skp={total_skp:,}")
             save_progress(progress_path, next_resume_key,
                           rel, skp, total_rel, total_skp)
 
