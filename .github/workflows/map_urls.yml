@@ -14,7 +14,7 @@ on:
       chunk_size:
         description: 'Záznamy na jeden CSV súbor (default 500000)'
         required: false
-        default: '450000'
+        default: '400000'
       from_offset:
         description: 'Resume od CDX offsetu (prázdne = od začiatku/resume)'
         required: false
@@ -52,12 +52,23 @@ jobs:
           restore-keys: |
             map-${{ github.event.inputs.from_date }}-${{ github.event.inputs.to_date }}-
 
-      - name: Skontroluj resume
+      - name: Skontroluj resume a vymaž cudzie CSV
         run: |
           PERIOD="${{ github.event.inputs.from_date }}-${{ github.event.inputs.to_date }}"
-          PERIOD="${PERIOD:0:4}-${PERIOD:12:4}"
           echo "Obdobie: $PERIOD"
+
+          # Vymaž CSV ktoré nepatria do tohto obdobia
+          for f in output/relevant_*.csv output/skipped_*.csv; do
+            [ -f "$f" ] || continue
+            if [[ "$f" != *"${PERIOD}"* ]]; then
+              echo "Mažem cudzie: $f"
+              rm "$f"
+            fi
+          done
+
+          echo "--- Zostatok CSV ---"
           ls -lh output/relevant_*.csv output/skipped_*.csv 2>/dev/null || echo "Žiadne CSV"
+          echo "--- Progress ---"
           cat output/map_progress_*.json 2>/dev/null || echo "Žiadny progress"
 
       - name: Spusti mapovanie
