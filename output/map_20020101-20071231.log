@@ -1,0 +1,12 @@
+2026-05-27 08:07:20,490 [INFO] Obdobie: 20020101 → 20071231
+2026-05-27 08:07:20,490 [INFO]   → output/relevant_20020101-20071231_001.csv
+2026-05-27 08:07:20,490 [INFO]   → output/skipped_20020101-20071231_001.csv
+2026-05-27 08:07:20,490 [INFO] Sťahujem CDX (text streaming + resumeKey)...
+2026-05-27 08:08:20,623 [WARNING]   Retry 1: 504 Server Error: Gateway Time-out for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=text&fl=original,timestamp&filter=statuscode:200&showResumeKey=true&from=20020101&to=20071231&limit=5000 — čakám 180s
+2026-05-27 08:13:33,806 [WARNING]   Retry 2: HTTPConnectionPool(host='web.archive.org', port=80): Max retries exceeded with url: /cdx/search/cdx?url=press.sk/*&output=text&fl=original,timestamp&filter=statuscode:200&showResumeKey=true&from=20020101&to=20071231&limit=5000 (Caused by ConnectTimeoutError(<HTTPConnection(host='web.archive.org', port=80) at 0x7f4cad10f450>, 'Connection to web.archive.org timed out. (connect timeout=300)')) — čakám 360s
+2026-05-27 08:19:45,989 [INFO] Žiadny ďalší resumeKey — koniec CDX
+2026-05-27 08:19:45,990 [INFO] ==================================================
+2026-05-27 08:19:45,990 [INFO] Obdobie:  20020101-20071231
+2026-05-27 08:19:45,990 [INFO] RELEVANT: 242  (1 súborov)
+2026-05-27 08:19:45,990 [INFO] SKIPPED:  4,102  (1 súborov)
+2026-05-27 08:19:45,990 [INFO] ==================================================
