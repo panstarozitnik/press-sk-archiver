@@ -1,323 +1,176 @@
-"""
-press.sk Wayback Machine Scraper
-=================================
-Prechádza VŠETKY archivované URL press.sk cez Wayback CDX API,
-deteguje typ stránky (zoznam / detail) a extrahuje produkty.
-
-Inštalácia:
-    pip install -r requirements.txt
-
-Spustenie (plný beh):
-    python scraper.py
-
-Testovací beh (prvých 30 URL):
-    python scraper.py --limit 30
-
-Len CDX index (bez parsingu):
-    python scraper.py --cdx-only
-"""
-
 import argparse
 import csv
-import hashlib
 import logging
 import os
 import time
 from pathlib import Path
-from urllib.parse import urlparse
 
 import requests
 
 from parsers.listing import parse_listing_page
 from parsers.detail  import parse_detail_page
-from parsers.utils   import is_listing_url, is_product_url, wayback_url
+from parsers.utils   import is_listing_url, is_product_url
 
-# ─────────────────────────────────────────────
-# NASTAVENIA
-# ─────────────────────────────────────────────
+PRODUCTS_CSV     = "output/products.csv"
+SPRACOVANE_CSV   = "output/spracovane.csv"
+NESPRACOVANE_CSV = "output/nespracovane.csv"
+LOG_FILE         = "output/scraper.log"
+DELAY            = 1.5
 
-OUTPUT_CSV = "output/products.csv"
-IMAGES_DIR = "output/images"
-CDX_CACHE  = "output/cdx_urls.json"
-LOG_FILE   = "output/scraper.log"
-DELAY      = 1.5   # sekundy medzi requestmi
-
-CDX_BASE = (
-    "http://web.archive.org/cdx/search/cdx"
-    "?url=press.sk/*"
-    "&output=json"
-    "&fl=original,timestamp,statuscode"
-    "&filter=statuscode:200"
-    r"&filter=original:.*press\.sk.*/[a-zA-Z]"  # Vynech homepage
-    # Bez collapse — chceme KAŽDÝ snapshot každej URL
-)
-CDX_PAGE_SIZE = 5000   # Bezpečná veľkosť stránky — CDX zvládne bez timeoutu
-
-CSV_FIELDS = [
+PRODUCT_FIELDS = [
     "source_url", "wayback_url", "timestamp",
     "title", "author", "price", "isbn",
     "publisher", "category", "description",
-    "image_urls",    # pipe-separated unikátne čisté URL obrázkov
-    "page_urls",     # pipe-separated unikátne URL stránok kde sa produkt našiel
+    "image_urls", "page_urls",
 ]
+INPUT_FIELDS = ["original_url", "wayback_url", "timestamp", "type"]
 
-# ─────────────────────────────────────────────
-# LOGGING
-# ─────────────────────────────────────────────
 
 def setup_logging():
     Path("output").mkdir(exist_ok=True)
     logging.basicConfig(
-        level=logging.DEBUG,
+        level=logging.INFO,
         format="%(asctime)s [%(levelname)s] %(message)s",
         handlers=[
             logging.FileHandler(LOG_FILE, encoding="utf-8"),
             logging.StreamHandler(),
         ],
     )
+    return logging.getLogger(__name__)
 
-log = logging.getLogger(__name__)
 
-# ─────────────────────────────────────────────
-# CDX
-# ─────────────────────────────────────────────
+def flush_csv(products):
+    with open(PRODUCTS_CSV, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=PRODUCT_FIELDS, extrasaction="ignore")
+        w.writeheader()
+        for row in products.values():
+            w.writerow(row)
 
-def fetch_cdx_urls(session, cdx_limit=None):
-    import json
 
-    # Cache ukladáme priebežne — ak spadne, ďalší beh pokračuje od miesta pádu
-    CDX_PROGRESS = CDX_CACHE + ".progress"
+def load_products():
+    products = {}
+    if not os.path.exists(PRODUCTS_CSV):
+        return products
+    with open(PRODUCTS_CSV, encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            title  = row.get("title", "").lower().strip()
+            author = row.get("author", "").lower().strip()
+            if title:
+                products[(title, author)] = dict(row)
+    return products
 
-    # Plná cache existuje — hotovo
-    if os.path.exists(CDX_CACHE):
-        log.info(f"CDX cache nájdená, načítavam z {CDX_CACHE}...")
-        with open(CDX_CACHE, encoding="utf-8") as f:
-            return json.load(f)
 
-    # Priebežná cache existuje — pokračuj od posledného offsetu
-    all_rows = []
-    start_offset = 0
-    if os.path.exists(CDX_PROGRESS):
-        try:
-            with open(CDX_PROGRESS, encoding="utf-8") as f:
-                progress = json.load(f)
-            all_rows = progress["rows"]
-            start_offset = progress["next_offset"]
-            log.info(f"CDX resume: pokračujem od offset={start_offset} ({len(all_rows):,} URL už stiahnutých)")
-        except Exception:
-            log.warning("CDX progress súbor poškodený, začínam odznova")
-            all_rows = []
-            start_offset = 0
+def append_csv(path, row, fields):
+    is_new = not os.path.exists(path)
+    with open(path, "a", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+        if is_new:
+            w.writeheader()
+        w.writerow(row)
 
-    log.info("Sťahujem CDX index po stránkach...")
 
-    headers = None
-    offset = start_offset
+def remove_rows_from_csv(path, processed_urls):
+    if not os.path.exists(path):
+        return 0
+    tmp = path + ".tmp"
+    kept = 0
+    with open(path, encoding="utf-8") as fin, \
+         open(tmp, "w", newline="", encoding="utf-8") as fout:
+        reader = csv.DictReader(fin)
+        writer = csv.DictWriter(fout, fieldnames=reader.fieldnames, extrasaction="ignore")
+        writer.writeheader()
+        for row in reader:
+            if row.get("wayback_url") not in processed_urls:
+                writer.writerow(row)
+                kept += 1
+    os.replace(tmp, path)
+    return kept
 
-    while True:
-        url = f"{CDX_BASE}&limit={CDX_PAGE_SIZE}&offset={offset}"
-        log.info(f"  CDX offset={offset}...")
 
-        # Exponenciálny backoff: 30s, 60s, 120s
-        wait_times = [30, 60, 120]
-        last_exc = None
-        for attempt, wait in enumerate(wait_times):
-            try:
-                resp = session.get(url, timeout=90)
-                resp.raise_for_status()
-                last_exc = None
-                break
-            except Exception as e:
-                last_exc = e
-                log.warning(f"  Retry {attempt+1}/{len(wait_times)}: {e} — čakám {wait}s")
-                time.sleep(wait)
-
-        if last_exc:
-            # Ulož progress pred pádom
-            with open(CDX_PROGRESS, "w", encoding="utf-8") as f:
-                json.dump({"rows": all_rows, "next_offset": offset}, f, ensure_ascii=False)
-            log.error(f"CDX zlyhalo po všetkých pokusoch. Progress uložený ({len(all_rows):,} URL). Spusti znova.")
-            raise last_exc
-
-        raw = resp.json()
-        if not raw:
-            break
-
-        if headers is None:
-            headers = raw[0]
-            data = raw[1:]
-        else:
-            data = raw[1:] if raw[0] == headers else raw
-
-        if not data:
-            break
-
-        rows = [dict(zip(headers, r)) for r in data]
-        all_rows.extend(rows)
-        log.info(f"  Celkom: {len(all_rows):,} URL")
-
-        # Test mód — zastav po dosiahnutí cdx_limit
-        if cdx_limit and len(all_rows) >= cdx_limit:
-            log.info(f"  --cdx-limit {cdx_limit} dosiahnutý, zastavujem CDX sťahovanie")
-            all_rows = all_rows[:cdx_limit]
-            break
-
-        # Priebežne ulož progress po každej stránke
-        with open(CDX_PROGRESS, "w", encoding="utf-8") as f:
-            json.dump({"rows": all_rows, "next_offset": offset + CDX_PAGE_SIZE}, f, ensure_ascii=False)
-
-        if len(data) < CDX_PAGE_SIZE:
-            break
-
-        offset += CDX_PAGE_SIZE
-        time.sleep(2)  # Trochu dlhšia pauza — šetri Wayback
-
-    log.info(f"CDX hotovo: {len(all_rows):,} unikátnych URL")
-
-    # Ulož finálnu cache a vymaž progress
-    with open(CDX_CACHE, "w", encoding="utf-8") as f:
-        json.dump(all_rows, f, ensure_ascii=False)
-    if os.path.exists(CDX_PROGRESS):
-        os.remove(CDX_PROGRESS)
-
-    return all_rows
-
-# ─────────────────────────────────────────────
-# OBRÁZKY
-# ─────────────────────────────────────────────
-
-def download_image(img_url, key, session):
-    ext = os.path.splitext(urlparse(img_url).path)[1].lower()
-    if ext not in {".jpg", ".jpeg", ".png", ".gif", ".webp"}:
-        ext = ".jpg"
-    filename = f"{key}{ext}"
-    path = os.path.join(IMAGES_DIR, filename)
-    if os.path.exists(path):
-        return filename
+def scrape_url(wb_url, original_url, session, log):
     try:
-        r = session.get(img_url, timeout=15, stream=True)
-        if r.status_code == 200 and "image" in r.headers.get("Content-Type", ""):
-            with open(path, "wb") as f:
-                for chunk in r.iter_content(8192):
-                    f.write(chunk)
-            return filename
+        resp = session.get(wb_url, timeout=25)
+        if resp.status_code != 200:
+            log.warning(f"  HTTP {resp.status_code}")
+            return None
+        if is_listing_url(original_url):
+            products = parse_listing_page(resp.text, wb_url, original_url)
+            log.info(f"  -> listing, {len(products)} produktov")
+        else:
+            p = parse_detail_page(resp.text, wb_url, original_url)
+            products = [p] if p and p.get("title") else []
+            log.info(f"  -> detail, {len(products)} produktov")
+        return products
+    except requests.exceptions.Timeout:
+        log.warning("  Timeout")
+        return None
     except Exception as e:
-        log.debug(f"Obrázok zlyhal ({img_url}): {e}")
-    return ""
+        log.error(f"  Chyba: {e}")
+        return None
 
-# ─────────────────────────────────────────────
-# MAIN
-# ─────────────────────────────────────────────
 
 def main():
-    setup_logging()
-    Path(IMAGES_DIR).mkdir(parents=True, exist_ok=True)
-
     ap = argparse.ArgumentParser()
-    ap.add_argument("--limit",     type=int, default=None, help="Max počet relevantných URL na parsovanie")
-    ap.add_argument("--cdx-limit", type=int, default=None, help="Max počet URL stiahnutých z CDX (pre test, napr. 10000)")
-    ap.add_argument("--cdx-only",  action="store_true")
+    ap.add_argument("--input",     required=True,
+                    help="Vstupny relevant CSV (napr. output/relevant_20020101-20101231_001.csv)")
+    ap.add_argument("--limit",     type=int, default=100,
+                    help="Pocet URL na spracovanie v tomto behu")
     ap.add_argument("--no-images", action="store_true")
     args = ap.parse_args()
 
+    log = setup_logging()
+
+    if not os.path.exists(args.input):
+        log.error(f"Vstupny subor neexistuje: {args.input}")
+        return
+
+    products      = load_products()
+    seen_products = {k: set(v.get("image_urls","").split("|")) for k, v in products.items()}
+    seen_pages    = {k: set(v.get("page_urls","").split("|"))  for k, v in products.items()}
+    log.info(f"Nacitanych produktov: {len(products):,}")
+
+    with open(args.input, encoding="utf-8") as f:
+        total_remaining = sum(1 for _ in f) - 1
+    log.info(f"Zostatok v {args.input}: {total_remaining:,} zaznamov")
+    log.info(f"Spracujem: {args.limit} zaznamov")
+
     session = requests.Session()
     session.headers["User-Agent"] = (
-        "Mozilla/5.0 (compatible; press-sk-archiver/1.0; "
+        "Mozilla/5.0 (compatible; press-sk-scraper/1.0; "
         "+https://github.com/panstarozitnik/press-sk-archiver)"
     )
 
-    all_urls = fetch_cdx_urls(session, cdx_limit=args.cdx_limit)
-    if args.cdx_only:
-        log.info("--cdx-only hotovo.")
-        return
+    processed_urls = set()
+    saved = errors = sprac = nesprac = 0
 
-    # Diagnostika — ukaž prvých 20 URL zo CDX bez ohľadu na filter
-    log.info("=== Prvých 20 URL z CDX (pre diagnostiku filtrov) ===")
-    for r in all_urls[:20]:
-        listing = is_listing_url(r["original"])
-        product = is_product_url(r["original"])
-        tag = "LISTING" if listing else ("PRODUCT" if product else "skip")
-        log.info(f"  [{tag}] {r['original']}")
-    log.info("=" * 50)
+    with open(args.input, encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for i, row in enumerate(reader):
+            if i >= args.limit:
+                break
 
-    relevant = [
-        r for r in all_urls
-        if is_listing_url(r["original"]) or is_product_url(r["original"])
-    ]
-    log.info(f"Relevantných URL: {len(relevant):,} z {len(all_urls):,}")
-    log.info("Ukážka relevantných (prvých 10):")
-    for r in relevant[:10]:
-        log.info(f"  [{r['timestamp']}] {r['original']}")
+            wb_url       = row.get("wayback_url", "")
+            original_url = row.get("original_url", "")
+            timestamp    = row.get("timestamp", "")
 
-    if args.limit:
-        relevant = relevant[:args.limit]
-
-    # Deduplikácia — rovnaká kniha môže byť na viacerých snapshotoch
-    seen_products  = {}   # dedup_key → set of image URLs
-    seen_page_urls = {}   # dedup_key → set of page URLs
-    product_rows   = {}   # dedup_key → product dict (pre merge)
-
-    # Načítaj existujúce produkty pre resume + merge obrázkov
-    done = set()
-    if os.path.exists(OUTPUT_CSV):
-        with open(OUTPUT_CSV, encoding="utf-8") as f:
-            for row in csv.DictReader(f):
-                done.add(row.get("source_url", ""))
-                title = row.get("title", "").lower().strip()
-                author = row.get("author", "").lower().strip()
-                if title:
-                    key = (title, author)
-                    product_rows[key] = dict(row)
-                    img_urls = row.get("image_urls", "")
-                    seen_products[key] = set(u for u in img_urls.split("|") if u)
-                    page_urls_str = row.get("page_urls", "")
-                    seen_page_urls[key] = set(u for u in page_urls_str.split("|") if u)
-        log.info(f"Resume: {len(done)} URL preskočených, {len(product_rows)} produktov načítaných")
-
-    def flush_csv():
-        """Prepíše celý CSV súbor aktuálnym stavom product_rows."""
-        with open(OUTPUT_CSV, "w", newline="", encoding="utf-8") as f:
-            w = csv.DictWriter(f, fieldnames=CSV_FIELDS, extrasaction="ignore")
-            w.writeheader()
-            for r in product_rows.values():
-                w.writerow(r)
-
-    # Úvodný zápis — existujúce produkty (pri resume)
-    flush_csv()
-
-    total = len(relevant)
-    saved = errors = 0
-
-    for i, row in enumerate(relevant, 1):
-        original  = row["original"]
-        timestamp = row["timestamp"]
-        wb        = wayback_url(original, timestamp)
-
-        if original in done:
-            continue
-
-        log.info(f"[{i}/{total}] {wb}")
-
-        try:
+            log.info(f"[{i+1}/{args.limit}] {wb_url[-70:]}")
             time.sleep(DELAY)
-            resp = session.get(wb, timeout=25)
-            if resp.status_code != 200:
-                log.warning(f"  HTTP {resp.status_code}")
-                errors += 1
+
+            found = scrape_url(wb_url, original_url, session, log)
+            processed_urls.add(wb_url)
+
+            if found is None:
+                append_csv(NESPRACOVANE_CSV, row, INPUT_FIELDS)
+                nesprac += 1
+                errors  += 1
                 continue
 
-            if is_listing_url(original):
-                products = parse_listing_page(resp.text, wb, original)
-                with_img = sum(1 for p in products if p.get("image_urls"))
-                log.info(f"  → listing, {len(products)} produktov, {with_img} s obrázkom")
-                # Detail každého produktu
-                for p in products:
-                    log.info(f"    [{'+' if p.get('image_urls') else '!'}] {p.get('title','?')[:50]} | img: {p.get('image_urls','')[:60] or 'CHÝBA'}")
-            else:
-                p = parse_detail_page(resp.text, wb, original)
-                products = [p] if p and p.get("title") else []
+            if not found:
+                append_csv(NESPRACOVANE_CSV, row, INPUT_FIELDS)
+                nesprac += 1
+                continue
 
-            for p in products:
+            for p in found:
                 dedup_key = (
                     p.get("title", "").lower().strip(),
                     p.get("author", "").lower().strip(),
@@ -325,53 +178,39 @@ def main():
                 if not dedup_key[0]:
                     continue
 
-                # Rozdeľ pipe-separated URL na individuálne — filtruj prázdne
-                new_imgs = {u for u in p.get("image_urls", "").split("|") if u.strip()}
+                new_imgs  = {u for u in p.get("image_urls","").split("|") if u.strip()}
+                new_pages = {original_url} if original_url else set()
 
                 if dedup_key in seen_products:
-                    changed = False
-                    # Merge obrázkov
-                    before = len(seen_products[dedup_key])
                     seen_products[dedup_key].update(new_imgs)
-                    if len(seen_products[dedup_key]) > before:
-                        product_rows[dedup_key]["image_urls"] = "|".join(
-                            sorted(seen_products[dedup_key])
-                        )
-                        changed = True
-                    # Merge page_urls
-                    if original not in seen_page_urls[dedup_key]:
-                        seen_page_urls[dedup_key].add(original)
-                        product_rows[dedup_key]["page_urls"] = "|".join(
-                            sorted(seen_page_urls[dedup_key])
-                        )
-                        changed = True
-                    continue
+                    seen_pages[dedup_key].update(new_pages)
+                    products[dedup_key]["image_urls"] = "|".join(sorted(seen_products[dedup_key]))
+                    products[dedup_key]["page_urls"]  = "|".join(sorted(seen_pages[dedup_key]))
+                else:
+                    seen_products[dedup_key] = new_imgs
+                    seen_pages[dedup_key]    = new_pages
+                    p["source_url"]  = original_url
+                    p["wayback_url"] = wb_url
+                    p["timestamp"]   = timestamp
+                    p["image_urls"]  = "|".join(sorted(new_imgs))
+                    p["page_urls"]   = "|".join(sorted(new_pages))
+                    products[dedup_key] = p
+                    saved += 1
 
-                # Nový produkt
-                seen_products[dedup_key] = set(new_imgs)
-                seen_page_urls[dedup_key] = {original}
-                p.setdefault("source_url",  original)
-                p.setdefault("wayback_url", wb)
-                p.setdefault("timestamp",   timestamp)
-                p["image_urls"] = "|".join(sorted(new_imgs))
-                p["page_urls"]  = original
-                product_rows[dedup_key] = p
-                saved += 1
+            append_csv(SPRACOVANE_CSV, row, INPUT_FIELDS)
+            sprac += 1
 
-            # Prepíš CSV s aktuálnym stavom
-            flush_csv()
+    flush_csv(products)
+    kept = remove_rows_from_csv(args.input, processed_urls)
 
-        except requests.exceptions.Timeout:
-            log.warning("  Timeout")
-            errors += 1
-        except Exception as e:
-            log.error(f"  Chyba: {e}")
-            errors += 1
-
-    log.info("=" * 50)
-    log.info(f"HOTOVO — {saved} produktov, {errors} chýb")
-    log.info(f"CSV: {OUTPUT_CSV} | Obrázky: {IMAGES_DIR}/")
-    log.info("=" * 50)
+    log.info("=" * 55)
+    log.info(f"Spracovanych URL:     {sprac + nesprac}")
+    log.info(f"  -> uspesne:         {sprac}")
+    log.info(f"  -> bez produktu:    {nesprac}")
+    log.info(f"Novych produktov:     {saved}")
+    log.info(f"Produktov celkom:     {len(products):,}")
+    log.info(f"Zostatok v inpute:    {kept:,}")
+    log.info("=" * 55)
 
 
 if __name__ == "__main__":
