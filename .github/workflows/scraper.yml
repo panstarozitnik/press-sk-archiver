@@ -1,23 +1,18 @@
-name: press.sk Archiver
+name: press.sk Scraper
 
 on:
   workflow_dispatch:
     inputs:
-      cdx_limit:
-        description: 'Max URL z CDX indexu — pre test zadaj 10000, prázdne = všetky'
-        required: false
-        default: ''
+      input_csv:
+        description: 'Vstupny CSV subor (napr. output/relevant_20020101-20101231_001.csv)'
+        required: true
+        default: 'output/relevant_20020101-20101231_001.csv'
       limit:
-        description: 'Max počet relevantných URL na parsovanie (prázdne = všetky)'
-        required: false
-        default: ''
+        description: 'Pocet URL na spracovanie v tomto behu'
+        required: true
+        default: '100'
       no_images:
-        description: 'Bez obrázkov (rýchlejšie)'
-        required: false
-        type: boolean
-        default: false
-      fresh_start:
-        description: 'Začať odznova — vymaže CDX cache, CSV aj obrázky'
+        description: 'Bez obrazkov (rychlejsie)'
         required: false
         type: boolean
         default: false
@@ -32,130 +27,86 @@ jobs:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
     steps:
-      - name: Checkout repozitára
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Nastav Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: 'pip'
 
-      - name: Inštalácia závislostí
-        run: pip install -r requirements.txt
+      - run: pip install -r requirements.txt
 
-      - name: Vytvor output adresár
-        run: mkdir -p output/images
+      - run: mkdir -p output
 
-      - name: Fresh start — vymaž všetky cache a výsledky
-        if: ${{ github.event.inputs.fresh_start == 'true' }}
-        run: |
-          echo "Fresh start — mažem cache a výsledky..."
-          rm -f output/cdx_urls.json output/cdx_urls.json.progress
-          rm -f output/products.csv output/scraper.log
-          rm -rf output/images
-          mkdir -p output/images
-          # Vymaž aj git históriu výsledkov (reset výstupných súborov)
-          git rm -r --cached output/ 2>/dev/null || true
-          echo "Hotovo — začínam odznova"
-
-      # Obnov CDX cache z predchádzajúceho behu (šetrí čas aj záťaž archívu)
-      - name: Obnov CDX cache
+      - name: Obnov stav (products, spracovane, nespracovane, input CSV)
         uses: actions/cache@v4
         with:
           path: |
-            output/cdx_urls.json
-            output/cdx_urls.json.progress
-          # Pri fresh_start použijeme run_number ako unikátny key — žiadna stará cache sa neobnovi
-          key: cdx-cache-press-sk-v4-${{ github.event.inputs.fresh_start == 'true' && github.run_number || 'latest' }}
-          restore-keys: |
-            cdx-cache-press-sk-v4-latest
-            cdx-cache-press-sk-v4
+            output/products.csv
+            output/spracovane.csv
+            output/nespracovane.csv
+            output/relevant_*.csv
+            output/skipped_*.csv
+          key: scraper-state-${{ github.run_number }}
+          restore-keys: scraper-state-
 
-      - name: Over verziu listing.py
+      - name: Stav pred spracovanim
         run: |
-          echo "=== listing.py obsah (prvých 30 riadkov) ==="
-          head -30 parsers/listing.py
-          echo "=== hľadám DEBUG ==="
-          grep -n "DEBUG" parsers/listing.py || echo "DEBUG NENAJDENY!"
-          grep -n "print(" parsers/listing.py || echo "PRINT NENAJDENY!"
+          echo "=== Vstupny subor ==="
+          wc -l "${{ github.event.inputs.input_csv }}" 2>/dev/null || echo "Neexistuje"
+          echo "=== products.csv ==="
+          wc -l output/products.csv 2>/dev/null || echo "Neexistuje"
+          echo "=== spracovane.csv ==="
+          wc -l output/spracovane.csv 2>/dev/null || echo "Neexistuje"
+          echo "=== nespracovane.csv ==="
+          wc -l output/nespracovane.csv 2>/dev/null || echo "Neexistuje"
 
       - name: Spusti scraper
         run: |
-          ARGS=""
-          if [ -n "${{ github.event.inputs.cdx_limit }}" ]; then
-            ARGS="$ARGS --cdx-limit ${{ github.event.inputs.cdx_limit }}"
-          fi
-          if [ -n "${{ github.event.inputs.limit }}" ]; then
-            ARGS="$ARGS --limit ${{ github.event.inputs.limit }}"
-          fi
+          ARGS="--input ${{ github.event.inputs.input_csv }} --limit ${{ github.event.inputs.limit }}"
           if [ "${{ github.event.inputs.no_images }}" = "true" ]; then
             ARGS="$ARGS --no-images"
           fi
-          echo "Spúšťam: python scraper.py $ARGS"
+          echo "Spustam: python scraper.py $ARGS"
           python scraper.py $ARGS
 
-      - name: Zobraz štatistiky
+      - name: Stav po spracovani
         if: always()
         run: |
-          echo "=== Výsledky ==="
-          if [ -f output/products.csv ]; then
-            LINES=$(wc -l < output/products.csv)
-            echo "Produktov v CSV: $((LINES - 1))"
-          else
-            echo "CSV neexistuje"
-          fi
-          if [ -d output/images ]; then
-            IMG_COUNT=$(find output/images -type f | wc -l)
-            echo "Obrázkov: $IMG_COUNT"
-            du -sh output/images || true
-          fi
-          echo ""
-          echo "=== Posledných 20 riadkov logu ==="
-          tail -20 output/scraper.log || true
+          echo "=== Vstupny subor (zostatok) ==="
+          wc -l "${{ github.event.inputs.input_csv }}" 2>/dev/null || echo "Prazdny/neexistuje"
+          echo "=== products.csv ==="
+          wc -l output/products.csv 2>/dev/null || echo "Neexistuje"
+          echo "=== spracovane.csv ==="
+          wc -l output/spracovane.csv 2>/dev/null || echo "Neexistuje"
+          echo "=== nespracovane.csv ==="
+          wc -l output/nespracovane.csv 2>/dev/null || echo "Neexistuje"
+          echo "=== Poslednych 20 riadkov logu ==="
+          tail -20 output/scraper.log 2>/dev/null || true
 
-      - name: Ulož výsledky do repozitára (git commit)
+      - name: Uloz do repozitara
         if: always()
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
-          # CSV a log
-          git add output/products.csv output/scraper.log 2>/dev/null || true
-
-          # Obrázky — pridaj len neprázdne súbory (>1kB), dedup je v scraperi
-          # git automaticky ignoruje súbory ktoré sa nezmenili (= rovnaký hash)
-          if [ -d output/images ]; then
-            find output/images -type f -size +1k -print0 | xargs -0 git add 2>/dev/null || true
-            NEW_IMGS=$(git diff --cached --name-only | grep -c "output/images/" || true)
-            echo "Nových obrázkov: ${NEW_IMGS}"
-          fi
-
+          git add output/products.csv output/spracovane.csv output/nespracovane.csv \
+                  output/scraper.log "${{ github.event.inputs.input_csv }}" 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "Žiadne zmeny na commitnutie."
+            echo "Ziadne zmeny."
           else
-            LINES=$(wc -l < output/products.csv 2>/dev/null || echo 1)
-            NEW_IMGS=$(git diff --cached --name-only | grep -c "output/images/" || true)
-            git commit -m "scraper: $((LINES - 1)) produktov, +${NEW_IMGS} obrázkov [run #${{ github.run_number }}]"
+            PRODUCTS=$(wc -l < output/products.csv 2>/dev/null || echo 1)
+            git commit -m "scraper: $((PRODUCTS-1)) produktov [run #${{ github.run_number }}]"
+            git pull --rebase --autostash origin main || true
             git push
-            echo "Výsledky pushnuté do repa"
           fi
 
-      - name: Zabaľ výsledky (zip)
-        if: always()
-        run: |
-          cd output
-          zip -r ../press-sk-results.zip products.csv images/ scraper.log 2>/dev/null || \
-          zip -r ../press-sk-results.zip scraper.log 2>/dev/null || true
-
-      - name: Nahraj Artifact
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: press-sk-results-${{ github.run_number }}
+          name: scraper-results-${{ github.run_number }}
           path: |
             output/products.csv
+            output/spracovane.csv
+            output/nespracovane.csv
             output/scraper.log
-            output/images/
           retention-days: 90
-          if-no-files-found: warn
