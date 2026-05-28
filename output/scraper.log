@@ -98,3 +98,34 @@
 2026-05-20 08:30:02,923 [INFO] HOTOVO — 27 produktov, 0 chýb
 2026-05-20 08:30:02,923 [INFO] CSV: output/products.csv | Obrázky: output/images/
 2026-05-20 08:30:02,923 [INFO] ==================================================
+2026-05-28 19:49:24,681 [INFO] Nacitanych produktov: 29
+2026-05-28 19:49:24,685 [INFO] Zostatok v output/relevant.csv: 12,165 zaznamov
+2026-05-28 19:49:24,685 [INFO] Spracujem: 10 zaznamov
+2026-05-28 19:49:24,685 [INFO] [1/10] https://web.archive.org/web/20190823100139/https://www.press.sk/2009/
+2026-05-28 19:49:29,802 [INFO]   -> detail, 1 produktov
+2026-05-28 19:49:29,802 [INFO] [2/10] https://web.archive.org/web/20191013234941/https://www.press.sk/2009/
+2026-05-28 19:49:31,893 [INFO]   -> detail, 1 produktov
+2026-05-28 19:49:31,893 [INFO] [3/10] https://web.archive.org/web/20191207101055/https://www.press.sk/2009/
+2026-05-28 19:49:34,325 [INFO]   -> detail, 1 produktov
+2026-05-28 19:49:34,325 [INFO] [4/10] https://web.archive.org/web/20230311055256/https://www.press.sk/2009/
+2026-05-28 19:49:36,482 [INFO]   -> detail, 1 produktov
+2026-05-28 19:49:36,483 [INFO] [5/10] https://web.archive.org/web/20170730233447/https://www.press.sk/2010/
+2026-05-28 19:49:38,503 [INFO]   -> detail, 1 produktov
+2026-05-28 19:49:38,503 [INFO] [6/10] https://web.archive.org/web/20190822140150/https://www.press.sk/2010/
+2026-05-28 19:49:40,651 [INFO]   -> detail, 1 produktov
+2026-05-28 19:49:40,651 [INFO] [7/10] https://web.archive.org/web/20190923182223/https://www.press.sk/2010/
+2026-05-28 19:49:42,640 [INFO]   -> detail, 1 produktov
+2026-05-28 19:49:42,640 [INFO] [8/10] https://web.archive.org/web/20191019104409/https://www.press.sk/2010/
+2026-05-28 19:49:44,957 [INFO]   -> detail, 1 produktov
+2026-05-28 19:49:44,957 [INFO] [9/10] https://web.archive.org/web/20191112065010/https://www.press.sk/2010/
+2026-05-28 19:49:47,045 [INFO]   -> detail, 1 produktov
+2026-05-28 19:49:47,045 [INFO] [10/10] https://web.archive.org/web/20191211161844/https://www.press.sk/2010/
+2026-05-28 19:49:50,432 [INFO]   -> detail, 1 produktov
+2026-05-28 19:49:50,511 [INFO] =======================================================
+2026-05-28 19:49:50,511 [INFO] Spracovanych URL:     10
+2026-05-28 19:49:50,511 [INFO]   -> uspesne:         10
+2026-05-28 19:49:50,511 [INFO]   -> bez produktu:    0
+2026-05-28 19:49:50,511 [INFO] Novych produktov:     0
+2026-05-28 19:49:50,511 [INFO] Produktov celkom:     29
+2026-05-28 19:49:50,511 [INFO] Zostatok v inpute:    12,155
+2026-05-28 19:49:50,511 [INFO] =======================================================
