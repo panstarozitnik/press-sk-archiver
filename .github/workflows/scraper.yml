@@ -38,7 +38,7 @@ jobs:
 
       - run: mkdir -p output
 
-      - name: Obnov stav (products, spracovane, nespracovane, input CSV)
+      - name: Obnov stav z cache
         uses: actions/cache@v4
         with:
           path: |
@@ -49,6 +49,18 @@ jobs:
             output/skipped_*.csv
           key: scraper-state-${{ github.run_number }}
           restore-keys: scraper-state-
+
+      - name: Obnov products.csv z repa ak cache chyba
+        run: |
+          # Ak products.csv nie je v cache ale je v repe, pouzi repovu verziu
+          if [ ! -f output/products.csv ] && [ -f output/products.csv ]; then
+            echo "products.csv obnoveny z repa"
+          fi
+          # Vzdy pouzij verziu z repa ak existuje (je novsia ako cache)
+          git checkout origin/main -- output/products.csv 2>/dev/null && echo "products.csv z repa" || echo "products.csv z cache alebo neexistuje"
+          git checkout origin/main -- output/spracovane.csv 2>/dev/null && echo "spracovane.csv z repa" || true
+          git checkout origin/main -- output/nespracovane.csv 2>/dev/null && echo "nespracovane.csv z repa" || true
+          git checkout origin/main -- "${{ github.event.inputs.input_csv }}" 2>/dev/null && echo "input CSV z repa" || echo "input CSV z cache"
 
       - name: Stav pred spracovanim
         run: |
@@ -89,16 +101,19 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add output/products.csv output/spracovane.csv output/nespracovane.csv \
-                  output/scraper.log "${{ github.event.inputs.input_csv }}" 2>/dev/null || true
-          if git diff --cached --quiet; then
-            echo "Ziadne zmeny."
-          else
-            PRODUCTS=$(wc -l < output/products.csv 2>/dev/null || echo 1)
-            git commit -m "scraper: $((PRODUCTS-1)) produktov [run #${{ github.run_number }}]"
-            git pull --rebase --autostash origin main || true
-            git push
-          fi
+          # Pridaj vsetky relevantne subory - force pre nove aj zmenene
+          git add -f output/products.csv 2>/dev/null || true
+          git add -f output/spracovane.csv 2>/dev/null || true
+          git add -f output/nespracovane.csv 2>/dev/null || true
+          git add -f output/scraper.log 2>/dev/null || true
+          git add -f "${{ github.event.inputs.input_csv }}" 2>/dev/null || true
+
+          # Commitni vzdy (aj ked su subory "rovnake" - moze byt problem s cache)
+          PRODUCTS=$(wc -l < output/products.csv 2>/dev/null || echo 1)
+          SPRAC=$(wc -l < output/spracovane.csv 2>/dev/null || echo 1)
+          git commit --allow-empty -m "scraper: $((PRODUCTS-1)) produktov, $((SPRAC-1)) spracovanych [run #${{ github.run_number }}]"
+          git pull --rebase --autostash origin main || true
+          git push
 
       - uses: actions/upload-artifact@v4
         if: always()
