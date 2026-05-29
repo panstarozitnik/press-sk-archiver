@@ -38,29 +38,12 @@ jobs:
 
       - run: mkdir -p output
 
-      - name: Obnov stav z cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            output/products.csv
-            output/spracovane.csv
-            output/nespracovane.csv
-            output/relevant_*.csv
-            output/skipped_*.csv
-          key: scraper-state-${{ github.run_number }}
-          restore-keys: scraper-state-
-
-      - name: Obnov products.csv z repa ak cache chyba
+      - name: Nacitaj aktualne subory z repa
         run: |
-          # Ak products.csv nie je v cache ale je v repe, pouzi repovu verziu
-          if [ ! -f output/products.csv ] && [ -f output/products.csv ]; then
-            echo "products.csv obnoveny z repa"
-          fi
-          # Vzdy pouzij verziu z repa ak existuje (je novsia ako cache)
-          git checkout origin/main -- output/products.csv 2>/dev/null && echo "products.csv z repa" || echo "products.csv z cache alebo neexistuje"
-          git checkout origin/main -- output/spracovane.csv 2>/dev/null && echo "spracovane.csv z repa" || true
-          git checkout origin/main -- output/nespracovane.csv 2>/dev/null && echo "nespracovane.csv z repa" || true
-          git checkout origin/main -- "${{ github.event.inputs.input_csv }}" 2>/dev/null && echo "input CSV z repa" || echo "input CSV z cache"
+          git checkout origin/main -- output/products.csv 2>/dev/null             && echo "products.csv: $(wc -l < output/products.csv) riadkov"             || echo "products.csv: neexistuje"
+          git checkout origin/main -- output/spracovane.csv 2>/dev/null             && echo "spracovane.csv: $(wc -l < output/spracovane.csv) riadkov"             || echo "spracovane.csv: neexistuje"
+          git checkout origin/main -- output/nespracovane.csv 2>/dev/null             && echo "nespracovane.csv: $(wc -l < output/nespracovane.csv) riadkov"             || echo "nespracovane.csv: neexistuje"
+          git checkout origin/main -- "${{ github.event.inputs.input_csv }}"             && echo "input: $(wc -l < "${{ github.event.inputs.input_csv }}") riadkov"             || { echo "CHYBA: input CSV nie je v repe!"; exit 1; }
 
       - name: Stav pred spracovanim
         run: |
