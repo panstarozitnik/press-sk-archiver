@@ -129,3 +129,34 @@
 2026-05-28 19:49:50,511 [INFO] Produktov celkom:     29
 2026-05-28 19:49:50,511 [INFO] Zostatok v inpute:    12,155
 2026-05-28 19:49:50,511 [INFO] =======================================================
+2026-05-29 06:32:05,711 [INFO] Nacitanych produktov: 0
+2026-05-29 06:32:05,715 [INFO] Zostatok v output/relevant.csv: 12,155 zaznamov
+2026-05-29 06:32:05,715 [INFO] Spracujem: 10 zaznamov
+2026-05-29 06:32:05,715 [INFO] [1/10] https://web.archive.org/web/20230311055256/https://www.press.sk/2010/
+2026-05-29 06:32:09,816 [INFO]   -> detail, 1 produktov
+2026-05-29 06:32:09,817 [INFO] [2/10] 190923075531/https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
+2026-05-29 06:32:12,781 [INFO]   -> detail, 1 produktov
+2026-05-29 06:32:12,782 [INFO] [3/10] 190920190920/https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
+2026-05-29 06:32:15,271 [INFO]   -> detail, 1 produktov
+2026-05-29 06:32:15,271 [INFO] [4/10] 190920190843/https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
+2026-05-29 06:32:18,418 [INFO]   -> detail, 1 produktov
+2026-05-29 06:32:18,419 [INFO] [5/10] 190923075244/https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
+2026-05-29 06:32:20,729 [INFO]   -> detail, 1 produktov
+2026-05-29 06:32:20,729 [INFO] [6/10] 190923075847/https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
+2026-05-29 06:32:23,027 [INFO]   -> detail, 1 produktov
+2026-05-29 06:32:23,028 [INFO] [7/10] 075712/https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
+2026-05-29 06:32:25,239 [INFO]   -> detail, 1 produktov
+2026-05-29 06:32:25,239 [INFO] [8/10] https://web.archive.org/web/20160802162555/http://www.press.sk/2011/
+2026-05-29 06:32:27,713 [INFO]   -> detail, 0 produktov
+2026-05-29 06:32:27,713 [INFO] [9/10] https://web.archive.org/web/20170731034912/https://www.press.sk/2011/
+2026-05-29 06:32:30,360 [INFO]   -> detail, 1 produktov
+2026-05-29 06:32:30,361 [INFO] [10/10] https://web.archive.org/web/20190721094652/https://www.press.sk/2011/
+2026-05-29 06:32:32,863 [INFO]   -> detail, 1 produktov
+2026-05-29 06:32:32,945 [INFO] =======================================================
+2026-05-29 06:32:32,946 [INFO] Spracovanych URL:     10
+2026-05-29 06:32:32,946 [INFO]   -> uspesne:         9
+2026-05-29 06:32:32,946 [INFO]   -> bez produktu:    1
+2026-05-29 06:32:32,946 [INFO] Novych produktov:     8
+2026-05-29 06:32:32,946 [INFO] Produktov celkom:     8
+2026-05-29 06:32:32,946 [INFO] Zostatok v inpute:    12,145
+2026-05-29 06:32:32,946 [INFO] =======================================================
