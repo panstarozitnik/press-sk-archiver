@@ -160,3 +160,34 @@
 2026-05-29 06:32:32,946 [INFO] Produktov celkom:     8
 2026-05-29 06:32:32,946 [INFO] Zostatok v inpute:    12,145
 2026-05-29 06:32:32,946 [INFO] =======================================================
+2026-06-01 07:49:09,111 [INFO] Nacitanych produktov: 0
+2026-06-01 07:49:09,113 [INFO] Zostatok v output/relevant.csv: 12,165 zaznamov
+2026-06-01 07:49:09,113 [INFO] Spracujem: 10 zaznamov
+2026-06-01 07:49:09,113 [INFO] [1/10] https://web.archive.org/web/20190823100139/https://www.press.sk/2009/
+2026-06-01 07:49:11,249 [INFO]   -> detail, 1 produktov
+2026-06-01 07:49:11,249 [INFO] [2/10] https://web.archive.org/web/20191013234941/https://www.press.sk/2009/
+2026-06-01 07:49:13,268 [INFO]   -> detail, 1 produktov
+2026-06-01 07:49:13,268 [INFO] [3/10] https://web.archive.org/web/20191207101055/https://www.press.sk/2009/
+2026-06-01 07:49:15,378 [INFO]   -> detail, 1 produktov
+2026-06-01 07:49:15,378 [INFO] [4/10] https://web.archive.org/web/20230311055256/https://www.press.sk/2009/
+2026-06-01 07:49:17,557 [INFO]   -> detail, 1 produktov
+2026-06-01 07:49:17,557 [INFO] [5/10] https://web.archive.org/web/20170730233447/https://www.press.sk/2010/
+2026-06-01 07:49:19,720 [INFO]   -> detail, 1 produktov
+2026-06-01 07:49:19,720 [INFO] [6/10] https://web.archive.org/web/20190822140150/https://www.press.sk/2010/
+2026-06-01 07:49:21,794 [INFO]   -> detail, 1 produktov
+2026-06-01 07:49:21,794 [INFO] [7/10] https://web.archive.org/web/20190923182223/https://www.press.sk/2010/
+2026-06-01 07:49:26,372 [INFO]   -> detail, 1 produktov
+2026-06-01 07:49:26,372 [INFO] [8/10] https://web.archive.org/web/20191019104409/https://www.press.sk/2010/
+2026-06-01 07:49:28,529 [INFO]   -> detail, 1 produktov
+2026-06-01 07:49:28,529 [INFO] [9/10] https://web.archive.org/web/20191112065010/https://www.press.sk/2010/
+2026-06-01 07:49:30,687 [INFO]   -> detail, 1 produktov
+2026-06-01 07:49:30,687 [INFO] [10/10] https://web.archive.org/web/20191211161844/https://www.press.sk/2010/
+2026-06-01 07:49:32,762 [INFO]   -> detail, 1 produktov
+2026-06-01 07:49:32,803 [INFO] =======================================================
+2026-06-01 07:49:32,803 [INFO] Spracovanych URL:     10
+2026-06-01 07:49:32,803 [INFO]   -> uspesne:         10
+2026-06-01 07:49:32,803 [INFO]   -> bez produktu:    0
+2026-06-01 07:49:32,803 [INFO] Novych produktov:     2
+2026-06-01 07:49:32,803 [INFO] Produktov celkom:     2
+2026-06-01 07:49:32,803 [INFO] Zostatok v inpute:    12,155
+2026-06-01 07:49:32,803 [INFO] =======================================================
