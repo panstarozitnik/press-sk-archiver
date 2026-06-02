@@ -22,14 +22,6 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
     if not products:
         products = _parse_generic_links(soup)
 
-    # DEBUG — vždy vypíš prvých 5 img tagov
-    all_imgs = soup.find_all("img")
-    print(f"[IMG-DEBUG] URL={original_url[-50:]}", flush=True)
-    print(f"[IMG-DEBUG] img tagov={len(all_imgs)}, produktov={len(products)}", flush=True)
-    for i, img in enumerate(all_imgs[:5]):
-        print(f"[IMG-DEBUG] img[{i}] src={repr(img.get('src',''))[:70]}", flush=True)
-        print(f"[IMG-DEBUG] img[{i}] data-srcset={repr(img.get('data-srcset',''))[:70]}", flush=True)
-    sys.stdout.flush()
 
     # Fallback: ak produkt nemá obrázok, skús regex cez celé HTML jeho kontajnera
     for p in products:
@@ -89,12 +81,17 @@ def _parse_wrapped(soup: BeautifulSoup) -> list[dict]:
         if not link:
             continue
         p["title"] = safe_text(link)
-        img = item.select_one(".shop-cat-img img, .browse_top img")
+        img = item.select_one(".shop-cat-img img, .shop-fly-img img, .browse_top img")
         if img:
             p["image_urls"] = _img_url(img)
-        mfr = item.select_one("span.manufacturer")
+        mfr = item.select_one("span.manufacturer, .browse-publish")
         if mfr:
-            p["publisher"] = safe_text(mfr)
+            # .browse-publish obsahuje "Vydava: Aeromedia" - odober prefix
+            pub = safe_text(mfr)
+            for prefix in ["Vydáva: ", "Vydava: ", "Vydavateľ: "]:
+                if pub.startswith(prefix):
+                    pub = pub[len(prefix):]
+            p["publisher"] = pub.strip()
         for sel in ["span.akcia-cena", "span.productPrice", "span.product-price", "span.price"]:
             el = item.select_one(sel)
             if el:

@@ -36,6 +36,8 @@ _LISTING_PATTERNS = [
     r"/option,com_virtuemart",   # starý VirtueMart e-shop
     r"/page,shop",
     r"/c,[a-z],\d",              # /c,d,16,48 typ URL
+    r"press[.]sk/\d{4}/?$",     # /2011/ alebo /2011 - listing roka
+    r"press[.]sk/\d{4}/?$",     # /2011/ - listing stranky roka
     r"\?start=\d",               # stránkovanie
     r"Itemid=\d",
 ]
@@ -51,8 +53,8 @@ _PRODUCT_PATTERNS = [
     r"97[89]\d{10}",              # ISBN-13 v URL
     r"/\d{4,}-[a-z\-]{3,}",      # číselné ID + slug
     r"page,shop[.]product_details",
-    r"press[.]sk/\d{4}[/+]",     # /2010/nazov/ alebo /2012+193/nazov/
-    r"press[.]sk/\d{4}$",        # /2010 (bez lomky)
+    r"press[.]sk/\d{4}[+]\d",    # /2012+193/nazov/ - rok+id
+    r"press[.]sk/\d{4}/[a-z]",  # /2010/nazov/ - rok/slug
 ]
 
 # URL ktoré určite nie sú produkty/listy
