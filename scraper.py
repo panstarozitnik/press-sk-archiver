@@ -23,7 +23,7 @@ PRODUCT_FIELDS = [
     "publisher", "category", "description",
     "image_urls", "page_urls",
 ]
-INPUT_FIELDS = ["original_url", "wayback_url", "timestamp", "type"]
+INPUT_FIELDS = ["original_url", "wayback_url", "timestamp", "type", "products_found"]
 
 
 def setup_logging():
@@ -160,12 +160,14 @@ def main():
             processed_urls.add(wb_url)
 
             if found is None:
+                row["products_found"] = 0
                 append_csv(NESPRACOVANE_CSV, row, INPUT_FIELDS)
                 nesprac += 1
                 errors  += 1
                 continue
 
             if not found:
+                row["products_found"] = 0
                 append_csv(NESPRACOVANE_CSV, row, INPUT_FIELDS)
                 nesprac += 1
                 continue
