@@ -697,3 +697,34 @@
 2026-06-03 12:51:10,326 [INFO] Produktov celkom:     28
 2026-06-03 12:51:10,326 [INFO] Zostatok v inpute:    12,095
 2026-06-03 12:51:10,326 [INFO] =======================================================
+2026-06-03 13:53:14,226 [INFO] Nacitanych produktov: 28
+2026-06-03 13:53:14,230 [INFO] Zostatok v output/relevant.csv: 12,095 zaznamov
+2026-06-03 13:53:14,230 [INFO] Spracujem: 10 zaznamov
+2026-06-03 13:53:14,230 [INFO] [1/10] ps://web.archive.org/web/20170731042049/https://www.press.sk/2013+192/
+2026-06-03 13:53:17,438 [INFO]   -> detail, 1 produktov
+2026-06-03 13:53:17,438 [INFO] [2/10] ps://web.archive.org/web/20190822224302/https://www.press.sk/2013+192/
+2026-06-03 13:53:19,583 [INFO]   -> detail, 1 produktov
+2026-06-03 13:53:19,584 [INFO] [3/10] ps://web.archive.org/web/20191013232427/https://www.press.sk/2013+192/
+2026-06-03 13:53:21,936 [INFO]   -> detail, 1 produktov
+2026-06-03 13:53:21,937 [INFO] [4/10] org/web/20190920190934/https://www.press.sk/2013+192/modelar-c.012013/
+2026-06-03 13:53:24,473 [INFO]   -> detail, 1 produktov
+2026-06-03 13:53:24,473 [INFO] [5/10] org/web/20190920190948/https://www.press.sk/2013+192/modelar-c.022013/
+2026-06-03 13:53:26,847 [INFO]   -> detail, 1 produktov
+2026-06-03 13:53:26,847 [INFO] [6/10] org/web/20190920191003/https://www.press.sk/2013+192/modelar-c.032013/
+2026-06-03 13:53:29,454 [INFO]   -> detail, 1 produktov
+2026-06-03 13:53:29,455 [INFO] [7/10] org/web/20190920191020/https://www.press.sk/2013+192/modelar-c.042013/
+2026-06-03 13:53:31,506 [INFO]   -> detail, 1 produktov
+2026-06-03 13:53:31,506 [INFO] [8/10] org/web/20190920191101/https://www.press.sk/2013+192/modelar-c.052013/
+2026-06-03 13:53:33,563 [INFO]   -> detail, 1 produktov
+2026-06-03 13:53:33,564 [INFO] [9/10] org/web/20190920191127/https://www.press.sk/2013+192/modelar-c.062013/
+2026-06-03 13:53:35,607 [INFO]   -> detail, 1 produktov
+2026-06-03 13:53:35,607 [INFO] [10/10] org/web/20190920191153/https://www.press.sk/2013+192/modelar-c.072013/
+2026-06-03 13:53:37,725 [INFO]   -> detail, 1 produktov
+2026-06-03 13:53:37,806 [INFO] =======================================================
+2026-06-03 13:53:37,806 [INFO] Spracovanych URL:     10
+2026-06-03 13:53:37,806 [INFO]   -> uspesne:         10
+2026-06-03 13:53:37,806 [INFO]   -> bez produktu:    0
+2026-06-03 13:53:37,806 [INFO] Novych produktov:     8
+2026-06-03 13:53:37,806 [INFO] Produktov celkom:     36
+2026-06-03 13:53:37,806 [INFO] Zostatok v inpute:    12,085
+2026-06-03 13:53:37,806 [INFO] =======================================================
