@@ -199,6 +199,7 @@ def main():
                     products[dedup_key] = p
                     saved += 1
 
+            row["products_found"] = len([p for p in found if p.get("title")])
             append_csv(SPRACOVANE_CSV, row, INPUT_FIELDS)
             sprac += 1
 
