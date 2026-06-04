@@ -728,3 +728,54 @@
 2026-06-03 13:53:37,806 [INFO] Produktov celkom:     36
 2026-06-03 13:53:37,806 [INFO] Zostatok v inpute:    12,085
 2026-06-03 13:53:37,806 [INFO] =======================================================
+2026-06-04 13:03:08,405 [INFO] Nacitanych produktov: 36
+2026-06-04 13:03:08,408 [INFO] Zostatok v output/relevant.csv: 12,085 zaznamov
+2026-06-04 13:03:08,408 [INFO] Spracujem: 20 zaznamov
+2026-06-04 13:03:08,409 [INFO] [1/20] org/web/20190920191213/https://www.press.sk/2013+192/modelar-c.082013/
+2026-06-04 13:03:10,738 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:10,738 [INFO] [2/20] org/web/20190920191232/https://www.press.sk/2013+192/modelar-c.092013/
+2026-06-04 13:03:13,035 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:13,035 [INFO] [3/20] org/web/20190920190523/https://www.press.sk/2013+192/modelar-c.102013/
+2026-06-04 13:03:15,153 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:15,153 [INFO] [4/20] org/web/20190920190539/https://www.press.sk/2013+192/modelar-c.112013/
+2026-06-04 13:03:17,572 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:17,572 [INFO] [5/20] org/web/20190920190600/https://www.press.sk/2013+192/modelar-c.122013/
+2026-06-04 13:03:19,912 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:19,912 [INFO] [6/20] tps://web.archive.org/web/20160802160852/http://www.press.sk/2013+194/
+2026-06-04 13:03:22,425 [INFO]   -> detail, 0 produktov
+2026-06-04 13:03:22,425 [INFO] [7/20] tps://web.archive.org/web/20170406085415/http://www.press.sk/2013+194/
+2026-06-04 13:03:24,620 [INFO]   -> detail, 0 produktov
+2026-06-04 13:03:24,621 [INFO] [8/20] ps://web.archive.org/web/20190724010532/https://www.press.sk/2013+194/
+2026-06-04 13:03:26,878 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:26,878 [INFO] [9/20] ps://web.archive.org/web/20190922085834/https://www.press.sk/2013+194/
+2026-06-04 13:03:29,520 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:29,520 [INFO] [10/20] ps://web.archive.org/web/20191115191241/https://www.press.sk/2013+194/
+2026-06-04 13:03:32,891 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:32,891 [INFO] [11/20] ive.org/web/20191022094603/https://www.press.sk/2013+194/atm-c.012013/
+2026-06-04 13:03:35,567 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:35,568 [INFO] [12/20] ive.org/web/20191211163914/https://www.press.sk/2013+194/atm-c.012013/
+2026-06-04 13:03:38,077 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:38,077 [INFO] [13/20] ive.org/web/20191210043402/https://www.press.sk/2013+194/atm-c.032013/
+2026-06-04 13:03:40,136 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:40,137 [INFO] [14/20] ive.org/web/20191016050822/https://www.press.sk/2013+194/atm-c.052013/
+2026-06-04 13:03:42,147 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:42,147 [INFO] [15/20] ive.org/web/20220618043216/https://www.press.sk/2013+194/atm-c.102013/
+2026-06-04 13:03:44,356 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:44,356 [INFO] [16/20] ive.org/web/20191020012501/https://www.press.sk/2013+194/atm-c.112013/
+2026-06-04 13:03:46,884 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:46,884 [INFO] [17/20] tps://web.archive.org/web/20160802162654/http://www.press.sk/2013+196/
+2026-06-04 13:03:49,714 [INFO]   -> detail, 0 produktov
+2026-06-04 13:03:49,715 [INFO] [18/20] tps://web.archive.org/web/20170406065054/http://www.press.sk/2013+196/
+2026-06-04 13:03:52,455 [INFO]   -> detail, 0 produktov
+2026-06-04 13:03:52,456 [INFO] [19/20] ps://web.archive.org/web/20170731034340/https://www.press.sk/2013+196/
+2026-06-04 13:03:54,666 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:54,666 [INFO] [20/20] ps://web.archive.org/web/20190823092909/https://www.press.sk/2013+196/
+2026-06-04 13:03:56,768 [INFO]   -> detail, 1 produktov
+2026-06-04 13:03:56,847 [INFO] =======================================================
+2026-06-04 13:03:56,847 [INFO] Spracovanych URL:     20
+2026-06-04 13:03:56,847 [INFO]   -> uspesne:         16
+2026-06-04 13:03:56,847 [INFO]   -> bez produktu:    4
+2026-06-04 13:03:56,847 [INFO] Novych produktov:     10
+2026-06-04 13:03:56,847 [INFO] Produktov celkom:     46
+2026-06-04 13:03:56,847 [INFO] Zostatok v inpute:    12,065
+2026-06-04 13:03:56,848 [INFO] =======================================================
