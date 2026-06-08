@@ -810,3 +810,74 @@
 2026-06-04 20:19:05,490 [INFO] Produktov celkom:     46
 2026-06-04 20:19:05,490 [INFO] Zostatok v inpute:    12,055
 2026-06-04 20:19:05,491 [INFO] =======================================================
+2026-06-08 10:19:20,974 [INFO] Nacitanych produktov: 0
+2026-06-08 10:19:20,977 [INFO] Zostatok v output/relevant.csv: 12,165 zaznamov
+2026-06-08 10:19:20,977 [INFO] Spracujem: 30 zaznamov
+2026-06-08 10:19:20,978 [INFO] [1/30] https://web.archive.org/web/20190823100139/https://www.press.sk/2009/
+2026-06-08 10:19:23,683 [INFO]   -> listing, 5 produktov
+2026-06-08 10:19:23,683 [INFO] [2/30] https://web.archive.org/web/20191013234941/https://www.press.sk/2009/
+2026-06-08 10:19:25,876 [INFO]   -> listing, 5 produktov
+2026-06-08 10:19:25,877 [INFO] [3/30] https://web.archive.org/web/20191207101055/https://www.press.sk/2009/
+2026-06-08 10:19:27,956 [INFO]   -> listing, 5 produktov
+2026-06-08 10:19:27,956 [INFO] [4/30] https://web.archive.org/web/20230311055256/https://www.press.sk/2009/
+2026-06-08 10:19:30,731 [INFO]   -> listing, 5 produktov
+2026-06-08 10:19:30,732 [INFO] [5/30] https://web.archive.org/web/20170730233447/https://www.press.sk/2010/
+2026-06-08 10:19:33,807 [INFO]   -> listing, 6 produktov
+2026-06-08 10:19:33,807 [INFO] [6/30] https://web.archive.org/web/20190822140150/https://www.press.sk/2010/
+2026-06-08 10:19:35,970 [INFO]   -> listing, 6 produktov
+2026-06-08 10:19:35,970 [INFO] [7/30] https://web.archive.org/web/20190923182223/https://www.press.sk/2010/
+2026-06-08 10:19:38,534 [INFO]   -> listing, 6 produktov
+2026-06-08 10:19:38,534 [INFO] [8/30] https://web.archive.org/web/20191019104409/https://www.press.sk/2010/
+2026-06-08 10:19:40,627 [INFO]   -> listing, 6 produktov
+2026-06-08 10:19:40,627 [INFO] [9/30] https://web.archive.org/web/20191112065010/https://www.press.sk/2010/
+2026-06-08 10:19:42,919 [INFO]   -> listing, 6 produktov
+2026-06-08 10:19:42,919 [INFO] [10/30] https://web.archive.org/web/20191211161844/https://www.press.sk/2010/
+2026-06-08 10:19:44,902 [INFO]   -> listing, 6 produktov
+2026-06-08 10:19:44,903 [INFO] [11/30] https://web.archive.org/web/20230311055256/https://www.press.sk/2010/
+2026-06-08 10:19:46,941 [INFO]   -> listing, 6 produktov
+2026-06-08 10:19:46,941 [INFO] [12/30] 190923075531/https://www.press.sk/2010/moderni-vcelar-201001-e-verzia/
+2026-06-08 10:19:49,107 [INFO]   -> detail, 1 produktov
+2026-06-08 10:19:49,107 [INFO] [13/30] 190920190920/https://www.press.sk/2010/moderni-vcelar-201002-e-verzia/
+2026-06-08 10:19:51,273 [INFO]   -> detail, 1 produktov
+2026-06-08 10:19:51,273 [INFO] [14/30] 190920190843/https://www.press.sk/2010/moderni-vcelar-201004-e-verzia/
+2026-06-08 10:19:53,307 [INFO]   -> detail, 1 produktov
+2026-06-08 10:19:53,307 [INFO] [15/30] 190923075244/https://www.press.sk/2010/moderni-vcelar-201005-e-verzia/
+2026-06-08 10:19:55,691 [INFO]   -> detail, 1 produktov
+2026-06-08 10:19:55,691 [INFO] [16/30] 190923075847/https://www.press.sk/2010/moderni-vcelar-201006-e-verzia/
+2026-06-08 10:19:57,968 [INFO]   -> detail, 1 produktov
+2026-06-08 10:19:57,968 [INFO] [17/30] 075712/https://www.press.sk/2010/moderni-vcelar-201103-e-verzia+17733/
+2026-06-08 10:20:00,292 [INFO]   -> detail, 1 produktov
+2026-06-08 10:20:00,292 [INFO] [18/30] https://web.archive.org/web/20160802162555/http://www.press.sk/2011/
+2026-06-08 10:20:02,437 [INFO]   -> listing, 12 produktov
+2026-06-08 10:20:02,437 [INFO] [19/30] https://web.archive.org/web/20170731034912/https://www.press.sk/2011/
+2026-06-08 10:20:04,650 [INFO]   -> listing, 12 produktov
+2026-06-08 10:20:04,650 [INFO] [20/30] https://web.archive.org/web/20190721094652/https://www.press.sk/2011/
+2026-06-08 10:20:08,049 [INFO]   -> listing, 12 produktov
+2026-06-08 10:20:08,049 [INFO] [21/30] https://web.archive.org/web/20191016002801/https://www.press.sk/2011/
+2026-06-08 10:20:10,175 [INFO]   -> listing, 12 produktov
+2026-06-08 10:20:10,176 [INFO] [22/30] https://web.archive.org/web/20230311055302/https://www.press.sk/2011/
+2026-06-08 10:20:12,365 [INFO]   -> listing, 12 produktov
+2026-06-08 10:20:12,366 [INFO] [23/30] ps://web.archive.org/web/20170731041941/https://www.press.sk/2011+389/
+2026-06-08 10:20:14,527 [INFO]   -> detail, 1 produktov
+2026-06-08 10:20:14,528 [INFO] [24/30] ps://web.archive.org/web/20190823092844/https://www.press.sk/2011+389/
+2026-06-08 10:20:16,842 [INFO]   -> detail, 1 produktov
+2026-06-08 10:20:16,843 [INFO] [25/30] ps://web.archive.org/web/20191013231822/https://www.press.sk/2011+389/
+2026-06-08 10:20:19,504 [INFO]   -> detail, 1 produktov
+2026-06-08 10:20:19,504 [INFO] [26/30] ps://web.archive.org/web/20191207083858/https://www.press.sk/2011+389/
+2026-06-08 10:20:21,570 [INFO]   -> detail, 1 produktov
+2026-06-08 10:20:21,570 [INFO] [27/30] https://web.archive.org/web/20160802145931/http://www.press.sk/2012/
+2026-06-08 10:20:23,774 [INFO]   -> listing, 12 produktov
+2026-06-08 10:20:23,775 [INFO] [28/30] https://web.archive.org/web/20170731080045/https://www.press.sk/2012/
+2026-06-08 10:20:26,070 [INFO]   -> listing, 12 produktov
+2026-06-08 10:20:26,071 [INFO] [29/30] https://web.archive.org/web/20190721093646/https://www.press.sk/2012/
+2026-06-08 10:20:29,137 [INFO]   -> listing, 13 produktov
+2026-06-08 10:20:29,138 [INFO] [30/30] https://web.archive.org/web/20190923210729/https://www.press.sk/2012/
+2026-06-08 10:20:31,288 [INFO]   -> listing, 13 produktov
+2026-06-08 10:20:31,366 [INFO] =======================================================
+2026-06-08 10:20:31,366 [INFO] Spracovanych URL:     30
+2026-06-08 10:20:31,366 [INFO]   -> uspesne:         30
+2026-06-08 10:20:31,366 [INFO]   -> bez produktu:    0
+2026-06-08 10:20:31,366 [INFO] Novych produktov:     66
+2026-06-08 10:20:31,366 [INFO] Produktov celkom:     66
+2026-06-08 10:20:31,366 [INFO] Zostatok v inpute:    12,135
+2026-06-08 10:20:31,366 [INFO] =======================================================
