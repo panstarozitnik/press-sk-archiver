@@ -1154,3 +1154,114 @@
 2026-06-08 11:30:57,008 [INFO] Produktov celkom:     73
 2026-06-08 11:30:57,008 [INFO] Zostatok v inpute:    12,115
 2026-06-08 11:30:57,008 [INFO] =======================================================
+2026-06-08 12:35:59,312 [INFO] Nacitanych produktov: 0
+2026-06-08 12:35:59,316 [INFO] Zostatok v output/relevant.csv: 12,115 zaznamov
+2026-06-08 12:35:59,316 [INFO] Spracujem: 50 zaznamov
+2026-06-08 12:35:59,316 [INFO] [1/50] hive.org/web/20191209203913/https://www.press.sk/2012+193/atm-c.92012/
+2026-06-08 12:36:01,818 [INFO]   -> detail, 1 produktov
+2026-06-08 12:36:01,819 [INFO] [2/50] tps://web.archive.org/web/20160802161803/http://www.press.sk/2012+195/
+2026-06-08 12:36:03,960 [INFO]   -> listing, 6 produktov
+2026-06-08 12:36:03,960 [INFO] [3/50] tps://web.archive.org/web/20170406145817/http://www.press.sk/2012+195/
+2026-06-08 12:36:05,998 [INFO]   -> listing, 6 produktov
+2026-06-08 12:36:05,998 [INFO] [4/50] ps://web.archive.org/web/20190822140306/https://www.press.sk/2012+195/
+2026-06-08 12:36:08,614 [INFO]   -> listing, 6 produktov
+2026-06-08 12:36:08,614 [INFO] [5/50] ps://web.archive.org/web/20191017060745/https://www.press.sk/2012+195/
+2026-06-08 12:36:10,989 [INFO]   -> listing, 6 produktov
+2026-06-08 12:36:10,989 [INFO] [6/50] ps://web.archive.org/web/20191214182236/https://www.press.sk/2012+195/
+2026-06-08 12:36:13,005 [INFO]   -> listing, 6 produktov
+2026-06-08 12:36:13,005 [INFO] [7/50] ps://web.archive.org/web/20170730214649/https://www.press.sk/2012+388/
+2026-06-08 12:36:15,147 [INFO]   -> listing, 6 produktov
+2026-06-08 12:36:15,147 [INFO] [8/50] ps://web.archive.org/web/20190823093314/https://www.press.sk/2012+388/
+2026-06-08 12:36:17,330 [INFO]   -> listing, 6 produktov
+2026-06-08 12:36:17,330 [INFO] [9/50] ps://web.archive.org/web/20191013232358/https://www.press.sk/2012+388/
+2026-06-08 12:36:19,298 [INFO]   -> listing, 6 produktov
+2026-06-08 12:36:19,299 [INFO] [10/50] ps://web.archive.org/web/20191207090002/https://www.press.sk/2012+388/
+2026-06-08 12:36:21,384 [INFO]   -> listing, 6 produktov
+2026-06-08 12:36:21,384 [INFO] [11/50] 0190826060544/https://www.press.sk/2012/letectvi-kosmonautika-c.82012/
+2026-06-08 12:36:23,393 [INFO]   -> detail, 1 produktov
+2026-06-08 12:36:23,394 [INFO] [12/50] https://web.archive.org/web/20160802161652/http://www.press.sk/2013/
+2026-06-08 12:36:25,504 [INFO]   -> listing, 12 produktov
+2026-06-08 12:36:25,505 [INFO] [13/50] https://web.archive.org/web/20170406145653/http://www.press.sk/2013/
+2026-06-08 12:36:27,445 [INFO]   -> listing, 12 produktov
+2026-06-08 12:36:27,445 [INFO] [14/50] https://web.archive.org/web/20170731130607/https://www.press.sk/2013/
+2026-06-08 12:36:29,349 [INFO]   -> listing, 12 produktov
+2026-06-08 12:36:29,349 [INFO] [15/50] https://web.archive.org/web/20190721095108/https://www.press.sk/2013/
+2026-06-08 12:36:31,713 [INFO]   -> listing, 13 produktov
+2026-06-08 12:36:31,713 [INFO] [16/50] https://web.archive.org/web/20190923211236/https://www.press.sk/2013/
+2026-06-08 12:36:33,781 [INFO]   -> listing, 13 produktov
+2026-06-08 12:36:33,782 [INFO] [17/50] https://web.archive.org/web/20191206012100/https://www.press.sk/2013/
+2026-06-08 12:36:35,821 [INFO]   -> listing, 13 produktov
+2026-06-08 12:36:35,821 [INFO] [18/50] https://web.archive.org/web/20230311055302/https://www.press.sk/2013/
+2026-06-08 12:36:37,844 [INFO]   -> listing, 13 produktov
+2026-06-08 12:36:37,845 [INFO] [19/50] tps://web.archive.org/web/20160802135436/http://www.press.sk/2013+192/
+2026-06-08 12:36:40,151 [INFO]   -> listing, 12 produktov
+2026-06-08 12:36:40,152 [INFO] [20/50] tps://web.archive.org/web/20170406044734/http://www.press.sk/2013+192/
+2026-06-08 12:36:42,264 [INFO]   -> listing, 12 produktov
+2026-06-08 12:36:42,264 [INFO] [21/50] ps://web.archive.org/web/20170731042049/https://www.press.sk/2013+192/
+2026-06-08 12:36:44,344 [INFO]   -> listing, 12 produktov
+2026-06-08 12:36:44,345 [INFO] [22/50] ps://web.archive.org/web/20190822224302/https://www.press.sk/2013+192/
+2026-06-08 12:36:46,464 [INFO]   -> listing, 12 produktov
+2026-06-08 12:36:46,465 [INFO] [23/50] ps://web.archive.org/web/20191013232427/https://www.press.sk/2013+192/
+2026-06-08 12:36:48,598 [INFO]   -> listing, 12 produktov
+2026-06-08 12:36:48,599 [INFO] [24/50] org/web/20190920190934/https://www.press.sk/2013+192/modelar-c.012013/
+2026-06-08 12:36:51,392 [INFO]   -> detail, 1 produktov
+2026-06-08 12:36:51,393 [INFO] [25/50] org/web/20190920190948/https://www.press.sk/2013+192/modelar-c.022013/
+2026-06-08 12:36:53,496 [INFO]   -> detail, 1 produktov
+2026-06-08 12:36:53,497 [INFO] [26/50] org/web/20190920191003/https://www.press.sk/2013+192/modelar-c.032013/
+2026-06-08 12:36:55,584 [INFO]   -> detail, 1 produktov
+2026-06-08 12:36:55,584 [INFO] [27/50] org/web/20190920191020/https://www.press.sk/2013+192/modelar-c.042013/
+2026-06-08 12:36:57,671 [INFO]   -> detail, 1 produktov
+2026-06-08 12:36:57,672 [INFO] [28/50] org/web/20190920191101/https://www.press.sk/2013+192/modelar-c.052013/
+2026-06-08 12:36:59,720 [INFO]   -> detail, 1 produktov
+2026-06-08 12:36:59,720 [INFO] [29/50] org/web/20190920191127/https://www.press.sk/2013+192/modelar-c.062013/
+2026-06-08 12:37:02,170 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:02,170 [INFO] [30/50] org/web/20190920191153/https://www.press.sk/2013+192/modelar-c.072013/
+2026-06-08 12:37:04,505 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:04,506 [INFO] [31/50] org/web/20190920191213/https://www.press.sk/2013+192/modelar-c.082013/
+2026-06-08 12:37:06,669 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:06,669 [INFO] [32/50] org/web/20190920191232/https://www.press.sk/2013+192/modelar-c.092013/
+2026-06-08 12:37:08,934 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:08,935 [INFO] [33/50] org/web/20190920190523/https://www.press.sk/2013+192/modelar-c.102013/
+2026-06-08 12:37:12,102 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:12,102 [INFO] [34/50] org/web/20190920190539/https://www.press.sk/2013+192/modelar-c.112013/
+2026-06-08 12:37:14,492 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:14,493 [INFO] [35/50] org/web/20190920190600/https://www.press.sk/2013+192/modelar-c.122013/
+2026-06-08 12:37:16,678 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:16,678 [INFO] [36/50] tps://web.archive.org/web/20160802160852/http://www.press.sk/2013+194/
+2026-06-08 12:37:18,507 [INFO]   -> listing, 12 produktov
+2026-06-08 12:37:18,508 [INFO] [37/50] tps://web.archive.org/web/20170406085415/http://www.press.sk/2013+194/
+2026-06-08 12:37:20,843 [INFO]   -> listing, 12 produktov
+2026-06-08 12:37:20,843 [INFO] [38/50] ps://web.archive.org/web/20190724010532/https://www.press.sk/2013+194/
+2026-06-08 12:37:23,014 [INFO]   -> listing, 12 produktov
+2026-06-08 12:37:23,015 [INFO] [39/50] ps://web.archive.org/web/20190922085834/https://www.press.sk/2013+194/
+2026-06-08 12:37:25,019 [INFO]   -> listing, 12 produktov
+2026-06-08 12:37:25,019 [INFO] [40/50] ps://web.archive.org/web/20191115191241/https://www.press.sk/2013+194/
+2026-06-08 12:37:27,072 [INFO]   -> listing, 12 produktov
+2026-06-08 12:37:27,073 [INFO] [41/50] ive.org/web/20191022094603/https://www.press.sk/2013+194/atm-c.012013/
+2026-06-08 12:37:29,272 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:29,272 [INFO] [42/50] ive.org/web/20191211163914/https://www.press.sk/2013+194/atm-c.012013/
+2026-06-08 12:37:31,318 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:31,319 [INFO] [43/50] ive.org/web/20191210043402/https://www.press.sk/2013+194/atm-c.032013/
+2026-06-08 12:37:33,390 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:33,390 [INFO] [44/50] ive.org/web/20191016050822/https://www.press.sk/2013+194/atm-c.052013/
+2026-06-08 12:37:35,705 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:35,706 [INFO] [45/50] ive.org/web/20220618043216/https://www.press.sk/2013+194/atm-c.102013/
+2026-06-08 12:37:37,810 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:37,811 [INFO] [46/50] ive.org/web/20191020012501/https://www.press.sk/2013+194/atm-c.112013/
+2026-06-08 12:37:39,857 [INFO]   -> detail, 1 produktov
+2026-06-08 12:37:39,857 [INFO] [47/50] tps://web.archive.org/web/20160802162654/http://www.press.sk/2013+196/
+2026-06-08 12:37:41,792 [INFO]   -> listing, 6 produktov
+2026-06-08 12:37:41,792 [INFO] [48/50] tps://web.archive.org/web/20170406065054/http://www.press.sk/2013+196/
+2026-06-08 12:37:43,904 [INFO]   -> listing, 6 produktov
+2026-06-08 12:37:43,904 [INFO] [49/50] ps://web.archive.org/web/20170731034340/https://www.press.sk/2013+196/
+2026-06-08 12:37:47,089 [INFO]   -> listing, 6 produktov
+2026-06-08 12:37:47,090 [INFO] [50/50] ps://web.archive.org/web/20190823092909/https://www.press.sk/2013+196/
+2026-06-08 12:37:49,006 [INFO]   -> listing, 6 produktov
+2026-06-08 12:37:49,089 [INFO] =======================================================
+2026-06-08 12:37:49,089 [INFO] Spracovanych URL:     50
+2026-06-08 12:37:49,089 [INFO]   -> uspesne:         50
+2026-06-08 12:37:49,089 [INFO]   -> bez produktu:    0
+2026-06-08 12:37:49,089 [INFO] Novych produktov:     111
+2026-06-08 12:37:49,089 [INFO] Produktov celkom:     111
+2026-06-08 12:37:49,090 [INFO] Zostatok v inpute:    12,065
+2026-06-08 12:37:49,090 [INFO] =======================================================
