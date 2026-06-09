@@ -96,6 +96,12 @@ def scrape_url(wb_url, original_url, session, log):
         if is_listing_url(original_url):
             products = parse_listing_page(resp.text, wb_url, original_url)
             log.info(f"  -> listing, {len(products)} produktov")
+            # Fallback: ak listing nenasiel nic, skus detail parser (napr. flypage)
+            if not products:
+                p = parse_detail_page(resp.text, wb_url, original_url)
+                if p and p.get("title"):
+                    products = [p]
+                    log.info(f"  -> listing fallback na detail, 1 produktov")
         else:
             p = parse_detail_page(resp.text, wb_url, original_url)
             products = [p] if p and p.get("title") else []
