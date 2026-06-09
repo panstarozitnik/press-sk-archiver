@@ -3316,3 +3316,458 @@
 2026-06-09 08:16:51,762 [INFO] Produktov celkom:     1,611
 2026-06-09 08:16:51,762 [INFO] Zostatok v inpute:    148
 2026-06-09 08:16:51,762 [INFO] =======================================================
+2026-06-09 08:33:03,283 [INFO] Nacitanych produktov: 1,611
+2026-06-09 08:33:03,283 [INFO] Zostatok v output/nespracovane.csv: 148 zaznamov
+2026-06-09 08:33:03,284 [INFO] Spracujem: 148 zaznamov
+2026-06-09 08:33:03,284 [INFO] [1/148] 210064421/http://www.press.sk:80/auto-moto/1000-modelovych-automobilu/
+2026-06-09 08:33:05,621 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:05,657 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:05,658 [INFO] [2/148] 416015740/http://www.press.sk:80/auto-moto/1000-modelovych-automobilu/
+2026-06-09 08:33:07,693 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:07,728 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:07,728 [INFO] [3/148] 912093542/http://www.press.sk:80/auto-moto/1000-modelovych-automobilu/
+2026-06-09 08:33:09,565 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:09,607 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:09,607 [INFO] [4/148] rg/web/20100416021038/http://www.press.sk:80/auto-moto/1000-motocyklu/
+2026-06-09 08:33:11,509 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:11,543 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:11,543 [INFO] [5/148] rg/web/20110913020840/http://www.press.sk:80/auto-moto/1000-motocyklu/
+2026-06-09 08:33:13,641 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:13,683 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:13,684 [INFO] [6/148] 20100210065135/http://www.press.sk:80/auto-moto/1000-policejnich-vozu/
+2026-06-09 08:33:15,599 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:15,634 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:15,634 [INFO] [7/148] 20100416020155/http://www.press.sk:80/auto-moto/1000-policejnich-vozu/
+2026-06-09 08:33:17,435 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:17,470 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:17,470 [INFO] [8/148] 20110912110920/http://www.press.sk:80/auto-moto/1000-policejnich-vozu/
+2026-06-09 08:33:19,703 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:19,743 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:19,743 [INFO] [9/148] .archive.org/web/20100210065140/http://www.press.sk:80/auto-moto/aero/
+2026-06-09 08:33:21,672 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:21,708 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:21,709 [INFO] [10/148] .archive.org/web/20100416020200/http://www.press.sk:80/auto-moto/aero/
+2026-06-09 08:33:23,576 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:23,613 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:23,614 [INFO] [11/148] 50415032633/http://www.press.sk:80/auto-moto/aerodynamicke-automobily/
+2026-06-09 08:33:25,430 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:25,471 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:25,471 [INFO] [12/148] 50416072030/http://www.press.sk:80/auto-moto/aerodynamicke-automobily/
+2026-06-09 08:33:27,260 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:27,301 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:27,302 [INFO] [13/148] 20100210065145/http://www.press.sk:80/auto-moto/auta-vychodniho-bloku/
+2026-06-09 08:33:29,848 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:29,884 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:29,884 [INFO] [14/148] 20100416015745/http://www.press.sk:80/auto-moto/auta-vychodniho-bloku/
+2026-06-09 08:33:31,703 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:31,737 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:31,737 [INFO] [15/148] /20110522121649/http://www.press.sk:80/auto-moto/auta-vychodniho-bloku
+2026-06-09 08:33:33,631 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:33,673 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:33,673 [INFO] [16/148] /20110622185336/http://www.press.sk:80/auto-moto/auta-vychodniho-bloku
+2026-06-09 08:33:35,573 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:35,613 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:35,613 [INFO] [17/148] /20110723230641/http://www.press.sk:80/auto-moto/auta-vychodniho-bloku
+2026-06-09 08:33:37,520 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:37,560 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:37,560 [INFO] [18/148] /20110824001837/http://www.press.sk:80/auto-moto/auta-vychodniho-bloku
+2026-06-09 08:33:39,454 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:39,495 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:39,496 [INFO] [19/148] /20110825020648/http://www.press.sk:80/auto-moto/auta-vychodniho-bloku
+2026-06-09 08:33:41,871 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:41,911 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:41,911 [INFO] [20/148] 20110913005609/http://www.press.sk:80/auto-moto/auta-vychodniho-bloku/
+2026-06-09 08:33:44,627 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:44,667 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:44,667 [INFO] [21/148] /20110913013453/http://www.press.sk:80/auto-moto/auta-vychodniho-bloku
+2026-06-09 08:33:46,454 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:46,494 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:46,495 [INFO] [22/148] eb/20130623065222/http://www.press.sk/auto-moto/auta-vychodniho-bloku/
+2026-06-09 08:33:48,283 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:48,325 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:48,325 [INFO] [23/148] /20100210064427/http://www.press.sk:80/auto-moto/autobus-skoda-706-ro/
+2026-06-09 08:33:50,409 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:50,443 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:50,443 [INFO] [24/148] /20100416015750/http://www.press.sk:80/auto-moto/autobus-skoda-706-ro/
+2026-06-09 08:33:52,411 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:52,447 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:52,447 [INFO] [25/148] web/20130623054722/http://www.press.sk/auto-moto/autobus-skoda-706-ro/
+2026-06-09 08:33:54,530 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:54,571 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:54,571 [INFO] [26/148] hive.org/web/20150415032842/http://www.press.sk:80/auto-moto/autobusy/
+2026-06-09 08:33:56,484 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:56,524 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:56,524 [INFO] [27/148] hive.org/web/20150416072257/http://www.press.sk:80/auto-moto/autobusy/
+2026-06-09 08:33:58,480 [INFO]   -> listing, 0 produktov
+2026-06-09 08:33:58,521 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:33:58,521 [INFO] [28/148] 30510234837/http://www.press.sk/auto-moto/automobil-a-spalovaci-motor/
+2026-06-09 08:34:00,639 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:00,679 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:00,679 [INFO] [29/148] 60802141540/http://www.press.sk/auto-moto/automobil-a-spalovaci-motor/
+2026-06-09 08:34:02,786 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:02,827 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:02,827 [INFO] [30/148] /http://www.press.sk:80/auto-moto/automobily-aero-jawa-walter-wikov-z/
+2026-06-09 08:34:04,616 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:04,650 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:04,650 [INFO] [31/148] /http://www.press.sk:80/auto-moto/automobily-aero-jawa-walter-wikov-z/
+2026-06-09 08:34:06,582 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:06,615 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:06,615 [INFO] [32/148] 0160802155011/http://www.press.sk/auto-moto/automobily-lada-1970-1990/
+2026-06-09 08:34:08,734 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:08,776 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:08,777 [INFO] [33/148] 0100210064432/http://www.press.sk:80/auto-moto/automobily-skoda-fabia/
+2026-06-09 08:34:11,034 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:11,067 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:11,067 [INFO] [34/148] 0100416015755/http://www.press.sk:80/auto-moto/automobily-skoda-fabia/
+2026-06-09 08:34:13,084 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:13,116 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:13,117 [INFO] [35/148] b/20130623054351/http://www.press.sk/auto-moto/automobily-skoda-fabia/
+2026-06-09 08:34:14,989 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:15,029 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:15,029 [INFO] [36/148] 00210064437/http://www.press.sk:80/auto-moto/automobily-skoda-felicia/
+2026-06-09 08:34:16,819 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:16,852 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:16,852 [INFO] [37/148] 00416020213/http://www.press.sk:80/auto-moto/automobily-skoda-felicia/
+2026-06-09 08:34:18,610 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:18,645 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:18,645 [INFO] [38/148] 20130623070156/http://www.press.sk/auto-moto/automobily-skoda-felicia/
+2026-06-09 08:34:20,445 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:20,486 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:20,486 [INFO] [39/148] 00210064448/http://www.press.sk:80/auto-moto/automobily-skoda-octavia/
+2026-06-09 08:34:22,233 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:22,266 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:22,266 [INFO] [40/148] 00416021048/http://www.press.sk:80/auto-moto/automobily-skoda-octavia/
+2026-06-09 08:34:24,187 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:24,220 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:24,220 [INFO] [41/148] 20130623073053/http://www.press.sk/auto-moto/automobily-skoda-octavia/
+2026-06-09 08:34:26,282 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:26,322 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:26,322 [INFO] [42/148] 10064442/http://www.press.sk:80/auto-moto/automobily-skoda-octavia-ii/
+2026-06-09 08:34:29,261 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:29,310 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:29,310 [INFO] [43/148] 16021043/http://www.press.sk:80/auto-moto/automobily-skoda-octavia-ii/
+2026-06-09 08:34:31,206 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:31,239 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:31,239 [INFO] [44/148] 30623061544/http://www.press.sk/auto-moto/automobily-skoda-octavia-ii/
+2026-06-09 08:34:33,031 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:33,073 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:33,073 [INFO] [45/148] 0210064453/http://www.press.sk:80/auto-moto/automobily-skoda-roomster/
+2026-06-09 08:34:34,878 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:34,911 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:34,912 [INFO] [46/148] 0416021054/http://www.press.sk:80/auto-moto/automobily-skoda-roomster/
+2026-06-09 08:34:36,624 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:36,656 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:36,657 [INFO] [47/148] 0130623060432/http://www.press.sk/auto-moto/automobily-skoda-roomster/
+2026-06-09 08:34:38,564 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:38,608 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:38,608 [INFO] [48/148] 100210064458/http://www.press.sk:80/auto-moto/automobily-skoda-superb/
+2026-06-09 08:34:40,399 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:40,432 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:40,432 [INFO] [49/148] 100416015800/http://www.press.sk:80/auto-moto/automobily-skoda-superb/
+2026-06-09 08:34:42,421 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:42,456 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:42,456 [INFO] [50/148] /20130623073833/http://www.press.sk/auto-moto/automobily-skoda-superb/
+2026-06-09 08:34:44,367 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:44,408 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:44,408 [INFO] [51/148] 210064503/http://www.press.sk:80/auto-moto/ceske-sportovni-automobily/
+2026-06-09 08:34:46,207 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:46,242 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:46,242 [INFO] [52/148] 416015805/http://www.press.sk:80/auto-moto/ceske-sportovni-automobily/
+2026-06-09 08:34:48,047 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:48,083 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:48,083 [INFO] [53/148] 0100210064508/http://www.press.sk:80/auto-moto/ceskoslovenske-formule/
+2026-06-09 08:34:49,887 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:49,920 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:49,920 [INFO] [54/148] 0100416020602/http://www.press.sk:80/auto-moto/ceskoslovenske-formule/
+2026-06-09 08:34:51,673 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:51,707 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:51,707 [INFO] [55/148] b/20130623060035/http://www.press.sk/auto-moto/ceskoslovenske-formule/
+2026-06-09 08:34:53,878 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:53,919 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:53,919 [INFO] [56/148] eb.archive.org/web/20081024215646/http://www.press.sk:80/auto-moto/cz/
+2026-06-09 08:34:55,731 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:55,761 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:55,762 [INFO] [57/148] eb.archive.org/web/20100308154247/http://www.press.sk:80/auto-moto/cz/
+2026-06-09 08:34:57,752 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:57,785 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:57,785 [INFO] [58/148] //web.archive.org/web/20130623062924/http://www.press.sk/auto-moto/cz/
+2026-06-09 08:34:59,576 [INFO]   -> listing, 0 produktov
+2026-06-09 08:34:59,616 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:34:59,616 [INFO] [59/148] 20100210064513/http://www.press.sk:80/auto-moto/doprava-v-zemedelstvi/
+2026-06-09 08:35:01,485 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:01,519 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:01,519 [INFO] [60/148] 20100416015810/http://www.press.sk:80/auto-moto/doprava-v-zemedelstvi/
+2026-06-09 08:35:03,404 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:03,437 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:03,437 [INFO] [61/148] eb/20130623073627/http://www.press.sk/auto-moto/doprava-v-zemedelstvi/
+2026-06-09 08:35:05,303 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:05,359 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:05,359 [INFO] [62/148] 9/http://www.press.sk:80/auto-moto/doprava-zdravi-a-zivotni-prostredi/
+2026-06-09 08:35:07,438 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:07,471 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:07,471 [INFO] [63/148] 9/http://www.press.sk:80/auto-moto/doprava-zdravi-a-zivotni-prostredi/
+2026-06-09 08:35:09,274 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:09,306 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:09,307 [INFO] [64/148] moto/encyklopedie-automobilu-ceske-a-slovenske-osobni-automobily-od-r/
+2026-06-09 08:35:11,054 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:11,084 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:11,084 [INFO] [65/148] moto/encyklopedie-automobilu-ceske-a-slovenske-osobni-automobily-od-r/
+2026-06-09 08:35:12,852 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:12,885 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:12,885 [INFO] [66/148] moto/encyklopedie-automobilu-ceske-a-slovenske-osobni-automobily-od-r/
+2026-06-09 08:35:14,948 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:14,982 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:14,983 [INFO] [67/148] moto/encyklopedie-automobilu-ceske-a-slovenske-osobni-automobily-od-r/
+2026-06-09 08:35:17,135 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:17,175 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:17,175 [INFO] [68/148] k:80/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-i./
+2026-06-09 08:35:18,954 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:18,987 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:18,987 [INFO] [69/148] k:80/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-i./
+2026-06-09 08:35:20,769 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:20,802 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:20,802 [INFO] [70/148] s.sk/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-i./
+2026-06-09 08:35:22,616 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:22,656 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:22,656 [INFO] [71/148] sk:80/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-i.
+2026-06-09 08:35:24,809 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:24,852 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:24,852 [INFO] [72/148] sk:80/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-i.
+2026-06-09 08:35:26,782 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:26,823 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:26,823 [INFO] [73/148] sk:80/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-i.
+2026-06-09 08:35:28,681 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:28,720 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:28,720 [INFO] [74/148] k:80/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-ii/
+2026-06-09 08:35:30,617 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:30,648 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:30,648 [INFO] [75/148] k:80/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-ii/
+2026-06-09 08:35:32,728 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:32,761 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:32,761 [INFO] [76/148] k:80/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-ii/
+2026-06-09 08:35:34,728 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:34,763 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:34,763 [INFO] [77/148] s.sk/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-ii/
+2026-06-09 08:35:36,722 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:36,762 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:36,762 [INFO] [78/148] ss.sk/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-ii
+2026-06-09 08:35:38,518 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:38,558 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:38,559 [INFO] [79/148] sk:80/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-ii
+2026-06-09 08:35:40,354 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:40,412 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:40,412 [INFO] [80/148] sk:80/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-ii
+2026-06-09 08:35:43,271 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:43,312 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:43,312 [INFO] [81/148] sk:80/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-ii
+2026-06-09 08:35:45,141 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:45,181 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:45,181 [INFO] [82/148] 80/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-iii./
+2026-06-09 08:35:47,325 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:47,360 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:47,360 [INFO] [83/148] sk/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-iii./
+2026-06-09 08:35:49,423 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:49,464 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:49,464 [INFO] [84/148] .sk/auto-moto/encyklopedie-ceskoslovenskych-autobusu-a-trolejbusu-iv./
+2026-06-09 08:35:51,409 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:51,448 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:51,449 [INFO] [85/148] 032516/http://www.press.sk:80/auto-moto/encyklopedie-ceskych-traktoru/
+2026-06-09 08:35:53,435 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:53,476 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:53,476 [INFO] [86/148] 072302/http://www.press.sk:80/auto-moto/encyklopedie-ceskych-traktoru/
+2026-06-09 08:35:55,967 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:56,007 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:56,007 [INFO] [87/148] 20081024215707/http://www.press.sk:80/auto-moto/encyklopedie-traktory/
+2026-06-09 08:35:57,790 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:57,822 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:57,822 [INFO] [88/148] 20100210064534/http://www.press.sk:80/auto-moto/encyklopedie-traktory/
+2026-06-09 08:35:59,668 [INFO]   -> listing, 0 produktov
+2026-06-09 08:35:59,702 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:35:59,702 [INFO] [89/148] hive.org/web/20100210064539/http://www.press.sk:80/auto-moto/fiat-500/
+2026-06-09 08:36:01,661 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:01,694 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:01,694 [INFO] [90/148] hive.org/web/20100416020218/http://www.press.sk:80/auto-moto/fiat-500/
+2026-06-09 08:36:03,500 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:03,533 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:03,533 [INFO] [91/148] archive.org/web/20130510235942/http://www.press.sk/auto-moto/fiat-500/
+2026-06-09 08:36:05,327 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:05,367 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:05,367 [INFO] [92/148] 140812080805/http://www.press.sk/auto-moto/formule-1-od-startu-k-cili/
+2026-06-09 08:36:07,901 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:07,944 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:07,944 [INFO] [93/148] b/20160802152015/http://www.press.sk/auto-moto/grand-prix-a-formule-1/
+2026-06-09 08:36:09,778 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:09,819 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:09,819 [INFO] [94/148] b/20170405212502/http://www.press.sk/auto-moto/grand-prix-a-formule-1/
+2026-06-09 08:36:11,932 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:11,971 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:11,971 [INFO] [95/148] oto/grand-prix-ceskoslovenska-a-ceske-republiky-1928-1929-a-1950-2006/
+2026-06-09 08:36:13,737 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:13,771 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:13,772 [INFO] [96/148] oto/grand-prix-ceskoslovenska-a-ceske-republiky-1928-1929-a-1950-2006/
+2026-06-09 08:36:15,562 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:15,594 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:15,594 [INFO] [97/148] oto/grand-prix-ceskoslovenska-a-ceske-republiky-1928-1929-a-1950-2006/
+2026-06-09 08:36:17,689 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:17,744 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:17,745 [INFO] [98/148] //www.press.sk:80/auto-moto/harley-davidson-soldiers-wlawlc-in-detail/
+2026-06-09 08:36:19,764 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:19,794 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:19,794 [INFO] [99/148] //www.press.sk:80/auto-moto/harley-davidson-soldiers-wlawlc-in-detail/
+2026-06-09 08:36:21,776 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:21,809 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:21,809 [INFO] [100/148] //www.press.sk:80/auto-moto/harley-davidson-soldiers-wlawlc-in-detail/
+2026-06-09 08:36:23,631 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:23,663 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:23,664 [INFO] [101/148] tp://www.press.sk/auto-moto/harley-davidson-soldiers-wlawlc-in-detail/
+2026-06-09 08:36:25,670 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:25,710 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:25,710 [INFO] [102/148] /http://www.press.sk/auto-moto/hasicske-automobily-historie-hasicstvi/
+2026-06-09 08:36:27,593 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:27,635 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:27,635 [INFO] [103/148] auto-moto/hasicske-automobily-historie-hasicstvi-svetova-encyklopedie/
+2026-06-09 08:36:29,695 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:29,725 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:29,725 [INFO] [104/148] auto-moto/hasicske-automobily-historie-hasicstvi-svetova-encyklopedie/
+2026-06-09 08:36:31,620 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:31,653 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:31,653 [INFO] [105/148] auto-moto/hasicske-automobily-historie-hasicstvi-svetova-encyklopedie/
+2026-06-09 08:36:33,678 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:33,720 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:33,720 [INFO] [106/148] ttp://www.press.sk:80/auto-moto/historie-chovatelstvi-v-ceskych-zemich
+2026-06-09 08:36:35,528 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:35,565 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:35,565 [INFO] [107/148] ttp://www.press.sk:80/auto-moto/historie-chovatelstvi-v-ceskych-zemich
+2026-06-09 08:36:37,468 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:37,506 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:37,507 [INFO] [108/148] ttp://www.press.sk:80/auto-moto/historie-chovatelstvi-v-ceskych-zemich
+2026-06-09 08:36:39,404 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:39,441 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:39,441 [INFO] [109/148] 150415032649/http://www.press.sk:80/auto-moto/historie-traktoru-zetor/
+2026-06-09 08:36:41,201 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:41,241 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:41,241 [INFO] [110/148] 150416072035/http://www.press.sk:80/auto-moto/historie-traktoru-zetor/
+2026-06-09 08:36:43,327 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:43,368 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:43,368 [INFO] [111/148] ve.org/web/20100210064549/http://www.press.sk:80/auto-moto/j.-sodomka/
+2026-06-09 08:36:45,143 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:45,177 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:45,177 [INFO] [112/148] ve.org/web/20100416015825/http://www.press.sk:80/auto-moto/j.-sodomka/
+2026-06-09 08:36:46,943 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:46,977 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:46,978 [INFO] [113/148] .archive.org/web/20081024215721/http://www.press.sk:80/auto-moto/jawa/
+2026-06-09 08:36:48,735 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:48,765 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:48,766 [INFO] [114/148] .archive.org/web/20100210064558/http://www.press.sk:80/auto-moto/jawa/
+2026-06-09 08:36:50,524 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:50,557 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:50,557 [INFO] [115/148] .archive.org/web/20100416020612/http://www.press.sk:80/auto-moto/jawa/
+2026-06-09 08:36:52,539 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:52,574 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:52,574 [INFO] [116/148] web.archive.org/web/20130623063708/http://www.press.sk/auto-moto/jawa/
+2026-06-09 08:36:54,499 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:54,539 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:54,539 [INFO] [117/148] web/20100210065205/http://www.press.sk:80/auto-moto/jawa-250350-perak/
+2026-06-09 08:36:56,343 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:56,378 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:56,378 [INFO] [118/148] web/20100416015830/http://www.press.sk:80/auto-moto/jawa-250350-perak/
+2026-06-09 08:36:58,221 [INFO]   -> listing, 0 produktov
+2026-06-09 08:36:58,255 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:36:58,255 [INFO] [119/148] rg/web/20130623064845/http://www.press.sk/auto-moto/jawa-250350-perak/
+2026-06-09 08:37:00,158 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:00,199 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:00,199 [INFO] [120/148] rg/web/20100210065210/http://www.press.sk:80/auto-moto/jawa-50-pionyr/
+2026-06-09 08:37:01,920 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:01,953 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:01,954 [INFO] [121/148] rg/web/20100416015835/http://www.press.sk:80/auto-moto/jawa-50-pionyr/
+2026-06-09 08:37:03,662 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:03,695 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:03,695 [INFO] [122/148] //www.press.sk:80/auto-moto/jawa-udrzba-opravy-a-serizovani-motocyklu/
+2026-06-09 08:37:05,688 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:05,728 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:05,728 [INFO] [123/148] /web/20081024215727/http://www.press.sk:80/auto-moto/m-35a2-in-detail/
+2026-06-09 08:37:07,588 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:07,618 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:07,618 [INFO] [124/148] /web/20100416015840/http://www.press.sk:80/auto-moto/m-35a2-in-detail/
+2026-06-09 08:37:09,363 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:09,397 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:09,397 [INFO] [125/148] org/web/20130623061003/http://www.press.sk/auto-moto/m-35a2-in-detail/
+2026-06-09 08:37:11,438 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:11,478 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:11,478 [INFO] [126/148] rie-znacek-eso-a-jawa-motocykly-z-divisova-historie-znacek-eso-a-jawa/
+2026-06-09 08:37:13,574 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:13,613 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:13,613 [INFO] [127/148] b/20160802162456/http://www.press.sk/auto-moto/obojzivelne-automobily/
+2026-06-09 08:37:15,815 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:15,857 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:15,857 [INFO] [128/148] .sk:80/auto-moto/opravy-automobilu-skoda-felicia-felicia-combi-pickup/
+2026-06-09 08:37:18,696 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:18,728 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:18,728 [INFO] [129/148] ess.sk/auto-moto/opravy-automobilu-skoda-felicia-felicia-combi-pickup/
+2026-06-09 08:37:20,737 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:20,777 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:20,777 [INFO] [130/148] idani-o-tramvajich-trolejbusech-a-take-autobusech-v-jihlave-1909-2009/
+2026-06-09 08:37:22,546 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:22,580 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:22,580 [INFO] [131/148] archive.org/web/20100416000944/http://www.press.sk:80/auto-moto/praga/
+2026-06-09 08:37:24,417 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:24,451 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:24,452 [INFO] [132/148] g/web/20081024215732/http://www.press.sk:80/auto-moto/privesne-motory/
+2026-06-09 08:37:26,910 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:26,941 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:26,942 [INFO] [133/148] ve.org/web/20100416000950/http://www.press.sk:80/auto-moto/rally-2009/
+2026-06-09 08:37:29,740 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:29,774 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:29,774 [INFO] [134/148] g/web/20150415032654/http://www.press.sk:80/auto-moto/sanitni-vozidla/
+2026-06-09 08:37:31,758 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:31,813 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:31,813 [INFO] [135/148] g/web/20150416072041/http://www.press.sk:80/auto-moto/sanitni-vozidla/
+2026-06-09 08:37:33,764 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:33,804 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:33,804 [INFO] [136/148] org/web/20100416000442/http://www.press.sk:80/auto-moto/skoda-1000-mb/
+2026-06-09 08:37:35,645 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:35,678 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:35,678 [INFO] [137/148] e.org/web/20100416000448/http://www.press.sk:80/auto-moto/skoda-110-r/
+2026-06-09 08:37:37,561 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:37,594 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:37,594 [INFO] [138/148] /web/20100416000453/http://www.press.sk:80/auto-moto/skoda-110r-coupe/
+2026-06-09 08:37:39,368 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:39,402 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:39,402 [INFO] [139/148] org/web/20130623071733/http://www.press.sk/auto-moto/skoda-110r-coupe/
+2026-06-09 08:37:41,304 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:41,346 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:41,347 [INFO] [140/148] .org/web/20100416000458/http://www.press.sk:80/auto-moto/skoda-130-rs/
+2026-06-09 08:37:43,097 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:43,130 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:43,131 [INFO] [141/148] rg/web/20100416000955/http://www.press.sk:80/auto-moto/skoda-fabia-ii/
+2026-06-09 08:37:45,000 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:45,036 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:45,036 [INFO] [142/148] 20111209185437/http://www.press.sk:80/auto-moto/skoda-popular-a-rapid/
+2026-06-09 08:37:46,823 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:46,863 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:46,863 [INFO] [143/148] eb/20160802160811/http://www.press.sk/auto-moto/skoda-popular-a-rapid/
+2026-06-09 08:37:48,987 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:49,028 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:49,028 [INFO] [144/148] eb/20170405162508/http://www.press.sk/auto-moto/skoda-popular-a-rapid/
+2026-06-09 08:37:50,893 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:50,932 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:50,932 [INFO] [145/148] ess.sk:80/auto-moto/skoda-popular-zapomenuta-legenda-okridleneho-sipu/
+2026-06-09 08:37:52,722 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:52,754 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:52,754 [INFO] [146/148] ess.sk:80/auto-moto/skoda-popular-zapomenuta-legenda-okridleneho-sipu/
+2026-06-09 08:37:54,623 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:54,656 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:54,656 [INFO] [147/148] ress.sk:80/auto-moto/skoda-popular-zapomenuta-legenda-okridleneho-sipu
+2026-06-09 08:37:56,594 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:56,632 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:56,632 [INFO] [148/148] ress.sk:80/auto-moto/skoda-popular-zapomenuta-legenda-okridleneho-sipu
+2026-06-09 08:37:58,571 [INFO]   -> listing, 0 produktov
+2026-06-09 08:37:58,607 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:37:58,624 [INFO] =======================================================
+2026-06-09 08:37:58,624 [INFO] Spracovanych URL:     148
+2026-06-09 08:37:58,625 [INFO]   -> uspesne:         148
+2026-06-09 08:37:58,625 [INFO]   -> bez produktu:    0
+2026-06-09 08:37:58,625 [INFO] Novych produktov:     6
+2026-06-09 08:37:58,625 [INFO] Produktov celkom:     1,617
+2026-06-09 08:37:58,625 [INFO] Zostatok v inpute:    0
+2026-06-09 08:37:58,625 [INFO] =======================================================
