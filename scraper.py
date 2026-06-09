@@ -93,6 +93,17 @@ def scrape_url(wb_url, original_url, session, log):
         if resp.status_code != 200:
             log.warning(f"  HTTP {resp.status_code}")
             return None
+        # Oprav enkodovanie - stare stranky su casto windows-1250
+        # requests automaticky detekuje ale casto chybuje
+        if resp.encoding and resp.encoding.lower() in ("iso-8859-1", "latin-1"):
+            # Skus windows-1250 ak je v HTML meta charset
+            import re
+            meta = re.search(rb'charset=["\']?([\w-]+)', resp.content[:2000], re.I)
+            if meta:
+                enc = meta.group(1).decode("ascii", errors="ignore")
+                resp.encoding = enc
+            else:
+                resp.encoding = "windows-1250"
         if is_listing_url(original_url):
             products = parse_listing_page(resp.text, wb_url, original_url)
             log.info(f"  -> listing, {len(products)} produktov")
