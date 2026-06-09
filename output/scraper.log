@@ -3276,3 +3276,43 @@
 2026-06-08 13:28:20,303 [INFO] Produktov celkom:     1,610
 2026-06-08 13:28:20,303 [INFO] Zostatok v inpute:    11,165
 2026-06-08 13:28:20,303 [INFO] =======================================================
+2026-06-09 08:16:27,226 [INFO] Nacitanych produktov: 1,610
+2026-06-09 08:16:27,226 [INFO] Zostatok v output/nespracovane.csv: 158 zaznamov
+2026-06-09 08:16:27,226 [INFO] Spracujem: 10 zaznamov
+2026-06-09 08:16:27,226 [INFO] [1/10] tps://web.archive.org/web/20160802160519/http://www.press.sk/2015+226/
+2026-06-09 08:16:29,147 [INFO]   -> listing, 0 produktov
+2026-06-09 08:16:29,198 [INFO] [2/10] p://www.press.sk:80/aktuality/knihy-z-vydavatelstva-osprey-publishing/
+2026-06-09 08:16:31,062 [INFO]   -> listing, 0 produktov
+2026-06-09 08:16:31,119 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:16:31,119 [INFO] [3/10] http://www.press.sk/aktuality/knihy-z-vydavatelstva-osprey-publishing/
+2026-06-09 08:16:33,374 [INFO]   -> listing, 0 produktov
+2026-06-09 08:16:33,434 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:16:33,435 [INFO] [4/10] ishing/?utm_source=newsletter&utm_campaign=Jul_2011&utm_medium=archive
+2026-06-09 08:16:35,724 [INFO]   -> listing, 0 produktov
+2026-06-09 08:16:35,777 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:16:35,777 [INFO] [5/10] /web/20170114194550/http://www.press.sk:80/auto-moto+322/auto-magazin/
+2026-06-09 08:16:37,821 [INFO]   -> listing, 0 produktov
+2026-06-09 08:16:37,990 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:16:37,990 [INFO] [6/10] g/web/20170313053410/http://www.press.sk:80/auto-moto+322/auto-magazin
+2026-06-09 08:16:40,266 [INFO]   -> listing, 0 produktov
+2026-06-09 08:16:40,428 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:16:40,428 [INFO] [7/10] /web/20170316055522/http://www.press.sk:80/auto-moto+322/auto-magazin/
+2026-06-09 08:16:42,595 [INFO]   -> listing, 0 produktov
+2026-06-09 08:16:42,754 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:16:42,754 [INFO] [8/10] g/web/20170515061835/http://www.press.sk:80/auto-moto+322/auto-magazin
+2026-06-09 08:16:45,711 [INFO]   -> listing, 0 produktov
+2026-06-09 08:16:45,869 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:16:45,870 [INFO] [9/10] /web/20170516121547/http://www.press.sk:80/auto-moto+322/auto-magazin/
+2026-06-09 08:16:49,465 [INFO]   -> listing, 0 produktov
+2026-06-09 08:16:49,623 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:16:49,624 [INFO] [10/10] org/web/20170606061113/http://www.press.sk/auto-moto+322/auto-magazin/
+2026-06-09 08:16:51,584 [INFO]   -> listing, 0 produktov
+2026-06-09 08:16:51,742 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-09 08:16:51,761 [INFO] =======================================================
+2026-06-09 08:16:51,762 [INFO] Spracovanych URL:     10
+2026-06-09 08:16:51,762 [INFO]   -> uspesne:         9
+2026-06-09 08:16:51,762 [INFO]   -> bez produktu:    1
+2026-06-09 08:16:51,762 [INFO] Novych produktov:     1
+2026-06-09 08:16:51,762 [INFO] Produktov celkom:     1,611
+2026-06-09 08:16:51,762 [INFO] Zostatok v inpute:    148
+2026-06-09 08:16:51,762 [INFO] =======================================================
