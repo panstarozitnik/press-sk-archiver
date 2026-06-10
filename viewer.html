@@ -3,293 +3,410 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>press.sk Archív</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<title>press.sk Manažér produktov</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --bg: #ffffff;
-  --surface: #f7f6f4;
-  --border: #e5e2dc;
-  --accent: #8b4513;
-  --accent2: #2d6a4f;
-  --text: #1a1612;
-  --muted: #8a8278;
-  --tag-bg: #f0ede8;
+  --bg:       #0f0f0f;
+  --surface:  #1a1a1a;
+  --surface2: #222222;
+  --border:   #2e2e2e;
+  --text:     #e8e8e8;
+  --muted:    #666;
+  --dim:      #444;
+  --accent:   #c8a96e;
+  --green:    #4caf7d;
+  --red:      #e05252;
+  --blue:     #5b9bd5;
+  --mono:     'JetBrains Mono', monospace;
+  --sans:     'Inter', sans-serif;
 }
 
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 300;
+  font-family: var(--sans);
+  font-size: 13px;
+  line-height: 1.5;
   min-height: 100vh;
 }
 
-/* HEADER */
+/* ── HEADER ── */
 header {
-  border-bottom: 2px solid var(--text);
-  padding: 1.5rem 2rem 1rem;
   display: flex;
-  align-items: flex-end;
-  gap: 2rem;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 0.7rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 .logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: -0.02em;
-}
-.logo span {
-  color: var(--muted);
-  font-weight: 400;
-  font-size: 0.85rem;
-  display: block;
-  font-family: 'IBM Plex Mono', monospace;
-  letter-spacing: 0.05em;
-  margin-top: 0.15rem;
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  white-space: nowrap;
 }
 .stats {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
   color: var(--muted);
-  margin-left: auto;
-  text-align: right;
-  line-height: 1.8;
+  white-space: nowrap;
 }
-.stats strong { color: var(--accent); font-size: 1rem; }
+.stats b { color: var(--text); }
 
-/* CONTROLS */
-.controls {
-  padding: 0.9rem 2rem;
-  border-bottom: 1px solid var(--border);
+/* ── STATUS TABS ── */
+.status-tabs {
   display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
+  gap: 0;
+  margin-left: auto;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.status-tab {
+  padding: 0.3rem 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  border-right: 1px solid var(--border);
+  transition: all 0.15s;
+}
+.status-tab:last-child { border-right: none; }
+.status-tab:hover { background: var(--surface2); color: var(--text); }
+.status-tab.active { background: var(--surface2); color: var(--accent); }
+.status-tab .cnt {
+  display: inline-block;
+  margin-left: 0.3rem;
+  background: var(--border);
+  border-radius: 10px;
+  padding: 0 0.35rem;
+  font-size: 0.62rem;
+  color: var(--dim);
+}
+.status-tab.active .cnt { background: var(--accent); color: var(--bg); }
+
+/* ── CONTROLS ── */
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid var(--border);
   align-items: center;
+  flex-wrap: wrap;
   background: var(--surface);
 }
-.search-wrap { position: relative; flex: 1; min-width: 180px; max-width: 360px; }
-.search-wrap svg { position: absolute; left: 0.7rem; top: 50%; transform: translateY(-50%); color: var(--muted); }
+.search-wrap { position: relative; }
+.search-wrap svg { position: absolute; left: 0.5rem; top: 50%; transform: translateY(-50%); color: var(--muted); pointer-events: none; }
 input[type=text], select {
   background: var(--bg);
   border: 1px solid var(--border);
   color: var(--text);
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-size: 0.85rem;
-  padding: 0.5rem 0.8rem;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  padding: 0.3rem 0.6rem;
   border-radius: 3px;
   outline: none;
   transition: border-color 0.15s;
 }
-input[type=text] { padding-left: 2.1rem; width: 100%; }
+input[type=text] { padding-left: 1.8rem; width: 220px; }
 input[type=text]:focus, select:focus { border-color: var(--accent); }
 select { cursor: pointer; }
+.filter-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.filter-label input { cursor: pointer; accent-color: var(--accent); }
 
-/* UPLOAD */
+/* ── UPLOAD ── */
 #upload-zone {
-  margin: 4rem auto;
-  max-width: 460px;
-  border: 2px dashed var(--border);
+  margin: 5rem auto;
+  max-width: 400px;
+  border: 1px dashed var(--border);
   border-radius: 6px;
   padding: 3rem 2rem;
   text-align: center;
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s;
 }
-#upload-zone:hover, #upload-zone.drag { border-color: var(--accent); background: #fdf8f4; }
-#upload-zone h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text); margin-bottom: 0.5rem; }
-#upload-zone p { color: var(--muted); font-size: 0.85rem; line-height: 1.6; }
+#upload-zone:hover, #upload-zone.drag { border-color: var(--accent); }
+#upload-zone h2 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; color: var(--text); }
+#upload-zone p { color: var(--muted); font-size: 0.78rem; line-height: 1.7; }
+#upload-zone .icon { font-size: 2rem; margin-bottom: 1rem; }
 #upload-zone input { display: none; }
-.upload-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 
-/* ROWS */
-#rows { border-top: 1px solid var(--border); }
+/* ── GRID ── */
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  padding: 0;
+}
 
-.row {
-  display: flex;
-  gap: 0;
-  border-bottom: 1px solid var(--border);
-  transition: background 0.1s;
-  animation: fadeIn 0.25s ease both;
-}
-.row:hover { background: var(--surface); }
-
-/* Obrázky — ľavý stĺpec */
-.row-images {
-  width: 220px;
-  min-width: 220px;
-  padding: 0.8rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  align-content: flex-start;
-  border-right: 1px solid var(--border);
-}
-.row-images.no-img {
-  align-items: center;
-  justify-content: center;
-  color: var(--border);
-  font-size: 1.5rem;
-}
-.thumb {
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
-  border-radius: 2px;
-  cursor: pointer;
-  border: 1px solid var(--border);
-  transition: transform 0.15s, border-color 0.15s;
-}
-.thumb:hover { transform: scale(1.05); border-color: var(--accent); }
-.thumb.main { width: 100px; height: 130px; }
-
-/* Info — pravý stĺpec */
-.row-info {
-  flex: 1;
-  padding: 0.9rem 1.2rem;
+/* ── KARTA ── */
+.card {
+  background: var(--surface);
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
-  min-width: 0;
+  position: relative;
+  transition: background 0.15s;
+  animation: fadeIn 0.2s ease both;
 }
-.row-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem;
-  font-weight: 700;
+.card:hover { background: var(--surface2); }
+
+/* Status indikátor */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+}
+.card.status-new::before    { background: var(--blue); }
+.card.status-read::before   { background: var(--green); }
+.card.status-hide::before   { background: var(--red); }
+
+/* Obrázok */
+.card-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+  background: var(--bg);
+  cursor: zoom-in;
+}
+.card-no-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--border);
+  font-size: 2rem;
+}
+
+/* Body */
+.card-body {
+  padding: 0.6rem 0.7rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.card-title {
+  font-size: 0.78rem;
+  font-weight: 600;
   color: var(--text);
-  line-height: 1.3;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
-.row-author { font-size: 0.8rem; color: var(--muted); }
-.row-meta {
+.card-author {
+  font-size: 0.68rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.2rem;
-  align-items: center;
+  gap: 3px;
+  margin-top: 0.15rem;
 }
 .tag {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.68rem;
-  padding: 0.15rem 0.45rem;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  padding: 1px 5px;
   border-radius: 2px;
-  background: var(--tag-bg);
-  color: var(--muted);
+  background: var(--bg);
+  color: var(--dim);
   border: 1px solid var(--border);
 }
-.tag.price { color: var(--accent); border-color: var(--accent); background: #fdf4ee; font-weight: 500; }
-.tag.cat   { color: var(--accent2); border-color: var(--accent2); background: #eef7f2; }
-.row-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.3rem;
-}
-.row-links a {
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.68rem;
-  color: var(--muted);
-  text-decoration: none;
-  border-bottom: 1px dotted var(--border);
-  transition: color 0.15s;
-}
-.row-links a:hover { color: var(--accent); }
+.tag.price { color: var(--accent); border-color: #3d2f15; background: #1e1608; }
+.tag.cat   { color: #7ec8a4; border-color: #1a3328; background: #0d1e17; }
 
-/* Lightbox */
+/* Akcie */
+.card-actions {
+  display: flex;
+  gap: 1px;
+  border-top: 1px solid var(--border);
+  background: var(--border);
+}
+.action-btn {
+  flex: 1;
+  padding: 0.35rem 0;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  background: var(--surface);
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.12s;
+  text-align: center;
+  letter-spacing: 0.03em;
+}
+.action-btn:hover { background: var(--surface2); }
+.action-btn.btn-read:hover  { color: var(--green); }
+.action-btn.btn-hide:hover  { color: var(--red); }
+.action-btn.btn-link:hover  { color: var(--blue); }
+.action-btn.active-read { color: var(--green); background: #0d1e17; }
+.action-btn.active-hide { color: var(--red); background: #1e0d0d; }
+
+/* ── LIGHTBOX ── */
 #lightbox {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
-  z-index: 1000;
+  background: rgba(0,0,0,0.92);
+  z-index: 200;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  cursor: zoom-out;
 }
 #lightbox.open { display: flex; }
-#lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; border-radius: 3px; }
+#lightbox img { max-width: 90vw; max-height: 90vh; object-fit: contain; }
 
-/* PAGINATION */
+/* ── PAGINATION ── */
 .pagination {
-  padding: 1.2rem 2rem;
+  padding: 1rem;
   display: flex;
-  gap: 0.4rem;
+  gap: 0.3rem;
   align-items: center;
-  border-top: 1px solid var(--border);
   flex-wrap: wrap;
+  border-top: 1px solid var(--border);
 }
 .page-btn {
-  background: var(--bg);
+  background: var(--surface);
   border: 1px solid var(--border);
   color: var(--muted);
-  padding: 0.35rem 0.7rem;
+  padding: 0.25rem 0.55rem;
   cursor: pointer;
   border-radius: 3px;
-  font-family: 'IBM Plex Mono', monospace;
-  font-size: 0.75rem;
-  transition: all 0.15s;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  transition: all 0.12s;
 }
 .page-btn:hover, .page-btn.active { border-color: var(--accent); color: var(--accent); }
-.page-info { color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; margin-left: auto; }
+.page-info { color: var(--muted); font-family: var(--mono); font-size: 0.68rem; margin-left: auto; }
 
-#empty { text-align: center; padding: 4rem 2rem; color: var(--muted); font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; display: none; }
+#empty { text-align: center; padding: 4rem; color: var(--muted); font-family: var(--mono); font-size: 0.8rem; display: none; }
 
-@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; } }
-
-@media (max-width: 600px) {
-  .row { flex-direction: column; }
-  .row-images { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+/* ── NOTIFIKÁCIA ── */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  z-index: 300;
 }
+.toast.show { opacity: 1; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">press.sk <span>— archív produktov</span></div>
-  <div class="stats" id="stats">Načítaj CSV súbor</div>
+  <div class="logo">PRESS.SK / ARCHÍV</div>
+  <div class="stats" id="stats"></div>
+  <div class="status-tabs" id="status-tabs" style="display:none">
+    <button class="status-tab active" data-status="all" onclick="setStatusFilter('all',this)">
+      Všetky <span class="cnt" id="cnt-all">0</span>
+    </button>
+    <button class="status-tab" data-status="new" onclick="setStatusFilter('new',this)">
+      Neprečítané <span class="cnt" id="cnt-new">0</span>
+    </button>
+    <button class="status-tab" data-status="read" onclick="setStatusFilter('read',this)">
+      Prečítané <span class="cnt" id="cnt-read">0</span>
+    </button>
+  </div>
 </header>
 
 <div class="controls" id="controls" style="display:none">
   <div class="search-wrap">
-    <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-    <input type="text" id="search" placeholder="Hľadaj názov, autora…">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input type="text" id="search" placeholder="Hľadaj názov, autor…">
   </div>
   <select id="cat-filter"><option value="">Všetky kategórie</option></select>
   <select id="sort">
     <option value="title">Názov A–Z</option>
     <option value="title-desc">Názov Z–A</option>
     <option value="category">Kategória</option>
-    <option value="date">Dátum (najnovšie)</option>
-    <option value="date-asc">Dátum (najstaršie)</option>
+    <option value="date">Najnovšie</option>
+    <option value="date-asc">Najstaršie</option>
   </select>
-  <label style="font-size:.8rem;color:var(--muted);display:flex;align-items:center;gap:.3rem;cursor:pointer">
-    <input type="checkbox" id="only-img"> len s obrázkami
-  </label>
+  <label class="filter-label"><input type="checkbox" id="only-img"> len s obr.</label>
 </div>
 
 <div id="upload-zone">
-  <div class="upload-icon">📚</div>
-  <h2>press.sk Archív Viewer</h2>
+  <div class="icon">📚</div>
+  <h2>Manažér produktov</h2>
   <p>Pretiahni <strong>products.csv</strong> sem<br>alebo klikni pre výber súboru</p>
   <input type="file" id="file-input" accept=".csv">
 </div>
 
-<div id="rows"></div>
+<div id="grid"></div>
 <div id="empty">Žiadne výsledky.</div>
 <div class="pagination" id="pagination" style="display:none"></div>
 
-<div id="lightbox" onclick="this.classList.remove('open')">
+<div id="lightbox" onclick="closeLightbox()">
   <img id="lightbox-img" src="" alt="">
 </div>
 
-<script>
-let allData = [], filtered = [];
-const PAGE_SIZE = 50;
-let currentPage = 1;
+<div class="toast" id="toast"></div>
 
+<script>
+// ── Stav ──
+let allData = [], filtered = [];
+const PAGE_SIZE = 60;
+let currentPage = 1;
+let statusFilter = 'all';
+const STORAGE_KEY = 'presssk_status';
+
+// Načítaj uložené stavy (localStorage)
+function loadStatuses() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch { return {}; }
+}
+function saveStatus(id, status) {
+  const s = loadStatuses();
+  s[id] = status;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(s));
+}
+function getStatus(id) {
+  return loadStatuses()[id] || 'new';
+}
+function productId(r) {
+  return (r.title + '|' + (r.author||'')).toLowerCase();
+}
+
+// ── CSV parser ──
 function parseCSV(text) {
   const lines = text.split('\n');
   const headers = parseCSVLine(lines[0]);
@@ -303,7 +420,6 @@ function parseCSV(text) {
   }
   return rows;
 }
-
 function parseCSVLine(line) {
   const result = []; let cur = '', inQ = false;
   for (let i = 0; i < line.length; i++) {
@@ -318,119 +434,190 @@ function parseCSVLine(line) {
 
 function formatDate(ts) {
   if (!ts || ts.length < 8) return '';
-  return `${ts.slice(0,4)}-${ts.slice(4,6)}-${ts.slice(6,8)}`;
+  return `${ts.slice(0,4)}-${ts.slice(4,6)}`;
 }
 
+// ── Načítanie dát ──
 function loadData(data) {
   allData = data;
   document.getElementById('upload-zone').style.display = 'none';
   document.getElementById('controls').style.display = 'flex';
+  document.getElementById('status-tabs').style.display = 'flex';
   document.getElementById('pagination').style.display = 'flex';
 
   const cats = [...new Set(data.map(r => r.category).filter(Boolean))].sort();
   const sel = document.getElementById('cat-filter');
+  sel.innerHTML = '<option value="">Všetky kategórie</option>';
   cats.forEach(c => { const o = document.createElement('option'); o.value = c; o.textContent = c; sel.appendChild(o); });
 
-  const cats_n = new Set(data.map(r => r.category).filter(Boolean)).size;
-  const with_img = data.filter(r => r.image_urls).length;
-  document.getElementById('stats').innerHTML =
-    `<strong>${data.length.toLocaleString('sk')}</strong> produktov &nbsp;·&nbsp; ${cats_n} kategórií &nbsp;·&nbsp; ${with_img.toLocaleString('sk')} s obrázkom`;
+  updateStats();
+  applyFilters();
+}
 
+function updateStats() {
+  const statuses = loadStatuses();
+  const total = allData.length;
+  const nNew  = allData.filter(r => !statuses[productId(r)] || statuses[productId(r)] === 'new').length;
+  const nRead = allData.filter(r => statuses[productId(r)] === 'read').length;
+  const nHide = allData.filter(r => statuses[productId(r)] === 'hide').length;
+
+  document.getElementById('stats').innerHTML =
+    `<b>${total.toLocaleString('sk')}</b> produktov`;
+
+  document.getElementById('cnt-all').textContent  = total - nHide;
+  document.getElementById('cnt-new').textContent  = nNew;
+  document.getElementById('cnt-read').textContent = nRead;
+}
+
+// ── Filtre ──
+function setStatusFilter(status, btn) {
+  statusFilter = status;
+  document.querySelectorAll('.status-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
   applyFilters();
 }
 
 function applyFilters() {
-  const q = document.getElementById('search').value.toLowerCase();
-  const cat = document.getElementById('cat-filter').value;
-  const sort = document.getElementById('sort').value;
+  const q       = document.getElementById('search').value.toLowerCase();
+  const cat     = document.getElementById('cat-filter').value;
+  const sort    = document.getElementById('sort').value;
   const onlyImg = document.getElementById('only-img').checked;
+  const statuses = loadStatuses();
 
   filtered = allData.filter(r => {
+    const st = statuses[productId(r)] || 'new';
+    if (st === 'hide') return false;  // nikdy nezobrazuj hide
+    if (statusFilter === 'new'  && st !== 'new')  return false;
+    if (statusFilter === 'read' && st !== 'read') return false;
     if (onlyImg && !r.image_urls) return false;
-    if (q && !(r.title||'').toLowerCase().includes(q) && !(r.author||'').toLowerCase().includes(q)) return false;
     if (cat && r.category !== cat) return false;
+    if (q && !(r.title||'').toLowerCase().includes(q) && !(r.author||'').toLowerCase().includes(q)) return false;
     return true;
   });
 
   filtered.sort((a, b) => {
-    if (sort === 'title') return (a.title||'').localeCompare(b.title||'', 'sk');
+    if (sort === 'title')      return (a.title||'').localeCompare(b.title||'', 'sk');
     if (sort === 'title-desc') return (b.title||'').localeCompare(a.title||'', 'sk');
-    if (sort === 'category') return (a.category||'').localeCompare(b.category||'', 'sk');
-    if (sort === 'date') return (b.timestamp||'').localeCompare(a.timestamp||'');
-    if (sort === 'date-asc') return (a.timestamp||'').localeCompare(b.timestamp||'');
+    if (sort === 'category')   return (a.category||'').localeCompare(b.category||'', 'sk');
+    if (sort === 'date')       return (b.timestamp||'').localeCompare(a.timestamp||'');
+    if (sort === 'date-asc')   return (a.timestamp||'').localeCompare(b.timestamp||'');
     return 0;
   });
 
   currentPage = 1;
+  updateStats();
   render();
 }
 
+// ── Render ──
 function render() {
   const start = (currentPage - 1) * PAGE_SIZE;
-  const page = filtered.slice(start, start + PAGE_SIZE);
-  const container = document.getElementById('rows');
-  container.innerHTML = '';
+  const page  = filtered.slice(start, start + PAGE_SIZE);
+  const grid  = document.getElementById('grid');
+  grid.innerHTML = '';
 
   document.getElementById('empty').style.display = filtered.length === 0 ? 'block' : 'none';
 
-  page.forEach((r, i) => {
-    const imgs = (r.image_urls || '').split('|').map(u => u.trim()).filter(Boolean);
-    const pageUrls = (r.page_urls || '').split('|').map(u => u.trim()).filter(Boolean);
+  const statuses = loadStatuses();
 
-    // Obrázky
-    let imgsHtml;
-    if (imgs.length === 0) {
-      imgsHtml = `<div class="row-images no-img">📖</div>`;
+  page.forEach((r, i) => {
+    const id   = productId(r);
+    const st   = statuses[id] || 'new';
+    const imgs = (r.image_urls || '').split('|').map(u => u.trim()).filter(Boolean);
+    const wb   = r.wayback_url || '';
+
+    // Obrázok
+    let imgHtml;
+    if (imgs.length > 0) {
+      imgHtml = `<img class="card-img" src="${imgs[0]}" alt="${r.title}" loading="lazy"
+        onclick="openLightbox('${imgs[0].replace(/'/g,"\\'")}'')"
+        onerror="this.outerHTML='<div class=\\'card-no-img\\'>📖</div>'">`;
     } else {
-      const mainImg = `<img class="thumb main" src="${imgs[0]}" alt="" loading="lazy"
-        onclick="event.stopPropagation();openLightbox('${imgs[0]}')"
-        onerror="this.style.display='none'">`;
-      const rest = imgs.slice(1).map(u =>
-        `<img class="thumb" src="${u}" alt="" loading="lazy"
-          onclick="event.stopPropagation();openLightbox('${u}')"
-          onerror="this.style.display='none'">`
-      ).join('');
-      imgsHtml = `<div class="row-images">${mainImg}${rest}</div>`;
+      imgHtml = `<div class="card-no-img">📖</div>`;
     }
 
-    // Linky
-    const links = [
-      r.wayback_url ? `<a href="${r.wayback_url}" target="_blank">↗ wayback</a>` : '',
-      ...pageUrls.slice(0,3).map((u,i) => `<a href="${u}" target="_blank">📄 stránka ${i+1}</a>`)
+    // Tagy
+    const tags = [
+      r.price    ? `<span class="tag price">${r.price} €</span>` : '',
+      r.category ? `<span class="tag cat">${r.category}</span>`  : '',
+      r.publisher? `<span class="tag">${r.publisher}</span>`     : '',
+      r.timestamp? `<span class="tag">${formatDate(r.timestamp)}</span>` : '',
     ].filter(Boolean).join('');
 
-    const row = document.createElement('div');
-    row.className = 'row';
-    row.style.animationDelay = `${i * 0.01}s`;
-    row.innerHTML = `
-      ${imgsHtml}
-      <div class="row-info">
-        <div class="row-title">${r.title}</div>
-        ${r.author ? `<div class="row-author">${r.author}</div>` : ''}
-        <div class="row-meta">
-          ${r.price ? `<span class="tag price">${r.price}</span>` : ''}
-          ${r.category ? `<span class="tag cat">${r.category}</span>` : ''}
-          ${r.publisher ? `<span class="tag">${r.publisher}</span>` : ''}
-          ${r.isbn ? `<span class="tag">ISBN ${r.isbn}</span>` : ''}
-          ${r.timestamp ? `<span class="tag">${formatDate(r.timestamp)}</span>` : ''}
-        </div>
-        ${r.description ? `<div style="font-size:.78rem;color:var(--muted);margin-top:.3rem;line-height:1.5">${r.description.slice(0,200)}</div>` : ''}
-        <div class="row-links">${links}</div>
+    const card = document.createElement('div');
+    card.className = `card status-${st}`;
+    card.style.animationDelay = `${i * 0.008}s`;
+    card.dataset.id = id;
+
+    card.innerHTML = `
+      ${imgHtml}
+      <div class="card-body">
+        <div class="card-title">${r.title}</div>
+        ${r.author ? `<div class="card-author">${r.author}</div>` : ''}
+        <div class="card-tags">${tags}</div>
+      </div>
+      <div class="card-actions">
+        <button class="action-btn btn-read ${st==='read'?'active-read':''}"
+          onclick="setStatus('${id}','${st==='read'?'new':'read'}',this.closest('.card'))">
+          ${st==='read' ? '✓ prečítané' : '○ prečítať'}
+        </button>
+        <button class="action-btn btn-hide"
+          onclick="setStatus('${id}','hide',this.closest('.card'))">
+          ✕
+        </button>
+        ${wb ? `<button class="action-btn btn-link" onclick="window.open('${wb}','_blank')">↗</button>` : ''}
       </div>`;
-    container.appendChild(row);
+
+    grid.appendChild(card);
   });
 
   renderPagination();
 }
 
+function setStatus(id, status, card) {
+  saveStatus(id, status);
+  if (status === 'hide') {
+    card.style.transition = 'opacity 0.2s, transform 0.2s';
+    card.style.opacity = '0';
+    card.style.transform = 'scale(0.95)';
+    setTimeout(() => { card.remove(); applyFilters(); }, 200);
+    showToast('Produkt skrytý — zmeniť môžeš v CSV');
+  } else {
+    card.className = `card status-${status}`;
+    // Obnov tlačidlo
+    const btn = card.querySelector('.btn-read');
+    if (btn) {
+      btn.textContent = status === 'read' ? '✓ prečítané' : '○ prečítať';
+      btn.className   = `action-btn btn-read ${status==='read'?'active-read':''}`;
+      btn.onclick = () => setStatus(id, status==='read'?'new':'read', card);
+    }
+    updateStats();
+  }
+}
+
+// ── Toast ──
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// ── Lightbox ──
 function openLightbox(url) {
   document.getElementById('lightbox-img').src = url;
   document.getElementById('lightbox').classList.add('open');
 }
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+}
 
+// ── Pagination ──
 function renderPagination() {
   const total = Math.ceil(filtered.length / PAGE_SIZE);
-  const pag = document.getElementById('pagination');
+  const pag   = document.getElementById('pagination');
   pag.innerHTML = '';
   if (total <= 1) { pag.style.display = 'none'; return; }
   pag.style.display = 'flex';
@@ -446,17 +633,18 @@ function renderPagination() {
   if (currentPage > 1) btn('←', currentPage - 1);
   let s = Math.max(1, currentPage - 2), e = Math.min(total, s + 4);
   if (e - s < 4) s = Math.max(1, e - 4);
-  if (s > 1) { btn('1', 1); if (s > 2) pag.appendChild(Object.assign(document.createElement('span'), {className:'page-info', textContent:'…'})); }
+  if (s > 1) { btn('1', 1); if (s > 2) { const sp = document.createElement('span'); sp.className='page-info'; sp.textContent='…'; pag.appendChild(sp); } }
   for (let p = s; p <= e; p++) btn(p, p, p === currentPage);
-  if (e < total) { if (e < total-1) pag.appendChild(Object.assign(document.createElement('span'), {className:'page-info', textContent:'…'})); btn(total, total); }
+  if (e < total) { if (e < total-1) { const sp = document.createElement('span'); sp.className='page-info'; sp.textContent='…'; pag.appendChild(sp); } btn(total, total); }
   if (currentPage < total) btn('→', currentPage + 1);
 
   const info = document.createElement('span');
   info.className = 'page-info';
-  info.textContent = `${filtered.length.toLocaleString('sk')} výsledkov · strana ${currentPage}/${total}`;
+  info.textContent = `${filtered.length.toLocaleString('sk')} produktov · str. ${currentPage}/${total}`;
   pag.appendChild(info);
 }
 
+// ── Súbor ──
 function handleFile(file) {
   if (!file || !file.name.endsWith('.csv')) return;
   const reader = new FileReader();
@@ -464,7 +652,6 @@ function handleFile(file) {
   reader.readAsText(file, 'UTF-8');
 }
 
-// Event listeners
 document.getElementById('file-input').addEventListener('change', e => handleFile(e.target.files[0]));
 const zone = document.getElementById('upload-zone');
 zone.addEventListener('click', () => document.getElementById('file-input').click());
@@ -475,9 +662,9 @@ document.getElementById('search').addEventListener('input', applyFilters);
 document.getElementById('cat-filter').addEventListener('change', applyFilters);
 document.getElementById('sort').addEventListener('change', applyFilters);
 document.getElementById('only-img').addEventListener('change', applyFilters);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open'); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-// Auto-load
+// ── Auto-load ──
 async function autoLoad() {
   for (const path of ['output/products.csv', 'products.csv']) {
     try {
@@ -489,10 +676,6 @@ async function autoLoad() {
       if (data.length > 0) { loadData(data); return; }
     } catch (_) {}
   }
-  // fallback — reset upload zone
-  zone.innerHTML = `<div class="upload-icon">📚</div><h2>press.sk Archív Viewer</h2><p>Pretiahni <strong>products.csv</strong> sem<br>alebo klikni pre výber súboru</p><input type="file" id="file-input" accept=".csv">`;
-  document.getElementById('file-input').addEventListener('change', e => handleFile(e.target.files[0]));
-  zone.addEventListener('click', () => document.getElementById('file-input').click());
 }
 autoLoad();
 </script>
