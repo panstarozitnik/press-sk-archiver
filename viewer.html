@@ -289,8 +289,55 @@ select { cursor: pointer; }
 .action-btn.btn-read:hover  { color: var(--green); }
 .action-btn.btn-hide:hover  { color: var(--red); }
 .action-btn.btn-link:hover  { color: var(--blue); }
-.action-btn.active-read { color: var(--green); background: #0d1e17; }
-.action-btn.active-hide { color: var(--red); background: #1e0d0d; }
+.action-btn.active-read { color: var(--green); background: #e8f5ee; }
+.action-btn.active-hide { color: var(--red); background: #fde8e8; }
+.action-btn.btn-delete:hover { color: var(--red); background: #fde8e8; }
+.export-btn {
+  padding: 0.3rem 0.8rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+.export-btn:hover { opacity: 0.85; }
+.export-btn:disabled { opacity: 0.4; cursor: default; }
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 250;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.confirm-box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  max-width: 320px;
+  width: 90%;
+  text-align: center;
+}
+.confirm-box h3 { font-size: 0.9rem; margin-bottom: 0.5rem; }
+.confirm-box p { font-size: 0.75rem; color: var(--muted); margin-bottom: 1rem; }
+.confirm-btns { display: flex; gap: 0.5rem; justify-content: center; }
+.confirm-btns button {
+  padding: 0.35rem 1rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  border-radius: 3px;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--surface2);
+  color: var(--text);
+}
+.confirm-btns .btn-danger { background: var(--red); color: white; border-color: var(--red); }
 
 /* ── LIGHTBOX ── */
 #lightbox {
@@ -358,6 +405,7 @@ select { cursor: pointer; }
 <header>
   <div class="logo">PRESS.SK / ARCHÍV</div>
   <div class="stats" id="stats"></div>
+  <button class="export-btn" id="export-btn" style="display:none" onclick="exportCSV()">↓ Exportovať CSV</button>
   <div class="status-tabs" id="status-tabs" style="display:none">
     <button class="status-tab active" data-status="all" onclick="setStatusFilter('all',this)">
       Všetky <span class="cnt" id="cnt-all">0</span>
@@ -465,6 +513,7 @@ function loadData(data) {
   document.getElementById('upload-zone').style.display = 'none';
   document.getElementById('controls').style.display = 'flex';
   document.getElementById('status-tabs').style.display = 'flex';
+  document.getElementById('export-btn').style.display = 'block';
   document.getElementById('pagination').style.display = 'flex';
 
   const cats = [...new Set(data.map(r => r.category).filter(Boolean))].sort();
@@ -589,7 +638,11 @@ function render() {
         </button>
         <button class="action-btn btn-hide"
           onclick="setStatus('${id}','hide',this.closest('.card'))">
-          ✕
+          ✕ skryť
+        </button>
+        <button class="action-btn btn-delete"
+          onclick="confirmDelete('${id}',this.closest('.card'))">
+          🗑
         </button>
         ${wb ? `<button class="action-btn btn-link" onclick="window.open('${wb}','_blank')">↗</button>` : ''}
       </div>`;
@@ -619,6 +672,64 @@ function setStatus(id, status, card) {
     }
     updateStats();
   }
+}
+
+// ── Export CSV ──
+function exportCSV() {
+  const deleted = getDeleted();
+  const exportData = allData.filter(r => !deleted.has(productId(r)));
+  if (!exportData.length) return;
+
+  const headers = Object.keys(exportData[0]);
+  const escape = v => {
+    const s = String(v || '');
+    return s.includes(',') || s.includes('"') || s.includes('\n')
+      ? '"' + s.replace(/"/g, '""') + '"'
+      : s;
+  };
+  const rows = [headers.join(',')];
+  exportData.forEach(r => rows.push(headers.map(h => escape(r[h])).join(',')));
+  const blob = new Blob([rows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'products.csv';
+  a.click();
+  showToast(`Exportovaných ${exportData.length.toLocaleString('sk')} produktov`);
+}
+
+// ── Trvale vymazanie ──
+const DELETED_KEY = 'presssk_deleted';
+function getDeleted() {
+  try { return new Set(JSON.parse(localStorage.getItem(DELETED_KEY) || '[]')); } catch { return new Set(); }
+}
+function saveDeleted(id) {
+  const d = getDeleted();
+  d.add(id);
+  localStorage.setItem(DELETED_KEY, JSON.stringify([...d]));
+}
+
+function confirmDelete(id, card) {
+  const overlay = document.createElement('div');
+  overlay.className = 'confirm-overlay';
+  overlay.innerHTML = `
+    <div class="confirm-box">
+      <h3>Trvale vymazať produkt?</h3>
+      <p>Produkt bude odstránený z produktov. Exportuj CSV potom aby sa zmena uložila do súboru.</p>
+      <div class="confirm-btns">
+        <button onclick="this.closest('.confirm-overlay').remove()">Zrušiť</button>
+        <button class="btn-danger" onclick="deleteProduct('${id}',this)">Vymazať</button>
+      </div>
+    </div>`;
+  document.body.appendChild(overlay);
+}
+
+function deleteProduct(id, btn) {
+  btn.closest('.confirm-overlay').remove();
+  saveDeleted(id);
+  // Odstrán z allData
+  allData = allData.filter(r => productId(r) !== id);
+  applyFilters();
+  showToast('Produkt vymazaný · exportuj CSV pre uloženie');
 }
 
 // ── Toast ──
