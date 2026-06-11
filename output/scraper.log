@@ -33420,3 +33420,447 @@
 2026-06-11 10:24:26,699 [INFO] Produktov celkom:     12,452
 2026-06-11 10:24:26,699 [INFO] Zostatok v inpute:    165
 2026-06-11 10:24:26,699 [INFO] =======================================================
+2026-06-11 11:06:55,605 [INFO] Nacitanych produktov: 12,452
+2026-06-11 11:06:55,605 [INFO] Zostatok v output/relevant.csv: 165 zaznamov
+2026-06-11 11:06:55,605 [INFO] Spracujem: 165 zaznamov
+2026-06-11 11:06:55,606 [INFO] [1/165] tp://www.press.sk:80/zdravie-relax/knihovnicka-medunky-deti-a-bylinky/
+2026-06-11 11:06:58,005 [INFO]   -> listing, 0 produktov
+2026-06-11 11:06:58,063 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:06:58,063 [INFO] [2/165] /http://www.press.sk/zdravie-relax/knihovnicka-medunky-deti-a-bylinky/
+2026-06-11 11:07:00,671 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:00,728 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:00,728 [INFO] [3/165] tp://www.press.sk:80/zdravie-relax/knihovnicka-medunky-deti-a-bylinky/
+2026-06-11 11:07:02,681 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:02,737 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:02,737 [INFO] [4/165] tp://www.press.sk:80/zdravie-relax/knihovnicka-medunky-deti-a-bylinky/
+2026-06-11 11:07:04,770 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:04,826 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:04,826 [INFO] [5/165] press.sk/zdravie-relax/knihovnicka-medunky-jak-zmenit-svet-tady-a-ted/
+2026-06-11 11:07:07,012 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:07,068 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:07,069 [INFO] [6/165] ss.sk:80/zdravie-relax/knihovnicka-medunky-jak-zmenit-svet-tady-a-ted/
+2026-06-11 11:07:09,943 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:09,998 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:09,998 [INFO] [7/165] ss.sk:80/zdravie-relax/knihovnicka-medunky-jak-zmenit-svet-tady-a-ted/
+2026-06-11 11:07:12,323 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:12,380 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:12,380 [INFO] [8/165] sk:80/zdravie-relax/knihovnicka-medunky-leceni-duse-aneb-cesta-k-sobe/
+2026-06-11 11:07:14,749 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:14,804 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:14,804 [INFO] [9/165] sk:80/zdravie-relax/knihovnicka-medunky-leceni-duse-aneb-cesta-k-sobe/
+2026-06-11 11:07:17,005 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:17,062 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:17,062 [INFO] [10/165] /www.press.sk:80/zdravie-relax/knihovnicka-medunky-migrena-a-tinnitus/
+2026-06-11 11:07:19,361 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:19,416 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:19,417 [INFO] [11/165] /www.press.sk:80/zdravie-relax/knihovnicka-medunky-migrena-a-tinnitus/
+2026-06-11 11:07:21,713 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:21,767 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:21,767 [INFO] [12/165] p://www.press.sk/zdravie-relax/knihovnicka-medunky-migrena-a-tinnitus/
+2026-06-11 11:07:24,299 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:24,357 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:24,357 [INFO] [13/165] /www.press.sk:80/zdravie-relax/knihovnicka-medunky-migrena-a-tinnitus/
+2026-06-11 11:07:26,211 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:26,267 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:26,267 [INFO] [14/165] /www.press.sk:80/zdravie-relax/knihovnicka-medunky-migrena-a-tinnitus/
+2026-06-11 11:07:28,264 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:28,319 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:28,320 [INFO] [15/165] http://www.press.sk:80/zdravie-relax/knihovnicka-medunky-navraty-sobe/
+2026-06-11 11:07:30,334 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:30,416 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:30,417 [INFO] [16/165] http://www.press.sk:80/zdravie-relax/knihovnicka-medunky-navraty-sobe/
+2026-06-11 11:07:32,253 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:32,308 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:32,308 [INFO] [17/165] ress.sk/zdravie-relax/knihovnicka-medunky-nebudme-kyseli-budme-zdravi/
+2026-06-11 11:07:34,462 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:34,519 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:34,519 [INFO] [18/165] s.sk:80/zdravie-relax/knihovnicka-medunky-nebudme-kyseli-budme-zdravi/
+2026-06-11 11:07:36,361 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:36,419 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:36,419 [INFO] [19/165] s.sk:80/zdravie-relax/knihovnicka-medunky-nebudme-kyseli-budme-zdravi/
+2026-06-11 11:07:38,323 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:38,378 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:38,378 [INFO] [20/165] elax/knihovnicka-medunky-ockovani-jeho-ucinky-nasledky-a-jejich-lecba/
+2026-06-11 11:07:41,519 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:41,575 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:41,575 [INFO] [21/165] elax/knihovnicka-medunky-ockovani-jeho-ucinky-nasledky-a-jejich-lecba/
+2026-06-11 11:07:43,734 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:43,793 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:43,793 [INFO] [22/165] elax/knihovnicka-medunky-ockovani-jeho-ucinky-nasledky-a-jejich-lecba/
+2026-06-11 11:07:45,698 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:45,752 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:45,752 [INFO] [23/165] elax/knihovnicka-medunky-ockovani-jeho-ucinky-nasledky-a-jejich-lecba/
+2026-06-11 11:07:47,735 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:47,791 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:47,791 [INFO] [24/165] elax/knihovnicka-medunky-ockovani-jeho-ucinky-nasledky-a-jejich-lecba/
+2026-06-11 11:07:49,708 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:49,764 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:49,764 [INFO] [25/165] /knihovnicka-medunky-ockovani-jeho-ucinky-nasledky-a-jejich-lecba-ii./
+2026-06-11 11:07:51,774 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:51,828 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:51,828 [INFO] [26/165] /knihovnicka-medunky-ockovani-jeho-ucinky-nasledky-a-jejich-lecba-ii./
+2026-06-11 11:07:54,141 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:54,195 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:54,196 [INFO] [27/165] ss.sk:80/zdravie-relax/knihovnicka-medunky-rok-2012-sance-pro-kazdeho/
+2026-06-11 11:07:56,598 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:56,653 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:56,654 [INFO] [28/165] ss.sk:80/zdravie-relax/knihovnicka-medunky-rok-2012-sance-pro-kazdeho/
+2026-06-11 11:07:58,542 [INFO]   -> listing, 0 produktov
+2026-06-11 11:07:58,596 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:07:58,597 [INFO] [29/165] press.sk/zdravie-relax/knihovnicka-medunky-rok-2012-sance-pro-kazdeho/
+2026-06-11 11:08:00,458 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:00,516 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:00,516 [INFO] [30/165] ss.sk:80/zdravie-relax/knihovnicka-medunky-rok-2012-sance-pro-kazdeho/
+2026-06-11 11:08:02,460 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:02,518 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:02,518 [INFO] [31/165] ss.sk:80/zdravie-relax/knihovnicka-medunky-rok-2012-sance-pro-kazdeho/
+2026-06-11 11:08:04,592 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:04,647 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:04,648 [INFO] [32/165] tp://www.press.sk:80/zdravie-relax/knihovnicka-medunky-slova-a-dotyky/
+2026-06-11 11:08:06,565 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:06,649 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:06,649 [INFO] [33/165] tp://www.press.sk:80/zdravie-relax/knihovnicka-medunky-slova-a-dotyky/
+2026-06-11 11:08:08,504 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:08,560 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:08,560 [INFO] [34/165] /http://www.press.sk/zdravie-relax/knihovnicka-medunky-slova-a-dotyky/
+2026-06-11 11:08:10,505 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:10,562 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:10,563 [INFO] [35/165] tp://www.press.sk:80/zdravie-relax/knihovnicka-medunky-slova-a-dotyky/
+2026-06-11 11:08:14,284 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:14,341 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:14,341 [INFO] [36/165] tp://www.press.sk:80/zdravie-relax/knihovnicka-medunky-slova-a-dotyky/
+2026-06-11 11:08:16,206 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:16,263 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:16,264 [INFO] [37/165] tp://www.press.sk/zdravie-relax/knihovnicka-medunky-ucme-se-zivotu-ii/
+2026-06-11 11:08:18,089 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:18,145 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:18,146 [INFO] [38/165] //www.press.sk:80/zdravie-relax/knihovnicka-medunky-ucme-se-zivotu-ii/
+2026-06-11 11:08:20,073 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:20,128 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:20,128 [INFO] [39/165] //www.press.sk:80/zdravie-relax/knihovnicka-medunky-ucme-se-zivotu-ii/
+2026-06-11 11:08:22,154 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:22,210 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:22,210 [INFO] [40/165] -relax/knihovnicka-medunky-vitej-zimo-bila-recepty-pro-zdravi-a-krasu/
+2026-06-11 11:08:24,897 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:24,952 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:24,953 [INFO] [41/165] ss.sk:80/zdravie-relax/knihovnicka-medunky-zamilujte-se-do-sveho-tela/
+2026-06-11 11:08:26,959 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:27,013 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:27,013 [INFO] [42/165] 15/http://www.press.sk/zdravie-relax/knihovnicka-medunky-znamei-v-nas/
+2026-06-11 11:08:29,266 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:29,324 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:29,324 [INFO] [43/165] http://www.press.sk:80/zdravie-relax/knihovnicka-medunky-znamei-v-nas/
+2026-06-11 11:08:31,194 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:31,249 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:31,250 [INFO] [44/165] http://www.press.sk:80/zdravie-relax/knihovnicka-medunky-znamei-v-nas/
+2026-06-11 11:08:33,249 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:33,306 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:33,306 [INFO] [45/165] eb/20141214115951/http://www.press.sk:80/zdravie-relax/kvalitni-zivot/
+2026-06-11 11:08:35,524 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:35,583 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:35,584 [INFO] [46/165] /web/20190919030031/https://www.press.sk/zdravie-relax/kvalitni-zivot/
+2026-06-11 11:08:37,916 [INFO]   -> listing, 2 produktov
+2026-06-11 11:08:37,917 [INFO] [47/165] vot/?utm_source=newsletter&utm_campaign=August_2014&utm_medium=archive
+2026-06-11 11:08:39,981 [INFO]   -> listing, 2 produktov
+2026-06-11 11:08:39,982 [INFO] [48/165] b/20141215051518/http://www.press.sk:80/zdravie-relax/marianne-family/
+2026-06-11 11:08:44,248 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:44,335 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:44,336 [INFO] [49/165] b/20150710180145/http://www.press.sk:80/zdravie-relax/marianne-family/
+2026-06-11 11:08:46,463 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:46,517 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:46,517 [INFO] [50/165] http://www.press.sk:80/zdravie-relax/marianne-special-2013-happy-life/
+2026-06-11 11:08:48,630 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:48,685 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:48,685 [INFO] [51/165] http://www.press.sk:80/zdravie-relax/marianne-special-2013-happy-life/
+2026-06-11 11:08:50,593 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:50,649 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:50,649 [INFO] [52/165] http://www.press.sk:80/zdravie-relax/marianne-special-2013-na-cestach/
+2026-06-11 11:08:52,868 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:52,923 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:52,923 [INFO] [53/165] http://www.press.sk:80/zdravie-relax/marianne-special-2013-na-cestach/
+2026-06-11 11:08:54,692 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:54,746 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:54,746 [INFO] [54/165] e.org/web/20090713053837/http://www.press.sk:80/zdravie-relax/medunka/
+2026-06-11 11:08:57,545 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:57,643 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:57,644 [INFO] [55/165] e.org/web/20100126074429/http://www.press.sk:80/zdravie-relax/medunka/
+2026-06-11 11:08:59,885 [INFO]   -> listing, 0 produktov
+2026-06-11 11:08:59,989 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:08:59,989 [INFO] [56/165] e.org/web/20100925092959/http://www.press.sk:80/zdravie-relax/medunka/
+2026-06-11 11:09:02,016 [INFO]   -> listing, 0 produktov
+2026-06-11 11:09:02,129 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:09:02,130 [INFO] [57/165] e.org/web/20110912072742/http://www.press.sk:80/zdravie-relax/medunka/
+2026-06-11 11:09:05,778 [INFO]   -> listing, 0 produktov
+2026-06-11 11:09:05,909 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:09:05,910 [INFO] [58/165] e.org/web/20120128121705/http://www.press.sk:80/zdravie-relax/medunka/
+2026-06-11 11:09:07,920 [INFO]   -> listing, 0 produktov
+2026-06-11 11:09:08,060 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:09:08,061 [INFO] [59/165] hive.org/web/20130510184544/http://www.press.sk/zdravie-relax/medunka/
+2026-06-11 11:09:10,382 [INFO]   -> listing, 0 produktov
+2026-06-11 11:09:10,545 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:09:10,546 [INFO] [60/165] e.org/web/20131001212534/http://www.press.sk:80/zdravie-relax/medunka/
+2026-06-11 11:09:13,026 [INFO]   -> listing, 0 produktov
+2026-06-11 11:09:13,189 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:09:13,190 [INFO] [61/165] e.org/web/20141215051539/http://www.press.sk:80/zdravie-relax/medunka/
+2026-06-11 11:09:15,481 [INFO]   -> listing, 0 produktov
+2026-06-11 11:09:15,655 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:09:15,655 [INFO] [62/165] e.org/web/20150710185656/http://www.press.sk:80/zdravie-relax/medunka/
+2026-06-11 11:09:17,785 [INFO]   -> listing, 0 produktov
+2026-06-11 11:09:17,965 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:09:17,966 [INFO] [63/165] ive.org/web/20190923080120/https://www.press.sk/zdravie-relax/medunka/
+2026-06-11 11:09:20,116 [INFO]   -> listing, 2 produktov
+2026-06-11 11:09:20,117 [INFO] [64/165] ive.org/web/20230311055306/https://www.press.sk/zdravie-relax/medunka/
+2026-06-11 11:09:22,866 [INFO]   -> listing, 2 produktov
+2026-06-11 11:09:22,867 [INFO] [65/165] source=newsletter&utm_campaign=September_2010_extra&utm_medium=archive
+2026-06-11 11:09:25,094 [INFO]   -> listing, 2 produktov
+2026-06-11 11:09:25,095 [INFO] [66/165] /?utm_source=newsletter&utm_campaign=September_2013&utm_medium=archive
+2026-06-11 11:09:27,139 [INFO]   -> listing, 2 produktov
+2026-06-11 11:09:27,140 [INFO] [67/165] /?utm_source=newsletter&utm_campaign=September_2013&utm_medium=archive
+2026-06-11 11:09:29,270 [INFO]   -> listing, 2 produktov
+2026-06-11 11:09:29,271 [INFO] [68/165] /?utm_source=newsletter&utm_campaign=September_2013&utm_medium=archive
+2026-06-11 11:09:31,388 [INFO]   -> listing, 2 produktov
+2026-06-11 11:09:31,389 [INFO] [69/165] /?utm_source=newsletter&utm_campaign=September_2013&utm_medium=archive
+2026-06-11 11:09:33,516 [INFO]   -> listing, 2 produktov
+2026-06-11 11:09:33,517 [INFO] [70/165] /?utm_source=newsletter&utm_campaign=September_2013&utm_medium=archive
+2026-06-11 11:09:35,555 [INFO]   -> listing, 2 produktov
+2026-06-11 11:09:35,556 [INFO] [71/165] .org/web/20190719084752/https://www.press.sk/zdravie-relax/novy-fenix/
+2026-06-11 11:09:37,652 [INFO]   -> listing, 2 produktov
+2026-06-11 11:09:37,653 [INFO] [72/165] .org/web/20190917071517/https://www.press.sk/zdravie-relax/novy-fenix/
+2026-06-11 11:09:39,744 [INFO]   -> listing, 2 produktov
+2026-06-11 11:09:39,745 [INFO] [73/165] .org/web/20191117055754/https://www.press.sk/zdravie-relax/novy-fenix/
+2026-06-11 11:09:42,247 [INFO]   -> listing, 2 produktov
+2026-06-11 11:09:42,248 [INFO] [74/165] .org/web/20141211123309/http://www.press.sk:80/zdravie-relax/o,a,30,0/
+2026-06-11 11:09:44,268 [INFO]   -> listing, 30 produktov
+2026-06-11 11:09:44,269 [INFO] [75/165] .org/web/20141129190022/http://www.press.sk:80/zdravie-relax/o,a,30,30
+2026-06-11 11:09:46,271 [INFO]   -> listing, 4 produktov
+2026-06-11 11:09:46,271 [INFO] [76/165] org/web/20141211123315/http://www.press.sk:80/zdravie-relax/o,a,30,30/
+2026-06-11 11:09:48,124 [INFO]   -> listing, 4 produktov
+2026-06-11 11:09:48,125 [INFO] [77/165] .org/web/20141230140843/http://www.press.sk:80/zdravie-relax/o,a,30,30
+2026-06-11 11:09:50,026 [INFO]   -> listing, 4 produktov
+2026-06-11 11:09:50,026 [INFO] [78/165] .org/web/20150202210341/http://www.press.sk:80/zdravie-relax/o,a,30,30
+2026-06-11 11:09:52,077 [INFO]   -> listing, 7 produktov
+2026-06-11 11:09:52,077 [INFO] [79/165] org/web/20150710061257/http://www.press.sk:80/zdravie-relax/o,a,30,30/
+2026-06-11 11:09:53,981 [INFO]   -> listing, 16 produktov
+2026-06-11 11:09:53,981 [INFO] [80/165] e.org/web/20090713053842/http://www.press.sk:80/zdravie-relax/phoenix/
+2026-06-11 11:09:55,915 [INFO]   -> listing, 0 produktov
+2026-06-11 11:09:56,002 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:09:56,002 [INFO] [81/165] e.org/web/20091128111522/http://www.press.sk:80/zdravie-relax/phoenix/
+2026-06-11 11:09:59,297 [INFO]   -> listing, 0 produktov
+2026-06-11 11:09:59,391 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:09:59,392 [INFO] [82/165] e.org/web/20100129170550/http://www.press.sk:80/zdravie-relax/phoenix/
+2026-06-11 11:10:02,492 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:02,588 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:02,588 [INFO] [83/165] e.org/web/20100925092742/http://www.press.sk:80/zdravie-relax/phoenix/
+2026-06-11 11:10:04,873 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:04,981 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:04,981 [INFO] [84/165] e.org/web/20110912074013/http://www.press.sk:80/zdravie-relax/phoenix/
+2026-06-11 11:10:06,968 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:07,092 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:07,092 [INFO] [85/165] e.org/web/20120128121712/http://www.press.sk:80/zdravie-relax/phoenix/
+2026-06-11 11:10:09,215 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:09,343 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:09,344 [INFO] [86/165] hive.org/web/20130510180054/http://www.press.sk/zdravie-relax/phoenix/
+2026-06-11 11:10:11,937 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:12,084 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:12,085 [INFO] [87/165] e.org/web/20141215051544/http://www.press.sk:80/zdravie-relax/phoenix/
+2026-06-11 11:10:15,582 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:15,742 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:15,742 [INFO] [88/165] e.org/web/20150710185700/http://www.press.sk:80/zdravie-relax/phoenix/
+2026-06-11 11:10:17,949 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:18,115 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:18,116 [INFO] [89/165] chive.org/web/20160314060556/http://www.press.sk/zdravie-relax/phoenix
+2026-06-11 11:10:20,911 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:21,085 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:21,086 [INFO] [90/165] ive.org/web/20230311055305/https://www.press.sk/zdravie-relax/phoenix/
+2026-06-11 11:10:23,188 [INFO]   -> listing, 2 produktov
+2026-06-11 11:10:23,190 [INFO] [91/165] ve.org/web/20090713053852/http://www.press.sk:80/zdravie-relax/regena/
+2026-06-11 11:10:25,218 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:25,312 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:25,313 [INFO] [92/165] ve.org/web/20091101032827/http://www.press.sk:80/zdravie-relax/regena/
+2026-06-11 11:10:27,472 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:27,572 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:27,572 [INFO] [93/165] ve.org/web/20091231183357/http://www.press.sk:80/zdravie-relax/regena/
+2026-06-11 11:10:29,935 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:30,086 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:30,087 [INFO] [94/165] ve.org/web/20100925093022/http://www.press.sk:80/zdravie-relax/regena/
+2026-06-11 11:10:31,955 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:32,070 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:32,070 [INFO] [95/165] ve.org/web/20110913062153/http://www.press.sk:80/zdravie-relax/regena/
+2026-06-11 11:10:34,089 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:34,216 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:34,217 [INFO] [96/165] ve.org/web/20120128121715/http://www.press.sk:80/zdravie-relax/regena/
+2026-06-11 11:10:36,225 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:36,355 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:36,355 [INFO] [97/165] chive.org/web/20130510183630/http://www.press.sk/zdravie-relax/regena/
+2026-06-11 11:10:38,620 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:38,767 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:38,768 [INFO] [98/165] ve.org/web/20141215051549/http://www.press.sk:80/zdravie-relax/regena/
+2026-06-11 11:10:40,838 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:41,001 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:41,001 [INFO] [99/165] ve.org/web/20150710185705/http://www.press.sk:80/zdravie-relax/regena/
+2026-06-11 11:10:42,779 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:42,836 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:42,836 [INFO] [100/165] hive.org/web/20190919030436/https://www.press.sk/zdravie-relax/regena/
+2026-06-11 11:10:44,994 [INFO]   -> listing, 13 produktov
+2026-06-11 11:10:44,995 [INFO] [101/165] ve.org/web/20130510173926/http://www.press.sk/zdravie-relax/rozmaryna/
+2026-06-11 11:10:46,860 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:46,926 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:46,927 [INFO] [102/165] org/web/20141215051554/http://www.press.sk:80/zdravie-relax/rozmaryna/
+2026-06-11 11:10:48,983 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:49,071 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:49,072 [INFO] [103/165] org/web/20150710185710/http://www.press.sk:80/zdravie-relax/rozmaryna/
+2026-06-11 11:10:50,990 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:51,127 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:51,127 [INFO] [104/165] 053925/http://www.press.sk:80/zdravie-relax/svet-zeny-zdravi-nade-vse/
+2026-06-11 11:10:53,216 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:53,273 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:53,273 [INFO] [105/165] 205545/http://www.press.sk:80/zdravie-relax/svet-zeny-zdravi-nade-vse/
+2026-06-11 11:10:55,321 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:55,380 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:55,381 [INFO] [106/165] 152634/http://www.press.sk:80/zdravie-relax/svet-zeny-zdravi-nade-vse/
+2026-06-11 11:10:57,633 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:57,700 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:57,700 [INFO] [107/165] 000422/http://www.press.sk:80/zdravie-relax/svet-zeny-zdravi-nade-vse/
+2026-06-11 11:10:59,843 [INFO]   -> listing, 0 produktov
+2026-06-11 11:10:59,900 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:10:59,900 [INFO] [108/165] 094702/http://www.press.sk:80/zdravie-relax/svet-zeny-zdravi-nade-vse/
+2026-06-11 11:11:02,159 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:02,223 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:02,223 [INFO] [109/165] 121720/http://www.press.sk:80/zdravie-relax/svet-zeny-zdravi-nade-vse/
+2026-06-11 11:11:04,402 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:04,466 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:04,466 [INFO] [110/165] 510183317/http://www.press.sk/zdravie-relax/svet-zeny-zdravi-nade-vse/
+2026-06-11 11:11:06,324 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:06,395 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:06,395 [INFO] [111/165] 051559/http://www.press.sk:80/zdravie-relax/svet-zeny-zdravi-nade-vse/
+2026-06-11 11:11:08,579 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:08,656 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:08,657 [INFO] [112/165] 185715/http://www.press.sk:80/zdravie-relax/svet-zeny-zdravi-nade-vse/
+2026-06-11 11:11:10,770 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:10,848 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:10,848 [INFO] [113/165] 11055305/https://www.press.sk/zdravie-relax/svet-zeny-zdravi-nade-vse/
+2026-06-11 11:11:12,809 [INFO]   -> listing, 2 produktov
+2026-06-11 11:11:12,810 [INFO] [114/165] eb/20090713053345/http://www.press.sk:80/zdravie-relax/ucme-se-zivotu/
+2026-06-11 11:11:14,920 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:14,965 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:14,965 [INFO] [115/165] eb/20100925092747/http://www.press.sk:80/zdravie-relax/ucme-se-zivotu/
+2026-06-11 11:11:16,995 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:17,045 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:17,045 [INFO] [116/165] eb/20110911222655/http://www.press.sk:80/zdravie-relax/ucme-se-zivotu/
+2026-06-11 11:11:18,883 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:18,937 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:18,937 [INFO] [117/165] eb/20120128121726/http://www.press.sk:80/zdravie-relax/ucme-se-zivotu/
+2026-06-11 11:11:21,194 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:21,250 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:21,250 [INFO] [118/165] g/web/20130510165013/http://www.press.sk/zdravie-relax/ucme-se-zivotu/
+2026-06-11 11:11:23,168 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:23,225 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:23,225 [INFO] [119/165] eb/20141215051606/http://www.press.sk:80/zdravie-relax/ucme-se-zivotu/
+2026-06-11 11:11:25,241 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:25,297 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:25,297 [INFO] [120/165] eb/20150710181900/http://www.press.sk:80/zdravie-relax/ucme-se-zivotu/
+2026-06-11 11:11:27,259 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:27,316 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:27,317 [INFO] [121/165] ve.org/web/20110912021750/http://www.press.sk:80/zdravie-relax/zdravi/
+2026-06-11 11:11:29,114 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:29,167 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:29,168 [INFO] [122/165] ve.org/web/20120128121745/http://www.press.sk:80/zdravie-relax/zdravi/
+2026-06-11 11:11:30,991 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:31,049 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:31,049 [INFO] [123/165] chive.org/web/20130510183247/http://www.press.sk/zdravie-relax/zdravi/
+2026-06-11 11:11:33,137 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:33,209 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:33,209 [INFO] [124/165] ve.org/web/20141215051634/http://www.press.sk:80/zdravie-relax/zdravi/
+2026-06-11 11:11:35,479 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:35,569 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:35,569 [INFO] [125/165] ve.org/web/20150710185549/http://www.press.sk:80/zdravie-relax/zdravi/
+2026-06-11 11:11:37,620 [INFO]   -> listing, 0 produktov
+2026-06-11 11:11:37,716 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-11 11:11:37,717 [INFO] [126/165] hive.org/web/20190820055329/https://www.press.sk/zdravie-relax/zdravi/
+2026-06-11 11:11:40,116 [INFO]   -> listing, 10 produktov
+2026-06-11 11:11:40,117 [INFO] [127/165] hive.org/web/20190821051000/https://www.press.sk/zdravie-relax/zdravi/
+2026-06-11 11:11:42,211 [INFO]   -> listing, 10 produktov
+2026-06-11 11:11:42,212 [INFO] [128/165] hive.org/web/20190826033130/https://www.press.sk/zdravie-relax/zdravi/
+2026-06-11 11:11:44,378 [INFO]   -> listing, 10 produktov
+2026-06-11 11:11:44,378 [INFO] [129/165] hive.org/web/20191114173948/https://www.press.sk/zdravie-relax/zdravi/
+2026-06-11 11:11:46,523 [INFO]   -> listing, 10 produktov
+2026-06-11 11:11:46,523 [INFO] [130/165] hive.org/web/20230311055306/https://www.press.sk/zdravie-relax/zdravi/
+2026-06-11 11:11:48,404 [INFO]   -> listing, 4 produktov
+2026-06-11 11:11:48,405 [INFO] [131/165] 0230311055304/https://www.press.sk/zdravotnicka-literatura/c,d,16,112/
+2026-06-11 11:11:50,478 [INFO]   -> listing, 16 produktov
+2026-06-11 11:11:50,478 [INFO] [132/165] 0230311055304/https://www.press.sk/zdravotnicka-literatura/c,d,16,128/
+2026-06-11 11:11:52,611 [INFO]   -> listing, 7 produktov
+2026-06-11 11:11:52,611 [INFO] [133/165] 20190723181412/https://www.press.sk/zdravotnicka-literatura/c,d,16,16/
+2026-06-11 11:11:55,671 [INFO]   -> listing, 16 produktov
+2026-06-11 11:11:55,671 [INFO] [134/165] 20190923162948/https://www.press.sk/zdravotnicka-literatura/c,d,16,16/
+2026-06-11 11:11:58,035 [INFO]   -> listing, 16 produktov
+2026-06-11 11:11:58,035 [INFO] [135/165] 20191114151009/https://www.press.sk/zdravotnicka-literatura/c,d,16,16/
+2026-06-11 11:12:00,055 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:00,055 [INFO] [136/165] 20230311055304/https://www.press.sk/zdravotnicka-literatura/c,d,16,16/
+2026-06-11 11:12:02,442 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:02,443 [INFO] [137/165] 0191209203852/https://www.press.sk/zdravotnicka-literatura/c,d,16,176/
+2026-06-11 11:12:04,659 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:04,659 [INFO] [138/165] 0191016002314/https://www.press.sk/zdravotnicka-literatura/c,d,16,192/
+2026-06-11 11:12:06,797 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:06,797 [INFO] [139/165] 0191207165726/https://www.press.sk/zdravotnicka-literatura/c,d,16,192/
+2026-06-11 11:12:08,901 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:08,901 [INFO] [140/165] 0190724005938/https://www.press.sk/zdravotnicka-literatura/c,d,16,208/
+2026-06-11 11:12:11,008 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:11,008 [INFO] [141/165] 0190922085232/https://www.press.sk/zdravotnicka-literatura/c,d,16,208/
+2026-06-11 11:12:19,389 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:19,389 [INFO] [142/165] 0191115061829/https://www.press.sk/zdravotnicka-literatura/c,d,16,208/
+2026-06-11 11:12:21,527 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:21,527 [INFO] [143/165] 0190721072339/https://www.press.sk/zdravotnicka-literatura/c,d,16,224/
+2026-06-11 11:12:23,951 [INFO]   -> listing, 13 produktov
+2026-06-11 11:12:23,952 [INFO] [144/165] 0190922145757/https://www.press.sk/zdravotnicka-literatura/c,d,16,224/
+2026-06-11 11:12:25,986 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:25,986 [INFO] [145/165] 0191016051246/https://www.press.sk/zdravotnicka-literatura/c,d,16,224/
+2026-06-11 11:12:28,006 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:28,007 [INFO] [146/165] 0191208192635/https://www.press.sk/zdravotnicka-literatura/c,d,16,224/
+2026-06-11 11:12:30,057 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:30,057 [INFO] [147/165] 20190719145745/https://www.press.sk/zdravotnicka-literatura/c,d,16,32/
+2026-06-11 11:12:32,161 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:32,162 [INFO] [148/165] 20190922124804/https://www.press.sk/zdravotnicka-literatura/c,d,16,32/
+2026-06-11 11:12:34,425 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:34,425 [INFO] [149/165] 20191113155631/https://www.press.sk/zdravotnicka-literatura/c,d,16,32/
+2026-06-11 11:12:37,442 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:37,443 [INFO] [150/165] 20230311055304/https://www.press.sk/zdravotnicka-literatura/c,d,16,32/
+2026-06-11 11:12:39,585 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:39,585 [INFO] [151/165] 20190719145926/https://www.press.sk/zdravotnicka-literatura/c,d,16,48/
+2026-06-11 11:12:41,680 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:41,680 [INFO] [152/165] 20190922124930/https://www.press.sk/zdravotnicka-literatura/c,d,16,48/
+2026-06-11 11:12:43,804 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:43,804 [INFO] [153/165] 20191113155704/https://www.press.sk/zdravotnicka-literatura/c,d,16,48/
+2026-06-11 11:12:45,846 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:45,847 [INFO] [154/165] 20230311055304/https://www.press.sk/zdravotnicka-literatura/c,d,16,48/
+2026-06-11 11:12:48,065 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:48,065 [INFO] [155/165] 20190719145609/https://www.press.sk/zdravotnicka-literatura/c,d,16,64/
+2026-06-11 11:12:50,277 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:50,277 [INFO] [156/165] 20190922124545/https://www.press.sk/zdravotnicka-literatura/c,d,16,64/
+2026-06-11 11:12:52,603 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:52,604 [INFO] [157/165] 20191113155548/https://www.press.sk/zdravotnicka-literatura/c,d,16,64/
+2026-06-11 11:12:56,363 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:56,363 [INFO] [158/165] 20230311055304/https://www.press.sk/zdravotnicka-literatura/c,d,16,64/
+2026-06-11 11:12:58,714 [INFO]   -> listing, 16 produktov
+2026-06-11 11:12:58,714 [INFO] [159/165] 110912032831/http://www.press.sk:80/zeleznice/1000-kolejovych-vozidel/
+2026-06-11 11:13:01,268 [INFO]   -> detail, 1 produktov
+2026-06-11 11:13:01,268 [INFO] [160/165] /20130623005709/http://www.press.sk/zeleznice/1000-kolejovych-vozidel/
+2026-06-11 11:13:03,292 [INFO]   -> detail, 1 produktov
+2026-06-11 11:13:03,293 [INFO] [161/165] chive.org/web/20190826033111/https://www.press.sk/zeleznice/c,d,16,16/
+2026-06-11 11:13:05,424 [INFO]   -> listing, 16 produktov
+2026-06-11 11:13:05,424 [INFO] [162/165] chive.org/web/20191015215730/https://www.press.sk/zeleznice/c,d,16,16/
+2026-06-11 11:13:07,415 [INFO]   -> listing, 16 produktov
+2026-06-11 11:13:07,415 [INFO] [163/165] chive.org/web/20190823005049/https://www.press.sk/zeleznice/c,d,16,32/
+2026-06-11 11:13:09,550 [INFO]   -> listing, 16 produktov
+2026-06-11 11:13:09,550 [INFO] [164/165] chive.org/web/20191013232621/https://www.press.sk/zeleznice/c,d,16,32/
+2026-06-11 11:13:11,966 [INFO]   -> listing, 16 produktov
+2026-06-11 11:13:11,966 [INFO] [165/165] chive.org/web/20190826033125/https://www.press.sk/zeleznice/c,d,16,48/
+2026-06-11 11:13:14,026 [INFO]   -> listing, 8 produktov
+2026-06-11 11:13:14,298 [INFO] =======================================================
+2026-06-11 11:13:14,298 [INFO] Spracovanych URL:     165
+2026-06-11 11:13:14,298 [INFO]   -> uspesne:         165
+2026-06-11 11:13:14,298 [INFO]   -> bez produktu:    0
+2026-06-11 11:13:14,298 [INFO] Novych produktov:     131
+2026-06-11 11:13:14,298 [INFO] Produktov celkom:     12,583
+2026-06-11 11:13:14,298 [INFO] Zostatok v inpute:    0
+2026-06-11 11:13:14,299 [INFO] =======================================================
