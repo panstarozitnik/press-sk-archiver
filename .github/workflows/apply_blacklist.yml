@@ -1,0 +1,54 @@
+name: Aplikuj image blacklist
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run - len zobraz zmeny bez uloženia'
+        type: boolean
+        default: true
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Nacitaj products.csv z repa
+        run: |
+          git checkout origin/main -- output/products.csv 2>/dev/null \
+            && echo "products.csv: $(wc -l < output/products.csv) riadkov" \
+            || echo "products.csv neexistuje"
+
+      - name: Aplikuj blacklist
+        run: |
+          ARGS="--products output/products.csv --blacklist image_blacklist.txt"
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+            echo "DRY RUN mod"
+          fi
+          python apply_blacklist.py $ARGS
+
+      - name: Uloz do repa
+        if: ${{ github.event.inputs.dry_run == 'false' }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f output/products.csv
+          if git diff --cached --quiet; then
+            echo "Ziadne zmeny."
+          else
+            git commit -m "apply_blacklist: ocistene image_urls [run #${{ github.run_number }}]"
+            git pull --rebase --autostash origin main || true
+            git push
+          fi
