@@ -8,7 +8,7 @@ from parsers.utils import safe_text, clean_price, extract_isbn, extract_all_imag
 
 
 def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
-    soup = BeautifulSoup(html, "lxml")
+    soup = BeautifulSoup(html, "xml")
     p = {
         "source_url":  original_url,
         "wayback_url": wayback_url,
