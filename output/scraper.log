@@ -34528,3 +34528,89 @@
 2026-06-12 13:55:21,128 [INFO] Produktov celkom:     12,583
 2026-06-12 13:55:21,128 [INFO] Zostatok v inpute:    0
 2026-06-12 13:55:21,128 [INFO] =======================================================
+2026-06-15 08:43:15,466 [INFO] Nacitanych produktov: 12,583
+2026-06-15 08:43:15,466 [INFO] Zostatok v output/nespracovane.csv: 4 zaznamov
+2026-06-15 08:43:15,466 [INFO] Spracujem: 100 zaznamov
+2026-06-15 08:43:15,466 [INFO] [1/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3591
+2026-06-15 08:43:17,607 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:17,608 [INFO] [2/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3971
+2026-06-15 08:43:19,568 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:19,568 [INFO] [3/100] .php?page=shop.flypage&product_id=2714&category_id=&option=com_phpshop
+2026-06-15 08:43:21,490 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:21,490 [INFO] [4/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3672
+2026-06-15 08:43:23,457 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:23,457 [INFO] [5/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3591
+2026-06-15 08:43:25,070 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:25,070 [INFO] [6/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3971
+2026-06-15 08:43:26,673 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:26,673 [INFO] [7/100] .php?page=shop.flypage&product_id=2714&category_id=&option=com_phpshop
+2026-06-15 08:43:28,290 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:28,290 [INFO] [8/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3672
+2026-06-15 08:43:29,904 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:29,904 [INFO] [9/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3591
+2026-06-15 08:43:31,518 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:31,519 [INFO] [10/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3971
+2026-06-15 08:43:33,119 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:33,119 [INFO] [11/100] .php?page=shop.flypage&product_id=2714&category_id=&option=com_phpshop
+2026-06-15 08:43:34,736 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:34,736 [INFO] [12/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3672
+2026-06-15 08:43:36,352 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:36,352 [INFO] [13/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3591
+2026-06-15 08:43:38,000 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:38,000 [INFO] [14/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3971
+2026-06-15 08:43:39,602 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:39,603 [INFO] [15/100] .php?page=shop.flypage&product_id=2714&category_id=&option=com_phpshop
+2026-06-15 08:43:41,219 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:41,219 [INFO] [16/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3672
+2026-06-15 08:43:42,834 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:42,834 [INFO] [17/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3591
+2026-06-15 08:43:44,441 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:44,441 [INFO] [18/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3971
+2026-06-15 08:43:46,045 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:46,045 [INFO] [19/100] .php?page=shop.flypage&product_id=2714&category_id=&option=com_phpshop
+2026-06-15 08:43:47,660 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:47,660 [INFO] [20/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3672
+2026-06-15 08:43:49,274 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:49,274 [INFO] [21/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3591
+2026-06-15 08:43:50,882 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:50,882 [INFO] [22/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3971
+2026-06-15 08:43:52,484 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:52,484 [INFO] [23/100] .php?page=shop.flypage&product_id=2714&category_id=&option=com_phpshop
+2026-06-15 08:43:54,101 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:54,101 [INFO] [24/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3672
+2026-06-15 08:43:55,716 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:55,716 [INFO] [25/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3591
+2026-06-15 08:43:57,325 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:57,325 [INFO] [26/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3971
+2026-06-15 08:43:58,926 [INFO]   -> detail, 0 produktov
+2026-06-15 08:43:58,926 [INFO] [27/100] .php?page=shop.flypage&product_id=2714&category_id=&option=com_phpshop
+2026-06-15 08:44:00,544 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:00,544 [INFO] [28/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3672
+2026-06-15 08:44:02,201 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:02,201 [INFO] [29/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3591
+2026-06-15 08:44:03,810 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:03,810 [INFO] [30/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3971
+2026-06-15 08:44:05,414 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:05,414 [INFO] [31/100] .php?page=shop.flypage&product_id=2714&category_id=&option=com_phpshop
+2026-06-15 08:44:07,032 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:07,032 [INFO] [32/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3672
+2026-06-15 08:44:08,655 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:08,656 [INFO] [33/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3591
+2026-06-15 08:44:10,262 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:10,262 [INFO] [34/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3971
+2026-06-15 08:44:11,862 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:11,862 [INFO] [35/100] .php?page=shop.flypage&product_id=2714&category_id=&option=com_phpshop
+2026-06-15 08:44:13,477 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:13,477 [INFO] [36/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3672
+2026-06-15 08:44:15,090 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:15,090 [INFO] [37/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3591
+2026-06-15 08:44:16,696 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:16,696 [INFO] [38/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3971
+2026-06-15 08:44:18,296 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:18,296 [INFO] [39/100] .php?page=shop.flypage&product_id=2714&category_id=&option=com_phpshop
+2026-06-15 08:44:19,910 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:19,910 [INFO] [40/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3672
+2026-06-15 08:44:21,525 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:21,525 [INFO] [41/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3591
+2026-06-15 08:44:23,134 [INFO]   -> detail, 0 produktov
+2026-06-15 08:44:23,134 [INFO] [42/100] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3971
