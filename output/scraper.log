@@ -34658,3 +34658,25 @@
 2026-06-15 12:48:02,657 [INFO] Produktov celkom:     12,583
 2026-06-15 12:48:02,657 [INFO] Zostatok v inpute:    0
 2026-06-15 12:48:02,657 [INFO] =======================================================
+2026-06-15 12:51:17,297 [INFO] Nacitanych produktov: 12,583
+2026-06-15 12:51:17,298 [INFO] Zostatok v output/relevant.csv: 9 zaznamov
+2026-06-15 12:51:17,298 [INFO] Spracujem: 5 zaznamov
+2026-06-15 12:51:17,298 [INFO] [1/5] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3591
+2026-06-15 12:51:19,078 [INFO]   -> detail, 0 produktov
+2026-06-15 12:51:19,079 [INFO] [2/5] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3971
+2026-06-15 12:51:20,740 [INFO]   -> detail, 0 produktov
+2026-06-15 12:51:20,740 [INFO] [3/5] .php?page=shop.flypage&product_id=2714&category_id=&option=com_phpshop
+2026-06-15 12:51:22,428 [INFO]   -> detail, 0 produktov
+2026-06-15 12:51:22,428 [INFO] [4/5] product/index.php?option=com_phpshop&page=shop.flypage&product_id=3672
+2026-06-15 12:51:24,111 [INFO]   -> detail, 0 produktov
+2026-06-15 12:51:24,112 [INFO] [5/5] web/20090627175701/http://www.press.sk:80/biznis-ekonomia-pravo/regal/
+2026-06-15 12:51:25,645 [INFO]   -> listing, 0 produktov
+2026-06-15 12:51:25,720 [INFO]   -> listing fallback na detail, 1 produktov
+2026-06-15 12:51:25,986 [INFO] =======================================================
+2026-06-15 12:51:25,986 [INFO] Spracovanych URL:     5
+2026-06-15 12:51:25,987 [INFO]   -> uspesne:         1
+2026-06-15 12:51:25,987 [INFO]   -> bez produktu:    4
+2026-06-15 12:51:25,987 [INFO] Novych produktov:     0
+2026-06-15 12:51:25,987 [INFO] Produktov celkom:     12,583
+2026-06-15 12:51:25,987 [INFO] Zostatok v inpute:    0
+2026-06-15 12:51:25,987 [INFO] =======================================================
