@@ -77,18 +77,50 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
     if len(bc) >= 2:
         p["category"] = safe_text(bc[-2])
 
-    # ── Popis ─────────────────────────────────────
+    # ── Popis — aj flypage-longdesc ───────────────
     for sel in [
         '[itemprop="description"]', ".product-description",
         ".popis", ".description", "#description",
+        ".flypage-longdesc-txt",
     ]:
         el = soup.select_one(sel)
         if el:
-            p["description"] = safe_text(el)[:500]
+            text = safe_text(el)
+            # Odstran prefix "Popis titulu:"
+            if text.startswith("Popis titulu:"):
+                text = text[len("Popis titulu:"):].strip()
+            p["description"] = text[:500]
             break
 
-    # ── Obrázky — všetky grafické URL v HTML ────────
+    # ── Vydavateľ — aj z flypage textu ───────────
+    if not p["publisher"]:
+        for sel in [
+            '[itemprop="publisher"]', ".vydavatel", ".publisher",
+            ".nakladatelstvo", ".browse-publish",
+        ]:
+            el = soup.select_one(sel)
+            if el:
+                pub = safe_text(el)
+                for prefix in ["Vydáva: ", "Vydáva:", "Vydava: "]:
+                    if pub.startswith(prefix):
+                        pub = pub[len(prefix):]
+                p["publisher"] = pub.strip()
+                break
+
+    # ── Obrázky — všetky grafické URL v HTML ─────
+    # Priorita: product_images_history (obálky starších čísiel) + bežné obrázky
+    history_imgs = []
+    for a in soup.select(".product_images_history_image a[href]"):
+        href = a.get("href", "")
+        if href and any(ext in href.lower() for ext in [".jpg", ".jpeg", ".png", ".gif", ".webp"]):
+            from parsers.utils import strip_wayback_prefix
+            clean = strip_wayback_prefix(href)
+            if "press.sk" in clean and "thumb_" not in clean:
+                history_imgs.append(clean)
+
     imgs = extract_all_image_urls(html)
-    p["image_urls"] = "|".join(imgs)
+    # Spoj: history obrázky prvé (sú kvalitnejšie — full size), potom ostatné
+    all_imgs = list(dict.fromkeys(history_imgs + imgs))  # dedup zachovajúc poradie
+    p["image_urls"] = "|".join(all_imgs)
 
     return p
