@@ -1,0 +1,37 @@
+2026-06-16 08:08:37,741 [INFO] Obdobie: 20020101 → 20261231
+2026-06-16 08:08:37,742 [INFO]   → output/relevant_20020101-20261231_001.csv
+2026-06-16 08:08:37,742 [INFO]   → output/skipped_20020101-20261231_001.csv
+2026-06-16 08:08:37,742 [INFO] Sťahujem CDX (text streaming + resumeKey)...
+2026-06-16 08:08:39,559 [INFO] strana=1 | +5000 riadkov | spolu=5,000 | rel=2,273 skp=2,612 | resumeKey=áno
+2026-06-16 08:09:00,803 [INFO] strana=2 | +5000 riadkov | spolu=10,000 | rel=4,513 skp=5,230 | resumeKey=áno
+2026-06-16 08:09:26,191 [INFO] strana=3 | +5000 riadkov | spolu=15,000 | rel=4,534 skp=10,208 | resumeKey=áno
+2026-06-16 08:09:50,479 [INFO] strana=4 | +5000 riadkov | spolu=20,000 | rel=4,682 skp=15,040 | resumeKey=áno
+2026-06-16 08:10:09,720 [INFO] strana=5 | +5000 riadkov | spolu=25,000 | rel=6,672 skp=17,394 | resumeKey=áno
+2026-06-16 08:10:41,560 [INFO] strana=6 | +5000 riadkov | spolu=30,000 | rel=6,964 skp=21,012 | resumeKey=áno
+2026-06-16 08:11:12,008 [INFO] strana=7 | +5000 riadkov | spolu=35,000 | rel=6,964 skp=26,012 | resumeKey=áno
+2026-06-16 08:11:30,679 [INFO] strana=8 | +5000 riadkov | spolu=40,000 | rel=8,904 skp=29,061 | resumeKey=áno
+2026-06-16 08:11:48,664 [INFO] strana=9 | +5000 riadkov | spolu=45,000 | rel=9,675 skp=33,273 | resumeKey=áno
+2026-06-16 08:11:57,481 [INFO] strana=10 | +5000 riadkov | spolu=50,000 | rel=9,848 skp=38,014 | resumeKey=áno
+2026-06-16 08:12:02,675 [INFO] strana=11 | +5000 riadkov | spolu=55,000 | rel=9,973 skp=42,810 | resumeKey=áno
+2026-06-16 08:12:12,408 [INFO] strana=12 | +5000 riadkov | spolu=60,000 | rel=10,140 skp=47,478 | resumeKey=áno
+2026-06-16 08:12:35,377 [INFO] strana=13 | +5000 riadkov | spolu=65,000 | rel=10,243 skp=51,190 | resumeKey=áno
+2026-06-16 08:12:43,452 [WARNING]   Retry 1: 503 Server Error: Service Unavailable for url: http://web.archive.org/cdx/search/cdx?url=press.sk/*&output=text&fl=original,timestamp&filter=statuscode:200&showResumeKey=true&from=20020101&to=20261231&limit=5000&resumeKey=eJwNwlEKgCAMANCr9Bs0nCFJxxmyYAxnuPrQ09fjuW53Z_c1eBG4_mQP-QBtVdRH0C6TwQiMtRkXe2FylWXHeEaMGQ9MKX-rChgx — čakám 180s
+2026-06-16 08:15:52,540 [INFO] strana=14 | +5000 riadkov | spolu=70,000 | rel=11,159 skp=52,539 | resumeKey=áno
+2026-06-16 08:15:58,961 [INFO] strana=15 | +5000 riadkov | spolu=75,000 | rel=11,159 skp=52,539 | resumeKey=áno
+2026-06-16 08:16:14,681 [INFO] strana=16 | +5000 riadkov | spolu=80,000 | rel=11,159 skp=52,539 | resumeKey=áno
+2026-06-16 08:16:34,128 [INFO] strana=17 | +5000 riadkov | spolu=85,000 | rel=11,159 skp=52,539 | resumeKey=áno
+2026-06-16 08:17:03,266 [INFO] strana=18 | +5000 riadkov | spolu=90,000 | rel=11,159 skp=52,539 | resumeKey=áno
+2026-06-16 08:17:17,329 [INFO] strana=19 | +5000 riadkov | spolu=95,000 | rel=11,159 skp=52,539 | resumeKey=áno
+2026-06-16 08:17:43,406 [INFO] strana=20 | +5000 riadkov | spolu=100,000 | rel=11,159 skp=52,539 | resumeKey=áno
+2026-06-16 08:17:53,231 [INFO] strana=21 | +5000 riadkov | spolu=105,000 | rel=11,159 skp=52,539 | resumeKey=áno
+2026-06-16 08:18:06,453 [INFO] strana=22 | +5000 riadkov | spolu=110,000 | rel=11,159 skp=52,539 | resumeKey=áno
+2026-06-16 08:18:17,783 [INFO] strana=23 | +5000 riadkov | spolu=115,000 | rel=11,159 skp=52,542 | resumeKey=áno
+2026-06-16 08:18:36,216 [INFO] strana=24 | +5000 riadkov | spolu=120,000 | rel=11,367 skp=55,489 | resumeKey=áno
+2026-06-16 08:18:44,806 [INFO] strana=25 | +5000 riadkov | spolu=125,000 | rel=11,811 skp=59,755 | resumeKey=áno
+2026-06-16 08:18:53,641 [INFO] strana=26 | +2212 riadkov | spolu=127,212 | rel=12,153 skp=61,617 | resumeKey=nie
+2026-06-16 08:18:53,641 [INFO] Žiadny ďalší resumeKey — koniec CDX
+2026-06-16 08:18:53,641 [INFO] ==================================================
+2026-06-16 08:18:53,641 [INFO] Obdobie:  20020101-20261231
+2026-06-16 08:18:53,641 [INFO] RELEVANT: 12,153  (1 súborov)
+2026-06-16 08:18:53,641 [INFO] SKIPPED:  61,617  (1 súborov)
+2026-06-16 08:18:53,641 [INFO] ==================================================
