@@ -55,6 +55,8 @@ _PRODUCT_PATTERNS = [
     r"page,shop[.]product_details",
     r"press[.]sk/\d{4}[+]\d+/[a-z]",  # /2012+193/nazov/ - rok+id+slug (produkt)
     r"press[.]sk/\d{4}/[a-z]",        # /2010/nazov/ - rok/slug (produkt)
+    r"press[.]sk/[a-z][a-z-]+/[a-z][a-z-]+/?$",  # /kategoria/nazov-produktu/ - slug produkt
+    r"press[.]sk/[a-z][a-z0-9-]+/[a-z][a-z0-9-]+/?$",  # /kategoria/produkt/ - slug/slug
 ]
 
 # URL ktoré určite nie sú produkty/listy
@@ -85,16 +87,20 @@ def _matches_any(url: str, patterns: list) -> bool:
     return any(re.search(p, url_lower) for p in patterns)
 
 
-def is_listing_url(url: str) -> bool:
-    if _matches_any(url, _SKIP_PATTERNS):
-        return False
-    return _matches_any(url, _LISTING_PATTERNS)
-
-
 def is_product_url(url: str) -> bool:
+    """Produkt má prioritu — ak URL sedí product vzoru, je to produkt."""
     if _matches_any(url, _SKIP_PATTERNS):
         return False
     return _matches_any(url, _PRODUCT_PATTERNS)
+
+
+def is_listing_url(url: str) -> bool:
+    """Listing len ak nie je produkt."""
+    if _matches_any(url, _SKIP_PATTERNS):
+        return False
+    if _matches_any(url, _PRODUCT_PATTERNS):
+        return False  # produkt má prioritu
+    return _matches_any(url, _LISTING_PATTERNS)
 
 
 def wayback_url(original: str, timestamp: str) -> str:
