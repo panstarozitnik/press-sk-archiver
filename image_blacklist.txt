@@ -12,6 +12,9 @@ https://www.press.sk/images/ajax-loader05.gif
 https://www.press.sk/sub/press.sk/images/M_images/arrow.svg
 https://www.press.sk/sub/press.sk/images/mail_icon.svg
 https://www.press.sk/sub/press.sk/images/mobile_icon.svg
+https://www.press.sk/images/slimbox-images/sk_closelabel.gif
+https://www.press.sk/images/slimbox-images/sk_nextlabel.gif
+https://www.press.sk/images/slimbox-images/sk_prevlabel.gif
 
 # Bannery a promo obrázky (nie obálky kníh)
 https://www.press.sk/sub/press.sk/images/dc_comics_224x269.jpg
