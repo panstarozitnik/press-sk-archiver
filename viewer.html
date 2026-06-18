@@ -195,6 +195,15 @@ select { cursor: pointer; }
 .card-imgs.count-3 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
 .card-imgs.count-3 .ci:first-child { grid-row: span 2; }
 .card-imgs.count-4 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+.card-imgs.count-5 { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; }
+.card-imgs.count-6 { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; }
+.card-imgs.count-7 { grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr 1fr; }
+.card-imgs.count-8 { grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr 1fr; }
+.card-imgs.count-5,
+.card-imgs.count-6 { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; }
+.card-imgs.count-7,
+.card-imgs.count-8,
+.card-imgs.count-9 { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; }
 
 .ci {
   overflow: hidden;
@@ -600,8 +609,8 @@ function render() {
     // Obrázky — max 4 v grid
     let imgHtml;
     if (imgs.length > 0) {
-      const shown = imgs.slice(0, 4);
-      const cnt   = shown.length;
+      const shown = imgs.slice(0, 9);
+      const cnt   = Math.min(shown.length, 9);
       const cells = shown.map(u => {
         const safe = u.replace(/'/g, "\\'");
         return `<div class="ci" onclick="openLightbox('${safe}')"><img src="${u}" alt="" loading="lazy" onerror="this.closest('.ci').style.display='none'"></div>`;
