@@ -214,18 +214,42 @@ def fix_image_url(src: str, base_domain: str = "https://www.press.sk") -> str:
     return src
 
 
-def load_image_blacklist(path: str = "image_blacklist.txt") -> set:
-    """Načíta blacklist URL obrázkov zo súboru."""
+def load_image_blacklist(path: str = "image_blacklist.txt") -> list:
+    """Načíta blacklist URL obrázkov zo súboru. Podporuje wildcard *."""
     import os
-    blacklist = set()
-    if not os.path.exists(path):
+    blacklist = []
+    # Hľadaj súbor: 1) zadaná cesta, 2) vedľa tohto modulu, 3) root projektu
+    candidates = [
+        path,
+        os.path.join(os.path.dirname(__file__), "..", path),
+        os.path.join(os.path.dirname(__file__), "..", "..", path),
+    ]
+    found_path = None
+    for candidate in candidates:
+        if os.path.exists(candidate):
+            found_path = candidate
+            break
+    if not found_path:
         return blacklist
-    with open(path, encoding="utf-8") as f:
+    with open(found_path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
             if line and not line.startswith("#"):
-                blacklist.add(line)
+                blacklist.append(line.lower())
     return blacklist
+
+
+def _is_blacklisted(url: str, blacklist: list) -> bool:
+    url_l = url.lower()
+    for pattern in blacklist:
+        if "*" in pattern:
+            parts = [p for p in pattern.split("*") if p]
+            if all(p in url_l for p in parts):
+                return True
+        else:
+            if url_l == pattern or url_l.endswith(pattern.lstrip("https://www.press.sk")):
+                return True
+    return False
 
 
 # Načítaj blacklist raz pri štarte
@@ -267,5 +291,5 @@ def extract_all_image_urls(html: str) -> list[str]:
             found.add(url)
 
     # Filtruj blacklist
-    found = {u for u in found if u not in _BLACKLIST}
+    found = {u for u in found if not _is_blacklisted(u, _BLACKLIST)}
     return sorted(found)
