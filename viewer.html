@@ -812,8 +812,8 @@ function carGo(id, idx, e) {
   const dots = el.querySelectorAll('.car-dot');
   const badge = el.querySelector('.car-count');
   const total = parseInt(el.dataset.total);
-  imgs.forEach((img, i) => img.classList.toggle('active', i === idx));
-  dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  imgs.forEach((img, i) => img.classList.toggle('car-active', i === idx));
+  dots.forEach((d, i) => d.classList.toggle('car-active', i === idx));
   if (badge) badge.textContent = (idx+1) + '/' + total;
   el.dataset.idx = idx;
 }
