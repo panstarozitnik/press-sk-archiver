@@ -64,7 +64,19 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
 
 def _img_url(img) -> str:
     raw = extract_img_src(img)
-    return strip_wayback_prefix(raw) if raw else ""
+    if not raw:
+        return ""
+    clean = strip_wayback_prefix(raw)
+    # Konvertuj show_image_in_imgtag.php?filename=X -> /sub/press.sk/shop/product/X
+    if "show_image_in_imgtag.php" in clean:
+        import re
+        m = re.search(r"filename=([^&]+)", clean)
+        if m:
+            fname = m.group(1)
+            # Odstran thumb suffix pre full-size URL
+            fname_full = re.sub(r"\.thumb_\d+x\d+", "", fname)
+            clean = f"http://www.press.sk/sub/press.sk/shop/product/{fname_full}"
+    return clean
 
 
 def _parse_wrapped(soup: BeautifulSoup) -> list[dict]:
