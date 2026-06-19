@@ -760,6 +760,29 @@ function closeLightbox() {
   document.getElementById('lightbox').classList.remove('open');
 }
 
+// ── Carousel ──
+function carGo(id, idx, e) {
+  if (e) e.stopPropagation();
+  const el = document.getElementById(id);
+  if (!el) return;
+  const imgs = el.querySelectorAll('img');
+  const dots = el.querySelectorAll('.car-dot');
+  const badge = el.querySelector('.car-count');
+  const total = parseInt(el.dataset.total);
+  imgs.forEach((img, i) => img.classList.toggle('active', i === idx));
+  dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  if (badge) badge.textContent = (idx+1) + '/' + total;
+  el.dataset.idx = idx;
+}
+function carStep(id, dir, e) {
+  if (e) e.stopPropagation();
+  const el = document.getElementById(id);
+  if (!el) return;
+  const total = parseInt(el.dataset.total);
+  const idx   = (parseInt(el.dataset.idx) + dir + total) % total;
+  carGo(id, idx, null);
+}
+
 // ── Pagination ──
 function renderPagination() {
   const total = Math.ceil(filtered.length / PAGE_SIZE);
