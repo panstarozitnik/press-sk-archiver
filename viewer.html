@@ -183,43 +183,79 @@ select { cursor: pointer; }
 .card.status-hide::before   { background: var(--red); }
 
 /* Obrázok */
-.card-imgs {
+.card-carousel {
   width: 100%;
   aspect-ratio: 3/4;
-  display: grid;
+  position: relative;
+  overflow: hidden;
   background: var(--bg);
-  overflow: hidden;
 }
-.card-imgs.count-1 { grid-template-columns: 1fr; grid-template-rows: 1fr; }
-.card-imgs.count-2 { grid-template-columns: 1fr 1fr; }
-.card-imgs.count-3 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
-.card-imgs.count-3 .ci:first-child { grid-row: span 2; }
-.card-imgs.count-4 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
-.card-imgs.count-5 { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; }
-.card-imgs.count-6 { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; }
-.card-imgs.count-7 { grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr 1fr; }
-.card-imgs.count-8 { grid-template-columns: repeat(4, 1fr); grid-template-rows: 1fr 1fr; }
-.card-imgs.count-5,
-.card-imgs.count-6 { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr; }
-.card-imgs.count-7,
-.card-imgs.count-8,
-.card-imgs.count-9 { grid-template-columns: 1fr 1fr 1fr; grid-template-rows: 1fr 1fr 1fr; }
-
-.ci {
-  overflow: hidden;
-  cursor: zoom-in;
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.ci:last-child { border-right: none; }
-.ci img {
+.card-carousel img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.2s;
+  opacity: 0;
+  transition: opacity 0.2s;
+  cursor: zoom-in;
 }
-.ci:hover img { transform: scale(1.05); }
+.card-carousel img.car-active { opacity: 1; }
+.car-nav {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 5px 4px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.4));
+  z-index: 2;
+  pointer-events: none;
+}
+.car-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.45);
+  flex-shrink: 0;
+  pointer-events: all;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  transition: background 0.15s;
+}
+.car-dot.car-active { background: white; }
+.car-btn {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.82);
+  border: none;
+  border-radius: 50%;
+  width: 24px; height: 24px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-carousel:hover .car-btn { opacity: 1; }
+.car-btn.prev { left: 5px; }
+.car-btn.next { right: 5px; }
+.car-count {
+  position: absolute;
+  top: 5px; right: 6px;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border-radius: 8px;
+  padding: 1px 5px;
+  z-index: 2;
+  pointer-events: none;
+}
 .card-no-img {
   width: 100%;
   aspect-ratio: 3/4;
@@ -606,16 +642,23 @@ function render() {
     const imgs = (r.image_urls || '').split('|').map(u => u.trim()).filter(Boolean);
     const wb   = r.wayback_url || '';
 
-    // Obrázky — max 4 v grid
+    // Obrázky — carousel (max 30)
     let imgHtml;
     if (imgs.length > 0) {
-      const shown = imgs.slice(0, 9);
-      const cnt   = Math.min(shown.length, 9);
-      const cells = shown.map(u => {
+      const shown = imgs.slice(0, 30);
+      const cid   = 'c' + i + '_' + Math.random().toString(36).slice(2,6);
+      const imgTags = shown.map((u, idx) => {
         const safe = u.replace(/'/g, "\\'");
-        return `<div class="ci" onclick="openLightbox('${safe}')"><img src="${u}" alt="" loading="lazy" onerror="this.closest('.ci').style.display='none'"></div>`;
+        return `<img src="${u}" class="${idx===0?'car-active':''}" alt="" loading="${idx===0?'eager':'lazy'}" onerror="this.style.display='none'" onclick="openLightbox('${safe}')">`;
       }).join('');
-      imgHtml = `<div class="card-imgs count-${cnt}">${cells}</div>`;
+      const dots = shown.length > 1
+        ? `<div class="car-nav">${shown.map((_,idx)=>`<button class="car-dot ${idx===0?'car-active':''}" onclick="carGo('${cid}',${idx},event)"></button>`).join('')}</div>`
+        : '';
+      const btns = shown.length > 1
+        ? `<button class="car-btn prev" onclick="carStep('${cid}',-1,event)">&#8249;</button><button class="car-btn next" onclick="carStep('${cid}',1,event)">&#8250;</button>`
+        : '';
+      const badge = shown.length > 1 ? `<span class="car-count">1/${shown.length}</span>` : '';
+      imgHtml = `<div class="card-carousel" id="${cid}" data-idx="0" data-total="${shown.length}">${imgTags}${btns}${dots}${badge}</div>`;
     } else {
       imgHtml = `<div class="card-no-img">📖</div>`;
     }
