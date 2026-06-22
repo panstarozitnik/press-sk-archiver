@@ -83,8 +83,9 @@ _SKIP_PATTERNS = [
 
 
 def _matches_any(url: str, patterns: list) -> bool:
-    url_lower = url.lower()
-    return any(re.search(p, url_lower) for p in patterns)
+    # Normalizuj URL - odstran port (:80, :443 atd) aby patterny fungovali
+    url_norm = re.sub(r":\d+/", "/", url).lower()
+    return any(re.search(p, url_norm) for p in patterns)
 
 
 def is_product_url(url: str) -> bool:
