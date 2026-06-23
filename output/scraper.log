@@ -30776,3 +30776,24 @@
 2026-06-22 17:34:53,067 [INFO] Produktov celkom:     6,807
 2026-06-22 17:34:53,067 [INFO] Zostatok v inpute:    7,165
 2026-06-22 17:34:53,067 [INFO] =======================================================
+2026-06-23 07:00:39,311 [INFO] Nacitanych produktov: 6,807
+2026-06-23 07:00:39,311 [INFO] Zostatok v output/nespracovane.csv: 37 zaznamov
+2026-06-23 07:00:39,311 [INFO] Spracujem: 5 zaznamov
+2026-06-23 07:00:39,312 [INFO] [1/5] tps://web.archive.org/web/20160802160519/http://www.press.sk/2015+226/
+2026-06-23 07:00:41,409 [INFO]   -> listing, 0 produktov
+2026-06-23 07:00:41,474 [INFO] [2/5] 9/https://www.press.sk/autor-Franti%C5%A1ek-Ko%C5%99%C3%A1n/c,d,16,48/
+2026-06-23 07:00:43,549 [INFO]   -> listing, 16 produktov
+2026-06-23 07:00:43,549 [INFO] [3/5] https://www.press.sk/autor-Franti%C5%A1ek-Ko%C5%99%C3%A1n/c,d,16,7904/
+2026-06-23 07:00:45,532 [INFO]   -> listing, 16 produktov
+2026-06-23 07:00:45,532 [INFO] [4/5] https://www.press.sk/autor-Franti%C5%A1ek-Ko%C5%99%C3%A1n/c,d,16,8080/
+2026-06-23 07:00:48,006 [INFO]   -> listing, 16 produktov
+2026-06-23 07:00:48,006 [INFO] [5/5] https://www.press.sk/autor-Franti%C5%A1ek-Ko%C5%99%C3%A1n/c,d,16,8096/
+2026-06-23 07:00:50,134 [INFO]   -> listing, 16 produktov
+2026-06-23 07:00:50,214 [INFO] =======================================================
+2026-06-23 07:00:50,214 [INFO] Spracovanych URL:     5
+2026-06-23 07:00:50,214 [INFO]   -> uspesne:         4
+2026-06-23 07:00:50,214 [INFO]   -> bez produktu:    1
+2026-06-23 07:00:50,214 [INFO] Novych produktov:     11
+2026-06-23 07:00:50,214 [INFO] Produktov celkom:     6,818
+2026-06-23 07:00:50,214 [INFO] Zostatok v inpute:    32
+2026-06-23 07:00:50,214 [INFO] =======================================================
