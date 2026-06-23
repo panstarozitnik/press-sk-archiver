@@ -110,12 +110,29 @@ def scrape_url(wb_url, original_url, session, log):
         if is_listing_url(original_url):
             products = parse_listing_page(resp.text, wb_url, original_url)
             log.info(f"  -> listing, {len(products)} produktov")
-            # Fallback: ak listing nenasiel nic, skus detail parser (napr. flypage)
+            # Fallback 1: ak listing nenasiel nic, skus detail parser (napr. flypage)
             if not products:
                 p = parse_detail_page(resp.text, wb_url, original_url)
                 if p and p.get("title"):
                     products = [p]
                     log.info(f"  -> listing fallback na detail, 1 produktov")
+            # Fallback 2: ak stale nic a URL ma % enkodovanie, skus decoded URL
+            if not products and "%" in wb_url:
+                from urllib.parse import unquote
+                wb_url_decoded = unquote(wb_url)
+                if wb_url_decoded != wb_url:
+                    try:
+                        resp2 = session.get(wb_url_decoded, timeout=25)
+                        if resp2.status_code == 200:
+                            products = parse_listing_page(resp2.text, wb_url_decoded, original_url)
+                            if not products:
+                                p = parse_detail_page(resp2.text, wb_url_decoded, original_url)
+                                if p and p.get("title"):
+                                    products = [p]
+                            if products:
+                                log.info(f"  -> decoded URL fallback, {len(products)} produktov")
+                    except Exception:
+                        pass
         else:
             p = parse_detail_page(resp.text, wb_url, original_url)
             products = [p] if p and p.get("title") else []
