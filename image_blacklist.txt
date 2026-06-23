@@ -24,6 +24,8 @@
 # Thumbnaily (thumb_) - chceme len full-size
 */resized/*.thumb_*
 */avatar/3c397b74ca042816b7605ce43886ec12?size=50&amp;default=https%3A%2F%2Fwww.press.sk%2Fincludes%2Fcomments%2Fdefault_avatar.gif
+https://www.gravatar.com/*
+*/sub/press.sk/images/shop//ps_image/noimage.jpg
 
 # Favicon, loader
 */images/favicon.ico
