@@ -30797,3 +30797,78 @@
 2026-06-23 07:00:50,214 [INFO] Produktov celkom:     6,818
 2026-06-23 07:00:50,214 [INFO] Zostatok v inpute:    32
 2026-06-23 07:00:50,214 [INFO] =======================================================
+2026-06-23 07:09:35,564 [INFO] Nacitanych produktov: 6,818
+2026-06-23 07:09:35,564 [INFO] Zostatok v output/nespracovane.csv: 32 zaznamov
+2026-06-23 07:09:35,564 [INFO] Spracujem: 32 zaznamov
+2026-06-23 07:09:35,564 [INFO] [1/32] 0081228205054/http://www.press.sk:80/autor-frantisek-csefalvay-a-kol./
+2026-06-23 07:09:38,670 [INFO]   -> listing, 30 produktov
+2026-06-23 07:09:38,671 [INFO] [2/32] /web/20191117161317/https://www.press.sk/autor-frantisek-koran-a-kol./
+2026-06-23 07:09:41,154 [INFO]   -> listing, 7 produktov
+2026-06-23 07:09:41,155 [INFO] [3/32] 3710/http://www.press.sk/autor-frantisek-koran-jan-horak-petr-dolezal/
+2026-06-23 07:09:43,558 [INFO]   -> listing, 1 produktov
+2026-06-23 07:09:43,558 [INFO] [4/32] //www.press.sk/autor-frantisek-koran-martin-velek-jan-martinec-a-kol./
+2026-06-23 07:09:45,981 [INFO]   -> listing, 1 produktov
+2026-06-23 07:09:45,982 [INFO] [5/32] hive.org/web/20130723093833/http://www.press.sk/autor-frantisek-urban/
+2026-06-23 07:09:48,528 [INFO]   -> listing, 30 produktov
+2026-06-23 07:09:48,529 [INFO] [6/32] e.org/web/20090322141806/http://www.press.sk:80/autor-frantisek-weber/
+2026-06-23 07:09:51,441 [INFO]   -> listing, 30 produktov
+2026-06-23 07:09:51,441 [INFO] [7/32] s://web.archive.org/web/20150717125102/http://www.press.sk:80/casopisy
+2026-06-23 07:09:53,531 [INFO]   -> listing, 30 produktov
+2026-06-23 07:09:53,532 [INFO] [8/32] https://www.press.sk/casopisy/dunaj-v-plamenech-1.%09cast-velka-valka/
+2026-06-23 07:09:55,465 [WARNING]   HTTP 404
+2026-06-23 07:09:55,465 [INFO] [9/32] _virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE/
+2026-06-23 07:09:57,713 [INFO]   -> listing, 0 produktov
+2026-06-23 07:09:57,753 [INFO] [10/32] _virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE/
+2026-06-23 07:09:59,646 [INFO]   -> listing, 0 produktov
+2026-06-23 07:09:59,683 [INFO] [11/32] m_virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE
+2026-06-23 07:10:01,663 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:01,700 [INFO] [12/32] _virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE/
+2026-06-23 07:10:03,585 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:03,623 [INFO] [13/32] m_virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE
+2026-06-23 07:10:06,180 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:06,217 [INFO] [14/32] _virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE/
+2026-06-23 07:10:08,285 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:08,322 [INFO] [15/32] m_virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE
+2026-06-23 07:10:10,184 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:10,223 [INFO] [16/32] _virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE/
+2026-06-23 07:10:12,084 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:12,123 [INFO] [17/32] m_virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE
+2026-06-23 07:10:14,148 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:14,186 [INFO] [18/32] _virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE/
+2026-06-23 07:10:16,097 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:16,136 [INFO] [19/32] m_virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE
+2026-06-23 07:10:18,427 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:18,466 [INFO] [20/32] m_virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE
+2026-06-23 07:10:20,795 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:20,838 [INFO] [21/32] m_virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE
+2026-06-23 07:10:22,625 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:22,669 [INFO] [22/32] _virtuemart/Itemid,0/page,shop.cart/sef_mosmsg,_REG_COMPLETE_ACTIVATE/
+2026-06-23 07:10:24,862 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:24,903 [INFO] [23/32] nt/page,shop.browse/category_id,114/option,com_virtuemart/Itemid,1040/
+2026-06-23 07:10:26,844 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:26,885 [INFO] [24/32] nt/page,shop.browse/category_id,114/option,com_virtuemart/Itemid,1040/
+2026-06-23 07:10:29,416 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:29,454 [INFO] [25/32] ent/page,shop.browse/category_id,114/option,com_virtuemart/Itemid,1040
+2026-06-23 07:10:31,665 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:31,705 [INFO] [26/32] ent/page,shop.browse/category_id,114/option,com_virtuemart/Itemid,1040
+2026-06-23 07:10:33,744 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:33,785 [INFO] [27/32] nt/page,shop.browse/category_id,114/option,com_virtuemart/Itemid,1040/
+2026-06-23 07:10:35,905 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:35,952 [INFO] [28/32] nt/page,shop.browse/category_id,116/option,com_virtuemart/Itemid,1040/
+2026-06-23 07:10:37,873 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:37,911 [INFO] [29/32] ent/page,shop.browse/category_id,116/option,com_virtuemart/Itemid,1040
+2026-06-23 07:10:39,941 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:39,979 [INFO] [30/32] nt/page,shop.browse/category_id,116/option,com_virtuemart/Itemid,1040/
+2026-06-23 07:10:41,795 [INFO]   -> listing, 0 produktov
+2026-06-23 07:10:41,835 [INFO] [31/32] 00.jpg&product_id=14167&domain_dir=&newxsize=100&newysize=100&fileout=
+2026-06-23 07:10:43,833 [INFO]   -> detail, 0 produktov
+2026-06-23 07:10:43,833 [INFO] [32/32] 00.jpg&product_id=14167&domain_dir=&newxsize=100&newysize=100&fileout=
+2026-06-23 07:10:45,751 [INFO]   -> detail, 0 produktov
+2026-06-23 07:10:45,827 [INFO] =======================================================
+2026-06-23 07:10:45,827 [INFO] Spracovanych URL:     32
+2026-06-23 07:10:45,827 [INFO]   -> uspesne:         7
+2026-06-23 07:10:45,827 [INFO]   -> bez produktu:    25
+2026-06-23 07:10:45,827 [INFO] Novych produktov:     8
+2026-06-23 07:10:45,827 [INFO] Produktov celkom:     6,826
+2026-06-23 07:10:45,827 [INFO] Zostatok v inpute:    0
+2026-06-23 07:10:45,827 [INFO] =======================================================
