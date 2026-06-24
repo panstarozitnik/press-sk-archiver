@@ -109,14 +109,28 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
 
     # ── Obrázky — všetky grafické URL v HTML ─────
     # Priorita: product_images_history (obálky starších čísiel) + bežné obrázky
+    import re as _re
     history_imgs = []
     for a in soup.select(".product_images_history_image a[href]"):
         href = a.get("href", "")
-        if href and any(ext in href.lower() for ext in [".jpg", ".jpeg", ".png", ".gif", ".webp"]):
+        if not href or not any(ext in href.lower() for ext in [".jpg", ".jpeg", ".png", ".gif", ".webp"]):
+            continue
+        # Zachovaj Wayback im_ URL
+        wb_m = _re.match(r"(https?://web\.archive\.org/web/)(\d+)(im_/|/)?(https?://.*)", href)
+        if wb_m:
+            ts   = wb_m.group(2)
+            orig = wb_m.group(4)
+            # Odstran thumb suffix
+            orig = _re.sub(r"\.thumb_\d+x\d+\.", ".", orig)
+            orig = orig.replace("/resized/", "/")
+            img_url = f"https://web.archive.org/web/{ts}im_/{orig}"
+        else:
             from parsers.utils import strip_wayback_prefix
-            clean = strip_wayback_prefix(href)
-            if "press.sk" in clean and "thumb_" not in clean:
-                history_imgs.append(clean)
+            img_url = strip_wayback_prefix(href)
+            img_url = _re.sub(r"\.thumb_\d+x\d+\.", ".", img_url)
+            img_url = img_url.replace("/resized/", "/")
+        if "press.sk" in img_url and "thumb_" not in img_url:
+            history_imgs.append(img_url)
 
     imgs = extract_all_image_urls(html)
     # Spoj: history obrázky prvé (sú kvalitnejšie — full size), potom ostatné

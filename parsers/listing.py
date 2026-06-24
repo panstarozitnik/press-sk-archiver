@@ -62,21 +62,58 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
     return products
 
 
-def _img_url(img) -> str:
-    raw = extract_img_src(img)
+def _img_url(img, wayback_ts: str = "") -> str:
+    if not img:
+        return ""
+    # Priorita: data-srcset > data-src > src (lazy loading uses 1px-trans.gif ako src)
+    raw = ""
+    for attr in ["data-srcset", "data-src", "src"]:
+        val = img.get(attr, "")
+        if val and "1px" not in val and "trans.gif" not in val:
+            raw = val.split(",")[0].strip().split(" ")[0]
+            break
+    if not raw:
+        raw = img.get("src", "")
     if not raw:
         return ""
-    clean = strip_wayback_prefix(raw)
-    # Konvertuj show_image_in_imgtag.php?filename=X -> /sub/press.sk/shop/product/X
-    if "show_image_in_imgtag.php" in clean:
-        import re
-        m = re.search(r"filename=([^&]+)", clean)
+
+    import re
+
+    # Ak URL uz obsahuje Wayback im_ prefix, vyextrahuj original URL a zachovaj timestamp
+    wb_match = re.match(r"https?://web\.archive\.org/web/(\d+)im_/(https?://.+)", raw)
+    if wb_match:
+        ts  = wb_match.group(1)
+        orig = wb_match.group(2)
+    else:
+        # Relatívna Wayback URL: /web/20081024062102im_/http://...
+        rel_match = re.match(r"/web/(\d+)im_/(https?://.+)", raw)
+        if rel_match:
+            ts   = rel_match.group(1)
+            orig = rel_match.group(2)
+        else:
+            # Bez Wayback prefixu - priama URL
+            ts   = wayback_ts
+            orig = strip_wayback_prefix(raw)
+
+    # Konvertuj show_image_in_imgtag.php?filename=X -> priamy URL
+    if "show_image_in_imgtag.php" in orig:
+        m = re.search(r"filename=([^&]+)", orig)
         if m:
             fname = m.group(1)
-            # Odstran thumb suffix pre full-size URL
             fname_full = re.sub(r"\.thumb_\d+x\d+", "", fname)
-            clean = f"http://www.press.sk/sub/press.sk/shop/product/{fname_full}"
-    return clean
+            orig = f"http://www.press.sk/sub/press.sk/shop/product/{fname_full}"
+
+    # Odstran query string
+    orig = orig.split("?")[0]
+    # Konvertuj thumb na full-size
+    orig = re.sub(r"\.thumb_\d+x\d+\.", ".", orig)
+    # Zmen /resized/ na priamy pre full-size
+    orig = orig.replace("/resized/./", "/").replace("/resized/", "/")
+
+    # Vrat Wayback im_ URL ak mame timestamp
+    if ts:
+        return f"https://web.archive.org/web/{ts}im_/{orig}"
+    return orig
 
 
 def _parse_wrapped(soup: BeautifulSoup) -> list[dict]:
