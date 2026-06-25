@@ -132,9 +132,29 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
         if "press.sk" in img_url and "thumb_" not in img_url:
             history_imgs.append(img_url)
 
-    imgs = extract_all_image_urls(html)
-    # Spoj: history obrázky prvé (sú kvalitnejšie — full size), potom ostatné
-    all_imgs = list(dict.fromkeys(history_imgs + imgs))  # dedup zachovajúc poradie
+    # Hlavný obrázok produktu z flypage-image (nie z celého HTML)
+    main_imgs = []
+    for sel in [".flypage-image a[href]", ".flypage3 a[href]", ".shop-img a[href]"]:
+        for a in soup.select(sel):
+            href = a.get("href", "")
+            if not href or not any(ext in href.lower() for ext in [".jpg", ".jpeg", ".png", ".gif", ".webp"]):
+                continue
+            wb_m = _re.match(r"(https?://web\.archive\.org/web/)(\d+)(im_/|/)?(https?://.*)", href)
+            if wb_m:
+                ts_m = wb_m.group(2)
+                orig_m = wb_m.group(4)
+                orig_m = _re.sub(r"\.thumb_\d+x\d+\.", ".", orig_m)
+                orig_m = orig_m.replace("/resized/", "/").split("?")[0]
+                main_imgs.append(f"https://web.archive.org/web/{ts_m}im_/{orig_m}")
+            else:
+                clean = strip_wayback_prefix(href).split("?")[0]
+                clean = _re.sub(r"\.thumb_\d+x\d+\.", ".", clean)
+                clean = clean.replace("/resized/", "/")
+                if "press.sk" in clean:
+                    main_imgs.append(clean)
+
+    # Spoj: hlavný obrázok + history obrázky, dedup
+    all_imgs = list(dict.fromkeys(main_imgs + history_imgs))
     p["image_urls"] = "|".join(all_imgs)
 
     return p

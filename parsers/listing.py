@@ -23,22 +23,18 @@ def parse_listing_page(html: str, wayback_url: str, original_url: str) -> list[d
         products = _parse_generic_links(soup)
 
 
-    # Fallback: ak produkt nemá obrázok, skús regex cez celé HTML jeho kontajnera
+    # Fallback: ak produkt nemá obrázok, hľadaj img v jeho kontajneri
     for p in products:
         if not p.get("image_urls"):
-            # Nájdi div tohto produktu v soup a extrahuj z neho obrázky
             title = p.get("title", "")
-            container = None
-            for el in soup.find_all(["h3","h2"], class_="product-name"):
+            for el in soup.find_all(["h3", "h2"], class_="product-name"):
                 if title.lower() in safe_text(el).lower():
-                    # Vezmi surrounding HTML — parent alebo predchádzajúci sibling
                     parent = el.parent
-                    container = str(parent) if parent else ""
+                    if parent:
+                        img = parent.find("img")
+                        if img:
+                            p["image_urls"] = _img_url(img)
                     break
-            if container:
-                imgs = extract_all_image_urls(container)
-                if imgs:
-                    p["image_urls"] = "|".join(imgs)
 
     cat = ""
     for sel in ["h1.page-title", "h1.cat-title", "h1", ".breadcrumb li:last-child"]:
