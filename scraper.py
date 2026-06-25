@@ -50,7 +50,29 @@ def flush_csv(products):
             w.writerow(row)
 
 
-def load_products():
+def dedup_images_by_filename(urls: set) -> list:
+    """
+    Z množiny Wayback im_ URL zachová len jeden URL per filename.
+    Preferuje najstarší timestamp (najbližší k originálu).
+    Výsledok: zoznam URL zoradený podľa filenames.
+    """
+    import re, os
+    by_name = {}  # filename -> (timestamp, full_url)
+    for url in urls:
+        if not url.strip():
+            continue
+        # Extrahuj filename z URL
+        m = re.match(r"https?://web\.archive\.org/web/(\d+)im_/https?://.+/([^/?]+\.\w+)", url)
+        if m:
+            ts   = m.group(1)
+            name = m.group(2).lower()
+        else:
+            # Bez Wayback prefixu - len filename
+            name = os.path.basename(url.split("?")[0]).lower()
+            ts   = "99999999999999"
+        if name not in by_name or ts < by_name[name][0]:
+            by_name[name] = (ts, url)
+    return [v[1] for v in sorted(by_name.values(), key=lambda x: x[1])]
     products = {}
     if not os.path.exists(PRODUCTS_CSV):
         return products
@@ -223,7 +245,7 @@ def main():
                 if dedup_key in seen_products:
                     seen_products[dedup_key].update(new_imgs)
                     seen_pages[dedup_key].update(new_pages)
-                    products[dedup_key]["image_urls"] = "|".join(sorted(seen_products[dedup_key]))
+                    products[dedup_key]["image_urls"] = "|".join(dedup_images_by_filename(seen_products[dedup_key]))
                     products[dedup_key]["page_urls"]  = "|".join(sorted(seen_pages[dedup_key]))
                 else:
                     seen_products[dedup_key] = new_imgs
@@ -231,7 +253,7 @@ def main():
                     p["source_url"]  = original_url
                     p["wayback_url"] = wb_url
                     p["timestamp"]   = timestamp
-                    p["image_urls"]  = "|".join(sorted(new_imgs))
+                    p["image_urls"]  = "|".join(dedup_images_by_filename(new_imgs))
                     p["page_urls"]   = "|".join(sorted(new_pages))
                     products[dedup_key] = p
                     saved += 1
