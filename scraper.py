@@ -52,24 +52,34 @@ def flush_csv(products):
 
 def dedup_images_by_filename(urls: set) -> list:
     """
-    Z množiny Wayback im_ URL zachová len jeden URL per filename.
-    Preferuje najstarší timestamp (najbližší k originálu).
+    Z množiny URL zachová len jeden záznam per filename.
+    Pre každý obrázok uloží: najprv Wayback im_ URL, potom priamu URL (bez prefixu).
+    Takto viewer skúsi Wayback, ak nefunguje použije priamu.
     """
     import re, os
     by_name = {}
     for url in urls:
         if not url.strip():
             continue
-        m = re.match(r"https?://web\.archive\.org/web/(\d+)im_/https?://.+/([^/?]+\.\w+)", url)
+        m = re.match(r"https?://web\.archive\.org/web/(\d+)im_/(https?://.+)", url)
         if m:
-            ts   = m.group(1)
-            name = m.group(2).lower()
+            ts      = m.group(1)
+            direct  = m.group(2).split("?")[0]
+            name    = os.path.basename(direct).lower()
+            if name not in by_name or ts < by_name[name][0]:
+                by_name[name] = (ts, url, direct)
         else:
-            name = os.path.basename(url.split("?")[0]).lower()
-            ts   = "99999999999999"
-        if name not in by_name or ts < by_name[name][0]:
-            by_name[name] = (ts, url)
-    return [v[1] for v in sorted(by_name.values(), key=lambda x: x[1])]
+            direct = url.split("?")[0]
+            name   = os.path.basename(direct).lower()
+            if name not in by_name:
+                by_name[name] = ("99999999999999", None, direct)
+
+    result = []
+    for ts, wb_url, direct in sorted(by_name.values(), key=lambda x: x[2]):
+        result.append(direct)       # priama URL prvá
+        if wb_url:
+            result.append(wb_url)   # Wayback im_ URL druhá
+    return result
 
 
 def load_products():
