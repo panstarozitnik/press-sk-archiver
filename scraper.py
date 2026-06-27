@@ -66,7 +66,7 @@ def dedup_images_by_filename(urls: set) -> list:
             ts      = m.group(1)
             direct  = m.group(2).split("?")[0]
             name    = os.path.basename(direct).lower()
-            if name not in by_name or ts < by_name[name][0]:
+            if name not in by_name or ts > by_name[name][0]:
                 by_name[name] = (ts, url, direct)
         else:
             direct = url.split("?")[0]
