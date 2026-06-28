@@ -95,9 +95,20 @@ def _img_url(img, wayback_ts: str = "") -> str:
     if "show_image_in_imgtag.php" in orig:
         m = re.search(r"filename=([^&]+)", orig)
         if m:
-            fname = m.group(1)
-            fname_full = re.sub(r"\.thumb_\d+x\d+", "", fname)
-            orig = f"http://www.press.sk/sub/press.sk/shop/product/{fname_full}"
+            from urllib.parse import unquote_plus
+            fname_raw  = m.group(1)                                    # napr. Automobily+%C5%A0koda+Fabia.thumb_100x100.jpg
+            fname_dec  = unquote_plus(fname_raw)                       # Automobily Škoda Fabia.thumb_100x100.jpg
+            fname_full = re.sub(r"\.thumb_\d+x\d+", "", fname_dec)    # Automobily Škoda Fabia.jpg
+            thumb_url  = f"http://www.press.sk/sub/press.sk/shop/product/resized/{fname_dec}"
+            full_url   = f"http://www.press.sk/sub/press.sk/shop/product/{fname_full}"
+            results = []
+            if ts:
+                results.append(f"https://web.archive.org/web/{ts}im_/{thumb_url}")
+                results.append(f"https://web.archive.org/web/{ts}im_/{full_url}")
+            else:
+                results.append(thumb_url)
+                results.append(full_url)
+            return "|".join(results)
         orig = orig.split("?")[0]
         if ts:
             return f"https://web.archive.org/web/{ts}im_/{orig}"
