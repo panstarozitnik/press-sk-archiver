@@ -98,18 +98,31 @@ def _img_url(img, wayback_ts: str = "") -> str:
             fname = m.group(1)
             fname_full = re.sub(r"\.thumb_\d+x\d+", "", fname)
             orig = f"http://www.press.sk/sub/press.sk/shop/product/{fname_full}"
+        orig = orig.split("?")[0]
+        if ts:
+            return f"https://web.archive.org/web/{ts}im_/{orig}"
+        return orig
 
     # Odstran query string
-    orig = orig.split("?")[0]
-    # Konvertuj thumb na full-size
-    orig = re.sub(r"\.thumb_\d+x\d+\.", ".", orig)
-    # Zmen /resized/ na priamy pre full-size
-    orig = orig.replace("/resized/./", "/").replace("/resized/", "/")
+    orig_raw = orig.split("?")[0]
 
-    # Vrat Wayback im_ URL ak mame timestamp
+    # Priprav obe verzie: thumb (orig) a full-size (bez /resized/ a bez .thumb_NxN)
+    orig_full = re.sub(r"\.thumb_\d+x\d+\.", ".", orig_raw)
+    orig_full = orig_full.replace("/resized/./", "/").replace("/resized/", "/")
+
+    results = []
     if ts:
-        return f"https://web.archive.org/web/{ts}im_/{orig}"
-    return orig
+        # Thumb URL (pôvodná - môže byť jediná dostupná)
+        if orig_raw != orig_full:
+            results.append(f"https://web.archive.org/web/{ts}im_/{orig_raw}")
+        # Full-size URL
+        results.append(f"https://web.archive.org/web/{ts}im_/{orig_full}")
+    else:
+        if orig_raw != orig_full:
+            results.append(orig_raw)
+        results.append(orig_full)
+
+    return "|".join(results)
 
 
 def _parse_wrapped(soup: BeautifulSoup) -> list[dict]:
