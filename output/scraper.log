@@ -242798,3 +242798,37 @@
 2026-07-09 13:06:26,260 [INFO] [68/500] 
 2026-07-09 13:06:27,760 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
 2026-07-09 13:06:27,760 [INFO] [69/500] 
+2026-07-09 17:31:47,159 [INFO] Nacitanych produktov: 19,274
+2026-07-09 17:31:47,160 [INFO] Zostatok v output/druhekolo.csv: 2,447 zaznamov
+2026-07-09 17:31:47,160 [INFO] Spracujem: 100 zaznamov
+2026-07-09 17:31:47,160 [INFO] [1/100] 
+2026-07-09 17:31:48,663 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:31:48,663 [INFO] [2/100] 
+2026-07-09 17:31:50,163 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:31:50,164 [INFO] [3/100] 
+2026-07-09 17:31:51,664 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:31:51,664 [INFO] [4/100] 
+2026-07-09 17:31:53,165 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:31:53,165 [INFO] [5/100] 
+2026-07-09 17:31:54,666 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:31:54,666 [INFO] [6/100] 
+2026-07-09 17:31:56,166 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:31:56,167 [INFO] [7/100] 
+2026-07-09 17:31:57,667 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:31:57,667 [INFO] [8/100] 
+2026-07-09 17:31:59,168 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:31:59,168 [INFO] [9/100] 
+2026-07-09 17:32:00,669 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:32:00,669 [INFO] [10/100] 
+2026-07-09 17:32:02,169 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:32:02,170 [INFO] [11/100] 
+2026-07-09 17:32:03,670 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:32:03,670 [INFO] [12/100] 
+2026-07-09 17:32:05,171 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:32:05,171 [INFO] [13/100] 
+2026-07-09 17:32:06,672 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:32:06,672 [INFO] [14/100] 
+2026-07-09 17:32:08,173 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:32:08,173 [INFO] [15/100] 
+2026-07-09 17:32:09,673 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 17:32:09,674 [INFO] [16/100] 
