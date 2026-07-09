@@ -242658,3 +242658,143 @@
 2026-07-08 17:59:08,724 [INFO] Produktov celkom:     19,274
 2026-07-08 17:59:08,724 [INFO] Zostatok v inpute:    0
 2026-07-08 17:59:08,724 [INFO] =======================================================
+2026-07-09 13:04:45,716 [INFO] Nacitanych produktov: 19,274
+2026-07-09 13:04:45,717 [INFO] Zostatok v output/druhekolo.csv: 2,447 zaznamov
+2026-07-09 13:04:45,717 [INFO] Spracujem: 500 zaznamov
+2026-07-09 13:04:45,717 [INFO] [1/500] 
+2026-07-09 13:04:47,219 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:04:47,219 [INFO] [2/500] 
+2026-07-09 13:04:48,720 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:04:48,720 [INFO] [3/500] 
+2026-07-09 13:04:50,220 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:04:50,221 [INFO] [4/500] 
+2026-07-09 13:04:51,721 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:04:51,721 [INFO] [5/500] 
+2026-07-09 13:04:53,222 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:04:53,222 [INFO] [6/500] 
+2026-07-09 13:04:54,722 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:04:54,722 [INFO] [7/500] 
+2026-07-09 13:04:56,223 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:04:56,223 [INFO] [8/500] 
+2026-07-09 13:04:57,723 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:04:57,724 [INFO] [9/500] 
+2026-07-09 13:04:59,224 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:04:59,224 [INFO] [10/500] 
+2026-07-09 13:05:00,725 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:00,725 [INFO] [11/500] 
+2026-07-09 13:05:02,225 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:02,225 [INFO] [12/500] 
+2026-07-09 13:05:03,726 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:03,726 [INFO] [13/500] 
+2026-07-09 13:05:05,226 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:05,227 [INFO] [14/500] 
+2026-07-09 13:05:06,727 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:06,727 [INFO] [15/500] 
+2026-07-09 13:05:08,227 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:08,228 [INFO] [16/500] 
+2026-07-09 13:05:09,728 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:09,728 [INFO] [17/500] 
+2026-07-09 13:05:11,229 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:11,229 [INFO] [18/500] 
+2026-07-09 13:05:12,729 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:12,729 [INFO] [19/500] 
+2026-07-09 13:05:14,230 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:14,230 [INFO] [20/500] 
+2026-07-09 13:05:15,730 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:15,730 [INFO] [21/500] 
+2026-07-09 13:05:17,231 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:17,231 [INFO] [22/500] 
+2026-07-09 13:05:18,731 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:18,732 [INFO] [23/500] 
+2026-07-09 13:05:20,232 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:20,232 [INFO] [24/500] 
+2026-07-09 13:05:21,733 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:21,733 [INFO] [25/500] 
+2026-07-09 13:05:23,233 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:23,234 [INFO] [26/500] 
+2026-07-09 13:05:24,734 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:24,734 [INFO] [27/500] 
+2026-07-09 13:05:26,235 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:26,235 [INFO] [28/500] 
+2026-07-09 13:05:27,735 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:27,735 [INFO] [29/500] 
+2026-07-09 13:05:29,236 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:29,236 [INFO] [30/500] 
+2026-07-09 13:05:30,736 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:30,737 [INFO] [31/500] 
+2026-07-09 13:05:32,237 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:32,237 [INFO] [32/500] 
+2026-07-09 13:05:33,738 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:33,738 [INFO] [33/500] 
+2026-07-09 13:05:35,238 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:35,238 [INFO] [34/500] 
+2026-07-09 13:05:36,739 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:36,739 [INFO] [35/500] 
+2026-07-09 13:05:38,239 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:38,240 [INFO] [36/500] 
+2026-07-09 13:05:39,740 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:39,740 [INFO] [37/500] 
+2026-07-09 13:05:41,240 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:41,241 [INFO] [38/500] 
+2026-07-09 13:05:42,741 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:42,741 [INFO] [39/500] 
+2026-07-09 13:05:44,242 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:44,242 [INFO] [40/500] 
+2026-07-09 13:05:45,742 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:45,743 [INFO] [41/500] 
+2026-07-09 13:05:47,244 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:47,244 [INFO] [42/500] 
+2026-07-09 13:05:48,744 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:48,744 [INFO] [43/500] 
+2026-07-09 13:05:50,245 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:50,245 [INFO] [44/500] 
+2026-07-09 13:05:51,745 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:51,746 [INFO] [45/500] 
+2026-07-09 13:05:53,246 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:53,246 [INFO] [46/500] 
+2026-07-09 13:05:54,747 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:54,747 [INFO] [47/500] 
+2026-07-09 13:05:56,247 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:56,247 [INFO] [48/500] 
+2026-07-09 13:05:57,748 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:57,748 [INFO] [49/500] 
+2026-07-09 13:05:59,248 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:05:59,248 [INFO] [50/500] 
+2026-07-09 13:06:00,749 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:00,749 [INFO] [51/500] 
+2026-07-09 13:06:02,249 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:02,250 [INFO] [52/500] 
+2026-07-09 13:06:03,750 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:03,750 [INFO] [53/500] 
+2026-07-09 13:06:05,251 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:05,251 [INFO] [54/500] 
+2026-07-09 13:06:06,751 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:06,751 [INFO] [55/500] 
+2026-07-09 13:06:08,252 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:08,252 [INFO] [56/500] 
+2026-07-09 13:06:09,752 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:09,753 [INFO] [57/500] 
+2026-07-09 13:06:11,253 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:11,253 [INFO] [58/500] 
+2026-07-09 13:06:12,754 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:12,754 [INFO] [59/500] 
+2026-07-09 13:06:14,254 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:14,254 [INFO] [60/500] 
+2026-07-09 13:06:15,755 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:15,756 [INFO] [61/500] 
+2026-07-09 13:06:17,256 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:17,256 [INFO] [62/500] 
+2026-07-09 13:06:18,757 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:18,757 [INFO] [63/500] 
+2026-07-09 13:06:20,257 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:20,257 [INFO] [64/500] 
+2026-07-09 13:06:21,758 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:21,758 [INFO] [65/500] 
+2026-07-09 13:06:23,258 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:23,259 [INFO] [66/500] 
+2026-07-09 13:06:24,759 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:24,759 [INFO] [67/500] 
+2026-07-09 13:06:26,260 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:26,260 [INFO] [68/500] 
+2026-07-09 13:06:27,760 [ERROR]   Chyba: Invalid URL '': No scheme supplied. Perhaps you meant https://?
+2026-07-09 13:06:27,760 [INFO] [69/500] 
