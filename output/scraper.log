@@ -243257,3 +243257,214 @@
 2026-07-13 07:32:20,844 [INFO] Nacitanych produktov: 19,274
 2026-07-13 07:32:20,845 [INFO] Zostatok v output/druhekolo.csv: 2,447 zaznamov
 2026-07-13 07:32:20,845 [INFO] Spracujem: 100 zaznamov
+2026-07-13 07:34:30,797 [INFO] Nacitanych produktov: 19,274
+2026-07-13 07:34:30,798 [INFO] Zostatok v output/druhekolo.csv: 2,447 zaznamov
+2026-07-13 07:34:30,798 [INFO] Spracujem: 100 zaznamov
+2026-07-13 07:34:30,798 [INFO] [1/100] tps://web.archive.org/web/20170114194545/http://www.press.sk:80/audio/
+2026-07-13 07:34:33,206 [INFO]   -> detail, 0 produktov
+2026-07-13 07:34:33,206 [INFO] [2/100] tps://web.archive.org/web/20170316055517/http://www.press.sk:80/audio/
+2026-07-13 07:34:35,464 [INFO]   -> detail, 0 produktov
+2026-07-13 07:34:35,464 [INFO] [3/100] tps://web.archive.org/web/20170516121551/http://www.press.sk:80/audio/
+2026-07-13 07:34:37,872 [INFO]   -> detail, 0 produktov
+2026-07-13 07:34:37,872 [INFO] [4/100] https://web.archive.org/web/20170606072341/http://www.press.sk/audio/
+2026-07-13 07:34:40,388 [INFO]   -> detail, 0 produktov
+2026-07-13 07:34:40,389 [INFO] [5/100] eb.archive.org/web/20170615001328/http://www.press.sk/bajky-a-povesti/
+2026-07-13 07:34:42,447 [INFO]   -> detail, 0 produktov
+2026-07-13 07:34:42,448 [INFO] [6/100] .archive.org/web/20161213191922/http://www.press.sk:80/bitva-o-berlin/
+2026-07-13 07:34:44,633 [INFO]   -> detail, 0 produktov
+2026-07-13 07:34:44,634 [INFO] [7/100] .archive.org/web/20170213100336/http://www.press.sk:80/bitva-o-berlin/
+2026-07-13 07:34:46,562 [INFO]   -> detail, 0 produktov
+2026-07-13 07:34:46,562 [INFO] [8/100] b.archive.org/web/20170330210805/http://www.press.sk:80/bitva-o-berlin
+2026-07-13 07:34:48,881 [INFO]   -> detail, 0 produktov
+2026-07-13 07:34:48,881 [INFO] [9/100] .archive.org/web/20170415031652/http://www.press.sk:80/bitva-o-berlin/
+2026-07-13 07:34:50,946 [INFO]   -> detail, 0 produktov
+2026-07-13 07:34:50,946 [INFO] [10/100] b.archive.org/web/20170511084617/http://www.press.sk:80/bitva-o-berlin
+2026-07-13 07:34:53,474 [INFO]   -> detail, 0 produktov
+2026-07-13 07:34:53,474 [INFO] [11/100] web.archive.org/web/20170610221929/http://www.press.sk/bitva-o-berlin/
+2026-07-13 07:34:55,819 [INFO]   -> detail, 0 produktov
+2026-07-13 07:34:55,820 [INFO] [12/100] b.archive.org/web/20120225042323/http://www.press.sk:80/bojova-vozidla
+2026-07-13 07:34:57,911 [INFO]   -> detail, 0 produktov
+2026-07-13 07:34:57,911 [INFO] [13/100] .archive.org/web/20120226165227/http://www.press.sk:80/bojova-vozidla/
+2026-07-13 07:35:00,084 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:00,085 [INFO] [14/100] b.archive.org/web/20120420194452/http://www.press.sk:80/bojova-vozidla
+2026-07-13 07:35:02,743 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:02,744 [INFO] [15/100] .archive.org/web/20120427140729/http://www.press.sk:80/bojova-vozidla/
+2026-07-13 07:35:04,942 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:04,943 [INFO] [16/100] b.archive.org/web/20120621042837/http://www.press.sk:80/bojova-vozidla
+2026-07-13 07:35:08,558 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:08,558 [INFO] [17/100] .archive.org/web/20120627055543/http://www.press.sk:80/bojova-vozidla/
+2026-07-13 07:35:11,051 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:11,051 [INFO] [18/100] b.archive.org/web/20120818175445/http://www.press.sk:80/bojova-vozidla
+2026-07-13 07:35:13,211 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:13,212 [INFO] [19/100] .archive.org/web/20120828152048/http://www.press.sk:80/bojova-vozidla/
+2026-07-13 07:35:15,399 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:15,400 [INFO] [20/100] b.archive.org/web/20121028115839/http://www.press.sk:80/bojova-vozidla
+2026-07-13 07:35:17,726 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:17,726 [INFO] [21/100] b.archive.org/web/20121230191921/http://www.press.sk:80/bojova-vozidla
+2026-07-13 07:35:20,124 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:20,125 [INFO] [22/100] b.archive.org/web/20130308164018/http://www.press.sk:80/bojova-vozidla
+2026-07-13 07:35:22,345 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:22,346 [INFO] [23/100] web.archive.org/web/20130510195031/http://www.press.sk/bojova-vozidla/
+2026-07-13 07:35:24,647 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:24,647 [INFO] [24/100] b.archive.org/web/20130527141129/http://www.press.sk:80/bojova-vozidla
+2026-07-13 07:35:27,089 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:27,089 [INFO] [25/100] .archive.org/web/20140127033133/http://www.press.sk:80/bojova-vozidla/
+2026-07-13 07:35:29,328 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:29,329 [INFO] [26/100] b.archive.org/web/20140803004201/http://www.press.sk:80/bojova-vozidla
+2026-07-13 07:35:31,763 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:31,763 [INFO] [27/100] .archive.org/web/20140804120658/http://www.press.sk:80/bojova-vozidla/
+2026-07-13 07:35:34,058 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:34,058 [INFO] [28/100] b.archive.org/web/20140915001525/http://www.press.sk:80/bojova-vozidla
+2026-07-13 07:35:36,566 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:36,566 [INFO] [29/100] .archive.org/web/20141013083635/http://www.press.sk:80/bojova-vozidla/
+2026-07-13 07:35:39,925 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:39,925 [INFO] [30/100] .archive.org/web/20150310140142/http://www.press.sk:80/bojova-vozidla/
+2026-07-13 07:35:42,134 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:42,134 [INFO] [31/100] .archive.org/web/20151113193137/http://www.press.sk:80/bojova-vozidla/
+2026-07-13 07:35:44,264 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:44,265 [INFO] [32/100] .archive.org/web/20160518062408/http://www.press.sk:80/bojova-vozidla/
+2026-07-13 07:35:46,492 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:46,492 [INFO] [33/100] web.archive.org/web/20160802164136/http://www.press.sk/bojova-vozidla/
+2026-07-13 07:35:48,709 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:48,709 [INFO] [34/100] .archive.org/web/20161231054510/http://www.press.sk:80/bojova-vozidla/
+2026-07-13 07:35:50,981 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:50,982 [INFO] [35/100] /web/20081211050014/http://www.press.sk:80/bojove-umenia-a-sebaobrana/
+2026-07-13 07:35:53,511 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:53,512 [INFO] [36/100] /web/20081229155024/http://www.press.sk:80/bojove-umenia-a-sebaobrana/
+2026-07-13 07:35:56,133 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:56,133 [INFO] [37/100] /web/20090423070138/http://www.press.sk:80/bojove-umenia-a-sebaobrana/
+2026-07-13 07:35:58,392 [INFO]   -> detail, 0 produktov
+2026-07-13 07:35:58,392 [INFO] [38/100] /web/20090624143010/http://www.press.sk:80/bojove-umenia-a-sebaobrana/
+2026-07-13 07:36:01,160 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:01,160 [INFO] [39/100] /web/20091224201116/http://www.press.sk:80/bojove-umenia-a-sebaobrana/
+2026-07-13 07:36:03,675 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:03,675 [INFO] [40/100] /web/20110310183923/http://www.press.sk:80/bojove-umenia-a-sebaobrana/
+2026-07-13 07:36:06,020 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:06,020 [INFO] [41/100] org/web/20110919022316/http://www.press.sk/bojove-umenia-a-sebaobrana/
+2026-07-13 07:36:08,284 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:08,284 [INFO] [42/100] org/web/20130511023556/http://www.press.sk/bojove-umenia-a-sebaobrana/
+2026-07-13 07:36:10,774 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:10,774 [INFO] [43/100] /web/20131004160058/http://www.press.sk:80/bojove-umenia-a-sebaobrana/
+2026-07-13 07:36:15,193 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:15,194 [INFO] [44/100] /web/20140826171912/http://www.press.sk:80/bojove-umenia-a-sebaobrana/
+2026-07-13 07:36:19,403 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:19,403 [INFO] [45/100] /web/20160715114329/http://www.press.sk:80/bojove-umenia-a-sebaobrana/
+2026-07-13 07:36:21,944 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:21,945 [INFO] [46/100] /web/20160716132708/http://www.press.sk:80/bojove-umenia-a-sebaobrana/
+2026-07-13 07:36:25,204 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:25,204 [INFO] [47/100] org/web/20160802134114/http://www.press.sk/bojove-umenia-a-sebaobrana/
+2026-07-13 07:36:27,697 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:27,697 [INFO] [48/100] org/web/20170406085258/http://www.press.sk/bojove-umenia-a-sebaobrana/
+2026-07-13 07:36:30,869 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:30,869 [INFO] [49/100] https://web.archive.org/web/20160407125139/http://www.press.sk/bumik/
+2026-07-13 07:36:33,052 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:33,052 [INFO] [50/100] tps://web.archive.org/web/20160508104643/http://www.press.sk:80/bumik/
+2026-07-13 07:36:35,317 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:35,317 [INFO] [51/100] https://web.archive.org/web/20170406082601/http://www.press.sk/bumik/
+2026-07-13 07:36:37,808 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:37,808 [INFO] [52/100] s://web.archive.org/web/20090214220100/http://www.press.sk:80/byt-dom/
+2026-07-13 07:36:39,982 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:39,982 [INFO] [53/100] s://web.archive.org/web/20090420212756/http://www.press.sk:80/byt-dom/
+2026-07-13 07:36:45,716 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:45,717 [INFO] [54/100] s://web.archive.org/web/20090911102826/http://www.press.sk:80/byt-dom/
+2026-07-13 07:36:48,516 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:48,517 [INFO] [55/100] s://web.archive.org/web/20091204005407/http://www.press.sk:80/byt-dom/
+2026-07-13 07:36:52,197 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:52,198 [INFO] [56/100] s://web.archive.org/web/20100307123426/http://www.press.sk:80/byt-dom/
+2026-07-13 07:36:54,587 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:54,588 [INFO] [57/100] s://web.archive.org/web/20100507082327/http://www.press.sk:80/byt-dom/
+2026-07-13 07:36:56,478 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:56,478 [INFO] [58/100] s://web.archive.org/web/20100905155319/http://www.press.sk:80/byt-dom/
+2026-07-13 07:36:58,718 [INFO]   -> detail, 0 produktov
+2026-07-13 07:36:58,719 [INFO] [59/100] s://web.archive.org/web/20101221035903/http://www.press.sk:80/byt-dom/
+2026-07-13 07:37:00,981 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:00,982 [INFO] [60/100] s://web.archive.org/web/20101222064224/http://www.press.sk:80/byt-dom/
+2026-07-13 07:37:03,282 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:03,282 [INFO] [61/100] s://web.archive.org/web/20110326094936/http://www.press.sk:80/byt-dom/
+2026-07-13 07:37:05,432 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:05,432 [INFO] [62/100] s://web.archive.org/web/20110526001235/http://www.press.sk:80/byt-dom/
+2026-07-13 07:37:07,473 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:07,474 [INFO] [63/100] s://web.archive.org/web/20110727181727/http://www.press.sk:80/byt-dom/
+2026-07-13 07:37:09,647 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:09,647 [INFO] [64/100] ttps://web.archive.org/web/20130511015454/http://www.press.sk/byt-dom/
+2026-07-13 07:37:11,926 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:11,927 [INFO] [65/100] s://web.archive.org/web/20130713042130/http://www.press.sk:80/byt-dom/
+2026-07-13 07:37:16,344 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:16,345 [INFO] [66/100] s://web.archive.org/web/20131108093227/http://www.press.sk:80/byt-dom/
+2026-07-13 07:37:18,516 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:18,516 [INFO] [67/100] s://web.archive.org/web/20140912190302/http://www.press.sk:80/byt-dom/
+2026-07-13 07:37:20,761 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:20,762 [INFO] [68/100] s://web.archive.org/web/20141015012322/http://www.press.sk:80/byt-dom/
+2026-07-13 07:37:22,860 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:22,860 [INFO] [69/100] s://web.archive.org/web/20151103125344/http://www.press.sk:80/byt-dom/
+2026-07-13 07:37:24,935 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:24,936 [INFO] [70/100] ttps://web.archive.org/web/20160802133333/http://www.press.sk/byt-dom/
+2026-07-13 07:37:28,001 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:28,001 [INFO] [71/100] ps://web.archive.org/web/20160903072330/http://www.press.sk:80/byt-dom
+2026-07-13 07:37:30,425 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:30,426 [INFO] [72/100] ps://web.archive.org/web/20161005003921/http://www.press.sk:80/byt-dom
+2026-07-13 07:37:32,502 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:32,503 [INFO] [73/100] ps://web.archive.org/web/20161105145602/http://www.press.sk:80/byt-dom
+2026-07-13 07:37:34,815 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:34,816 [INFO] [74/100] ttps://web.archive.org/web/20170406042214/http://www.press.sk/byt-dom/
+2026-07-13 07:37:38,305 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:38,305 [INFO] [75/100] s://web.archive.org/web/20170429170013/http://www.press.sk:80/byt-dom/
+2026-07-13 07:37:40,544 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:40,544 [INFO] [76/100] ve.org/web/20081217032219/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:37:42,566 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:42,566 [INFO] [77/100] ve.org/web/20090116094703/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:37:44,432 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:44,432 [INFO] [78/100] ive.org/web/20090127045315/http://www.press.sk:80/byvanie-stavebnictvo
+2026-07-13 07:37:46,511 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:46,511 [INFO] [79/100] ve.org/web/20090216042408/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:37:48,415 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:48,415 [INFO] [80/100] ive.org/web/20090227112248/http://www.press.sk:80/byvanie-stavebnictvo
+2026-07-13 07:37:50,464 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:50,464 [INFO] [81/100] ve.org/web/20090318163628/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:37:52,639 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:52,639 [INFO] [82/100] ive.org/web/20090330024917/http://www.press.sk:80/byvanie-stavebnictvo
+2026-07-13 07:37:55,341 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:55,342 [INFO] [83/100] ve.org/web/20090418133849/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:37:57,262 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:57,262 [INFO] [84/100] ve.org/web/20090520065833/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:37:59,227 [INFO]   -> detail, 0 produktov
+2026-07-13 07:37:59,227 [INFO] [85/100] ve.org/web/20091221050549/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:38:01,240 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:01,241 [INFO] [86/100] ive.org/web/20100119091018/http://www.press.sk:80/byvanie-stavebnictvo
+2026-07-13 07:38:03,390 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:03,390 [INFO] [87/100] ve.org/web/20100125073457/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:38:05,278 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:05,278 [INFO] [88/100] ive.org/web/20101012142517/http://www.press.sk:80/byvanie-stavebnictvo
+2026-07-13 07:38:07,472 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:07,472 [INFO] [89/100] ive.org/web/20101112105503/http://www.press.sk:80/byvanie-stavebnictvo
+2026-07-13 07:38:09,425 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:09,425 [INFO] [90/100] ive.org/web/20101216071618/http://www.press.sk:80/byvanie-stavebnictvo
+2026-07-13 07:38:12,864 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:12,865 [INFO] [91/100] ve.org/web/20101218003332/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:38:14,758 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:14,758 [INFO] [92/100] ve.org/web/20110217043247/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:38:16,971 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:16,971 [INFO] [93/100] ive.org/web/20110418115503/http://www.press.sk:80/byvanie-stavebnictvo
+2026-07-13 07:38:19,176 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:19,176 [INFO] [94/100] ve.org/web/20110419093945/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:38:21,259 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:21,260 [INFO] [95/100] ive.org/web/20110520151909/http://www.press.sk:80/byvanie-stavebnictvo
+2026-07-13 07:38:23,232 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:23,232 [INFO] [96/100] ve.org/web/20110619031545/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:38:25,470 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:25,470 [INFO] [97/100] ive.org/web/20110622180941/http://www.press.sk:80/byvanie-stavebnictvo
+2026-07-13 07:38:27,582 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:27,582 [INFO] [98/100] ve.org/web/20110819021954/http://www.press.sk:80/byvanie-stavebnictvo/
+2026-07-13 07:38:29,595 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:29,596 [INFO] [99/100] ive.org/web/20110831011307/http://www.press.sk:80/byvanie-stavebnictvo
+2026-07-13 07:38:32,043 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:32,044 [INFO] [100/100] ive.org/web/20110913063505/http://www.press.sk:80/byvanie-stavebnictvo
+2026-07-13 07:38:34,382 [INFO]   -> detail, 0 produktov
+2026-07-13 07:38:34,852 [INFO] =======================================================
+2026-07-13 07:38:34,853 [INFO] Spracovanych URL:     100
+2026-07-13 07:38:34,853 [INFO]   -> uspesne:         0
+2026-07-13 07:38:34,853 [INFO]   -> bez produktu:    100
+2026-07-13 07:38:34,853 [INFO] Novych produktov:     0
+2026-07-13 07:38:34,853 [INFO] Produktov celkom:     19,274
+2026-07-13 07:38:34,853 [INFO] Zostatok v inpute:    2,347
+2026-07-13 07:38:34,853 [INFO] =======================================================
