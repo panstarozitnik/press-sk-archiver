@@ -222,8 +222,9 @@ def main():
             original_url = row.get("original_url", "")
             timestamp    = row.get("timestamp", "")
             # Oprav timestamp ak ho Excel zkazil (napr. 2,02E+13)
-            if not re.match(r"^\d{14}$", str(timestamp).strip()):
-                m = re.search(r"/web/(\d{14})/", wb_url)
+            import re as _re
+            if not _re.match(r"^\d{14}$", str(timestamp).strip()):
+                m = _re.search(r"/web/(\d{14})/", wb_url)
                 if m:
                     timestamp = m.group(1)
 
