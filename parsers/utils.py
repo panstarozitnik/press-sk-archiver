@@ -36,6 +36,7 @@ _LISTING_PATTERNS = [
     r"/option,com_virtuemart",   # starý VirtueMart e-shop
     r"/page,shop",
     r"/c,[a-z],\d",              # /c,d,16,48 typ URL
+    r"press[.]sk/[a-z][a-z-]+/?$",  # genericka kategoria /audio/ /fotografia/
     r"press[.]sk/\d{4}/?$",     # /2011/ alebo /2011 - listing roka
     r"press[.]sk/\d{4}[+]\d+/?$",  # /2011+389/ - listing rok+kategoria
     r"\?start=\d",               # stránkovanie
