@@ -220,6 +220,23 @@ def main():
 
             wb_url       = row.get("wayback_url", "")
             original_url = row.get("original_url", "")
+
+            # Oprav riadky kde Excel zkazil timestamp (napr. 2,02E+13)
+            # V tom pripade CSV parser rozdelil riadok zle - wayback_url moze byt prazdne
+            # Skus zrekonstruovat z values
+            if not wb_url or "web.archive.org" not in wb_url:
+                vals = list(row.values())
+                for v in vals:
+                    if v and "web.archive.org" in v:
+                        wb_url = v
+                        break
+            if not original_url or "press.sk" not in original_url:
+                vals = list(row.values())
+                for v in vals:
+                    if v and "press.sk" in v and "archive.org" not in v:
+                        original_url = v
+                        break
+
             timestamp    = row.get("timestamp", "")
             # Oprav timestamp ak ho Excel zkazil (napr. 2,02E+13)
             import re as _re
