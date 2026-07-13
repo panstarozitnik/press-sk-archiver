@@ -221,6 +221,11 @@ def main():
             wb_url       = row.get("wayback_url", "")
             original_url = row.get("original_url", "")
             timestamp    = row.get("timestamp", "")
+            # Oprav timestamp ak ho Excel zkazil (napr. 2,02E+13)
+            if not re.match(r"^\d{14}$", str(timestamp).strip()):
+                m = re.search(r"/web/(\d{14})/", wb_url)
+                if m:
+                    timestamp = m.group(1)
 
             log.info(f"[{i+1}/{args.limit}] {wb_url[-70:]}")
             time.sleep(DELAY)
