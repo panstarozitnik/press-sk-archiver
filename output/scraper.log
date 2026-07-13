@@ -243254,3 +243254,6 @@
 2026-07-10 08:55:51,795 [INFO] Produktov celkom:     19,274
 2026-07-10 08:55:51,795 [INFO] Zostatok v inpute:    2,347
 2026-07-10 08:55:51,795 [INFO] =======================================================
+2026-07-13 07:32:20,844 [INFO] Nacitanych produktov: 19,274
+2026-07-13 07:32:20,845 [INFO] Zostatok v output/druhekolo.csv: 2,447 zaznamov
+2026-07-13 07:32:20,845 [INFO] Spracujem: 100 zaznamov
