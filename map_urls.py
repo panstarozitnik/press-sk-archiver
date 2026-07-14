@@ -83,7 +83,7 @@ class ChunkWriter:
         path   = chunk_path(self.prefix, self.period, self.chunk_n)
         is_new = not os.path.exists(path)
         self._file   = open(path, "a", newline="", encoding="utf-8")
-        self._writer = csv.DictWriter(self._file, fieldnames=FIELDS)
+        self._writer = csv.DictWriter(self._file, fieldnames=FIELDS, quoting=csv.QUOTE_ALL)
         if is_new:
             self._writer.writeheader()
         logging.getLogger(__name__).info(f"  → {path}")
