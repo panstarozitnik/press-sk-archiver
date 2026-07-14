@@ -44,7 +44,7 @@ def setup_logging():
 
 def flush_csv(products):
     with open(PRODUCTS_CSV, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=PRODUCT_FIELDS, extrasaction="ignore")
+        w = csv.DictWriter(f, fieldnames=PRODUCT_FIELDS, extrasaction="ignore", quoting=csv.QUOTE_ALL)
         w.writeheader()
         for row in products.values():
             w.writerow(row)
@@ -98,7 +98,7 @@ def load_products():
 def append_csv(path, row, fields):
     is_new = not os.path.exists(path)
     with open(path, "a", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore")
+        w = csv.DictWriter(f, fieldnames=fields, extrasaction="ignore", quoting=csv.QUOTE_ALL)
         if is_new:
             w.writeheader()
         w.writerow(row)
@@ -112,7 +112,7 @@ def remove_rows_from_csv(path, processed_urls):
     with open(path, encoding="utf-8") as fin, \
          open(tmp, "w", newline="", encoding="utf-8") as fout:
         reader = csv.DictReader(fin)
-        writer = csv.DictWriter(fout, fieldnames=reader.fieldnames, extrasaction="ignore")
+        writer = csv.DictWriter(fout, fieldnames=reader.fieldnames, extrasaction="ignore", quoting=csv.QUOTE_ALL)
         writer.writeheader()
         for row in reader:
             if row.get("wayback_url") not in processed_urls:
