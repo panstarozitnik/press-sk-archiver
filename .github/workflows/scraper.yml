@@ -56,6 +56,10 @@ jobs:
           echo "=== nespracovane.csv ==="
           wc -l output/nespracovane.csv 2>/dev/null || echo "Neexistuje"
 
+      - name: Oprav CSV (URL s ciarkami)
+        run: |
+          python fix_csv.py "${{ github.event.inputs.input_csv }}" "${{ github.event.inputs.input_csv }}"
+
       - name: Spusti scraper
         run: |
           ARGS="--input ${{ github.event.inputs.input_csv }} --limit ${{ github.event.inputs.limit }}"
