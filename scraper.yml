@@ -1,0 +1,114 @@
+name: press.sk Scraper
+
+on:
+  workflow_dispatch:
+    inputs:
+      input_csv:
+        description: 'Vstupny CSV subor (napr. output/relevant_20020101-20101231_001.csv)'
+        required: true
+        default: 'output/relevant_20020101-20101231_001.csv'
+      limit:
+        description: 'Pocet URL na spracovanie v tomto behu'
+        required: true
+        default: '100'
+      no_images:
+        description: 'Bez obrazkov (rychlejsie)'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      contents: write
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - run: pip install -r requirements.txt
+
+      - run: mkdir -p output
+
+      - name: Nacitaj aktualne subory z repa
+        run: |
+          git checkout origin/main -- output/products.csv 2>/dev/null             && echo "products.csv: $(wc -l < output/products.csv) riadkov"             || echo "products.csv: neexistuje"
+          git checkout origin/main -- output/spracovane.csv 2>/dev/null             && echo "spracovane.csv: $(wc -l < output/spracovane.csv) riadkov"             || echo "spracovane.csv: neexistuje"
+          git checkout origin/main -- output/nespracovane.csv 2>/dev/null             && echo "nespracovane.csv: $(wc -l < output/nespracovane.csv) riadkov"             || echo "nespracovane.csv: neexistuje"
+          git checkout origin/main -- "${{ github.event.inputs.input_csv }}"             && echo "input: $(wc -l < "${{ github.event.inputs.input_csv }}") riadkov"             || { echo "CHYBA: input CSV nie je v repe!"; exit 1; }
+
+      - name: Stav pred spracovanim
+        run: |
+          echo "=== Vstupny subor ==="
+          wc -l "${{ github.event.inputs.input_csv }}" 2>/dev/null || echo "Neexistuje"
+          echo "=== products.csv ==="
+          wc -l output/products.csv 2>/dev/null || echo "Neexistuje"
+          echo "=== spracovane.csv ==="
+          wc -l output/spracovane.csv 2>/dev/null || echo "Neexistuje"
+          echo "=== nespracovane.csv ==="
+          wc -l output/nespracovane.csv 2>/dev/null || echo "Neexistuje"
+
+      - name: Oprav CSV (URL s ciarkami)
+        run: |
+          python fix_csv.py "${{ github.event.inputs.input_csv }}" "${{ github.event.inputs.input_csv }}"
+
+      - name: Spusti scraper
+        run: |
+          ARGS="--input ${{ github.event.inputs.input_csv }} --limit ${{ github.event.inputs.limit }}"
+          if [ "${{ github.event.inputs.no_images }}" = "true" ]; then
+            ARGS="$ARGS --no-images"
+          fi
+          echo "Spustam: python scraper.py $ARGS"
+          python scraper.py $ARGS
+
+      - name: Stav po spracovani
+        if: always()
+        run: |
+          echo "=== Vstupny subor (zostatok) ==="
+          wc -l "${{ github.event.inputs.input_csv }}" 2>/dev/null || echo "Prazdny/neexistuje"
+          echo "=== products.csv ==="
+          wc -l output/products.csv 2>/dev/null || echo "Neexistuje"
+          echo "=== spracovane.csv ==="
+          wc -l output/spracovane.csv 2>/dev/null || echo "Neexistuje"
+          echo "=== nespracovane.csv ==="
+          wc -l output/nespracovane.csv 2>/dev/null || echo "Neexistuje"
+          echo "=== Poslednych 20 riadkov logu ==="
+          tail -20 output/scraper.log 2>/dev/null || true
+
+      - name: Uloz do repozitara
+        if: always()
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Pridaj vsetky relevantne subory - force pre nove aj zmenene
+          git add -f output/products.csv 2>/dev/null || true
+          git add -f output/spracovane.csv 2>/dev/null || true
+          git add -f output/nespracovane.csv 2>/dev/null || true
+          git add -f output/scraper.log 2>/dev/null || true
+          git add -f "${{ github.event.inputs.input_csv }}" 2>/dev/null || true
+
+          # Commitni vzdy (aj ked su subory "rovnake" - moze byt problem s cache)
+          PRODUCTS=$(wc -l < output/products.csv 2>/dev/null || echo 1)
+          SPRAC=$(wc -l < output/spracovane.csv 2>/dev/null || echo 1)
+          git commit --allow-empty -m "scraper: $((PRODUCTS-1)) produktov, $((SPRAC-1)) spracovanych [run #${{ github.run_number }}]"
+          git pull --rebase --autostash origin main || true
+          git push
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scraper-results-${{ github.run_number }}
+          path: |
+            output/products.csv
+            output/spracovane.csv
+            output/nespracovane.csv
+            output/scraper.log
+          retention-days: 90
