@@ -1,84 +1,78 @@
 """
-fix_csv.py - Oprav CSV kde URL obsahujú čiarky (bez quotovania)
-Použitie: python fix_csv.py input.csv [output.csv]
+fix_csv.py - Oprav CSV s rôznymi oddeľovačmi (tab, ;, ,)
+Výstup je vždy správne quotovaný CSV s čiarkovým oddeľovačom.
 """
 import sys, re
 
-WB_RE   = re.compile(r'https?://web\.archive\.org/web/(\d{14})/https?://\S+')
+WB_RE   = re.compile(r'(https?://web\.archive\.org/web/(\d{14})/https?://\S+)')
 TYPE_RE = re.compile(r'\b(LISTING|PRODUCT|SKIP)\b', re.I)
-TS_RE   = re.compile(r'\b(\d{14})\b')
 
-def fix_line(line):
-    """Oprav jeden CSV riadok s potenciálne rozsekanými URL."""
-    line = line.rstrip('\r\n')
-    if not line.strip():
-        return None
-    
-    # Nájdi Wayback URL — začína na https://web.archive.org/web/TIMESTAMP/
-    wb_m = WB_RE.search(line)
-    if not wb_m:
-        return line  # bez Wayback URL — nechaj tak
-    
-    # original_url je všetko pred Wayback URL (bez trailing čiarky)
-    orig_url = line[:wb_m.start()].rstrip(',').strip().strip('"')
-    
-    # Nájdi type — LISTING/PRODUCT/SKIP — hľadaj odzadu
-    type_m = list(TYPE_RE.finditer(line))
-    url_type = type_m[-1].group(1).upper() if type_m else "LISTING"
-    type_end = type_m[-1].end() if type_m else len(line)
-    type_start = type_m[-1].start() if type_m else len(line)
-    
-    # Nájdi timestamp — 14-ciferné číslo tesne pred TYPE
-    before_type = line[:type_start]
-    ts_m = list(TS_RE.finditer(before_type))
-    ts = ts_m[-1].group(1) if ts_m else wb_m.group(1)
-    ts_start = ts_m[-1].start() if ts_m else type_start
-    
-    # wb_url = všetko medzi orig_url a timestampom (bez trailing čiarky)
-    wb_url = line[wb_m.start():ts_start].rstrip(',').strip()
-    
-    # products_found ak existuje za TYPE
-    pf = line[type_end:].strip().strip(',').strip()
-    
-    # Quotuj polia s čiarkami
-    def q(v):
-        v = str(v)
-        if ',' in v or '"' in v:
-            return '"' + v.replace('"', '""') + '"'
-        return v
-    
-    row = [q(orig_url), q(wb_url), q(ts), q(url_type)]
-    if pf and pf.isdigit():
-        row.append(q(pf))
-    
-    return ','.join(row)
+
+def detect_sep(header):
+    if '\t' in header: return '\t'
+    if ';'  in header: return ';'
+    return ','
+
+
+def q(v):
+    v = str(v)
+    if ',' in v or '"' in v:
+        return '"' + v.replace('"', '""') + '"'
+    return v
 
 
 def fix_csv_urls(input_path, output_path=None):
     if not output_path:
         output_path = input_path
-    
+
     with open(input_path, encoding='utf-8') as f:
         lines = f.read().splitlines()
-    
+
+    if not lines:
+        return 0
+
     header = lines[0]
-    fixed_lines = [header]
+    sep    = detect_sep(header)
+    print(f"Oddeľovač: {'TAB' if sep == chr(9) else repr(sep)}")
+
+    out = ['original_url,wayback_url,timestamp,type']
     fixed = skipped = 0
-    
+
     for line in lines[1:]:
-        result = fix_line(line)
-        if result is None:
+        if not line.strip():
             continue
-        fixed_lines.append(result)
-        if result != line:
-            fixed += 1
-        else:
+
+        parts = line.split(sep)
+
+        # Spoj všetky časti do jedného stringu a hľadaj regexom
+        joined = ' '.join(parts)
+
+        wb_m = WB_RE.search(joined)
+        if not wb_m:
             skipped += 1
-    
+            continue
+
+        wb_url   = wb_m.group(1)
+        ts       = wb_m.group(2)  # vždy z wb_url - spoľahlivé
+
+        # original_url — prvý stĺpec
+        orig_url = parts[0].strip().strip('"')
+
+        # type — hľadaj v posledných stĺpcoch
+        url_type = "LISTING"
+        for p in reversed(parts):
+            m = TYPE_RE.match(p.strip())
+            if m:
+                url_type = m.group(1).upper()
+                break
+
+        out.append(','.join([q(orig_url), q(wb_url), q(ts), q(url_type)]))
+        fixed += 1
+
     with open(output_path, 'w', encoding='utf-8', newline='\n') as f:
-        f.write('\n'.join(fixed_lines) + '\n')
-    
-    print(f"Opravených: {fixed}, nezmenených: {skipped}, celkom: {fixed+skipped}")
+        f.write('\n'.join(out) + '\n')
+
+    print(f"Opravených: {fixed}, preskočených: {skipped}")
     return fixed
 
 
