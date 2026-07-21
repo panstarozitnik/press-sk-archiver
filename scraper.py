@@ -260,6 +260,10 @@ def main():
                         original_url = v
                         break
 
+            # Aktualizuj row s opravenými hodnotami
+            row["wayback_url"]  = wb_url
+            row["original_url"] = original_url
+
             timestamp    = row.get("timestamp", "")
             # Oprav timestamp ak ho Excel zkazil (napr. 2,02E+13)
             import re as _re
