@@ -139,7 +139,16 @@ def scrape_url(wb_url, original_url, session, log):
                 resp.encoding = enc
             else:
                 resp.encoding = "windows-1250"
-        if is_listing_url(original_url):
+        # Klasifikácia - ak original_url je useknutá (URL s čiarkami), použi wb_url
+        import re as _re
+        classify_url = original_url
+        if not is_listing_url(original_url) and not is_product_url(original_url):
+            # Skús extrahovať original URL z wb_url
+            m = _re.search(r'/web/\d{14}/(https?://\S+)', wb_url)
+            if m:
+                classify_url = m.group(1)
+
+        if is_listing_url(classify_url):
             products = parse_listing_page(resp.text, wb_url, original_url)
             log.info(f"  -> listing, {len(products)} produktov")
             # Fallback 1: ak listing nenasiel nic, skus detail parser (napr. flypage)
@@ -221,19 +230,33 @@ def main():
             wb_url       = row.get("wayback_url", "")
             original_url = row.get("original_url", "")
 
-            # Oprav riadky kde Excel zkazil timestamp (napr. 2,02E+13)
-            # V tom pripade CSV parser rozdelil riadok zle - wayback_url moze byt prazdne
-            # Skus zrekonstruovat z values
+            # Oprav URL rozsekaté čiarkou (napr. /cd/n,a,30,0/)
+            import re as _re
+            extra = row.get(None, [])
+            if isinstance(extra, list) and extra:
+                combined = wb_url + "," + ",".join(str(e) for e in extra)
+                # Nájdi celú Wayback URL - končí pred 14-ciferným timestampom alebo LISTING/PRODUCT/SKIP
+                m = _re.search(
+                    r"(https?://web\.archive\.org/web/\d{14}/https?://\S+?)"
+                    r"(?=,\d{14},|\s*,\s*(?:LISTING|PRODUCT|SKIP)\b|$)",
+                    combined
+                )
+                if m:
+                    wb_url = m.group(1).rstrip(",")
+                m2 = _re.search(r"(https?://(?:www\.)?press\.sk:\d+/\S*?|https?://(?:www\.)?press\.sk/\S*?)(?=,https?://web\.archive)", combined)
+                if m2:
+                    original_url = m2.group(1).rstrip(",")
+
             if not wb_url or "web.archive.org" not in wb_url:
-                vals = list(row.values())
-                for v in vals:
-                    if v and "web.archive.org" in v:
+                all_vals = [str(v) for v in row.values() if v]
+                for v in all_vals:
+                    if "web.archive.org" in v:
                         wb_url = v
                         break
             if not original_url or "press.sk" not in original_url:
-                vals = list(row.values())
-                for v in vals:
-                    if v and "press.sk" in v and "archive.org" not in v:
+                all_vals = [str(v) for v in row.values() if v]
+                for v in all_vals:
+                    if "press.sk" in v and "archive.org" not in v:
                         original_url = v
                         break
 
