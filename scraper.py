@@ -222,7 +222,11 @@ def main():
     saved = errors = sprac = nesprac = 0
 
     with open(args.input, encoding="utf-8") as f:
-        reader = csv.DictReader(f)
+        # Deteguj oddeľovač - tab, ; alebo ,
+        first_line = f.readline()
+        sep = '\t' if '\t' in first_line else (';' if ';' in first_line else ',')
+        f.seek(0)
+        reader = csv.DictReader(f, delimiter=sep)
         for i, row in enumerate(reader):
             if i >= args.limit:
                 break
