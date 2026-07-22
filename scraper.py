@@ -111,7 +111,10 @@ def remove_rows_from_csv(path, processed_urls):
     kept = 0
     with open(path, encoding="utf-8") as fin, \
          open(tmp, "w", newline="", encoding="utf-8") as fout:
-        reader = csv.DictReader(fin)
+        first_line = fin.readline()
+        sep = '\t' if '\t' in first_line else (';' if ';' in first_line else ',')
+        fin.seek(0)
+        reader = csv.DictReader(fin, delimiter=sep)
         writer = csv.DictWriter(fout, fieldnames=reader.fieldnames, extrasaction="ignore", quoting=csv.QUOTE_ALL)
         writer.writeheader()
         for row in reader:
