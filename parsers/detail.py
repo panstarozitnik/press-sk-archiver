@@ -34,6 +34,17 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
             p["title"] = safe_text(el)
             break
 
+    # Fallback: starý com_phpshop dizajn (2008) — názov v th.sectiontableheader
+    if not p["title"]:
+        th = soup.select_one("th.sectiontableheader, th[colspan]")
+        if th:
+            # Text priamo v th, bez vnorenych elementov (tie su zvycajne dalsie riadky tabulky)
+            direct_text = "".join(
+                str(c) for c in th.children if isinstance(c, str)
+            ).strip()
+            if direct_text:
+                p["title"] = direct_text
+
     # ── Autor ────────────────────────────────────
     for sel in [
         '[itemprop="author"]', ".autor", ".author",
@@ -72,6 +83,23 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
             p["publisher"] = safe_text(el)
             break
 
+    # Fallback: starý com_phpshop dizajn — "Vydavateľ: " ako <b> label + <a>
+    if not p["publisher"]:
+        for b in soup.find_all("b"):
+            btext = safe_text(b)
+            if btext.startswith("Vydavateľ"):
+                # Vydavatel je zvycajne dalsi sibling <a> alebo text za <b>
+                nxt = b.find_next_sibling("a")
+                if nxt:
+                    p["publisher"] = safe_text(nxt)
+                else:
+                    # skus text hned za </b> v rodicovi
+                    parent_text = safe_text(b.parent)
+                    if "Vydavateľ:" in parent_text:
+                        after = parent_text.split("Vydavateľ:", 1)[1]
+                        p["publisher"] = after.split("Periodicita")[0].strip().strip(":").strip()
+                break
+
     # ── Kategória z breadcrumb ────────────────────
     bc = soup.select(".breadcrumb li, .breadcrumbs li, nav[aria-label='breadcrumb'] li")
     if len(bc) >= 2:
@@ -91,6 +119,30 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
                 text = text[len("Popis titulu:"):].strip()
             p["description"] = text[:500]
             break
+
+    # Fallback: starý com_phpshop dizajn — popis v <p align="justify">
+    # (lxml uzavrie <p> hned na dalsom <p>, takze "vnorene" odstavce su v skutocnosti súrodenci)
+    if not p["description"]:
+        from bs4 import Tag, NavigableString
+        pj = soup.select_one('p[align="justify"]')
+        if pj:
+            texts = []
+            node = pj
+            for _ in range(10):  # max 10 odstavcov, ochrana pred nekonecnym cyklom
+                t = safe_text(node)
+                if t:
+                    texts.append(t)
+                # Najdi dalsieho priameho sourodenca (preskoc whitespace text nody)
+                nxt = node.next_sibling
+                while isinstance(nxt, NavigableString) and not nxt.strip():
+                    nxt = nxt.next_sibling
+                if isinstance(nxt, Tag) and nxt.name == "p":
+                    node = nxt
+                else:
+                    break
+            text = " ".join(texts).strip()
+            if text:
+                p["description"] = text[:500]
 
     # ── Vydavateľ — aj z flypage textu ───────────
     if not p["publisher"]:
@@ -131,6 +183,27 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
             img_url = img_url.replace("/resized/", "/")
         if "press.sk" in img_url and "thumb_" not in img_url:
             history_imgs.append(img_url)
+
+    # Fallback: starý com_phpshop dizajn (2008) — obrázky v /images/obchod/product/
+    if not history_imgs:
+        for a in soup.find_all("a", href=True):
+            href = a["href"]
+            if "/images/obchod/product/" not in href and "/images/obchod/obsahy/" not in href:
+                continue
+            if not any(ext in href.lower() for ext in [".jpg", ".jpeg", ".png", ".gif", ".webp"]):
+                continue
+            wb_m = _re.match(r"(https?://web\.archive\.org/web/)(\d+)(im_/|/)?(https?://.*)", href)
+            if wb_m:
+                ts   = wb_m.group(2)
+                orig = wb_m.group(4)
+                orig = _re.sub(r"\.thumb\.", ".", orig)  # com_phpshop pouziva .thumb. nie .thumb_NxN.
+                img_url = f"https://web.archive.org/web/{ts}im_/{orig}"
+            else:
+                from parsers.utils import strip_wayback_prefix
+                img_url = strip_wayback_prefix(href)
+                img_url = _re.sub(r"\.thumb\.", ".", img_url)
+            if "press.sk" in img_url and img_url not in history_imgs:
+                history_imgs.append(img_url)
 
     # Hlavný obrázok produktu z flypage-image (nie z celého HTML)
     main_imgs = []
