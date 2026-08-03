@@ -4,7 +4,7 @@ Používa schema.org + viacero fallback selektorov.
 """
 
 from bs4 import BeautifulSoup
-from parsers.utils import safe_text, clean_price, extract_isbn, extract_all_image_urls
+from parsers.utils import safe_text, clean_price, extract_isbn, extract_all_image_urls, strip_wayback_prefix
 
 
 def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
@@ -177,7 +177,6 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
             orig = orig.replace("/resized/", "/")
             img_url = f"https://web.archive.org/web/{ts}im_/{orig}"
         else:
-            from parsers.utils import strip_wayback_prefix
             img_url = strip_wayback_prefix(href)
             img_url = _re.sub(r"\.thumb_\d+x\d+\.", ".", img_url)
             img_url = img_url.replace("/resized/", "/")
@@ -199,7 +198,6 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
                 orig = _re.sub(r"\.thumb\.", ".", orig)  # com_phpshop pouziva .thumb. nie .thumb_NxN.
                 img_url = f"https://web.archive.org/web/{ts}im_/{orig}"
             else:
-                from parsers.utils import strip_wayback_prefix
                 img_url = strip_wayback_prefix(href)
                 img_url = _re.sub(r"\.thumb\.", ".", img_url)
             if "press.sk" in img_url and img_url not in history_imgs:
