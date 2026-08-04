@@ -38,7 +38,7 @@ _LISTING_PATTERNS = [
     r"/c,[a-z],\d",              # /c,d,16,48 typ URL
     r"press[.]sk/[a-z][a-z-]*/[a-z],[a-z],\d",  # /cd/n,a,30,0/ typ URL
     r"page=shop\.browse",  # ?page=shop.browse&category_id=... - stary com_phpshop listing
-    r"press[.]sk/[a-z][a-z0-9-]+/?$",  # genericka kategoria /audio/ /fotografia/ /chovatelstvo-124/
+    r"press[.]sk/[a-z0-9][a-z0-9.-]+/?$",  # genericka kategoria /audio/ /chovatelstvo-124/ /1.-a-2.svetova-vojna/
     r"press[.]sk/\d{4}/?$",     # /2011/ alebo /2011 - listing roka
     r"press[.]sk/\d{4}[+]\d+/?$",  # /2011+389/ - listing rok+kategoria
     r"\?start=\d",               # stránkovanie
