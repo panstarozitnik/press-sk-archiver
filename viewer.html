@@ -281,9 +281,10 @@ select { cursor: pointer; }
   color: var(--text);
   line-height: 1.35;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  cursor: help;
 }
 .card-author {
   font-size: 0.68rem;
@@ -679,7 +680,7 @@ function render() {
     card.innerHTML = `
       ${imgHtml}
       <div class="card-body">
-        <div class="card-title">${r.title}</div>
+        <div class="card-title" title="${r.title}">${r.title}</div>
         ${r.author ? `<div class="card-author">${r.author}</div>` : ''}
         <div class="card-tags">${tags}</div>
       </div>

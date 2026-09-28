@@ -131,17 +131,22 @@ def scrape_url(wb_url, original_url, session, log):
         if resp.status_code != 200:
             log.warning(f"  HTTP {resp.status_code}")
             return None
-        # Oprav enkodovanie - stare stranky su casto windows-1250
-        # requests automaticky detekuje ale casto chybuje
-        if resp.encoding and resp.encoding.lower() in ("iso-8859-1", "latin-1"):
-            # Skus windows-1250 ak je v HTML meta charset
-            import re
-            meta = re.search(rb'charset=["\']?([\w-]+)', resp.content[:2000], re.I)
-            if meta:
-                enc = meta.group(1).decode("ascii", errors="ignore")
+        # Oprav enkodovanie - stare stranky su casto windows-1250 ale requests ich detekuje zle
+        import re as _re_enc
+        meta = _re_enc.search(rb'charset=["\']?([\w-]+)', resp.content[:4000], _re_enc.I)
+        if meta:
+            enc = meta.group(1).decode("ascii", errors="ignore").lower()
+            if enc in ("windows-1250", "win-1250", "cp1250", "iso-8859-2"):
                 resp.encoding = enc
-            else:
+        elif resp.encoding and resp.encoding.lower() in ("iso-8859-1", "latin-1"):
+            resp.encoding = "windows-1250"
+        # Fallback: ak text obsahuje replacement chars po dekódovaní, skús windows-1250
+        if "\ufffd" in resp.text and resp.encoding and resp.encoding.lower() == "utf-8":
+            try:
                 resp.encoding = "windows-1250"
+                _ = resp.text  # force re-decode
+            except Exception:
+                pass
         # Klasifikácia - ak original_url je useknutá (URL s čiarkami), použi wb_url
         import re as _re
         classify_url = original_url
