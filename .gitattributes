@@ -1,0 +1,9 @@
+# Obrázky — binárne súbory, git ich nekomprimuje ani neporovnáva ako text
+output/images/*.jpg  binary
+output/images/*.jpeg binary
+output/images/*.png  binary
+output/images/*.gif  binary
+output/images/*.webp binary
+
+# CSV — text s UTF-8
+output/products.csv  text eol=lf

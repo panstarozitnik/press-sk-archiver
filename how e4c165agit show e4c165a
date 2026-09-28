@@ -1,0 +1,43 @@
+[33mcommit e4c165acd246126d3b0d7bb0018535c84ba26c36[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: panstarozitnik <panstarozitnik@gmail.com>
+Date:   Mon Sep 28 12:19:49 2026 +0000
+
+    Revert "Delete output/products.csv"
+    
+    This reverts commit 121abd58a924ecd216c11326b8a7e1aacb90e3da.
+
+ .gitattributes                           |      9 [31m-[m
+ .github/workflows/analyze_timestamps.yml |     31 [31m-[m
+ .github/workflows/apply_blacklist.yml    |     54 [31m-[m
+ .github/workflows/cdx_count.yml          |     22 [31m-[m
+ .github/workflows/map_urls.yml           |    117 [31m-[m
+ .github/workflows/scraper.yml            |    114 [31m-[m
+ .github/workflows/wayback-cdx.yml        |    216 [31m-[m
+ .gitignore                               |     20 [31m-[m
+ README.md                                |     78 [31m-[m
+ analyze_timestamps.py                    |     78 [31m-[m
+ apply_blacklist.py                       |    102 [31m-[m
+ cdx_count.py                             |     80 [31m-[m
+ dedup_urls.py                            |     64 [31m-[m
+ fix_csv.py                               |     94 [31m-[m
+ image_blacklist.txt                      |     38 [31m-[m
+ map_urls.py                              |    278 [31m-[m
+ output/map_20000101-20271231.log         |     37 [31m-[m
+ output/map_20020101-20261231.log         |     37 [31m-[m
+ output/map_20020101-20271231.log         |     36 [31m-[m
+ output/map_urls.log                      |     31 [31m-[m
+ output/nespracovane.csv                  |    785 [31m-[m
+ output/relevant.csv                      |      1 [31m-[m
+ output/scraper.log                       | 318016 [31m----------------------------------------------------------------------------------------------------------------------------------------------------------------[m
+ output/skipped.csv                       |      1 [31m-[m
+ output/spracovane.csv                    |  66590 [31m----------------------------------[m
+ output/stvrte_kolo.csv                   |   2897 [31m--[m
+ output/tretie_kolo.csv                   |      1 [31m-[m
+ parsers/__init__.py                      |      1 [31m-[m
+ parsers/detail.py                        |    231 [31m-[m
+ parsers/listing.py                       |    250 [31m-[m
+ parsers/utils.py                         |    300 [31m-[m
+ requirements.txt                         |      3 [31m-[m
+ scraper.py                               |    351 [31m-[m
+ viewer.html                              |    896 [31m-[m
+ 34 files changed, 391859 deletions(-)
