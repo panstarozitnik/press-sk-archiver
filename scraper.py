@@ -12,6 +12,18 @@ from parsers.listing import parse_listing_page
 from parsers.detail  import parse_detail_page
 from parsers.utils   import is_listing_url, is_product_url
 
+def fix_text_encoding(text):
+    """Oprav mojibake text pomocou ftfy (ak je dostupny)."""
+    if not text:
+        return text
+    try:
+        import ftfy
+        return ftfy.fix_text(text)
+    except ImportError:
+        return text
+
+TEXT_FIELDS = ["title", "author", "publisher", "description", "category"]
+
 csv.field_size_limit(sys.maxsize)
 
 PRODUCTS_CSV     = "output/products.csv"
@@ -186,6 +198,11 @@ def scrape_url(wb_url, original_url, session, log):
             p = parse_detail_page(resp.text, wb_url, original_url)
             products = [p] if p and p.get("title") else []
             log.info(f"  -> detail, {len(products)} produktov")
+        # Oprav encoding pre vsetky textove polia
+        for prod in products:
+            for field in TEXT_FIELDS:
+                if prod.get(field):
+                    prod[field] = fix_text_encoding(prod[field])
         return products
     except requests.exceptions.Timeout:
         log.warning("  Timeout")
