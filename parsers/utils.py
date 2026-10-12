@@ -41,6 +41,7 @@ _LISTING_PATTERNS = [
     r"press[.]sk/[a-z0-9][a-z0-9.-]+/?$",  # genericka kategoria /audio/ /chovatelstvo-124/ /1.-a-2.svetova-vojna/
     r"press[.]sk/\d{4}/?$",     # /2011/ alebo /2011 - listing roka
     r"press[.]sk/\d{4}[+]\d+/?$",  # /2011+389/ - listing rok+kategoria
+    r"press[.]sk/[a-z0-9][a-z0-9.-]+[+]\d+/?$",  # /kouzelna-sbirka-pohadek+284/ - listing slug+id
     r"\?start=\d",               # stránkovanie
     r"Itemid=\d",
 ]
@@ -57,6 +58,7 @@ _PRODUCT_PATTERNS = [
     r"/\d{4,}-[a-z\-]{3,}",      # číselné ID + slug
     r"page,shop[.]product_details",
     r"press[.]sk/\d{4}[+]\d+/[a-z]",  # /2012+193/nazov/ - rok+id+slug (produkt)
+    r"press[.]sk/[a-z][a-z0-9.-]+[+]\d+/[a-z]",  # /kouzelna-sbirka+284/produkt/ - slug+id+produkt
     r"press[.]sk/\d{4}/[a-z]",        # /2010/nazov/ - rok/slug (produkt)
     r"press[.]sk/[a-z][a-z-]+/[a-z][a-z-]+/?$",  # /kategoria/nazov-produktu/ - slug produkt
     r"page=shop\.flypage",  # ?page=shop.flypage&product_id=... - stary com_phpshop produkt
