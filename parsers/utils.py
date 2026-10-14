@@ -89,8 +89,9 @@ _SKIP_PATTERNS = [
 
 
 def _matches_any(url: str, patterns: list) -> bool:
-    # Normalizuj URL - odstran port (:80, :443 atd) aby patterny fungovali
+    # Normalizuj URL - odstran port a query string (trailing ? atd)
     url_norm = re.sub(r":\d+/", "/", url).lower()
+    url_norm = url_norm.split("?")[0].rstrip("/") + "/"
     return any(re.search(p, url_norm) for p in patterns)
 
 
