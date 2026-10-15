@@ -334060,3 +334060,742 @@
 2026-10-15 10:49:46,747 [INFO] Produktov celkom:     23,031
 2026-10-15 10:49:46,747 [INFO] Zostatok v inpute:    0
 2026-10-15 10:49:46,747 [INFO] =======================================================
+2026-10-15 13:44:53,758 [INFO] Nacitanych produktov: 23,031
+2026-10-15 13:44:53,758 [INFO] Zostatok v output/piate_kolo.csv: 364 zaznamov
+2026-10-15 13:44:53,758 [INFO] Spracujem: 364 zaznamov
+2026-10-15 13:44:53,758 [INFO] [1/364] web/20150709002042/http://www.press.sk:80/hachette-filipacchi/o,a,30,0
+2026-10-15 13:44:56,668 [INFO]   -> listing, 30 produktov
+2026-10-15 13:44:57,137 [INFO] [2/364] eb/20150711133348/http://www.press.sk:80/hachette-filipacchi/o,a,30,0/
+2026-10-15 13:45:00,396 [INFO]   -> listing, 30 produktov
+2026-10-15 13:45:00,398 [INFO] [3/364] web/20150809054441/http://www.press.sk:80/hachette-filipacchi/o,a,30,0
+2026-10-15 13:45:07,339 [INFO]   -> listing, 30 produktov
+2026-10-15 13:45:07,342 [INFO] [4/364] web/20150909042957/http://www.press.sk:80/hachette-filipacchi/o,a,30,0
+2026-10-15 13:45:10,019 [INFO]   -> listing, 30 produktov
+2026-10-15 13:45:10,022 [INFO] [5/364] web/20160331212838/http://www.press.sk:80/hachette-filipacchi/o,a,30,0
+2026-10-15 13:45:12,848 [INFO]   -> listing, 30 produktov
+2026-10-15 13:45:12,852 [INFO] [6/364] web/20160513143322/http://www.press.sk:80/hachette-filipacchi/o,a,30,0
+2026-10-15 13:45:14,992 [INFO]   -> listing, 30 produktov
+2026-10-15 13:45:14,995 [INFO] [7/364] b/20090713032412/http://www.press.sk:80/kalendare-pohladnice/n,a,30,0/
+2026-10-15 13:45:17,111 [INFO]   -> listing, 30 produktov
+2026-10-15 13:45:17,114 [INFO] [8/364] /web/20130623070114/http://www.press.sk/kalendare-pohladnice/o,a,30,0/
+2026-10-15 13:45:19,641 [INFO]   -> listing, 30 produktov
+2026-10-15 13:45:19,644 [INFO] [9/364] b/20140810003451/http://www.press.sk:80/kalendare-pohladnice/o,a,30,0/
+2026-10-15 13:45:21,827 [INFO]   -> listing, 30 produktov
+2026-10-15 13:45:21,829 [INFO] [10/364] b/20150310140158/http://www.press.sk:80/kalendare-pohladnice/o,a,30,0/
+2026-10-15 13:45:23,899 [INFO]   -> listing, 30 produktov
+2026-10-15 13:45:23,901 [INFO] [11/364] 30925/http://www.press.sk:80/kolekce-automobilu-jamesa-bonda/o,a,30,0/
+2026-10-15 13:45:26,171 [INFO]   -> listing, 30 produktov
+2026-10-15 13:45:26,173 [INFO] [12/364] b.archive.org/web/20130622054446/http://www.press.sk/komiksy/o,a,30,0/
+2026-10-15 13:45:34,708 [INFO]   -> listing, 30 produktov
+2026-10-15 13:45:34,712 [INFO] [13/364] web/20170114050629/http://www.press.sk:80/kouzelna-sbirka-pohadek+284/
+2026-10-15 13:45:38,245 [INFO]   -> listing, 21 produktov
+2026-10-15 13:45:38,247 [INFO] [14/364] web/20170315212915/http://www.press.sk:80/kouzelna-sbirka-pohadek+284/
+2026-10-15 13:45:44,915 [INFO]   -> listing, 21 produktov
+2026-10-15 13:45:44,917 [INFO] [15/364] web/20170516113756/http://www.press.sk:80/kouzelna-sbirka-pohadek+284/
+2026-10-15 13:45:48,607 [INFO]   -> listing, 21 produktov
+2026-10-15 13:45:48,609 [INFO] [16/364] rg/web/20170606032635/http://www.press.sk/kouzelna-sbirka-pohadek+284/
+2026-10-15 13:45:52,567 [INFO]   -> listing, 21 produktov
+2026-10-15 13:45:52,569 [INFO] [17/364] /web/20130620222621/http://www.press.sk:80/kultovni-auta-cssr/o,a,30,0
+2026-10-15 13:45:56,483 [INFO]   -> listing, 30 produktov
+2026-10-15 13:45:56,487 [INFO] [18/364] web/20150825042948/http://www.press.sk:80/kultovni-auta-cssr/o,a,30,0/
+2026-10-15 13:46:00,021 [INFO]   -> listing, 30 produktov
+2026-10-15 13:46:00,023 [INFO] [19/364] web/20151126024612/http://www.press.sk:80/kultovni-auta-cssr/o,a,30,0/
+2026-10-15 13:46:05,022 [INFO]   -> listing, 30 produktov
+2026-10-15 13:46:05,024 [INFO] [20/364] org/web/20170113220240/http://www.press.sk:80/kultovni-lokomotivy+282/
+2026-10-15 13:46:12,607 [INFO]   -> listing, 13 produktov
+2026-10-15 13:46:12,608 [INFO] [21/364] org/web/20170315212920/http://www.press.sk:80/kultovni-lokomotivy+282/
+2026-10-15 13:46:16,342 [INFO]   -> listing, 13 produktov
+2026-10-15 13:46:16,343 [INFO] [22/364] org/web/20170516122406/http://www.press.sk:80/kultovni-lokomotivy+282/
+2026-10-15 13:46:19,224 [INFO]   -> listing, 13 produktov
+2026-10-15 13:46:19,225 [INFO] [23/364] ve.org/web/20170606110027/http://www.press.sk/kultovni-lokomotivy+282/
+2026-10-15 13:46:21,854 [INFO]   -> listing, 13 produktov
+2026-10-15 13:46:21,855 [INFO] [24/364] hive.org/web/20090214130728/http://www.press.sk:80/kynologia/n,a,30,0/
+2026-10-15 13:46:25,733 [INFO]   -> listing, 30 produktov
+2026-10-15 13:46:25,736 [INFO] [25/364] hive.org/web/20110627054156/http://www.press.sk:80/kynologia/n,a,30,0/
+2026-10-15 13:46:28,513 [INFO]   -> listing, 30 produktov
+2026-10-15 13:46:28,517 [INFO] [26/364] hive.org/web/20110827010450/http://www.press.sk:80/kynologia/n,a,30,0/
+2026-10-15 13:46:30,947 [INFO]   -> listing, 30 produktov
+2026-10-15 13:46:30,951 [INFO] [27/364] web/20130620185355/http://www.press.sk/legendarni-automobily/o,a,30,0/
+2026-10-15 13:46:38,016 [INFO]   -> listing, 30 produktov
+2026-10-15 13:46:38,019 [INFO] [28/364] /web/20151116085601/http://www.press.sk:80/letajici-pevnosti/o,a,30,0/
+2026-10-15 13:46:40,118 [INFO]   -> listing, 30 produktov
+2026-10-15 13:46:40,120 [INFO] [29/364] ve.org/web/20091025044208/http://www.press.sk:80/letectvo-53/n,a,100,0
+2026-10-15 13:46:45,583 [INFO]   -> listing, 100 produktov
+2026-10-15 13:46:45,593 [INFO] [30/364] ve.org/web/20100109085221/http://www.press.sk:80/letectvo-53/n,a,100,0
+2026-10-15 13:46:48,257 [INFO]   -> listing, 100 produktov
+2026-10-15 13:46:48,267 [INFO] [31/364] ve.org/web/20101018000254/http://www.press.sk:80/letectvo-53/n,a,100,0
+2026-10-15 13:46:56,941 [INFO]   -> listing, 100 produktov
+2026-10-15 13:46:56,950 [INFO] [32/364] ve.org/web/20101118133915/http://www.press.sk:80/letectvo-53/n,a,100,0
+2026-10-15 13:46:59,352 [INFO]   -> listing, 100 produktov
+2026-10-15 13:46:59,362 [INFO] [33/364] ve.org/web/20081208074654/http://www.press.sk:80/letectvo-53/n,a,30,0/
+2026-10-15 13:47:01,852 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:01,856 [INFO] [34/364] ive.org/web/20090212174633/http://www.press.sk:80/letectvo-53/n,a,30,0
+2026-10-15 13:47:04,063 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:04,067 [INFO] [35/364] ve.org/web/20090213203821/http://www.press.sk:80/letectvo-53/n,a,30,0/
+2026-10-15 13:47:06,179 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:06,183 [INFO] [36/364] ive.org/web/20090315062501/http://www.press.sk:80/letectvo-53/n,a,30,0
+2026-10-15 13:47:08,580 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:08,583 [INFO] [37/364] ive.org/web/20090414212532/http://www.press.sk:80/letectvo-53/n,a,30,0
+2026-10-15 13:47:10,776 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:10,780 [INFO] [38/364] ive.org/web/20090520053318/http://www.press.sk:80/letectvo-53/n,a,30,0
+2026-10-15 13:47:13,027 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:13,032 [INFO] [39/364] ive.org/web/20100125084434/http://www.press.sk:80/letectvo-53/n,a,30,0
+2026-10-15 13:47:15,887 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:15,891 [INFO] [40/364] ive.org/web/20100208212107/http://www.press.sk:80/letectvo-53/n,a,50,0
+2026-10-15 13:47:20,023 [INFO]   -> listing, 50 produktov
+2026-10-15 13:47:20,029 [INFO] [41/364] ve.org/web/20100211121550/http://www.press.sk:80/letectvo-53/n,a,50,0/
+2026-10-15 13:47:24,060 [INFO]   -> listing, 50 produktov
+2026-10-15 13:47:24,066 [INFO] [42/364] ve.org/web/20150514170309/http://www.press.sk:80/letectvo-53/o,a,30,0/
+2026-10-15 13:47:29,912 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:29,914 [INFO] [43/364] .archive.org/web/20130622111804/http://www.press.sk/letectvo/o,a,30,0/
+2026-10-15 13:47:32,122 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:32,127 [INFO] [44/364] hive.org/web/20081204001424/http://www.press.sk:80/mido-film/n,a,30,0/
+2026-10-15 13:47:34,905 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:34,909 [INFO] [45/364] hive.org/web/20081223105522/http://www.press.sk:80/mido-film/n,a,30,0/
+2026-10-15 13:47:37,570 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:37,573 [INFO] [46/364] hive.org/web/20090123153744/http://www.press.sk:80/mido-film/n,a,30,0/
+2026-10-15 13:47:39,727 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:39,730 [INFO] [47/364] hive.org/web/20090224022741/http://www.press.sk:80/mido-film/n,a,30,0/
+2026-10-15 13:47:41,808 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:41,812 [INFO] [48/364] hive.org/web/20090327113606/http://www.press.sk:80/mido-film/n,a,30,0/
+2026-10-15 13:47:44,133 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:44,137 [INFO] [49/364] hive.org/web/20090427001614/http://www.press.sk:80/mido-film/n,a,30,0/
+2026-10-15 13:47:46,358 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:46,362 [INFO] [50/364] hive.org/web/20090529063529/http://www.press.sk:80/mido-film/n,a,30,0/
+2026-10-15 13:47:50,389 [INFO]   -> listing, 30 produktov
+2026-10-15 13:47:50,393 [INFO] [51/364] ve.org/web/20091026153813/http://www.press.sk:80/military-51/n,a,100,0
+2026-10-15 13:47:54,931 [INFO]   -> listing, 100 produktov
+2026-10-15 13:47:54,940 [INFO] [52/364] ve.org/web/20091218105551/http://www.press.sk:80/military-51/n,a,100,0
+2026-10-15 13:47:57,461 [INFO]   -> listing, 100 produktov
+2026-10-15 13:47:57,470 [INFO] [53/364] ve.org/web/20100125110257/http://www.press.sk:80/military-51/n,a,100,0
+2026-10-15 13:48:00,204 [INFO]   -> listing, 100 produktov
+2026-10-15 13:48:00,214 [INFO] [54/364] e.org/web/20100225010955/http://www.press.sk:80/military-51/n,a,100,0/
+2026-10-15 13:48:02,564 [INFO]   -> listing, 100 produktov
+2026-10-15 13:48:02,575 [INFO] [55/364] ve.org/web/20090228085240/http://www.press.sk:80/military-51/n,a,30,0/
+2026-10-15 13:48:04,798 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:04,803 [INFO] [56/364] ve.org/web/20100210044715/http://www.press.sk:80/military-51/n,a,30,0/
+2026-10-15 13:48:06,992 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:06,995 [INFO] [57/364] chive.org/web/20160123212633/http://www.press.sk:80/military/o,a,100,0
+2026-10-15 13:48:10,462 [INFO]   -> listing, 100 produktov
+2026-10-15 13:48:10,469 [INFO] [58/364] chive.org/web/20160223123416/http://www.press.sk:80/military/o,a,100,0
+2026-10-15 13:48:15,579 [INFO]   -> listing, 100 produktov
+2026-10-15 13:48:15,586 [INFO] [59/364] chive.org/web/20160331204333/http://www.press.sk:80/military/o,a,100,0
+2026-10-15 13:48:17,746 [INFO]   -> listing, 100 produktov
+2026-10-15 13:48:17,754 [INFO] [60/364] chive.org/web/20160508083126/http://www.press.sk:80/military/o,a,100,0
+2026-10-15 13:48:21,659 [INFO]   -> listing, 100 produktov
+2026-10-15 13:48:21,667 [INFO] [61/364] .archive.org/web/20130621122045/http://www.press.sk/military/o,a,30,0/
+2026-10-15 13:48:24,102 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:24,107 [INFO] [62/364] chive.org/web/20150626232519/http://www.press.sk:80/military/o,a,30,0/
+2026-10-15 13:48:26,912 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:26,915 [INFO] [63/364] chive.org/web/20151229042008/http://www.press.sk:80/military/o,a,30,0/
+2026-10-15 13:48:29,032 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:29,036 [INFO] [64/364] chive.org/web/20170105152506/http://www.press.sk:80/military/o,a,30,0/
+2026-10-15 13:48:31,114 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:31,118 [INFO] [65/364] chive.org/web/20170411200859/http://www.press.sk:80/military/o,a,30,0/
+2026-10-15 13:48:35,559 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:35,562 [INFO] [66/364] chive.org/web/20170614092626/http://www.press.sk:80/military/o,a,30,0/
+2026-10-15 13:48:39,254 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:39,258 [INFO] [67/364] web/20120212095803/http://www.press.sk:80/moda-sitie-varenie/o,a,30,0/
+2026-10-15 13:48:41,615 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:41,621 [INFO] [68/364] rg/web/20130623225317/http://www.press.sk/moda-sitie-varenie/o,a,30,0/
+2026-10-15 13:48:48,360 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:48,366 [INFO] [69/364] web/20150711130818/http://www.press.sk:80/moda-sitie-varenie/o,a,30,0/
+2026-10-15 13:48:50,947 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:50,952 [INFO] [70/364] org/web/20091222200329/http://www.press.sk:80/modelarstvo-84/n,a,30,0/
+2026-10-15 13:48:53,212 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:53,215 [INFO] [71/364] chive.org/web/20130622140816/http://www.press.sk/modelarstvo/o,a,30,0/
+2026-10-15 13:48:56,106 [INFO]   -> listing, 30 produktov
+2026-10-15 13:48:56,109 [INFO] [72/364] ve.org/web/20150626232537/http://www.press.sk:80/modelarstvo/o,a,30,0/
+2026-10-15 13:49:02,401 [INFO]   -> listing, 30 produktov
+2026-10-15 13:49:02,404 [INFO] [73/364] ve.org/web/20150827011813/http://www.press.sk:80/modelarstvo/o,a,30,0/
+2026-10-15 13:49:11,508 [INFO]   -> listing, 30 produktov
+2026-10-15 13:49:11,511 [INFO] [74/364] ive.org/web/20151121014639/http://www.press.sk:80/modelarstvo/o,a,30,0
+2026-10-15 13:49:14,016 [INFO]   -> listing, 30 produktov
+2026-10-15 13:49:14,019 [INFO] [75/364] ve.org/web/20151121221929/http://www.press.sk:80/modelarstvo/o,a,30,0/
+2026-10-15 13:49:20,948 [INFO]   -> listing, 30 produktov
+2026-10-15 13:49:20,951 [INFO] [76/364] ive.org/web/20151221184641/http://www.press.sk:80/modelarstvo/o,a,30,0
+2026-10-15 13:49:23,723 [INFO]   -> listing, 30 produktov
+2026-10-15 13:49:23,726 [INFO] [77/364] ive.org/web/20160402171758/http://www.press.sk:80/modelarstvo/o,a,30,0
+2026-10-15 13:49:25,957 [INFO]   -> listing, 30 produktov
+2026-10-15 13:49:25,960 [INFO] [78/364] ive.org/web/20160508032644/http://www.press.sk:80/modelarstvo/o,a,30,0
+2026-10-15 13:49:28,174 [INFO]   -> listing, 30 produktov
+2026-10-15 13:49:28,177 [INFO] [79/364] archive.org/web/20170116152609/http://www.press.sk:80/modely/o,a,30,0/
+2026-10-15 13:49:30,452 [INFO]   -> listing, 30 produktov
+2026-10-15 13:49:30,454 [INFO] [80/364] hive.org/web/20090305075829/http://www.press.sk:80/multimedia/n,a,15,0
+2026-10-15 13:49:38,963 [INFO]   -> listing, 15 produktov
+2026-10-15 13:49:38,965 [INFO] [81/364] hive.org/web/20090404194931/http://www.press.sk:80/multimedia/n,a,15,0
+2026-10-15 13:49:46,027 [INFO]   -> listing, 15 produktov
+2026-10-15 13:49:46,029 [INFO] [82/364] hive.org/web/20100106010504/http://www.press.sk:80/multimedia/n,a,15,0
+2026-10-15 13:49:47,850 [INFO]   -> listing, 15 produktov
+2026-10-15 13:49:47,852 [INFO] [83/364] ive.org/web/20090516205756/http://www.press.sk:80/multimedia/n,a,30,0/
+2026-10-15 13:49:54,606 [INFO]   -> listing, 30 produktov
+2026-10-15 13:49:54,609 [INFO] [84/364] ive.org/web/20090910235909/http://www.press.sk:80/multimedia/n,a,30,0/
+2026-10-15 13:49:56,686 [INFO]   -> listing, 30 produktov
+2026-10-15 13:49:56,689 [INFO] [85/364] ive.org/web/20110912033202/http://www.press.sk:80/multimedia/n,a,30,0/
+2026-10-15 13:49:58,673 [INFO]   -> listing, 30 produktov
+2026-10-15 13:49:58,676 [INFO] [86/364] rchive.org/web/20130621072924/http://www.press.sk/multimedia/o,a,30,0/
+2026-10-15 13:50:02,399 [INFO]   -> listing, 30 produktov
+2026-10-15 13:50:02,402 [INFO] [87/364] chive.org/web/20140707071324/http://www.press.sk:80/najdene-produkty/?
+2026-10-15 13:50:17,785 [INFO]   -> listing, 4 produktov
+2026-10-15 13:50:17,785 [INFO] [88/364] chive.org/web/20140824061404/http://www.press.sk:80/najdene-produkty/?
+2026-10-15 13:50:19,684 [INFO]   -> listing, 1 produktov
+2026-10-15 13:50:19,685 [INFO] [89/364] 10427000859/https://www.press.sk/najdene-produkty/,a,16,0,,v%C4%8Dela/
+2026-10-15 13:50:21,729 [INFO]   -> listing, 16 produktov
+2026-10-15 13:50:21,730 [INFO] [90/364] 10427000900/https://www.press.sk/najdene-produkty/,a,16,0,,v%C4%8Dela/
+2026-10-15 13:50:23,910 [INFO]   -> listing, 16 produktov
+2026-10-15 13:50:23,912 [INFO] [91/364] 0110925180455/http://www.press.sk:80/najdene-produkty/,a,30,30,,poirot
+2026-10-15 13:50:26,529 [INFO]   -> listing, 18 produktov
+2026-10-15 13:50:26,531 [INFO] [92/364] 0111026020517/http://www.press.sk:80/najdene-produkty/,a,30,30,,poirot
+2026-10-15 13:50:28,498 [INFO]   -> listing, 17 produktov
+2026-10-15 13:50:28,500 [INFO] [93/364] 0111125204634/http://www.press.sk:80/najdene-produkty/,a,30,30,,poirot
+2026-10-15 13:50:30,902 [INFO]   -> listing, 17 produktov
+2026-10-15 13:50:30,904 [INFO] [94/364] 0111227012907/http://www.press.sk:80/najdene-produkty/,a,30,30,,poirot
+2026-10-15 13:50:33,063 [INFO]   -> listing, 17 produktov
+2026-10-15 13:50:33,065 [INFO] [95/364] 0120129185247/http://www.press.sk:80/najdene-produkty/,a,30,30,,poirot
+2026-10-15 13:50:36,008 [INFO]   -> listing, 17 produktov
+2026-10-15 13:50:36,010 [INFO] [96/364] 0120229161758/http://www.press.sk:80/najdene-produkty/,a,30,30,,poirot
+2026-10-15 13:50:39,062 [INFO]   -> listing, 17 produktov
+2026-10-15 13:50:39,065 [INFO] [97/364] 0120419212029/http://www.press.sk:80/najdene-produkty/,a,30,30,,poirot
+2026-10-15 13:50:42,582 [INFO]   -> listing, 17 produktov
+2026-10-15 13:50:42,585 [INFO] [98/364] 0120627012423/http://www.press.sk:80/najdene-produkty/,a,30,30,,poirot
+2026-10-15 13:50:45,955 [INFO]   -> listing, 17 produktov
+2026-10-15 13:50:45,957 [INFO] [99/364] 0120815060458/http://www.press.sk:80/najdene-produkty/,a,30,30,,poirot
+2026-10-15 13:50:49,090 [INFO]   -> listing, 17 produktov
+2026-10-15 13:50:49,092 [INFO] [100/364] 0121113223318/http://www.press.sk:80/najdene-produkty/,a,30,30,,poirot
+2026-10-15 13:50:52,407 [INFO]   -> listing, 17 produktov
+2026-10-15 13:50:52,409 [INFO] [101/364] 0121231073646/http://www.press.sk:80/najdene-produkty/,a,30,30,,poirot
+2026-10-15 13:50:54,593 [INFO]   -> listing, 17 produktov
+2026-10-15 13:50:54,595 [INFO] [102/364] 0130529021929/http://www.press.sk:80/najdene-produkty/,a,30,30,,poirot
+2026-10-15 13:50:59,887 [INFO]   -> listing, 17 produktov
+2026-10-15 13:50:59,889 [INFO] [103/364] 20151003021050/http://www.press.sk:80/najdene-produkty/,a,30,30,,tanky
+2026-10-15 13:51:02,826 [INFO]   -> listing, 30 produktov
+2026-10-15 13:51:02,828 [INFO] [104/364] 20151103000845/http://www.press.sk:80/najdene-produkty/,a,30,30,,tanky
+2026-10-15 13:51:05,410 [INFO]   -> listing, 30 produktov
+2026-10-15 13:51:05,412 [INFO] [105/364] 20160402025253/http://www.press.sk:80/najdene-produkty/,a,30,30,,tanky
+2026-10-15 13:51:07,736 [INFO]   -> listing, 30 produktov
+2026-10-15 13:51:07,738 [INFO] [106/364] 20160512125022/http://www.press.sk:80/najdene-produkty/,a,30,30,,tanky
+2026-10-15 13:51:10,558 [INFO]   -> listing, 30 produktov
+2026-10-15 13:51:10,560 [INFO] [107/364] 20151003021102/http://www.press.sk:80/najdene-produkty/,a,30,60,,tanky
+2026-10-15 13:51:13,217 [INFO]   -> listing, 7 produktov
+2026-10-15 13:51:13,218 [INFO] [108/364] 20151103000907/http://www.press.sk:80/najdene-produkty/,a,30,60,,tanky
+2026-10-15 13:51:15,475 [INFO]   -> listing, 9 produktov
+2026-10-15 13:51:15,476 [INFO] [109/364] 20160404020930/http://www.press.sk:80/najdene-produkty/,a,30,60,,tanky
+2026-10-15 13:51:17,773 [INFO]   -> listing, 22 produktov
+2026-10-15 13:51:17,776 [INFO] [110/364] 20160514180139/http://www.press.sk:80/najdene-produkty/,a,30,60,,tanky
+2026-10-15 13:51:20,139 [INFO]   -> listing, 27 produktov
+2026-10-15 13:51:20,141 [INFO] [111/364] eb/20230311055259/https://www.press.sk/najdene-produkty/chalup%C3%A1r/
+2026-10-15 13:51:24,379 [INFO]   -> detail, 0 produktov
+2026-10-15 13:51:24,380 [INFO] [112/364] 311055258/https://www.press.sk/najdene-produkty/moderni%20v%C4%8Delar/
+2026-10-15 13:51:26,633 [INFO]   -> detail, 0 produktov
+2026-10-15 13:51:26,633 [INFO] [113/364] 20160820061229/http://www.press.sk:80/najdene-produkty/n,a,100,0,,flak
+2026-10-15 13:51:28,827 [INFO]   -> listing, 21 produktov
+2026-10-15 13:51:28,828 [INFO] [114/364] 20160920181606/http://www.press.sk:80/najdene-produkty/n,a,100,0,,flak
+2026-10-15 13:51:31,131 [INFO]   -> listing, 21 produktov
+2026-10-15 13:51:31,132 [INFO] [115/364] 20161023055726/http://www.press.sk:80/najdene-produkty/n,a,100,0,,flak
+2026-10-15 13:51:33,334 [INFO]   -> listing, 21 produktov
+2026-10-15 13:51:33,336 [INFO] [116/364] b/20160820061245/http://www.press.sk:80/najdene-produkty/n,a,30,,,flak
+2026-10-15 13:51:35,818 [INFO]   -> listing, 21 produktov
+2026-10-15 13:51:35,819 [INFO] [117/364] b/20160920181945/http://www.press.sk:80/najdene-produkty/n,a,30,,,flak
+2026-10-15 13:51:38,059 [INFO]   -> listing, 21 produktov
+2026-10-15 13:51:38,060 [INFO] [118/364] b/20161023065307/http://www.press.sk:80/najdene-produkty/n,a,30,,,flak
+2026-10-15 13:51:44,344 [INFO]   -> listing, 21 produktov
+2026-10-15 13:51:44,346 [INFO] [119/364] 20100830163048/http://www.press.sk:80/najdene-produkty/n,a,30,0,,atlas
+2026-10-15 13:51:47,018 [INFO]   -> listing, 30 produktov
+2026-10-15 13:51:47,022 [INFO] [120/364] 20101002125800/http://www.press.sk:80/najdene-produkty/n,a,30,0,,atlas
+2026-10-15 13:51:50,990 [INFO]   -> listing, 30 produktov
+2026-10-15 13:51:50,994 [INFO] [121/364] 4520/http://www.press.sk:80/najdene-produkty/n,a,30,0,,bitvy+historie/
+2026-10-15 13:51:53,972 [INFO]   -> listing, 30 produktov
+2026-10-15 13:51:53,975 [INFO] [122/364] 2427/http://www.press.sk:80/najdene-produkty/n,a,30,0,,bitvy+historie/
+2026-10-15 13:51:56,403 [INFO]   -> listing, 30 produktov
+2026-10-15 13:51:56,407 [INFO] [123/364] 20091219184749/http://www.press.sk:80/najdene-produkty/n,a,30,0,,burda
+2026-10-15 13:51:59,439 [INFO]   -> listing, 24 produktov
+2026-10-15 13:51:59,446 [INFO] [124/364] 0100102195722/http://www.press.sk:80/najdene-produkty/n,a,30,0,,burda/
+2026-10-15 13:52:01,778 [INFO]   -> listing, 24 produktov
+2026-10-15 13:52:01,785 [INFO] [125/364] 420173323/http://www.press.sk:80/najdene-produkty/n,a,30,0,,drobnosti/
+2026-10-15 13:52:04,185 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:04,189 [INFO] [126/364] 912013050/http://www.press.sk:80/najdene-produkty/n,a,30,0,,drobnosti/
+2026-10-15 13:52:06,429 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:06,433 [INFO] [127/364] 20110418195403/http://www.press.sk:80/najdene-produkty/n,a,30,0,,dukl/
+2026-10-15 13:52:08,807 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:08,810 [INFO] [128/364] 20110912084613/http://www.press.sk:80/najdene-produkty/n,a,30,0,,dukl/
+2026-10-15 13:52:12,211 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:12,214 [INFO] [129/364] 10418203215/http://www.press.sk:80/najdene-produkty/n,a,30,0,,kouzelne
+2026-10-15 13:52:14,489 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:14,492 [INFO] [130/364] 0423184912/http://www.press.sk:80/najdene-produkty/n,a,30,0,,kouzelne/
+2026-10-15 13:52:16,817 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:16,820 [INFO] [131/364] 10520151917/http://www.press.sk:80/najdene-produkty/n,a,30,0,,kouzelne
+2026-10-15 13:52:19,813 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:19,818 [INFO] [132/364] 10622194746/http://www.press.sk:80/najdene-produkty/n,a,30,0,,kouzelne
+2026-10-15 13:52:21,783 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:21,787 [INFO] [133/364] 10826080213/http://www.press.sk:80/najdene-produkty/n,a,30,0,,kouzelne
+2026-10-15 13:52:24,191 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:24,195 [INFO] [134/364] 0912075956/http://www.press.sk:80/najdene-produkty/n,a,30,0,,kouzelne/
+2026-10-15 13:52:26,533 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:26,537 [INFO] [135/364] 10912103120/http://www.press.sk:80/najdene-produkty/n,a,30,0,,kouzelne
+2026-10-15 13:52:29,223 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:29,226 [INFO] [136/364] 20100824055339/http://www.press.sk:80/najdene-produkty/n,a,30,0,,monk/
+2026-10-15 13:52:33,053 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:33,056 [INFO] [137/364] 10514205531/http://www.press.sk:80/najdene-produkty/n,a,30,0,,operace/
+2026-10-15 13:52:35,400 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:35,403 [INFO] [138/364] 10715074737/http://www.press.sk:80/najdene-produkty/n,a,30,0,,operace/
+2026-10-15 13:52:37,813 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:37,816 [INFO] [139/364] 10913215540/http://www.press.sk:80/najdene-produkty/n,a,30,0,,operace/
+2026-10-15 13:52:42,685 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:42,689 [INFO] [140/364] 090712022911/http://www.press.sk:80/najdene-produkty/n,a,30,0,,pevnost
+2026-10-15 13:52:46,340 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:46,344 [INFO] [141/364] 90713031835/http://www.press.sk:80/najdene-produkty/n,a,30,0,,pevnost/
+2026-10-15 13:52:50,739 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:50,743 [INFO] [142/364] 100107182026/http://www.press.sk:80/najdene-produkty/n,a,30,0,,pevnost
+2026-10-15 13:52:53,589 [INFO]   -> listing, 30 produktov
+2026-10-15 13:52:53,594 [INFO] [143/364] 627072242/http://www.press.sk:80/najdene-produkty/n,a,30,,po%C4%BEovn/
+2026-10-15 13:52:55,788 [WARNING]   HTTP 404
+2026-10-15 13:52:55,789 [INFO] [144/364] 827010615/http://www.press.sk:80/najdene-produkty/n,a,30,,po%C4%BEovn/
+2026-10-15 13:52:58,041 [WARNING]   HTTP 404
+2026-10-15 13:52:58,041 [INFO] [145/364] 912103626/http://www.press.sk:80/najdene-produkty/n,a,30,,po%C4%BEovn/
+2026-10-15 13:53:00,383 [WARNING]   HTTP 404
+2026-10-15 13:53:00,383 [INFO] [146/364] 912095459/http://www.press.sk:80/najdene-produkty/n,a,30,,stiha%C4%8D/
+2026-10-15 13:53:03,841 [WARNING]   HTTP 404
+2026-10-15 13:53:03,841 [INFO] [147/364] 0021/http://www.press.sk:80/najdene-produkty/n,a,30,,velk%C3%A9+bitvy/
+2026-10-15 13:53:05,841 [WARNING]   HTTP 404
+2026-10-15 13:53:05,841 [INFO] [148/364] 2713/http://www.press.sk:80/najdene-produkty/n,a,30,,velk%C3%A9+bitvy/
+2026-10-15 13:53:08,020 [WARNING]   HTTP 404
+2026-10-15 13:53:08,020 [INFO] [149/364] 1752/http://www.press.sk:80/najdene-produkty/n,a,30,,velk%C3%A9+bitvy/
+2026-10-15 13:53:10,085 [WARNING]   HTTP 404
+2026-10-15 13:53:10,086 [INFO] [150/364] 92105/http://www.press.sk:80/najdene-produkty/n,a,30,120,,stiha%C4%8D/
+2026-10-15 13:53:12,149 [INFO]   -> listing, 30 produktov
+2026-10-15 13:53:12,153 [INFO] [151/364] 073234/http://www.press.sk:80/najdene-produkty/n,a,30,150,,stiha%C4%8D
+2026-10-15 13:53:19,278 [INFO]   -> listing, 7 produktov
+2026-10-15 13:53:19,280 [INFO] [152/364] 062429/http://www.press.sk:80/najdene-produkty/n,a,30,150,,stiha%C4%8D
+2026-10-15 13:53:22,158 [INFO]   -> listing, 22 produktov
+2026-10-15 13:53:22,161 [INFO] [153/364] 101632/http://www.press.sk:80/najdene-produkty/n,a,30,150,,stiha%C4%8D
+2026-10-15 13:53:28,506 [INFO]   -> listing, 30 produktov
+2026-10-15 13:53:28,509 [INFO] [154/364] 32648/http://www.press.sk:80/najdene-produkty/n,a,30,150,,stiha%C4%8D/
+2026-10-15 13:53:30,820 [INFO]   -> listing, 30 produktov
+2026-10-15 13:53:30,823 [INFO] [155/364] 103630/http://www.press.sk:80/najdene-produkty/n,a,30,150,,stiha%C4%8D
+2026-10-15 13:53:34,040 [INFO]   -> listing, 30 produktov
+2026-10-15 13:53:34,043 [INFO] [156/364] 81037/http://www.press.sk:80/najdene-produkty/n,a,30,180,,stiha%C4%8D/
+2026-10-15 13:53:37,931 [INFO]   -> listing, 30 produktov
+2026-10-15 13:53:37,934 [INFO] [157/364] 0100830163105/http://www.press.sk:80/najdene-produkty/n,a,30,30,,atlas
+2026-10-15 13:53:40,247 [INFO]   -> listing, 4 produktov
+2026-10-15 13:53:40,247 [INFO] [158/364] 0101002141105/http://www.press.sk:80/najdene-produkty/n,a,30,30,,atlas
+2026-10-15 13:53:42,691 [INFO]   -> listing, 4 produktov
+2026-10-15 13:53:42,692 [INFO] [159/364] 5/http://www.press.sk:80/najdene-produkty/n,a,30,30,,bitvy%20historie/
+2026-10-15 13:53:44,798 [INFO]   -> listing, 8 produktov
+2026-10-15 13:53:44,799 [INFO] [160/364] 6/http://www.press.sk:80/najdene-produkty/n,a,30,30,,bitvy%20historie/
+2026-10-15 13:53:46,881 [INFO]   -> listing, 17 produktov
+2026-10-15 13:53:46,883 [INFO] [161/364] 0315/http://www.press.sk:80/najdene-produkty/n,a,30,30,,bitvy+historie
+2026-10-15 13:53:49,017 [INFO]   -> listing, 8 produktov
+2026-10-15 13:53:49,018 [INFO] [162/364] 2554/http://www.press.sk:80/najdene-produkty/n,a,30,30,,bitvy+historie
+2026-10-15 13:53:51,565 [INFO]   -> listing, 12 produktov
+2026-10-15 13:53:51,567 [INFO] [163/364] 2028/http://www.press.sk:80/najdene-produkty/n,a,30,30,,bitvy+historie
+2026-10-15 13:53:55,592 [INFO]   -> listing, 13 produktov
+2026-10-15 13:53:55,594 [INFO] [164/364] 4254/http://www.press.sk:80/najdene-produkty/n,a,30,30,,bitvy+historie
+2026-10-15 13:53:57,959 [INFO]   -> listing, 16 produktov
+2026-10-15 13:53:57,961 [INFO] [165/364] 5005/http://www.press.sk:80/najdene-produkty/n,a,30,30,,bitvy+historie
+2026-10-15 13:54:00,361 [INFO]   -> listing, 16 produktov
+2026-10-15 13:54:00,364 [INFO] [166/364] 4441/http://www.press.sk:80/najdene-produkty/n,a,30,30,,bitvy+historie
+2026-10-15 13:54:06,429 [INFO]   -> listing, 17 produktov
+2026-10-15 13:54:06,432 [INFO] [167/364] 418203230/http://www.press.sk:80/najdene-produkty/n,a,30,30,,drobnosti
+2026-10-15 13:54:12,374 [INFO]   -> listing, 7 produktov
+2026-10-15 13:54:12,375 [INFO] [168/364] 21052728/http://www.press.sk:80/najdene-produkty/n,a,30,30,,drobnosti/
+2026-10-15 13:54:14,400 [INFO]   -> listing, 7 produktov
+2026-10-15 13:54:14,401 [INFO] [169/364] 520151441/http://www.press.sk:80/najdene-produkty/n,a,30,30,,drobnosti
+2026-10-15 13:54:16,607 [INFO]   -> listing, 6 produktov
+2026-10-15 13:54:16,608 [INFO] [170/364] 622200406/http://www.press.sk:80/najdene-produkty/n,a,30,30,,drobnosti
+2026-10-15 13:54:19,133 [INFO]   -> listing, 7 produktov
+2026-10-15 13:54:19,134 [INFO] [171/364] 826081917/http://www.press.sk:80/najdene-produkty/n,a,30,30,,drobnosti
+2026-10-15 13:54:21,110 [INFO]   -> listing, 4 produktov
+2026-10-15 13:54:21,110 [INFO] [172/364] 11202017/http://www.press.sk:80/najdene-produkty/n,a,30,30,,drobnosti/
+2026-10-15 13:54:27,973 [INFO]   -> listing, 4 produktov
+2026-10-15 13:54:27,974 [INFO] [173/364] 912104840/http://www.press.sk:80/najdene-produkty/n,a,30,30,,drobnosti
+2026-10-15 13:54:31,993 [INFO]   -> listing, 4 produktov
+2026-10-15 13:54:31,994 [INFO] [174/364] 20110417020419/http://www.press.sk:80/najdene-produkty/n,a,30,30,,dukl
+2026-10-15 13:54:34,390 [INFO]   -> listing, 1 produktov
+2026-10-15 13:54:34,391 [INFO] [175/364] 0110419150411/http://www.press.sk:80/najdene-produkty/n,a,30,30,,dukl/
+2026-10-15 13:54:36,447 [INFO]   -> listing, 1 produktov
+2026-10-15 13:54:36,448 [INFO] [176/364] 20110518102724/http://www.press.sk:80/najdene-produkty/n,a,30,30,,dukl
+2026-10-15 13:54:38,849 [INFO]   -> listing, 1 produktov
+2026-10-15 13:54:38,849 [INFO] [177/364] 20110618162646/http://www.press.sk:80/najdene-produkty/n,a,30,30,,dukl
+2026-10-15 13:54:40,934 [INFO]   -> listing, 1 produktov
+2026-10-15 13:54:40,935 [INFO] [178/364] 20110831005836/http://www.press.sk:80/najdene-produkty/n,a,30,30,,dukl
+2026-10-15 13:54:43,756 [INFO]   -> listing, 3 produktov
+2026-10-15 13:54:43,756 [INFO] [179/364] 20110912025209/http://www.press.sk:80/najdene-produkty/n,a,30,30,,dukl
+2026-10-15 13:54:47,670 [INFO]   -> listing, 4 produktov
+2026-10-15 13:54:47,671 [INFO] [180/364] 0110912035934/http://www.press.sk:80/najdene-produkty/n,a,30,30,,dukl/
+2026-10-15 13:54:52,864 [INFO]   -> listing, 4 produktov
+2026-10-15 13:54:52,865 [INFO] [181/364] 0081206005300/http://www.press.sk:80/najdene-produkty/n,a,30,30,,jota/
+2026-10-15 13:54:54,709 [INFO]   -> listing, 1 produktov
+2026-10-15 13:54:54,710 [INFO] [182/364] 421003435/http://www.press.sk:80/najdene-produkty/n,a,30,30,,kouzelne/
+2026-10-15 13:54:56,859 [INFO]   -> listing, 12 produktov
+2026-10-15 13:54:56,860 [INFO] [183/364] 0523051619/http://www.press.sk:80/najdene-produkty/n,a,30,30,,kouzelne
+2026-10-15 13:55:00,330 [INFO]   -> listing, 17 produktov
+2026-10-15 13:55:00,332 [INFO] [184/364] 0623094227/http://www.press.sk:80/najdene-produkty/n,a,30,30,,kouzelne
+2026-10-15 13:55:04,376 [INFO]   -> listing, 19 produktov
+2026-10-15 13:55:04,378 [INFO] [185/364] 0810163146/http://www.press.sk:80/najdene-produkty/n,a,30,30,,kouzelne
+2026-10-15 13:55:08,584 [INFO]   -> listing, 25 produktov
+2026-10-15 13:55:08,586 [INFO] [186/364] 913074021/http://www.press.sk:80/najdene-produkty/n,a,30,30,,kouzelne/
+2026-10-15 13:55:10,649 [INFO]   -> listing, 28 produktov
+2026-10-15 13:55:10,652 [INFO] [187/364] 0100830163130/http://www.press.sk:80/najdene-produkty/n,a,30,30,,lokom
+2026-10-15 13:55:12,547 [INFO]   -> listing, 1 produktov
+2026-10-15 13:55:12,548 [INFO] [188/364] 0101002143039/http://www.press.sk:80/najdene-produkty/n,a,30,30,,lokom
+2026-10-15 13:55:14,747 [INFO]   -> listing, 1 produktov
+2026-10-15 13:55:14,747 [INFO] [189/364] 20100823015703/http://www.press.sk:80/najdene-produkty/n,a,30,30,,monk
+2026-10-15 13:55:17,091 [INFO]   -> listing, 30 produktov
+2026-10-15 13:55:17,094 [INFO] [190/364] 0100824060147/http://www.press.sk:80/najdene-produkty/n,a,30,30,,monk/
+2026-10-15 13:55:19,825 [INFO]   -> listing, 30 produktov
+2026-10-15 13:55:19,828 [INFO] [191/364] 20100923110951/http://www.press.sk:80/najdene-produkty/n,a,30,30,,monk
+2026-10-15 13:55:22,097 [INFO]   -> listing, 30 produktov
+2026-10-15 13:55:22,100 [INFO] [192/364] 10513010513/http://www.press.sk:80/najdene-produkty/n,a,30,30,,operace
+2026-10-15 13:55:25,072 [INFO]   -> listing, 30 produktov
+2026-10-15 13:55:25,075 [INFO] [193/364] 0515195926/http://www.press.sk:80/najdene-produkty/n,a,30,30,,operace/
+2026-10-15 13:55:28,140 [INFO]   -> listing, 30 produktov
+2026-10-15 13:55:28,143 [INFO] [194/364] 10614115025/http://www.press.sk:80/najdene-produkty/n,a,30,30,,operace
+2026-10-15 13:55:30,619 [INFO]   -> listing, 30 produktov
+2026-10-15 13:55:30,623 [INFO] [195/364] 10715154009/http://www.press.sk:80/najdene-produkty/n,a,30,30,,operace
+2026-10-15 13:55:39,110 [INFO]   -> listing, 30 produktov
+2026-10-15 13:55:39,114 [INFO] [196/364] 10816032728/http://www.press.sk:80/najdene-produkty/n,a,30,30,,operace
+2026-10-15 13:55:43,543 [INFO]   -> listing, 30 produktov
+2026-10-15 13:55:43,547 [INFO] [197/364] 0912005450/http://www.press.sk:80/najdene-produkty/n,a,30,30,,operace/
+2026-10-15 13:55:46,831 [INFO]   -> listing, 30 produktov
+2026-10-15 13:55:46,837 [INFO] [198/364] 10912041114/http://www.press.sk:80/najdene-produkty/n,a,30,30,,operace
+2026-10-15 13:55:50,584 [INFO]   -> listing, 30 produktov
+2026-10-15 13:55:50,588 [INFO] [199/364] 90712012039/http://www.press.sk:80/najdene-produkty/n,a,30,30,,pevnost
+2026-10-15 13:55:53,614 [INFO]   -> listing, 22 produktov
+2026-10-15 13:55:53,617 [INFO] [200/364] 0713190756/http://www.press.sk:80/najdene-produkty/n,a,30,30,,pevnost/
+2026-10-15 13:55:56,473 [INFO]   -> listing, 22 produktov
+2026-10-15 13:55:56,476 [INFO] [201/364] 00119082917/http://www.press.sk:80/najdene-produkty/n,a,30,30,,pevnost
+2026-10-15 13:56:04,091 [INFO]   -> listing, 27 produktov
+2026-10-15 13:56:04,094 [INFO] [202/364] 5123741/http://www.press.sk:80/najdene-produkty/n,a,30,30,,po%C4%BEovn
+2026-10-15 13:56:08,193 [INFO]   -> listing, 30 produktov
+2026-10-15 13:56:08,197 [INFO] [203/364] 6224342/http://www.press.sk:80/najdene-produkty/n,a,30,30,,po%C4%BEovn
+2026-10-15 13:56:10,587 [INFO]   -> listing, 30 produktov
+2026-10-15 13:56:10,591 [INFO] [204/364] 072446/http://www.press.sk:80/najdene-produkty/n,a,30,30,,po%C4%BEovn/
+2026-10-15 13:56:12,910 [INFO]   -> listing, 30 produktov
+2026-10-15 13:56:12,914 [INFO] [205/364] 7214938/http://www.press.sk:80/najdene-produkty/n,a,30,30,,po%C4%BEovn
+2026-10-15 13:56:15,139 [INFO]   -> listing, 30 produktov
+2026-10-15 13:56:15,143 [INFO] [206/364] 010846/http://www.press.sk:80/najdene-produkty/n,a,30,30,,po%C4%BEovn/
+2026-10-15 13:56:20,248 [INFO]   -> listing, 30 produktov
+2026-10-15 13:56:20,252 [INFO] [207/364] 8022745/http://www.press.sk:80/najdene-produkty/n,a,30,30,,po%C4%BEovn
+2026-10-15 13:56:22,730 [INFO]   -> listing, 30 produktov
+2026-10-15 13:56:22,734 [INFO] [208/364] 210850/http://www.press.sk:80/najdene-produkty/n,a,30,30,,po%C4%BEovn/
+2026-10-15 13:56:24,938 [INFO]   -> listing, 30 produktov
+2026-10-15 13:56:24,943 [INFO] [209/364] 2104540/http://www.press.sk:80/najdene-produkty/n,a,30,30,,po%C4%BEovn
+2026-10-15 13:56:28,317 [INFO]   -> listing, 30 produktov
+2026-10-15 13:56:28,321 [INFO] [210/364] http://www.press.sk:80/najdene-produkty/n,a,30,30,,spolu+%C5%BEi%C5%A5
+2026-10-15 13:56:30,772 [INFO]   -> listing, 30 produktov
+2026-10-15 13:56:30,775 [INFO] [211/364] http://www.press.sk:80/najdene-produkty/n,a,30,30,,spolu+%C5%BEi%C5%A5
+2026-10-15 13:56:33,141 [INFO]   -> listing, 30 produktov
+2026-10-15 13:56:33,144 [INFO] [212/364] 210014/http://www.press.sk:80/najdene-produkty/n,a,30,30,,stiha%C4%8D/
+2026-10-15 13:56:35,236 [INFO]   -> listing, 30 produktov
+2026-10-15 13:56:35,239 [INFO] [213/364] 0090117042014/http://www.press.sk:80/najdene-produkty/n,a,30,30,,tanky
+2026-10-15 13:56:37,772 [INFO]   -> listing, 1 produktov
+2026-10-15 13:56:37,773 [INFO] [214/364] 0090217080243/http://www.press.sk:80/najdene-produkty/n,a,30,30,,tanky
+2026-10-15 13:56:42,553 [INFO]   -> listing, 1 produktov
+2026-10-15 13:56:42,554 [INFO] [215/364] 0090320214228/http://www.press.sk:80/najdene-produkty/n,a,30,30,,tanky
+2026-10-15 13:56:44,633 [INFO]   -> listing, 2 produktov
+2026-10-15 13:56:44,634 [INFO] [216/364] 0090420194717/http://www.press.sk:80/najdene-produkty/n,a,30,30,,tanky
+2026-10-15 13:56:51,332 [INFO]   -> listing, 30 produktov
+2026-10-15 13:56:51,335 [INFO] [217/364] 0090522061747/http://www.press.sk:80/najdene-produkty/n,a,30,30,,tanky
+2026-10-15 13:56:55,515 [INFO]   -> listing, 1 produktov
+2026-10-15 13:56:55,516 [INFO] [218/364] 0100107192730/http://www.press.sk:80/najdene-produkty/n,a,30,30,,tanky
+2026-10-15 13:56:58,536 [INFO]   -> listing, 21 produktov
+2026-10-15 13:56:58,539 [INFO] [219/364] http://www.press.sk:80/najdene-produkty/n,a,30,30,,velk%C3%A9%20bitvy/
+2026-10-15 13:57:03,330 [INFO]   -> listing, 9 produktov
+2026-10-15 13:57:03,331 [INFO] [220/364] http://www.press.sk:80/najdene-produkty/n,a,30,30,,velk%C3%A9%20bitvy/
+2026-10-15 13:57:09,620 [INFO]   -> listing, 14 produktov
+2026-10-15 13:57:09,622 [INFO] [221/364] 25/http://www.press.sk:80/najdene-produkty/n,a,30,30,,velk%C3%A9+bitvy
+2026-10-15 13:57:14,396 [INFO]   -> listing, 9 produktov
+2026-10-15 13:57:14,397 [INFO] [222/364] 57/http://www.press.sk:80/najdene-produkty/n,a,30,30,,velk%C3%A9+bitvy
+2026-10-15 13:57:19,236 [INFO]   -> listing, 11 produktov
+2026-10-15 13:57:19,238 [INFO] [223/364] 02/http://www.press.sk:80/najdene-produkty/n,a,30,30,,velk%C3%A9+bitvy
+2026-10-15 13:57:21,518 [INFO]   -> listing, 11 produktov
+2026-10-15 13:57:21,520 [INFO] [224/364] 37/http://www.press.sk:80/najdene-produkty/n,a,30,30,,velk%C3%A9+bitvy
+2026-10-15 13:57:24,735 [INFO]   -> listing, 15 produktov
+2026-10-15 13:57:24,737 [INFO] [225/364] 0830163042/http://www.press.sk:80/najdene-produkty/n,a,30,30,,vozidiel
+2026-10-15 13:57:27,043 [INFO]   -> listing, 10 produktov
+2026-10-15 13:57:27,045 [INFO] [226/364] 1002123936/http://www.press.sk:80/najdene-produkty/n,a,30,30,,vozidiel
+2026-10-15 13:57:29,239 [INFO]   -> listing, 12 produktov
+2026-10-15 13:57:29,241 [INFO] [227/364] 20100822163210/http://www.press.sk:80/najdene-produkty/n,a,30,60,,monk
+2026-10-15 13:57:32,739 [INFO]   -> listing, 3 produktov
+2026-10-15 13:57:32,740 [INFO] [228/364] 0100824071215/http://www.press.sk:80/najdene-produkty/n,a,30,60,,monk/
+2026-10-15 13:57:35,396 [INFO]   -> listing, 3 produktov
+2026-10-15 13:57:35,397 [INFO] [229/364] 20100923102911/http://www.press.sk:80/najdene-produkty/n,a,30,60,,monk
+2026-10-15 13:57:38,124 [INFO]   -> listing, 6 produktov
+2026-10-15 13:57:38,125 [INFO] [230/364] 10513010551/http://www.press.sk:80/najdene-produkty/n,a,30,60,,operace
+2026-10-15 13:57:40,247 [INFO]   -> listing, 28 produktov
+2026-10-15 13:57:40,250 [INFO] [231/364] 0514205551/http://www.press.sk:80/najdene-produkty/n,a,30,60,,operace/
+2026-10-15 13:57:42,468 [INFO]   -> listing, 28 produktov
+2026-10-15 13:57:42,471 [INFO] [232/364] 10613201558/http://www.press.sk:80/najdene-produkty/n,a,30,60,,operace
+2026-10-15 13:57:49,032 [INFO]   -> listing, 30 produktov
+2026-10-15 13:57:49,036 [INFO] [233/364] 0715074733/http://www.press.sk:80/najdene-produkty/n,a,30,60,,operace/
+2026-10-15 13:57:51,167 [INFO]   -> listing, 30 produktov
+2026-10-15 13:57:51,170 [INFO] [234/364] 10715153211/http://www.press.sk:80/najdene-produkty/n,a,30,60,,operace
+2026-10-15 13:57:54,669 [INFO]   -> listing, 30 produktov
+2026-10-15 13:57:54,673 [INFO] [235/364] 10816032407/http://www.press.sk:80/najdene-produkty/n,a,30,60,,operace
+2026-10-15 13:57:57,238 [INFO]   -> listing, 30 produktov
+2026-10-15 13:57:57,242 [INFO] [236/364] 10913015713/http://www.press.sk:80/najdene-produkty/n,a,30,60,,operace
+2026-10-15 13:58:00,293 [INFO]   -> listing, 30 produktov
+2026-10-15 13:58:00,297 [INFO] [237/364] 0914013101/http://www.press.sk:80/najdene-produkty/n,a,30,60,,operace/
+2026-10-15 13:58:08,189 [INFO]   -> listing, 30 produktov
+2026-10-15 13:58:08,193 [INFO] [238/364] 5123745/http://www.press.sk:80/najdene-produkty/n,a,30,60,,po%C4%BEovn
+2026-10-15 13:58:10,214 [INFO]   -> listing, 7 produktov
+2026-10-15 13:58:10,215 [INFO] [239/364] 6224402/http://www.press.sk:80/najdene-produkty/n,a,30,60,,po%C4%BEovn
+2026-10-15 13:58:12,480 [INFO]   -> listing, 7 produktov
+2026-10-15 13:58:12,481 [INFO] [240/364] 072451/http://www.press.sk:80/najdene-produkty/n,a,30,60,,po%C4%BEovn/
+2026-10-15 13:58:14,560 [INFO]   -> listing, 7 produktov
+2026-10-15 13:58:14,561 [INFO] [241/364] 7210123/http://www.press.sk:80/najdene-produkty/n,a,30,60,,po%C4%BEovn
+2026-10-15 13:58:20,817 [INFO]   -> listing, 6 produktov
+2026-10-15 13:58:20,818 [INFO] [242/364] 010619/http://www.press.sk:80/najdene-produkty/n,a,30,60,,po%C4%BEovn/
+2026-10-15 13:58:26,703 [INFO]   -> listing, 6 produktov
+2026-10-15 13:58:26,704 [INFO] [243/364] 8021428/http://www.press.sk:80/najdene-produkty/n,a,30,60,,po%C4%BEovn
+2026-10-15 13:58:29,450 [INFO]   -> listing, 6 produktov
+2026-10-15 13:58:29,451 [INFO] [244/364] 222558/http://www.press.sk:80/najdene-produkty/n,a,30,60,,po%C4%BEovn/
+2026-10-15 13:58:31,353 [INFO]   -> listing, 6 produktov
+2026-10-15 13:58:31,355 [INFO] [245/364] 2035657/http://www.press.sk:80/najdene-produkty/n,a,30,60,,po%C4%BEovn
+2026-10-15 13:58:34,644 [INFO]   -> listing, 6 produktov
+2026-10-15 13:58:34,645 [INFO] [246/364] http://www.press.sk:80/najdene-produkty/n,a,30,60,,spolu+%C5%BEi%C5%A5
+2026-10-15 13:58:36,629 [INFO]   -> listing, 28 produktov
+2026-10-15 13:58:36,632 [INFO] [247/364] http://www.press.sk:80/najdene-produkty/n,a,30,60,,spolu+%C5%BEi%C5%A5
+2026-10-15 13:58:38,758 [INFO]   -> listing, 30 produktov
+2026-10-15 13:58:38,761 [INFO] [248/364] 071514/http://www.press.sk:80/najdene-produkty/n,a,30,60,,stiha%C4%8D/
+2026-10-15 13:58:41,015 [INFO]   -> listing, 30 produktov
+2026-10-15 13:58:41,018 [INFO] [249/364] 0911214637/http://www.press.sk:80/najdene-produkty/n,a,30,90,,operace/
+2026-10-15 13:58:43,607 [INFO]   -> listing, 5 produktov
+2026-10-15 13:58:43,608 [INFO] [250/364] 175945/http://www.press.sk:80/najdene-produkty/n,a,30,90,,stiha%C4%8D/
+2026-10-15 13:58:46,826 [INFO]   -> listing, 30 produktov
+2026-10-15 13:58:46,829 [INFO] [251/364] 12092558/http://www.press.sk:80/najdene-produkty/o,a,30,,v%C3%BDchova/
+2026-10-15 13:58:50,346 [WARNING]   HTTP 404
+2026-10-15 13:58:50,346 [INFO] [252/364] 024821/http://www.press.sk:80/najdene-produkty/o,a,30,30,,v%C3%BDchova
+2026-10-15 13:58:54,194 [INFO]   -> listing, 2 produktov
+2026-10-15 13:58:54,195 [INFO] [253/364] 233750/http://www.press.sk:80/najdene-produkty/o,a,30,30,,v%C3%BDchova
+2026-10-15 13:58:56,950 [INFO]   -> listing, 3 produktov
+2026-10-15 13:58:56,950 [INFO] [254/364] 03135/http://www.press.sk:80/najdene-produkty/o,a,30,30,,v%C3%BDchova/
+2026-10-15 13:59:02,361 [INFO]   -> listing, 3 produktov
+2026-10-15 13:59:02,362 [INFO] [255/364] 154607/http://www.press.sk:80/najdene-produkty/o,a,30,30,,v%C3%BDchova
+2026-10-15 13:59:04,260 [INFO]   -> listing, 3 produktov
+2026-10-15 13:59:04,261 [INFO] [256/364] /20230311055259/https://www.press.sk/najdene-produkty/predplatn%C3%A9/
+2026-10-15 13:59:13,499 [INFO]   -> detail, 0 produktov
+2026-10-15 13:59:13,500 [INFO] [257/364] ve.org/web/20081208091933/http://www.press.sk:80/namornictvo/n,a,30,0/
+2026-10-15 13:59:17,129 [INFO]   -> listing, 30 produktov
+2026-10-15 13:59:17,133 [INFO] [258/364] /web/20110606042818/http://www.press.sk:80/napoleonske-vojny/n,a,30,0/
+2026-10-15 13:59:19,949 [INFO]   -> listing, 30 produktov
+2026-10-15 13:59:19,951 [INFO] [259/364] ve.org/web/20130622164951/http://www.press.sk/odborne-casopisy/o,a,30/
+2026-10-15 13:59:21,989 [WARNING]   HTTP 404
+2026-10-15 13:59:21,989 [INFO] [260/364] g/web/20160815020636/http://www.press.sk:80/odborne-casopisy/o,a,30,0/
+2026-10-15 13:59:27,088 [INFO]   -> listing, 30 produktov
+2026-10-15 13:59:27,095 [INFO] [261/364] ://web.archive.org/web/20170614213248/http://www.press.sk/ostatne+362/
+2026-10-15 13:59:29,467 [INFO]   -> listing, 30 produktov
+2026-10-15 13:59:29,469 [INFO] [262/364] rchive.org/web/20151113000401/http://www.press.sk:80/ostatne/o,a,30,0/
+2026-10-15 13:59:34,034 [INFO]   -> listing, 30 produktov
+2026-10-15 13:59:34,039 [INFO] [263/364] b/20160629205453/http://www.press.sk:80/pocitace-elektronika/o,a,30,0/
+2026-10-15 13:59:36,451 [INFO]   -> listing, 30 produktov
+2026-10-15 13:59:36,456 [INFO] [264/364] chive.org/web/20090517033120/http://www.press.sk:80/pocitace/n,a,30,0/
+2026-10-15 13:59:40,153 [INFO]   -> listing, 30 produktov
+2026-10-15 13:59:40,156 [INFO] [265/364] org/web/20090426020438/http://www.press.sk:80/policajne-zbory/n,a,0,0/
+2026-10-15 13:59:42,944 [INFO]   -> listing, 0 produktov
+2026-10-15 13:59:42,986 [INFO] [266/364] org/web/20090423133530/http://www.press.sk:80/policia-ochrana/p,a,0,0/
+2026-10-15 13:59:50,819 [INFO]   -> listing, 0 produktov
+2026-10-15 13:59:50,865 [INFO] [267/364] e.org/web/20160213222729/http://www.press.sk:80/polnohospodarstvo+258/
+2026-10-15 13:59:58,121 [INFO]   -> listing, 1 produktov
+2026-10-15 13:59:58,121 [INFO] [268/364] hive.org/web/20160406222839/http://www.press.sk/polnohospodarstvo+258/
+2026-10-15 14:00:06,198 [INFO]   -> listing, 1 produktov
+2026-10-15 14:00:06,199 [INFO] [269/364] e.org/web/20160524170525/http://www.press.sk:80/polnohospodarstvo+258/
+2026-10-15 14:00:08,722 [INFO]   -> listing, 1 produktov
+2026-10-15 14:00:08,722 [INFO] [270/364] e.org/web/20160724164312/http://www.press.sk:80/polnohospodarstvo+258/
+2026-10-15 14:00:14,213 [INFO]   -> listing, 1 produktov
+2026-10-15 14:00:14,214 [INFO] [271/364] e.org/web/20160924074315/http://www.press.sk:80/polnohospodarstvo+258/
+2026-10-15 14:00:20,471 [INFO]   -> listing, 1 produktov
+2026-10-15 14:00:20,471 [INFO] [272/364] ve.org/web/20161012175006/http://www.press.sk:80/polnohospodarstvo+258
+2026-10-15 14:00:31,207 [INFO]   -> listing, 1 produktov
+2026-10-15 14:00:31,208 [INFO] [273/364] ve.org/web/20161113173505/http://www.press.sk:80/polnohospodarstvo+258
+2026-10-15 14:00:40,615 [INFO]   -> listing, 1 produktov
+2026-10-15 14:00:40,615 [INFO] [274/364] e.org/web/20161225212651/http://www.press.sk:80/polnohospodarstvo+258/
+2026-10-15 14:00:44,427 [INFO]   -> listing, 1 produktov
+2026-10-15 14:00:44,427 [INFO] [275/364] hive.org/web/20170405144637/http://www.press.sk/polnohospodarstvo+258/
+2026-10-15 14:00:47,594 [INFO]   -> listing, 30 produktov
+2026-10-15 14:00:47,597 [INFO] [276/364] ive.org/web/20090421135817/http://www.press.sk:80/polovnictvo/n,a,0,0/
+2026-10-15 14:00:50,362 [INFO]   -> listing, 0 produktov
+2026-10-15 14:00:50,405 [INFO] [277/364] org/web/20090701000749/http://www.press.sk:80/pozemne-vojsko/n,a,10,0/
+2026-10-15 14:00:53,465 [INFO]   -> listing, 10 produktov
+2026-10-15 14:00:53,467 [INFO] [278/364] org/web/20090228070400/http://www.press.sk:80/pozemne-vojsko/n,a,30,0/
+2026-10-15 14:01:01,167 [INFO]   -> listing, 30 produktov
+2026-10-15 14:01:01,171 [INFO] [279/364] org/web/20090527085128/http://www.press.sk:80/pozemne-vojsko/n,a,30,0/
+2026-10-15 14:01:03,550 [INFO]   -> listing, 30 produktov
+2026-10-15 14:01:03,554 [INFO] [280/364] org/web/20100415204315/http://www.press.sk:80/pozemne-vojsko/n,a,30,0/
+2026-10-15 14:01:14,747 [INFO]   -> listing, 30 produktov
+2026-10-15 14:01:14,751 [INFO] [281/364] org/web/20100615224503/http://www.press.sk:80/pozemne-vojsko/n,a,30,0/
+2026-10-15 14:01:22,242 [INFO]   -> listing, 30 produktov
+2026-10-15 14:01:22,246 [INFO] [282/364] org/web/20150822004834/http://www.press.sk:80/pozemne-vojsko/o,a,30,0/
+2026-10-15 14:01:29,203 [INFO]   -> listing, 30 produktov
+2026-10-15 14:01:29,205 [INFO] [283/364] /web/20081214070111/http://www.press.sk:80/pre-deti-a-mladez/n,a,30,0/
+2026-10-15 14:01:31,741 [INFO]   -> listing, 30 produktov
+2026-10-15 14:01:31,747 [INFO] [284/364] /web/20090306002450/http://www.press.sk:80/pre-deti-a-mladez/n,a,30,0/
+2026-10-15 14:01:36,033 [INFO]   -> listing, 30 produktov
+2026-10-15 14:01:36,039 [INFO] [285/364] g/web/20090712012054/http://www.press.sk:80/pre-deti-a-mladez/n,a,30,0
+2026-10-15 14:01:42,629 [INFO]   -> listing, 30 produktov
+2026-10-15 14:01:42,635 [INFO] [286/364] g/web/20100119091203/http://www.press.sk:80/pre-deti-a-mladez/n,a,30,0
+2026-10-15 14:01:44,564 [INFO]   -> listing, 30 produktov
+2026-10-15 14:01:44,569 [INFO] [287/364] /web/20110913055213/http://www.press.sk:80/pre-deti-a-mladez/n,a,30,0/
+2026-10-15 14:01:47,504 [INFO]   -> listing, 30 produktov
+2026-10-15 14:01:47,508 [INFO] [288/364] org/web/20130622123927/http://www.press.sk/pre-deti-a-mladez/o,a,30,0/
+2026-10-15 14:01:50,439 [INFO]   -> listing, 30 produktov
+2026-10-15 14:01:50,445 [INFO] [289/364] /web/20140810003513/http://www.press.sk:80/pre-deti-a-mladez/o,a,30,0/
+2026-10-15 14:01:55,166 [INFO]   -> listing, 30 produktov
+2026-10-15 14:01:55,171 [INFO] [290/364] archive.org/web/20090421135825/http://www.press.sk:80/priroda/n,a,0,0/
+2026-10-15 14:01:57,538 [INFO]   -> listing, 0 produktov
+2026-10-15 14:01:57,586 [INFO] [291/364] .archive.org/web/20090522050208/http://www.press.sk:80/priroda/n,a,5,0
+2026-10-15 14:02:02,853 [INFO]   -> listing, 5 produktov
+2026-10-15 14:02:02,853 [INFO] [292/364] .archive.org/web/20090901073702/http://www.press.sk:80/priroda/n,a,5,0
+2026-10-15 14:02:05,954 [INFO]   -> listing, 5 produktov
+2026-10-15 14:02:05,955 [INFO] [293/364] .archive.org/web/20100107161120/http://www.press.sk:80/priroda/n,a,5,0
+2026-10-15 14:02:10,184 [INFO]   -> listing, 5 produktov
+2026-10-15 14:02:10,185 [INFO] [294/364] 609194705/http://www.press.sk:80/product_info.php?products_id=1281&amp
+2026-10-15 14:02:13,532 [INFO]   -> detail, 0 produktov
+2026-10-15 14:02:13,532 [INFO] [295/364] 806073616/http://www.press.sk:80/product_info.php?products_id=1281&amp
+2026-10-15 14:02:19,195 [INFO]   -> detail, 0 produktov
+2026-10-15 14:02:19,196 [INFO] [296/364] 01/http://www.press.sk:80/product_info.php?cPath=21_26&products_id=948
+2026-10-15 14:02:21,743 [INFO]   -> detail, 0 produktov
+2026-10-15 14:02:21,743 [INFO] [297/364] 09/http://www.press.sk:80/product_info.php?cPath=21_26&products_id=948
+2026-10-15 14:02:25,971 [INFO]   -> detail, 0 produktov
+2026-10-15 14:02:25,971 [INFO] [298/364] 0040416050152/http://www.press.sk:80/product_info.php?products_id=1004
+2026-10-15 14:02:34,576 [INFO]   -> detail, 0 produktov
+2026-10-15 14:02:34,576 [INFO] [299/364] 0040612051342/http://www.press.sk:80/product_info.php?products_id=1004
+2026-10-15 14:02:39,622 [INFO]   -> detail, 0 produktov
+2026-10-15 14:02:39,622 [INFO] [300/364] 0040902231020/http://www.press.sk:80/product_info.php?products_id=1004
+2026-10-15 14:02:42,290 [INFO]   -> detail, 0 produktov
+2026-10-15 14:02:42,290 [INFO] [301/364] 0040421094115/http://www.press.sk:80/product_info.php?products_id=1108
+2026-10-15 14:02:52,222 [INFO]   -> detail, 0 produktov
+2026-10-15 14:02:52,222 [INFO] [302/364] 0040416050255/http://www.press.sk:80/product_info.php?products_id=1220
+2026-10-15 14:03:01,099 [INFO]   -> detail, 0 produktov
+2026-10-15 14:03:01,099 [INFO] [303/364] 0040612051349/http://www.press.sk:80/product_info.php?products_id=1220
+2026-10-15 14:03:04,015 [INFO]   -> detail, 0 produktov
+2026-10-15 14:03:04,015 [INFO] [304/364] 0040902231113/http://www.press.sk:80/product_info.php?products_id=1408
+2026-10-15 14:03:07,142 [INFO]   -> detail, 0 produktov
+2026-10-15 14:03:07,142 [INFO] [305/364] 20040604200946/http://www.press.sk:80/product_info.php?products_id=223
+2026-10-15 14:03:09,690 [INFO]   -> detail, 0 produktov
+2026-10-15 14:03:09,690 [INFO] [306/364] 20040807061941/http://www.press.sk:80/product_info.php?products_id=223
+2026-10-15 14:03:17,864 [INFO]   -> detail, 0 produktov
+2026-10-15 14:03:17,864 [INFO] [307/364] 20041018222004/http://www.press.sk:80/product_info.php?products_id=223
+2026-10-15 14:03:20,707 [INFO]   -> detail, 0 produktov
+2026-10-15 14:03:20,707 [INFO] [308/364] 20040923082124/http://www.press.sk:80/product_info.php?products_id=648
+2026-10-15 14:03:23,287 [INFO]   -> detail, 0 produktov
+2026-10-15 14:03:23,288 [INFO] [309/364] 20040416050348/http://www.press.sk:80/product_info.php?products_id=956
+2026-10-15 14:03:26,413 [INFO]   -> detail, 0 produktov
+2026-10-15 14:03:26,414 [INFO] [310/364] 20040612051850/http://www.press.sk:80/product_info.php?products_id=956
+2026-10-15 14:03:28,637 [INFO]   -> detail, 0 produktov
+2026-10-15 14:03:28,637 [INFO] [311/364] hive.org/web/20090928072930/http://www.press.sk:80/rozne-110/n,a,100,0
+2026-10-15 14:03:31,017 [INFO]   -> listing, 100 produktov
+2026-10-15 14:03:31,027 [INFO] [312/364] hive.org/web/20100125081352/http://www.press.sk:80/rozne-110/n,a,100,0
+2026-10-15 14:03:35,665 [INFO]   -> listing, 100 produktov
+2026-10-15 14:03:35,675 [INFO] [313/364] hive.org/web/20110201024913/http://www.press.sk:80/rozne-110/n,a,100,0
+2026-10-15 14:03:38,131 [INFO]   -> listing, 67 produktov
+2026-10-15 14:03:38,138 [INFO] [314/364] hive.org/web/20110305130853/http://www.press.sk:80/rozne-110/n,a,100,0
+2026-10-15 14:03:40,817 [INFO]   -> listing, 68 produktov
+2026-10-15 14:03:40,824 [INFO] [315/364] hive.org/web/20090527012238/http://www.press.sk:80/rozne-110/n,a,30,0/
+2026-10-15 14:03:46,779 [INFO]   -> listing, 30 produktov
+2026-10-15 14:03:46,783 [INFO] [316/364] hive.org/web/20130508231030/http://www.press.sk:80/rozne-110/o,a,30,0/
+2026-10-15 14:03:53,996 [INFO]   -> listing, 30 produktov
+2026-10-15 14:03:54,000 [INFO] [317/364] hive.org/web/20130916191956/http://www.press.sk:80/rozne-110/o,a,30,0/
+2026-10-15 14:03:57,759 [INFO]   -> listing, 30 produktov
+2026-10-15 14:03:57,763 [INFO] [318/364] hive.org/web/20140306223840/http://www.press.sk:80/rozne-110/o,a,30,0/
+2026-10-15 14:04:03,145 [INFO]   -> listing, 30 produktov
+2026-10-15 14:04:03,147 [INFO] [319/364] /web.archive.org/web/20170615041003/http://www.press.sk/rozpravky+356/
+2026-10-15 14:04:06,017 [INFO]   -> listing, 30 produktov
+2026-10-15 14:04:06,019 [INFO] [320/364] ive.org/web/20100305123524/http://www.press.sk:80/rucne-prace/n,a,15,0
+2026-10-15 14:04:13,261 [INFO]   -> listing, 15 produktov
+2026-10-15 14:04:13,263 [INFO] [321/364] ive.org/web/20100405041749/http://www.press.sk:80/rucne-prace/n,a,15,0
+2026-10-15 14:04:15,542 [INFO]   -> listing, 15 produktov
+2026-10-15 14:04:15,545 [INFO] [322/364] ive.org/web/20100507052114/http://www.press.sk:80/rucne-prace/n,a,15,0
+2026-10-15 14:04:17,885 [INFO]   -> listing, 15 produktov
+2026-10-15 14:04:17,887 [INFO] [323/364] ive.org/web/20130716154247/http://www.press.sk:80/rucne-prace/o,a,30,0
+2026-10-15 14:04:21,052 [INFO]   -> listing, 30 produktov
+2026-10-15 14:04:21,055 [INFO] [324/364] ive.org/web/20130819090737/http://www.press.sk:80/rucne-prace/o,a,30,0
+2026-10-15 14:04:24,318 [INFO]   -> listing, 30 produktov
+2026-10-15 14:04:24,322 [INFO] [325/364] ive.org/web/20130921065829/http://www.press.sk:80/rucne-prace/o,a,30,0
+2026-10-15 14:04:31,168 [INFO]   -> listing, 30 produktov
+2026-10-15 14:04:31,172 [INFO] [326/364] ive.org/web/20131024062429/http://www.press.sk:80/rucne-prace/o,a,30,0
+2026-10-15 14:04:35,181 [INFO]   -> listing, 30 produktov
+2026-10-15 14:04:35,185 [INFO] [327/364] ive.org/web/20140221073758/http://www.press.sk:80/rucne-prace/o,a,30,0
+2026-10-15 14:04:38,583 [INFO]   -> listing, 30 produktov
+2026-10-15 14:04:38,585 [INFO] [328/364] ive.org/web/20140709080102/http://www.press.sk:80/rucne-prace/o,a,30,0
+2026-10-15 14:04:47,628 [INFO]   -> listing, 30 produktov
+2026-10-15 14:04:47,630 [INFO] [329/364] ive.org/web/20140917082327/http://www.press.sk:80/rucne-prace/o,a,30,0
+2026-10-15 14:04:53,300 [INFO]   -> listing, 30 produktov
+2026-10-15 14:04:53,303 [INFO] [330/364] ve.org/web/20141015042837/http://www.press.sk:80/rucne-prace/o,a,30,0/
+2026-10-15 14:04:55,682 [INFO]   -> listing, 30 produktov
+2026-10-15 14:04:55,685 [INFO] [331/364] hive.org/web/20090817224122/http://www.press.sk:80/rybarstvo/n,a,30,0/
+2026-10-15 14:04:58,164 [INFO]   -> listing, 30 produktov
+2026-10-15 14:04:58,167 [INFO] [332/364] web/20090218113741/http://www.press.sk:80/specialne-jednotky/n,a,30,0/
+2026-10-15 14:05:01,573 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:01,576 [INFO] [333/364] web/20130825012143/http://www.press.sk:80/specialne-jednotky/o,a,30,0/
+2026-10-15 14:05:04,024 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:04,028 [INFO] [334/364] eb/20081109075326/http://www.press.sk:80/spravodajske-sluzby/n,a,30,0/
+2026-10-15 14:05:06,390 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:06,394 [INFO] [335/364] ive.org/web/20170528172529/http://www.press.sk:80/stavebnice/o,a,100,0
+2026-10-15 14:05:09,143 [INFO]   -> listing, 100 produktov
+2026-10-15 14:05:09,148 [INFO] [336/364] rg/web/20120111042341/http://www.press.sk:80/suveniry-modely/o,a,30,0/
+2026-10-15 14:05:11,829 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:11,832 [INFO] [337/364] e.org/web/20130623041009/http://www.press.sk/suveniry-modely/o,a,30,0/
+2026-10-15 14:05:14,480 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:14,483 [INFO] [338/364] rg/web/20150909235504/http://www.press.sk:80/suveniry-modely/o,a,30,0/
+2026-10-15 14:05:16,760 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:16,762 [INFO] [339/364] rg/web/20170101035250/http://www.press.sk:80/suveniry-modely/o,a,30,0/
+2026-10-15 14:05:19,211 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:19,213 [INFO] [340/364] 0141130110057/http://www.press.sk:80/tajomstvo-ludskeho-tela/o,a,30,0/
+2026-10-15 14:05:21,354 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:21,356 [INFO] [341/364] rchive.org/web/20170113220150/http://www.press.sk:80/tank-t-34-85+281/
+2026-10-15 14:05:24,581 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:24,583 [INFO] [342/364] rchive.org/web/20170315213006/http://www.press.sk:80/tank-t-34-85+281/
+2026-10-15 14:05:26,718 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:26,720 [INFO] [343/364] archive.org/web/20170330210420/http://www.press.sk:80/tank-t-34-85+281
+2026-10-15 14:05:29,699 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:29,701 [INFO] [344/364] archive.org/web/20170515040757/http://www.press.sk:80/tank-t-34-85+281
+2026-10-15 14:05:36,010 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:36,012 [INFO] [345/364] rchive.org/web/20170516121603/http://www.press.sk:80/tank-t-34-85+281/
+2026-10-15 14:05:38,421 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:38,423 [INFO] [346/364] b.archive.org/web/20170606134351/http://www.press.sk/tank-t-34-85+281/
+2026-10-15 14:05:41,725 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:41,727 [INFO] [347/364] b/20150310140748/http://www.press.sk:80/velke-bitvy-historie/o,a,30,0/
+2026-10-15 14:05:46,967 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:46,969 [INFO] [348/364] g/web/20151113193406/http://www.press.sk:80/vojenska-letadla/o,a,30,0/
+2026-10-15 14:05:49,321 [INFO]   -> listing, 30 produktov
+2026-10-15 14:05:49,322 [INFO] [349/364] rg/web/20161017195857/http://www.press.sk:80/vojenska-technika-sveta/?
+2026-10-15 14:05:56,871 [INFO]   -> listing, 29 produktov
+2026-10-15 14:05:56,873 [INFO] [350/364] rg/web/20161118010350/http://www.press.sk:80/vojenska-technika-sveta/?
+2026-10-15 14:06:01,193 [INFO]   -> listing, 29 produktov
+2026-10-15 14:06:01,195 [INFO] [351/364] .org/web/20090527012329/http://www.press.sk:80/vojnovy-roman/n,a,30,0/
+2026-10-15 14:06:03,671 [INFO]   -> listing, 30 produktov
+2026-10-15 14:06:03,674 [INFO] [352/364] g/web/20090630030304/http://www.press.sk:80/zbrane-a-technika/n,a,10,0
+2026-10-15 14:06:06,072 [INFO]   -> listing, 10 produktov
+2026-10-15 14:06:06,073 [INFO] [353/364] g/web/20091223085527/http://www.press.sk:80/zbrane-a-technika/n,a,10,0
+2026-10-15 14:06:08,542 [INFO]   -> listing, 10 produktov
+2026-10-15 14:06:08,544 [INFO] [354/364] /web/20091224231820/http://www.press.sk:80/zbrane-a-technika/n,a,100,0
+2026-10-15 14:06:13,924 [INFO]   -> listing, 100 produktov
+2026-10-15 14:06:13,933 [INFO] [355/364] /web/20100127111753/http://www.press.sk:80/zbrane-a-technika/n,a,100,0
+2026-10-15 14:06:16,587 [INFO]   -> listing, 100 produktov
+2026-10-15 14:06:16,596 [INFO] [356/364] /web/20090213203921/http://www.press.sk:80/zbrane-a-technika/n,a,30,0/
+2026-10-15 14:06:18,836 [INFO]   -> listing, 30 produktov
+2026-10-15 14:06:18,840 [INFO] [357/364] /web/20100210065624/http://www.press.sk:80/zbrane-a-technika/n,a,30,0/
+2026-10-15 14:06:20,894 [INFO]   -> listing, 30 produktov
+2026-10-15 14:06:20,898 [INFO] [358/364] /web/20130510202319/http://www.press.sk:80/zbrane-a-technika/o,a,30,0/
+2026-10-15 14:06:23,346 [INFO]   -> listing, 30 produktov
+2026-10-15 14:06:23,349 [INFO] [359/364] /web/20150515034834/http://www.press.sk:80/zbrane-a-technika/o,a,30,0/
+2026-10-15 14:06:25,434 [INFO]   -> listing, 30 produktov
+2026-10-15 14:06:25,436 [INFO] [360/364] /web/20150822002107/http://www.press.sk:80/zbrane-a-technika/o,a,30,0/
+2026-10-15 14:06:28,250 [INFO]   -> listing, 30 produktov
+2026-10-15 14:06:28,253 [INFO] [361/364] web/20170126113733/http://www.press.sk:80/zdravotnicka-literatura+365/
+2026-10-15 14:06:31,422 [INFO]   -> listing, 30 produktov
+2026-10-15 14:06:31,424 [INFO] [362/364] web/20170328025643/http://www.press.sk:80/zdravotnicka-literatura+365/
+2026-10-15 14:06:33,569 [INFO]   -> listing, 30 produktov
+2026-10-15 14:06:33,572 [INFO] [363/364] web/20170527213039/http://www.press.sk:80/zdravotnicka-literatura+365/
+2026-10-15 14:06:35,944 [INFO]   -> listing, 30 produktov
+2026-10-15 14:06:35,947 [INFO] [364/364] rg/web/20170606130747/http://www.press.sk/zdravotnicka-literatura+365/
+2026-10-15 14:06:38,478 [INFO]   -> listing, 30 produktov
+2026-10-15 14:06:39,007 [INFO] =======================================================
+2026-10-15 14:06:39,007 [INFO] Spracovanych URL:     364
+2026-10-15 14:06:39,007 [INFO]   -> uspesne:         331
+2026-10-15 14:06:39,007 [INFO]   -> bez produktu:    33
+2026-10-15 14:06:39,007 [INFO] Novych produktov:     2
+2026-10-15 14:06:39,008 [INFO] Produktov celkom:     23,033
+2026-10-15 14:06:39,008 [INFO] Zostatok v inpute:    0
+2026-10-15 14:06:39,008 [INFO] =======================================================
