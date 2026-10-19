@@ -63,6 +63,8 @@ _PRODUCT_PATTERNS = [
     r"press[.]sk/\d{4}/[a-z]",        # /2010/nazov/ - rok/slug (produkt)
     r"press[.]sk/[a-z][a-z-]+/[a-z][a-z-]+/?$",  # /kategoria/nazov-produktu/ - slug produkt
     r"page=shop\.flypage",  # ?page=shop.flypage&product_id=... - stary com_phpshop produkt
+    r"product_info\.php.*products_id=\d",  # product_info.php?products_id=1004 - osCommerce
+    r"products_id=\d",  # genericky osCommerce produkt
     r"press[.]sk/[a-z][a-z0-9-]+/[a-z][a-z0-9-]+/?$",  # /kategoria/produkt/ - slug/slug
 ]
 
@@ -90,10 +92,12 @@ _SKIP_PATTERNS = [
 
 
 def _matches_any(url: str, patterns: list) -> bool:
-    # Normalizuj URL - odstran port a query string (trailing ? atd)
+    # Normalizuj URL - odstran port
     url_norm = re.sub(r":\d+/", "/", url).lower()
-    url_norm = url_norm.split("?")[0].rstrip("/") + "/"
-    return any(re.search(p, url_norm) for p in patterns)
+    # Verzia bez query stringu (pre path-based patterny)
+    url_path = url_norm.split("?")[0].rstrip("/") + "/"
+    # Testuj obe verzie - path aj full URL (pre query string patterny)
+    return any(re.search(p, url_path) or re.search(p, url_norm) for p in patterns)
 
 
 def is_product_url(url: str) -> bool:
