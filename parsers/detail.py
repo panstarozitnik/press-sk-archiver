@@ -38,12 +38,17 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
     if not p["title"]:
         th = soup.select_one("th.sectiontableheader, th[colspan]")
         if th:
-            # Text priamo v th, bez vnorenych elementov (tie su zvycajne dalsie riadky tabulky)
             direct_text = "".join(
                 str(c) for c in th.children if isinstance(c, str)
             ).strip()
             if direct_text:
                 p["title"] = direct_text
+
+    # Fallback: osCommerce dizajn (2004) — názov v td.pageHeading
+    if not p["title"]:
+        ph = soup.select_one("td.pageHeading")
+        if ph:
+            p["title"] = safe_text(ph)
 
     # ── Autor ────────────────────────────────────
     for sel in [
@@ -120,6 +125,14 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
             p["description"] = text[:500]
             break
 
+    # Fallback: osCommerce dizajn (2004) — popis v td.main > p
+    if not p["description"]:
+        main_td = soup.select_one("td.main")
+        if main_td:
+            para = main_td.find("p")
+            if para:
+                p["description"] = safe_text(para)[:500]
+
     # Fallback: starý com_phpshop dizajn — popis v <p align="justify">
     # (lxml uzavrie <p> hned na dalsom <p>, takze "vnorene" odstavce su v skutocnosti súrodenci)
     if not p["description"]:
@@ -182,6 +195,26 @@ def parse_detail_page(html: str, wayback_url: str, original_url: str) -> dict:
             img_url = img_url.replace("/resized/", "/")
         if "press.sk" in img_url and "thumb_" not in img_url:
             history_imgs.append(img_url)
+
+    # Fallback: osCommerce dizajn (2004) — obrázok v <noscript> bloku
+    if not history_imgs:
+        for noscript in soup.find_all("noscript"):
+            ns_content = noscript.decode_contents()
+            ns_soup = BeautifulSoup(ns_content, "lxml")
+            for a in ns_soup.find_all("a", href=True):
+                href = a["href"]
+                if not any(ext in href.lower() for ext in [".jpg", ".jpeg", ".png", ".gif"]):
+                    continue
+                wb_m = _re.match(r"(https?://web\.archive\.org/web/)(\d+)(im_/|/)?(https?://.*)", href)
+                if wb_m:
+                    ts_n = wb_m.group(2)
+                    orig_n = wb_m.group(4).split("?")[0]
+                    orig_n = _re.sub(r"\.thumb\.", ".", orig_n)
+                    history_imgs.append(f"https://web.archive.org/web/{ts_n}im_/{orig_n}")
+                elif "press.sk" in href:
+                    history_imgs.append(strip_wayback_prefix(href).split("?")[0])
+            if history_imgs:
+                break
 
     # Fallback: starý com_phpshop dizajn (2008) — obrázky v /images/obchod/product/
     if not history_imgs:
